@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftUIControl" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Kdl-G3-oQu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="m0m-Jt-g3w"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Rmn-sQ-MyK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kdl-G3-oQu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RNo-Sm-uLL"/>
+                            <constraint firstAttribute="trailing" secondItem="Kdl-G3-oQu" secondAttribute="trailing" id="SWp-WO-IH4"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Kdl-G3-oQu" secondAttribute="bottom" id="vVA-US-fFv"/>
+                            <constraint firstItem="Kdl-G3-oQu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xi4-Re-69w"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Kdl-G3-oQu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="RNo-Sm-uLL"/>
+                                <exclude reference="SWp-WO-IH4"/>
+                                <exclude reference="xi4-Re-69w"/>
+                                <exclude reference="vVA-US-fFv"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Kdl-G3-oQu"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="RNo-Sm-uLL"/>
+                                <include reference="SWp-WO-IH4"/>
+                                <include reference="xi4-Re-69w"/>
+                                <include reference="vVA-US-fFv"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="myFirstTableView" destination="Kdl-G3-oQu" id="X41-zx-k42"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="393" y="345"/>
+        </scene>
+    </scenes>
+</document>

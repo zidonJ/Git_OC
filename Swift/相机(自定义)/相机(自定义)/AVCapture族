@@ -1,0 +1,25 @@
+AVCaptureOutput子类的作用
+/*
+    用于捕获高质量的静态图片
+*/
+AVCaptureStillImageOutput()
+
+/*
+
+*/
+AVCaptureAudioDataOutput()
+
+/*
+    用于处理捕获到的未压缩或者压缩贞的视频
+*/
+AVCaptureVideoDataOutput()
+
+
+/*
+    处理捕获的实时源数据，可以通过代理访问源数据
+*/
+AVCaptureMetadataOutput()
+
+
+AVCaptureFileOutput()
+AVCaptureMovieFileOutput()

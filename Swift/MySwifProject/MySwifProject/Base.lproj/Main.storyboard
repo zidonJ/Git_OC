@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="RQy-o0-vWO">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MySwifProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ZxB-mW-Tvv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="-497"/>
+        </scene>
+        <!--Func View Controller-->
+        <scene sceneID="Xd3-QH-aOl">
+            <objects>
+                <viewController id="PXG-KY-tEZ" customClass="FuncViewController" customModule="MySwifProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X8G-f3-Vcj"/>
+                        <viewControllerLayoutGuide type="bottom" id="vzH-X5-h4u"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1HE-dN-Anc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HHl-O5-P6Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q8P-O0-iRl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="194"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7gJ-yL-rxF">
+            <objects>
+                <navigationController id="RQy-o0-vWO" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l8J-Fz-dmF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="lFk-K7-dce"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqg-a2-Mom" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1951.5" y="871"/>
+        </scene>
+        <!--Kind And ObjectVC-->
+        <scene sceneID="boI-EZ-aah">
+            <objects>
+                <viewController id="RwH-Jq-KxA" customClass="KindAndObjectVC" customModule="MySwifProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KeA-pU-Lfd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ec4-F3-dUX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iUT-B8-sxv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHh-1k-jSn">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fmx-oZ-Mk8"/>
+                                    <constraint firstAttribute="width" constant="30" id="fpt-YK-LdG"/>
+                                </constraints>
+                                <state key="normal" title="跳转">
+                                    <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fmx-oZ-Mk8"/>
+                                        <exclude reference="fpt-YK-LdG"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fmx-oZ-Mk8"/>
+                                        <include reference="fpt-YK-LdG"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="jump:" destination="RwH-Jq-KxA" eventType="touchUpInside" id="XWw-UT-3JU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="yHh-1k-jSn" secondAttribute="centerX" id="YMh-9n-Gxx"/>
+                            <constraint firstAttribute="centerY" secondItem="yHh-1k-jSn" secondAttribute="centerY" id="rJD-SB-ASS"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="yHh-1k-jSn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="YMh-9n-Gxx"/>
+                                <exclude reference="rJD-SB-ASS"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="yHh-1k-jSn"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="YMh-9n-Gxx"/>
+                                <include reference="rJD-SB-ASS"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="eOT-bD-Viz"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krn-vS-eFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="871"/>
+        </scene>
+        <!--Block View Controller-->
+        <scene sceneID="JPk-IZ-TQS">
+            <objects>
+                <viewController id="cri-nv-ykD" customClass="BlockViewController" customModule="MySwifProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bDy-zq-OWE"/>
+                        <viewControllerLayoutGuide type="bottom" id="RXe-Cz-gic"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IUK-0R-2Sf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Jyx-Rb-DRC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hlt-6w-IuJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-801" y="1568"/>
+        </scene>
+        <!--Kvc And Kvo View Controller-->
+        <scene sceneID="pYG-QN-Hu0">
+            <objects>
+                <viewController id="YNA-bz-9Iv" customClass="KvcAndKvoViewController" customModule="MySwifProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lCk-O2-MPv"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ggc-3J-ubC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LVN-AZ-qtG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4fF-y7-63b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-809" y="2259"/>
+        </scene>
+    </scenes>
+</document>

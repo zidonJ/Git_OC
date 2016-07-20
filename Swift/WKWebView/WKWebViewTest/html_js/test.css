@@ -1,0 +1,16 @@
+body{
+    color:red;
+    background-color:#808080;
+    font-size:12px;
+    font-style:italic;
+    font-weight:bold;
+    font-family:Arial;
+}
+#foo{
+    color:blue;
+    background-color:#808080;
+    font-size:70px;
+    font-style:italic;
+    font-weight:bold;
+    font-family:Arial;
+}

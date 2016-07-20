@@ -1,0 +1,24 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "0df83980-555e-4461-87cb-94d365cbf78c++7832" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "0df83980-555e-4461-87cb-94d365cbf78c++7832" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "66D08B31-2B14-4813-A33A-3EF80D73B803",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "0df83980-555e-4461-87cb-94d365cbf78c++7832" : "AVPlayer0Go\/AVPlayer0Go\/Masonry\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "AVPlayer0Go",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "AVPlayer0Go.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/10.130.18.200\/xhxw",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0df83980-555e-4461-87cb-94d365cbf78c++7832"
+    }
+  ]
+}

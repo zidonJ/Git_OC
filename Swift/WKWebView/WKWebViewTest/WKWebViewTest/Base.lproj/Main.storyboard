@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="iJw-ok-XEk">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ucv-1H-sRb">
+            <objects>
+                <navigationController id="iJw-ok-XEk" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tbZ-qr-Byp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="HjU-8J-JZW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tzd-AH-W7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-712.5" y="311"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WKWebViewTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0X-gH-GJ9">
+                                <rect key="frame" x="253" y="0.0" width="95" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RAF-fs-itg"/>
+                                </constraints>
+                                <state key="normal" title="Open in safari"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="RAF-fs-itg"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="RAF-fs-itg"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="openInSafari:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BHr-L9-MV0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hli-NW-Eu8">
+                                <rect key="frame" x="234" y="200" width="133" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9zu-Mr-scL"/>
+                                </constraints>
+                                <state key="normal" title="Open with webview"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9zu-Mr-scL"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="9zu-Mr-scL"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="wkwebviewshow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nAr-Py-p92"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBE-qz-srj">
+                                <rect key="frame" x="192" y="400" width="216" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="q4m-S1-1Uc"/>
+                                </constraints>
+                                <state key="normal" title="Open with safari view controller"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="q4m-S1-1Uc"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="q4m-S1-1Uc"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="openWithSafariVC:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zj1-I2-FwN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="feQ-2R-oZy">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yIS-0d-cMe"/>
+                                </constraints>
+                                <state key="normal" title="html"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="yIS-0d-cMe"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="yIS-0d-cMe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loadHtml:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gAW-qF-8C5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A0X-gH-GJ9" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="066-TG-BoA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="A0X-gH-GJ9" secondAttribute="trailing" constant="20" id="GP3-dW-vXa"/>
+                            <constraint firstItem="hli-NW-Eu8" firstAttribute="top" secondItem="A0X-gH-GJ9" secondAttribute="bottom" constant="10" id="JBV-EC-3iV"/>
+                            <constraint firstItem="feQ-2R-oZy" firstAttribute="top" secondItem="jBE-qz-srj" secondAttribute="bottom" constant="10" id="Rnp-Iw-OjL"/>
+                            <constraint firstItem="feQ-2R-oZy" firstAttribute="leading" secondItem="A0X-gH-GJ9" secondAttribute="leading" id="XVP-Aa-2Z0"/>
+                            <constraint firstItem="hli-NW-Eu8" firstAttribute="trailing" secondItem="A0X-gH-GJ9" secondAttribute="trailing" id="ees-1X-5cv"/>
+                            <constraint firstItem="A0X-gH-GJ9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="eob-ln-JgM"/>
+                            <constraint firstItem="jBE-qz-srj" firstAttribute="trailing" secondItem="A0X-gH-GJ9" secondAttribute="trailing" id="fP6-n9-ttM"/>
+                            <constraint firstItem="feQ-2R-oZy" firstAttribute="trailing" secondItem="A0X-gH-GJ9" secondAttribute="trailing" id="ifz-Eq-TfB"/>
+                            <constraint firstItem="jBE-qz-srj" firstAttribute="top" secondItem="hli-NW-Eu8" secondAttribute="bottom" constant="10" id="o8u-pK-XTO"/>
+                            <constraint firstItem="jBE-qz-srj" firstAttribute="leading" secondItem="A0X-gH-GJ9" secondAttribute="leading" id="uIB-bm-4LB"/>
+                            <constraint firstItem="hli-NW-Eu8" firstAttribute="leading" secondItem="A0X-gH-GJ9" secondAttribute="leading" id="w2D-Dl-eZa"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="A0X-gH-GJ9"/>
+                                <exclude reference="hli-NW-Eu8"/>
+                                <exclude reference="jBE-qz-srj"/>
+                                <exclude reference="feQ-2R-oZy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Rnp-Iw-OjL"/>
+                                <exclude reference="XVP-Aa-2Z0"/>
+                                <exclude reference="ifz-Eq-TfB"/>
+                                <exclude reference="066-TG-BoA"/>
+                                <exclude reference="GP3-dW-vXa"/>
+                                <exclude reference="eob-ln-JgM"/>
+                                <exclude reference="JBV-EC-3iV"/>
+                                <exclude reference="ees-1X-5cv"/>
+                                <exclude reference="w2D-Dl-eZa"/>
+                                <exclude reference="fP6-n9-ttM"/>
+                                <exclude reference="o8u-pK-XTO"/>
+                                <exclude reference="uIB-bm-4LB"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="A0X-gH-GJ9"/>
+                                <include reference="hli-NW-Eu8"/>
+                                <include reference="jBE-qz-srj"/>
+                                <include reference="feQ-2R-oZy"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Rnp-Iw-OjL"/>
+                                <include reference="XVP-Aa-2Z0"/>
+                                <include reference="ifz-Eq-TfB"/>
+                                <include reference="066-TG-BoA"/>
+                                <include reference="GP3-dW-vXa"/>
+                                <include reference="eob-ln-JgM"/>
+                                <include reference="JBV-EC-3iV"/>
+                                <include reference="ees-1X-5cv"/>
+                                <include reference="w2D-Dl-eZa"/>
+                                <include reference="fP6-n9-ttM"/>
+                                <include reference="o8u-pK-XTO"/>
+                                <include reference="uIB-bm-4LB"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="Soc-zW-L1N"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49.5" y="311"/>
+        </scene>
+        <!--Local Html Application-->
+        <scene sceneID="8aD-0Y-swe">
+            <objects>
+                <viewController storyboardIdentifier="localHtml" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVY-dR-9eN" customClass="LocalHtmlApplication" customModule="WKWebViewTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="de9-8W-gjW"/>
+                        <viewControllerLayoutGuide type="bottom" id="KrH-2I-BS4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xba-TT-mQ2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="apR-WN-pKf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="598.5" y="311"/>
+        </scene>
+    </scenes>
+</document>

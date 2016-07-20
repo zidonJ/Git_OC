@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<title></title>
+</head>
+<body>
+      <div class="row" id="orderWrap">
+        <div class="col-xs-8 col-md-8 col-xs-offset-2 col-md-offset-2 orderWrap">
+          <div class="title  result-Title">
+            <h3>订单详情</h3> 
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered">
+                <colgroup>
+                  <col class="col-xs-1">
+                  <col class="col-xs-7">
+                </colgroup>
+                <tr>
+                  <td>订单编号：</td>
+                  <td id="order"></td>
+                </tr>
+                <tr>
+                  <td>订单金额：</td>
+                  <td id="orderMoney"></td>
+                </tr>
+                <tr>
+                  <td>下单时间：</td>
+                  <td id="orderDate"></td>
+                </tr>
+                <tr>
+                  <td>商品名称：</td>
+                  <td id="shopName"></td>
+                </tr>
+            </table>
+          </div>
+          <!--<div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%">
+              <span class="sr-only">100% Complete</span>
+            </div>
+          </div> -->
+            <!-- https://sandbox.99bill.com/gateway/recvMerchantInfoAction.htm -->
+          <form id="kqPay" action="https://sandbox.99bill.com/mobilegateway/recvMerchantInfoAction.htm" target="_blank" method="post">
+            <input type="hidden" id="inputCharset" name="inputCharset" />
+
+            <input type="hidden" id="pageUrl" name="pageUrl" />
+
+            <input type="hidden" id="bgUrl" name="bgUrl" />
+            <input type="hidden" id="version" name="version"/>
+            <input type="hidden" id="language" name="language" />
+            <input type="hidden" id="signType" name="signType" />
+            <input type="hidden" id="signMsg" name="signMsg" />
+            <input type="hidden" id="merchantAcctId" name="merchantAcctId"/>
+
+            <input type="hidden" id="payerName" name="payerName" />
+
+            <input type="hidden" id="payerContactType" name="payerContactType" />
+
+            <input type="hidden" id="payerContact" name="payerContact" />
+
+            <input type="hidden" id="orderId" name="orderId" />
+            <input type="hidden" id="orderAmount"  name="orderAmount"/>
+            <input type="hidden" id="orderTime" name="orderTime" />
+            <input type="hidden" id="productName"  name="productName"/>
+
+            <input type="hidden" id="productNum" name="productNum" />
+
+            <input type="hidden" id="productId" name="productId"/>
+            <input type="hidden" id="productDesc" name="productDesc"/>
+
+            <input type="hidden" id="ext1" name="ext1"/>
+            <input type="hidden" id="ext2" name="ext2"/> 
+
+            <input type="hidden" id="payType" name="payType" />
+
+            <input type="hidden" id="bankId" name="bankId" />
+            <input type="hidden" id="redoFlag" name="redoFlag"/>
+            <input type="hidden" id="pid" name="pid" />
+            <input type="hidden" name="mobileGateway" id="mobileGateway"  /> 
+
+            <input type="submit" id="submit_postToKuaiQian" class="btn btn-success pull-right"  value="去支付">
+          </form>
+        </div>
+      </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+      <script src="js/postOrderToKuaiQian.js"></script>
+</body>
+</html>

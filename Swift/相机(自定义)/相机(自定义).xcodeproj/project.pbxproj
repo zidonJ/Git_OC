@@ -1,0 +1,397 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C3064DB71CCF1A4A000D63FA /* cameraOverLayview.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3064DB61CCF1A4A000D63FA /* cameraOverLayview.swift */; };
+		C34D22B01CE06C4200945416 /* AVCapture族 in Resources */ = {isa = PBXBuildFile; fileRef = C34D22AF1CE06C4200945416 /* AVCapture族 */; };
+		C35282261CD837EF007A0908 /* NSObject+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35282251CD837EF007A0908 /* NSObject+alert.swift */; };
+		C369BA701CD9C6D200588424 /* CustomCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C369BA6F1CD9C6D200588424 /* CustomCameraController.swift */; };
+		C395806F1CC9BC5B007D6BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C395806E1CC9BC5B007D6BDB /* AppDelegate.swift */; };
+		C39580711CC9BC5B007D6BDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C39580701CC9BC5B007D6BDB /* ViewController.swift */; };
+		C39580741CC9BC5B007D6BDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39580721CC9BC5B007D6BDB /* Main.storyboard */; };
+		C39580761CC9BC5B007D6BDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C39580751CC9BC5B007D6BDB /* Assets.xcassets */; };
+		C39580791CC9BC5B007D6BDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C39580771CC9BC5B007D6BDB /* LaunchScreen.storyboard */; };
+		C3E2BFFA1CDADB490087575B /* CustomCameraHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E2BFF91CDADB490087575B /* CustomCameraHelper.swift */; };
+		F979EB586478E82BEBF4FAAC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC972F5F400BF2154C4F9C25 /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6F0B208A8D3F438BAC49D085 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C3064DB61CCF1A4A000D63FA /* cameraOverLayview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cameraOverLayview.swift; sourceTree = "<group>"; };
+		C34D22AF1CE06C4200945416 /* AVCapture族 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "AVCapture族"; sourceTree = "<group>"; };
+		C35282251CD837EF007A0908 /* NSObject+alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+alert.swift"; sourceTree = "<group>"; };
+		C369BA6F1CD9C6D200588424 /* CustomCameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraController.swift; sourceTree = "<group>"; };
+		C395806B1CC9BC5B007D6BDB /* 相机(自定义).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "相机(自定义).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C395806E1CC9BC5B007D6BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C39580701CC9BC5B007D6BDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C39580731CC9BC5B007D6BDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C39580751CC9BC5B007D6BDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C39580781CC9BC5B007D6BDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C395807A1CC9BC5B007D6BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C3E2BFF91CDADB490087575B /* CustomCameraHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCameraHelper.swift; sourceTree = "<group>"; };
+		CC972F5F400BF2154C4F9C25 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D78859E86368607721B6BBA4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C39580681CC9BC5B007D6BDB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F979EB586478E82BEBF4FAAC /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		22A5A0C9D1D09B21AC8EB172 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6F0B208A8D3F438BAC49D085 /* Pods.debug.xcconfig */,
+				D78859E86368607721B6BBA4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C39580621CC9BC5B007D6BDB = {
+			isa = PBXGroup;
+			children = (
+				C395806D1CC9BC5B007D6BDB /* 相机(自定义) */,
+				C395806C1CC9BC5B007D6BDB /* Products */,
+				22A5A0C9D1D09B21AC8EB172 /* Pods */,
+				D084E61A867084F3911A4AA6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C395806C1CC9BC5B007D6BDB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C395806B1CC9BC5B007D6BDB /* 相机(自定义).app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C395806D1CC9BC5B007D6BDB /* 相机(自定义) */ = {
+			isa = PBXGroup;
+			children = (
+				C395806E1CC9BC5B007D6BDB /* AppDelegate.swift */,
+				C39580701CC9BC5B007D6BDB /* ViewController.swift */,
+				C369BA6F1CD9C6D200588424 /* CustomCameraController.swift */,
+				C3E2BFF91CDADB490087575B /* CustomCameraHelper.swift */,
+				C3064DB61CCF1A4A000D63FA /* cameraOverLayview.swift */,
+				C35282251CD837EF007A0908 /* NSObject+alert.swift */,
+				C39580721CC9BC5B007D6BDB /* Main.storyboard */,
+				C34D22AF1CE06C4200945416 /* AVCapture族 */,
+				C39580751CC9BC5B007D6BDB /* Assets.xcassets */,
+				C39580771CC9BC5B007D6BDB /* LaunchScreen.storyboard */,
+				C395807A1CC9BC5B007D6BDB /* Info.plist */,
+			);
+			path = "相机(自定义)";
+			sourceTree = "<group>";
+		};
+		D084E61A867084F3911A4AA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC972F5F400BF2154C4F9C25 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C395806A1CC9BC5B007D6BDB /* 相机(自定义) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C395807D1CC9BC5B007D6BDB /* Build configuration list for PBXNativeTarget "相机(自定义)" */;
+			buildPhases = (
+				86783EC95669F961AA181A12 /* Check Pods Manifest.lock */,
+				C39580671CC9BC5B007D6BDB /* Sources */,
+				C39580681CC9BC5B007D6BDB /* Frameworks */,
+				C39580691CC9BC5B007D6BDB /* Resources */,
+				CCD96661A7CEED1C9024DEFA /* Embed Pods Frameworks */,
+				D81DF073B74025CF4D98DB1A /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "相机(自定义)";
+			productName = "相机(自定义)";
+			productReference = C395806B1CC9BC5B007D6BDB /* 相机(自定义).app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C39580631CC9BC5B007D6BDB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = zidon;
+				TargetAttributes = {
+					C395806A1CC9BC5B007D6BDB = {
+						CreatedOnToolsVersion = 7.3;
+					};
+				};
+			};
+			buildConfigurationList = C39580661CC9BC5B007D6BDB /* Build configuration list for PBXProject "相机(自定义)" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C39580621CC9BC5B007D6BDB;
+			productRefGroup = C395806C1CC9BC5B007D6BDB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C395806A1CC9BC5B007D6BDB /* 相机(自定义) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C39580691CC9BC5B007D6BDB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C34D22B01CE06C4200945416 /* AVCapture族 in Resources */,
+				C39580791CC9BC5B007D6BDB /* LaunchScreen.storyboard in Resources */,
+				C39580761CC9BC5B007D6BDB /* Assets.xcassets in Resources */,
+				C39580741CC9BC5B007D6BDB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		86783EC95669F961AA181A12 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CCD96661A7CEED1C9024DEFA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D81DF073B74025CF4D98DB1A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C39580671CC9BC5B007D6BDB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C39580711CC9BC5B007D6BDB /* ViewController.swift in Sources */,
+				C369BA701CD9C6D200588424 /* CustomCameraController.swift in Sources */,
+				C3064DB71CCF1A4A000D63FA /* cameraOverLayview.swift in Sources */,
+				C395806F1CC9BC5B007D6BDB /* AppDelegate.swift in Sources */,
+				C35282261CD837EF007A0908 /* NSObject+alert.swift in Sources */,
+				C3E2BFFA1CDADB490087575B /* CustomCameraHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C39580721CC9BC5B007D6BDB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C39580731CC9BC5B007D6BDB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C39580771CC9BC5B007D6BDB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C39580781CC9BC5B007D6BDB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C395807B1CC9BC5B007D6BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C395807C1CC9BC5B007D6BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C395807E1CC9BC5B007D6BDB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F0B208A8D3F438BAC49D085 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "相机(自定义)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "QN.-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Debug;
+		};
+		C395807F1CC9BC5B007D6BDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D78859E86368607721B6BBA4 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "相机(自定义)/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "QN.-------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C39580661CC9BC5B007D6BDB /* Build configuration list for PBXProject "相机(自定义)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C395807B1CC9BC5B007D6BDB /* Debug */,
+				C395807C1CC9BC5B007D6BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C395807D1CC9BC5B007D6BDB /* Build configuration list for PBXNativeTarget "相机(自定义)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C395807E1CC9BC5B007D6BDB /* Debug */,
+				C395807F1CC9BC5B007D6BDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C39580631CC9BC5B007D6BDB /* Project object */;
+}
