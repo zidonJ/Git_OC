@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         QuickSort(&list, first: 0, last: list.count - 1)
         print(list)
         
-        print(self.branch(),__LINE__,__FUNCTION__)
+        print(self.branch(),#line,#function)
     }
     
     func branch() -> String {
@@ -63,17 +63,19 @@ class ViewController: UIViewController {
         while i < j {
             //找出来比key小的 并排到key前面
             while i < j && list[j] > key {
-                j--
+                j-=1
             }
             if i < j {
-                list[i++] = list[j]
+                i+=1
+                list[i] = list[j]
             }
             //找出来比key大的 并排到key后面
             while i < j && list[i] < key {
-                i++
+                i+=1
             }
             if i < j {
-                list[j--] = list[i]
+                j-=1
+                list[j] = list[i]
             }
         }
         list[i] = key

@@ -38,7 +38,7 @@
     NSLog(@"2%@",object_getClass(_test1));
     [self testReplaceMethod];
 }
-
+//执行发发，指针函数
 IMP orginIMP;
 
 NSString * MyUppercaseString(id self, SEL _cmd)
