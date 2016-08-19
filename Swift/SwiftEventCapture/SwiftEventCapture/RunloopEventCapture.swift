@@ -10,23 +10,33 @@ import Foundation
 
 @objc protocol RunloopEventCaptureDelegate {
     //返回值代表继续执行事件（已经添加的事件）
-    optional func testUploadCaptureUserData(key:String) -> Bool
-    
-    optional func asyncUploadCaptureUserData(item:NSObject) -> Bool
+    optional func asyncUploadCaptureUserData(data:AnyObject) -> Bool
 }
 
 typealias MyRunLoopWorkDistributionUnit = (Bool) -> Void
 
 class RunloopEventCapture: NSObject {
+    
+    var captureObjct:AnyObject?
+    
+    override init() {
+        super.init()
+        resgistRunloopWork(self)
+    }
+    
+    static let sharedInstace=RunloopEventCapture()
+    
     /**
      添加单个事件对象监听,在事件的触发处调用这个方法
      
      - parameter key:  回调的block
      - parameter unit: 唯一的key值
      */
-    func addTask(key:String) {
+    func addTask(key:AnyObject) {
         
-        self.taskContent.append(key)
+        captureObjct=key
+        
+        //可以设置最大的任务数量
         if self.taskContent.count > self.maxTasks {
             self.taskContent.removeAll()
         }
@@ -38,7 +48,7 @@ class RunloopEventCapture: NSObject {
      - parameter keys: key的数组
      */
     func addKeysTask(keys:NSArray) {
-        
+        self.taskContent=keys as Array<AnyObject>
     }
     
     /**
@@ -47,22 +57,12 @@ class RunloopEventCapture: NSObject {
      - parameter items: 模型的数组
      */
     func addItemsTask(items:NSArray) {
-        
+        self.taskContent=items as [AnyObject]
     }
     
     var maxTasks=30
-    var taskContent:Array<AnyObject>=[AnyObject]()
+    var taskContent:Array=[AnyObject]()
     var delegate:RunloopEventCaptureDelegate?
-    
-    
-    
-    override init() {
-        super.init()
-        resgistRunloopWork(self)
-    }
-    
-    static let sharedInstace=RunloopEventCapture()
-    
     
     func resgistRunloopWork(obj:RunloopEventCapture) {
         
@@ -75,53 +75,41 @@ class RunloopEventCapture: NSObject {
     
     func runLoopWorkDistributionCallback(observer:CFRunLoopObserverRef , activity:CFRunLoopActivity , info:UnsafePointer<Void>) {
         
-        print(":::",printActivity(activity));
+        //print(":::",printActivity(activity));
         
         if (self.taskContent.count == 0) {
             return;
         }
         
-        var result:Bool = false
+        var result:Bool? = false
         while (result == false && self.taskContent.count != 0) {
-            
-            if (self.taskContent[0] as! String == "那一种寸步不离的感觉，我知道就叫做永远") {
-                
-                print("对头，要的就是你")
-                weak var weakSelf=self
-                dispatch_async(dispatch_get_global_queue(0, 0), { 
-                    result=(weakSelf?.delegate?.testUploadCaptureUserData!("那一种寸步不离的感觉，我知道就叫做永远"))!
-                })
+            //保证我们需要的截获事件之执行一次
+            if self.captureObjct == nil {
+                break
             }
-            self.taskContent.removeAtIndex(0)
-        }
-    }
-    
-    func printActivity(activity:CFRunLoopActivity) ->String{
-        var activityDescription:String=""
-        switch (activity) {
-            case CFRunLoopActivity.Entry:
-                activityDescription = "kCFRunLoopEntry"
-                break;
-            case CFRunLoopActivity.BeforeTimers:
-                activityDescription = "kCFRunLoopBeforeTimers"
-                break;
-            case CFRunLoopActivity.BeforeSources:
-                activityDescription = "kCFRunLoopBeforeSources"
-                break;
-            case CFRunLoopActivity.BeforeWaiting:
-                activityDescription = "kCFRunLoopBeforeWaiting"
-                break;
-            case CFRunLoopActivity.AfterWaiting:
-                activityDescription = "kCFRunLoopAfterWaiting"
-                break;
-            case CFRunLoopActivity.Exit:
-                activityDescription = "kCFRunLoopExit"
-                break;
-            default:
-                break;
             
+            let isContained:Bool=self.taskContent.contains({ (Obj) -> Bool in
+                
+                if Obj.isEqual(self.captureObjct){
+                    return true
+                }
+                
+                return false
+            })
+        
+            if (isContained) {
+                
+                weak var weakSelf:RunloopEventCapture!=self
+                dispatch_async(dispatch_get_global_queue(0, 0), {
+                    result=weakSelf.delegate?.asyncUploadCaptureUserData!(weakSelf.captureObjct!)
+                    dispatch_async(dispatch_get_main_queue(), { 
+                        self.captureObjct=nil
+                    })
+                })
+                
+                break
+            }
         }
-        return activityDescription
     }
     
     func registerObserver(activities:CFOptionFlags, order:CFIndex, mode:CFStringRef, info:UnsafeMutablePointer<Void>, callback:CFRunLoopObserverCallBack ) {
@@ -131,4 +119,34 @@ class RunloopEventCapture: NSObject {
         
         CFRunLoopAddObserver(runLoop, observer, mode)
     }
+    
+    //runloop的状态变化
+    func printActivity(activity:CFRunLoopActivity) ->String{
+        var activityDescription:String=""
+        switch (activity) {
+        case CFRunLoopActivity.Entry:
+            activityDescription = "kCFRunLoopEntry"
+            break;
+        case CFRunLoopActivity.BeforeTimers:
+            activityDescription = "kCFRunLoopBeforeTimers"
+            break;
+        case CFRunLoopActivity.BeforeSources:
+            activityDescription = "kCFRunLoopBeforeSources"
+            break;
+        case CFRunLoopActivity.BeforeWaiting:
+            activityDescription = "kCFRunLoopBeforeWaiting"
+            break;
+        case CFRunLoopActivity.AfterWaiting:
+            activityDescription = "kCFRunLoopAfterWaiting"
+            break;
+        case CFRunLoopActivity.Exit:
+            activityDescription = "kCFRunLoopExit"
+            break;
+        default:
+            break;
+            
+        }
+        return activityDescription
+    }
+    
 }
