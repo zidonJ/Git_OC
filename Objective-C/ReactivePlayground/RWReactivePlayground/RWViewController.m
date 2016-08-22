@@ -90,6 +90,27 @@
     }];
     
     
+    [[[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside]
+      flattenMap:^id(id x){
+          return[self signInSignal];
+      }] subscribeNext:^(id x){
+          NSLog(@"Sign in result: %@", x);
+      }];
+    
+}
+
+- (RACSignal *)signInSignal {
+    
+    return [RACSignal createSignal:^RACDisposable *(id subscriber){
+        [self.signInService
+         signInWithUsername:self.usernameTextField.text
+         password:self.passwordTextField.text
+         complete:^(BOOL success){
+             [subscriber sendNext:@(success)];
+             [subscriber sendCompleted];
+         }];
+        return nil;
+    }];
 }
 
 - (BOOL)isValidUsername:(NSString *)username {
