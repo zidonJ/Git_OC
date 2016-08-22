@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32F332F1D66B6D9008AF95F /* NSDate+timeval.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32F332E1D66B6D9008AF95F /* NSDate+timeval.swift */; };
 		C3BB16341D645A7600760B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB16331D645A7600760B36 /* AppDelegate.swift */; };
 		C3BB16361D645A7600760B36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BB16351D645A7600760B36 /* ViewController.swift */; };
 		C3BB16391D645A7600760B36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3BB16371D645A7600760B36 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C32F332E1D66B6D9008AF95F /* NSDate+timeval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+timeval.swift"; sourceTree = "<group>"; };
 		C3BB16301D645A7600760B36 /* SwiftEventCapture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftEventCapture.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3BB16331D645A7600760B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C3BB16351D645A7600760B36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				C3BB16331D645A7600760B36 /* AppDelegate.swift */,
 				C3BB16351D645A7600760B36 /* ViewController.swift */,
 				C3BB164C1D645EB600760B36 /* RunloopEventCapture.swift */,
+				C32F332E1D66B6D9008AF95F /* NSDate+timeval.swift */,
 				C3BB16481D645D7000760B36 /* CaptureItem.swift */,
 				C3BB16371D645A7600760B36 /* Main.storyboard */,
 				C3BB163A1D645A7600760B36 /* Assets.xcassets */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C3BB16361D645A7600760B36 /* ViewController.swift in Sources */,
+				C32F332F1D66B6D9008AF95F /* NSDate+timeval.swift in Sources */,
 				C3BB164D1D645EB600760B36 /* RunloopEventCapture.swift in Sources */,
 				C3BB16341D645A7600760B36 /* AppDelegate.swift in Sources */,
 				C3BB16491D645D7000760B36 /* CaptureItem.swift in Sources */,
@@ -296,6 +300,7 @@
 				C3BB16441D645A7600760B36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
