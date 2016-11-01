@@ -37,6 +37,8 @@ typedef NS_ENUM(NSInteger, QNVideoPlayerPlaybackState) {
 - (void)playEnd:(QNPlayerView *)qnVideoView;
 //控制播放控件隐藏
 -(void)clickPlayerView;
+//返回某贞的图片
+-(void)backFrameImage:(UIImage *)image;
 
 @end
 
@@ -53,6 +55,9 @@ typedef NS_ENUM(NSInteger, QNVideoPlayerPlaybackState) {
 - (void)stop;
 - (void)repeatPlaying;
 - (void)controlPlay;
+
+-(UIImage *)getFrameImageWithCMTime:(CMTime)time;
+-(UIImage *)getFrameImageWithSecond:(float)time;
 
 @property (nonatomic,weak) id<QNVideoViewDelegate> delegate;
 

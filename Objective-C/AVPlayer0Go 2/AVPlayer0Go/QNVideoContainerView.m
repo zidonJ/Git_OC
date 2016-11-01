@@ -230,6 +230,11 @@ typedef enum : NSUInteger {
     _bottomView.hidden=!_bottomView.hidden;
 }
 
+-(void)backFrameImage:(UIImage *)image
+{
+    
+}
+
 #pragma mark --QNPlayerBottomViewDelegate -
 
 -(void)playControl:(UIButton *)playBtn

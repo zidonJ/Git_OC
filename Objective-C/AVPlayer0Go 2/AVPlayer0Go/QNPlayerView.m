@@ -14,6 +14,8 @@ void *QNPlayer =&QNPlayer;
 {
     AVPlayer *_player;
     AVPlayerItem *_playerItem;
+    AVURLAsset *_movieAsset;
+    UIImageView *_imageView;
 }
 
 @property (nonatomic,assign) CGRect saveRect;
@@ -34,7 +36,8 @@ void *QNPlayer =&QNPlayer;
     self=[super initWithFrame:frame];
     if (self) {
         _saveRect = frame;
-        
+        _imageView=[[UIImageView alloc] initWithFrame:self.bounds];
+        //[self addSubview:_imageView];
         [self setContentUrl:url];
         UITapGestureRecognizer *tap=[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(visiableBottomView:)];
         [self addGestureRecognizer:tap];
@@ -65,13 +68,14 @@ void *QNPlayer =&QNPlayer;
         videoURL = [NSURL fileURLWithPath:contentUrl];
     }
     
-    AVAsset *movieAsset = [AVURLAsset URLAssetWithURL:videoURL options:nil];
-    [self setAssert:movieAsset];
+    _movieAsset = [AVURLAsset URLAssetWithURL:videoURL options:nil];
+    [self setAssert:_movieAsset];
+    
     _contentUrl = contentUrl;
 }
 
 //设置资源
-- (void)setAssert:(AVAsset *)assert
+- (void)setAssert:(AVURLAsset *)assert
 {
     __weak typeof(self) weakSelf=self;
     [assert loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:@"tracks"] completionHandler:^{
@@ -143,6 +147,7 @@ void *QNPlayer =&QNPlayer;
             
             [_player pause];
             _timeScale = playerItem.currentTime.timescale;
+            [self videoImage:CMTimeMake(0, _timeScale)];
             CMTime duration = _player.currentItem.duration;
             _totalTime=(long)CMTimeGetSeconds(duration);//总时间
             
@@ -178,6 +183,34 @@ void *QNPlayer =&QNPlayer;
             }
         }
     }
+}
+//获取视频某处图片
+-(UIImage *)videoImage:(CMTime)time
+{
+    //Float64 durationSeconds = CMTimeGetSeconds([avAsset duration]);
+    
+    NSError *error;
+    CMTime actualTime;
+    
+    AVAssetImageGenerator *imageGenerator =
+    [AVAssetImageGenerator assetImageGeneratorWithAsset:_movieAsset];
+    //        [imageGenerator generateCGImagesAsynchronouslyForTimes:[NSArray arrayWithObject:[NSValue valueWithCMTime:CMTimeMakeWithSeconds(0, 600)]] completionHandler:^(CMTime requestedTime, CGImageRef  _Nullable image, CMTime actualTime, AVAssetImageGeneratorResult result, NSError * _Nullable error) {
+    //
+    //        }];
+    imageGenerator.appliesPreferredTrackTransform = YES;//提取视频的图片资源，默认为no
+    CGImageRef imgRef=[imageGenerator copyCGImageAtTime:time actualTime:&actualTime error:&error];
+    UIImageOrientation oreation=UIImageOrientationUp;
+    UIImage *frameImage=[UIImage imageWithCGImage:imgRef scale:1 orientation:oreation];
+    
+    if (self.delegate) {
+        [self.delegate backFrameImage:frameImage];
+    }
+    //播放器会自动加载第一贞的图片，如果没有加载可以在这里操作
+    if ([[NSValue valueWithCMTime:time] isEqualToValue:[NSValue valueWithCMTime:CMTimeMake(0, _timeScale)]]) {
+        _imageView.image=frameImage;
+    }
+    
+    return frameImage;
 }
 
 - (AVPlayerLayer*)_setVideoModel:(AVPlayer *)player
@@ -260,6 +293,23 @@ void *QNPlayer =&QNPlayer;
             NSLog(@"调整播放时间");
         }];
     });
+}
+
+-(UIImage *)getFrameImageWithCMTime:(CMTime)time
+{
+    return [self videoImage:time];
+}
+
+-(UIImage *)getFrameImageWithSecond:(float)time
+{
+    CMTime cTime = CMTimeMakeWithSeconds(time, _timeScale);
+    return [self videoImage:cTime];
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    _imageView.frame=self.bounds;
 }
 
 @end
