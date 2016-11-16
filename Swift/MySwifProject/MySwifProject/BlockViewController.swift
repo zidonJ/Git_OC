@@ -23,7 +23,7 @@ class BlockViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor=UIColor.red()
+        self.view.backgroundColor=UIColor.red
         
         //闭包----------------
         /*
@@ -57,7 +57,7 @@ class BlockViewController: UIViewController {
 //        let sortNumbers = numbers.sort({$0>$1})
         
         //闭包变形4
-        let sortNumbers = numbers.sorted(isOrderedBefore: >)
+        let sortNumbers = numbers.sorted()
         
         print("闭包测试:",mapNumbers,sortNumbers)
         

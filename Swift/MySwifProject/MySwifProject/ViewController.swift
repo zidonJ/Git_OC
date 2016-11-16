@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor=UIColor.red();
+        self.view.backgroundColor=UIColor.red;
         let swt:Double=100
         print("hello world",swt)
         //修改字符串

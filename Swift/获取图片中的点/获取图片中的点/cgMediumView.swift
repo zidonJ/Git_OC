@@ -15,13 +15,13 @@ class cgMediumView: UIView {
     var image:UIImage!
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor=UIColor.whiteColor()
-        let button=UIButton(type:UIButtonType.Custom)
-        button.frame=CGRectMake(20, 20, 70, 30)
-        button.setTitle("保存", forState: UIControlState.Normal)
-        button.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-        button.backgroundColor=UIColor.whiteColor()
-        button.addTarget(self, action: #selector(self.save), forControlEvents: UIControlEvents.TouchUpInside)
+        self.backgroundColor=UIColor.white
+        let button=UIButton(type:UIButtonType.custom)
+        button.frame=CGRect(x:20, y:20, width:70, height:30)
+        button.setTitle("保存", for: UIControlState.normal)
+        button.setTitleColor(UIColor.red, for: UIControlState.normal)
+        button.backgroundColor=UIColor.white
+        button.addTarget(self, action: #selector(self.save), for: UIControlEvents.touchUpInside)
         addSubview(button)
     }
     
@@ -29,17 +29,17 @@ class cgMediumView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
-        super.drawRect(rect)
+        super.draw(rect)
         image=UIImage(named: "test.jpg")
-        image.drawInRect(rect)
+        image.draw(in: rect)
         
         for berTemp in pathArray{
-            UIColor.redColor().set()
+            UIColor.red.set()
             let ber=berTemp as! UIBezierPath
             ber.lineWidth=3
-            ber.lineCapStyle=CGLineCap.Round
+            ber.lineCapStyle=CGLineCap.round
             ber.stroke()
         }
         
@@ -48,39 +48,39 @@ class cgMediumView: UIView {
     func save(){
         UIGraphicsBeginImageContext(self.bounds.size)
         let ctx=UIGraphicsGetCurrentContext()
-        self.layer.renderInContext(ctx!)
-        let imageReDraw:UIImage=UIGraphicsGetImageFromCurrentImageContext()
+        self.layer.render(in: ctx!)
+        let imageReDraw:UIImage=UIGraphicsGetImageFromCurrentImageContext()!
         print(imageReDraw.size.width*imageReDraw.scale)
         UIGraphicsEndImageContext()
-        dispatch_async(dispatch_get_global_queue(0, 0)) { 
-            UIImageWriteToSavedPhotosAlbum(imageReDraw, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)), nil)
+        DispatchQueue.global().async {
+            UIImageWriteToSavedPhotosAlbum(imageReDraw, self, #selector(cgMediumView.image(image:didFinishSavingWithError:contextInfo:)), nil)
         }
+        
     }
     
     func image(image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
         if didFinishSavingWithError == nil {            
-            self.alertNewAPI("图片保存", message: "图片保存成功", buttonTitles: ["取消","确定"], clickedIndex: { (index:Int) in
+            self.alertNewAPI(title: "图片保存", message: "图片保存成功", buttonTitles: ["取消","确定"], clickedIndex: { (index:Int) in
                 print(index)
             })
         }
     }
     
-    
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch=touches.first
-        let point=touch?.locationInView(self)
-        berth.moveToPoint(point!)
+        let point=touch?.location(in: self)
+        berth.move(to: point!)
         pathArray.append(berth)
         self.setNeedsDisplay()
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for aTouch in touches{
-            let location=aTouch.locationInView(self)
+            let location=aTouch.location(in: self)
             let lastBerth=pathArray[pathArray.endIndex-1] as! UIBezierPath
-            lastBerth.addLineToPoint(location)
+            lastBerth.addLine(to: location)
             self.setNeedsDisplay()
         }
     }
+
 }

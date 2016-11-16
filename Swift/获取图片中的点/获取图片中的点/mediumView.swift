@@ -18,20 +18,22 @@ class mediumView: UIView {
     
     init(testPara:Int, frame:CGRect){
         super.init(frame: frame)
-        self.backgroundColor=UIColor.clearColor()
+        self.backgroundColor=UIColor.clear
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        let touch = touches.first
-        let point = touch?.locationInView(self)
-        delegate?.touchPoint(point)
-    }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first
+        let point = touch?.location(in: self)
+        delegate?.touchPoint(point: point)
+    }
+
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
 

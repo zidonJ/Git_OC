@@ -13,7 +13,7 @@ class KvcAndKvoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor=UIColor.groupTableViewBackground()
+        self.view.backgroundColor=UIColor.groupTableViewBackground
         _ = "hello world"
         let item=KvcItem()
         let dic:Dictionary<String,String>=["name":"Taylor Swift","age":"25","tall":"178","sex":"girl"]
@@ -26,7 +26,7 @@ class KvcAndKvoViewController: UIViewController {
         
         
         btn.setTitle("返回", for: UIControlState.disabled)
-        btn.backgroundColor=UIColor.red()
+        btn.backgroundColor=UIColor.red
         btn.addTarget(self, action: #selector(self.back), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn)
         
@@ -38,7 +38,7 @@ class KvcAndKvoViewController: UIViewController {
     let btn=UIButton(frame: CGRect(x:10, y:150, width:100, height:30))
     
     
-    override func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutablePointer<Void>?) {
+    func observeValue(forKeyPath keyPath: String?, of object: AnyObject?, change: [NSKeyValueChangeKey : AnyObject]?, context: UnsafeMutableRawPointer) {
         print(change![NSKeyValueChangeKey.newKey])
         let str=change![NSKeyValueChangeKey.newKey] as? String
         print("swift的kvo监听:\(str)")
@@ -47,7 +47,7 @@ class KvcAndKvoViewController: UIViewController {
     
     func back(){
         
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     //没有任何代码执行的时候,释放后会执行析构函数
     deinit{

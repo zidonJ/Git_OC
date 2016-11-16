@@ -11,8 +11,8 @@ import Foundation
 import ObjectiveC.runtime
 
 typealias completed = ([String:AnyObject],NSError) -> Void
-typealias downLoadProgress = (progress:Int64,expectLarge:Int64) -> Void
-typealias downLoaded = (error:NSError?) -> Void
+typealias downLoadProgress = (_ progress:Int64,_ expectLarge:Int64) -> Void
+typealias downLoaded = (_ error:NSError?) -> Void
 
 let blockKey:String="blockKey"
 
@@ -23,19 +23,19 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     //下载进度
     var progressDownLoad:downLoadProgress!
     
-    lazy var outPutStream:NSOutputStream={
+    lazy var outPutStream:OutputStream={
         
-        self.path=NSSearchPathForDirectoriesInDomains(
+        weakself?.path=NSSearchPathForDirectoriesInDomains(
             FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
         self.path=self.path + "/test.jpg"
         //append为true是每次都写到文件末尾
-        let outPutStream=NSOutputStream.init(toFileAtPath:self.path!, append: true)!
+        let outPutStream=OutputStream.init(toFileAtPath:self.path!, append: true)!
         outPutStream.open()
         return outPutStream
     }()
     
     lazy var session:URLSession={
-        let session:URLSession=Foundation.URLSession(configuration: URLSessionConfiguration.default(), delegate: self, delegateQueue: nil)
+        let session:URLSession=Foundation.URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
         session.sessionDescription = "in-process NSURLSession";
         return session
     }()
@@ -50,31 +50,31 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         super.init()
     }
     
-    func getWithUrl(_ url:String,resopnse:completed){
+    func getWithUrl(_ url:String,resopnse:@escaping completed){
         self.realRequest(url, method: "GET", httpBody: nil) { (data,error) in
             resopnse(data,error)
         }
     }
     
-    func postRequest(_ url:String,httpBodyData:Data,resopnse:completed){
+    func postRequest(_ url:String,httpBodyData:Data,resopnse:@escaping completed){
         self.realRequest(url, method: "POST", httpBody: httpBodyData) { (data,error) in
             resopnse(data,error)
         }
     }
     //普通网络请求
-    func realRequest(_ url:String,method:String,httpBody:Data?,resopnse:completed) {
+    func realRequest(_ url:String,method:String,httpBody:Data?,resopnse:@escaping completed) {
         var request=URLRequest(url: URL(string: "http://api.xw.feedss.com/news/video")!)
         request.httpMethod=method
         request.httpBody=httpBody
         //开始请求
         let task=session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             let data:[String:AnyObject]=try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]
-            resopnse(data,error!)
+            resopnse(data,error! as NSError)
         })
         task.resume()
     }
     //下载网络请求
-    func downLoadRequest(_ url:String,progress:downLoadProgress,completeDownLoad:downLoaded) {
+    func downLoadRequest(_ url:String,progress:@escaping downLoadProgress,completeDownLoad:@escaping downLoaded) {
         progressDownLoad=progress
         finishDownLoad=completeDownLoad
         let request=URLRequest(url: URL(string: "http://pic.yesky.com/uploadImages/2015/311/45/60J6J4TM39TS.JPG")!)
@@ -124,7 +124,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     ///NSURLSessionDownloadDelegate
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
     {
-        progressDownLoad(progress: totalBytesWritten,expectLarge: totalBytesExpectedToWrite)
+        self.progressDownLoad(progress: totalBytesWritten,expectLarge: totalBytesExpectedToWrite)
     }
     //从某位移处重新开始下载
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)
