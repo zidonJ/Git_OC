@@ -32,7 +32,7 @@ class HttpNetWorkManager: NSObject {
         }
     }
     
-    class func downLoadRequest(_ url:String,progress:(progress:Int64,expectLarge:Int64) ->Void,completeDownLoad:(error:NSError?) -> Void){
+    class func downLoadRequest(_ url:String,progress:@escaping (_ progress:Int64,_ expectLarge:Int64) ->Void,completeDownLoad:@escaping (_ error:NSError?) -> Void){
         let operation=HttpRequestOperation.swiftSharedInstance
         operation.downLoadRequest(url, progress: progress, completeDownLoad: completeDownLoad)
     }
@@ -41,7 +41,7 @@ class HttpNetWorkManager: NSObject {
 class Serilize: NSObject {
     class func buildParams(_ parameters: [String: AnyObject]) -> String {
         var components: [(String, String)] = []
-        for key in Array(parameters.keys).sorted(isOrderedBefore: <) {
+        for key in Array(parameters.keys).sorted(by: <) {
             let value: AnyObject! = parameters[key]
             components += queryComponents(key, value)
         }
@@ -67,7 +67,7 @@ class Serilize: NSObject {
     
     //去掉非法字符
     class func escape(_ string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*"
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*" as CFString
+        return CFURLCreateStringByAddingPercentEscapes(nil, string as CFString!, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
     }
 }

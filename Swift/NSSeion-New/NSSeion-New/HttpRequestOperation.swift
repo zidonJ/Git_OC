@@ -21,15 +21,19 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     var path:String!
     var finishDownLoad:downLoaded!
     //下载进度
-    var progressDownLoad:downLoadProgress!
+    var progressDownLoad:downLoadProgress!={
+        (a:Int64,b:Int64) in
+        
+    }
+    
     
     lazy var outPutStream:OutputStream={
-        
-        weakself?.path=NSSearchPathForDirectoriesInDomains(
+        [weak self] in
+        self?.path=NSSearchPathForDirectoriesInDomains(
             FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
-        self.path=self.path + "/test.jpg"
+        self?.path=(self?.path)! + "/test.jpg"
         //append为true是每次都写到文件末尾
-        let outPutStream=OutputStream.init(toFileAtPath:self.path!, append: true)!
+        let outPutStream=OutputStream.init(toFileAtPath:(self?.path!)!, append: true)!
         outPutStream.open()
         return outPutStream
     }()
@@ -106,7 +110,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     }
     
     ///NSURLSessionDataDelegate
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: (URLSession.ResponseDisposition) -> Void)
+    private func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: (URLSession.ResponseDisposition) -> Void)
     {
         print("456")
     }
@@ -124,7 +128,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     ///NSURLSessionDownloadDelegate
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
     {
-        self.progressDownLoad(progress: totalBytesWritten,expectLarge: totalBytesExpectedToWrite)
+        self.progressDownLoad(totalBytesWritten,totalBytesExpectedToWrite)
     }
     //从某位移处重新开始下载
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64)

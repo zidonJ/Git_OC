@@ -17,7 +17,7 @@ extension NSObject{
     }
     
     //异步执行
-    func asyncDo(asDo:asyncDoClose) {
+    func asyncDo(asDo:@escaping asyncDoClose) {
         let dispatch:DispatchQueue=DispatchQueue.global()
         dispatch.async { 
             asDo()

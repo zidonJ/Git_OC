@@ -12,7 +12,7 @@ class SFFileManager: NSObject ,FileManagerDelegate{
     
     static let sharedInstance:SFFileManager=SFFileManager.init()
     
-    let fileManger:FileManager=FileManager.default()
+    let fileManger:FileManager=FileManager.default
     
     override init(){
         super.init()

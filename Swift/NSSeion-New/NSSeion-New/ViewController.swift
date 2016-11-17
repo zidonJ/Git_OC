@@ -25,7 +25,7 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
     
     func buildParams(_ parameters: [String: AnyObject]) -> String {
         var components: [(String, String)] = []
-        for key in Array(parameters.keys).sorted(isOrderedBefore: <) {
+        for key in Array(parameters.keys).sorted(by: <) {
             let value: AnyObject! = parameters[key]
             components += queryComponents(key, value)
         }
@@ -49,16 +49,16 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
         return components
     }
     func escape(_ string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*"
-        return CFURLCreateStringByAddingPercentEscapes(nil, string, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*" as CFString
+        return CFURLCreateStringByAddingPercentEscapes(nil, string as CFString!, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
     }
     
     
     @IBAction func getRequest(_ sender: UIButton) {
         let dictionary=["published": "0","type":"1"]
-        var request=URLRequest(url: URL(string:"http://beida.035k.com//api/index/returnPost/"+"?"+self.buildParams(dictionary))!)
+        var request=URLRequest(url: URL(string:"http://beida.035k.com//api/index/returnPost/"+"?"+self.buildParams(dictionary as [String : AnyObject]))!)
         request.httpMethod="GET"
-        let session=Foundation.URLSession(configuration: URLSessionConfiguration.default(),
+        let session=Foundation.URLSession(configuration: URLSessionConfiguration.default,
             delegate: self, delegateQueue: nil)
         let task=session.dataTask(with: request)
         task.resume()
@@ -77,10 +77,10 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
         for (key,value) in dicHttpTop{
             request.addValue(value, forHTTPHeaderField: key)
         }
-        let para=self.buildParams(dictionary)
+        let para=self.buildParams(dictionary as [String : AnyObject])
         request.httpBody=para.data(using: String.Encoding.utf8)
         print(para)
-        let session=URLSession(configuration: URLSessionConfiguration.default(),
+        let session=URLSession(configuration: URLSessionConfiguration.default,
             delegate: self, delegateQueue: nil)
         
         
@@ -93,7 +93,7 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         jsonData.append(data)
     }
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: NSError?) {
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         print("执行了么",error)
         do{
             let dict=try JSONSerialization.jsonObject(with: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary

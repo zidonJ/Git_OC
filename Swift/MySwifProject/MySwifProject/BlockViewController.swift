@@ -91,7 +91,7 @@ class BlockViewController: UIViewController {
                 case 1:
                     self.blockPropertyNoReturn("OK GOOD")
                 case 2:
-                    if let _ = self.blockPropertyA
+                    if  (self.blockPropertyA != nil)
                     {
                         let result = self.blockPropertyA!(7,8)
                         print("result = \(result)")
@@ -177,9 +177,7 @@ class BlockViewController: UIViewController {
             let c = a*100+b
             return "\(a)*100+\(b) = \(c)"
         }
-        bk.testProperty(tag: 0)
-        bk.testProperty(tag: 1)
-        bk.testProperty(tag: 2)
+        
         
         bk.blockPropertyNoReturn = {
             (param:String) -> () in
@@ -205,6 +203,12 @@ class BlockViewController: UIViewController {
             return sumprint
         }
         bk.testProperty(tag: 3)
+        
+        
+        bk.testProperty(tag: 0)
+        bk.testProperty(tag: 1)
+        bk.testProperty(tag: 2)
+        
         print("＝＝＝＝＝＝＝＝＝＝＝＝＝＝属性block完成＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝")
         
         print("＝＝＝＝＝＝＝＝＝＝＝＝＝＝函数block为nil时无输出＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝")
