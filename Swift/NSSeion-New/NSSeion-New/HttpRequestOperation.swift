@@ -21,11 +21,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     var path:String!
     var finishDownLoad:downLoaded!
     //下载进度
-    var progressDownLoad:downLoadProgress!={
-        (a:Int64,b:Int64) in
-        
-    }
-    
+    var progressDownLoad:downLoadProgress!
     
     lazy var outPutStream:OutputStream={
         [weak self] in
@@ -39,6 +35,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     }()
     
     lazy var session:URLSession={
+        [weak self] in
         let session:URLSession=Foundation.URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
         session.sessionDescription = "in-process NSURLSession";
         return session
@@ -93,13 +90,12 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         //这种方式下载，使用代理
         let data:Data = SFFileManager.sharedInstance.getData(fromPath: SFFileManager.getPath(name: "/temp.mp4", pathType: FileManager.SearchPathDirectory.cachesDirectory))!
         
-        if let _:Data?=data {
+        if data.isEmpty {
             session.downloadTask(withResumeData: data)
         }else{
             task=session.downloadTask(with: request)
             task?.resume()
         }
-        
     }
     
     func suspendDownLoad() {

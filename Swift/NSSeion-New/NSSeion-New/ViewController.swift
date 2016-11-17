@@ -21,6 +21,17 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
             print(error)
         }
         
+        
+        let data1 = Data(bytes: [0x01, 0x02, 0x03])
+        data1.withUnsafeBytes { (pointer: UnsafePointer<UInt8>) -> Void in
+            print(pointer)
+            
+            print(pointer.pointee)
+        }
+        
+        _ = data1.withUnsafeBytes { (pointer: UnsafePointer<Int32>) -> Int32 in
+            return pointer.pointee
+        }
     }
     
     func buildParams(_ parameters: [String: AnyObject]) -> String {
@@ -48,9 +59,11 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
         
         return components
     }
+    
+    //去掉非法字符
     func escape(_ string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*" as CFString
-        return CFURLCreateStringByAddingPercentEscapes(nil, string as CFString!, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        
+        return string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
     
     

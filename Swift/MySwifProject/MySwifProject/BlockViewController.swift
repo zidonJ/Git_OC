@@ -223,8 +223,12 @@ class BlockViewController: UIViewController {
             print("adsf11111")
         }
         
+        bk.testBlock(blockfunc: {
+            
+            },blockfunc1: {
         
-        
+        })
+
         
         bk.testBlockA(blockfunc: {
             (a:Int,b:Int) -> String in
@@ -237,7 +241,7 @@ class BlockViewController: UIViewController {
             func sumprint(result:String)
             {  
                 let c = a / b;  
-                print("sumprint func print:parame :\(result) \(a) / \(b) = \(c)")  
+                print("sumprint func print:parame :\(result) \(a) / \(b) = \(c)")
             }  
             
             return sumprint  
@@ -252,6 +256,38 @@ class BlockViewController: UIViewController {
             }  
             return sumrsult  
         })
+        
+        /*
+         /逃逸闭包---------------------/
+         闭包只能在函数体中被执行，不能脱离函数体执行，所以编译器明确知道运行时的上下文
+         */
+        //声明一个存放函数的数组
+        var functionArray: [() -> Void] = []
+        //定义一个接收闭包参数的函数，如果定义非逃逸函数 func doSomething(@noescape paramClosure:() -> Void) 就会编译错误
+        func doSomething(paramClosure:@escaping () -> Void){
+            //参数可以传递到函数外部的数组中
+            functionArray.append(paramClosure)
+        }
+        
+        
+        func doSomething1( paramClosure: () -> Void){
+            //functionArray.append(paramClosure)  这样的代码会报错  这个是不接受闭包逃逸的
+            paramClosure()
+        }
+        
+        //调用函数
+        
+        doSomething(paramClosure: {print("Hello world")})
+        
+        doSomething(paramClosure: {print("Hello LvesLi")})
+        
+        //逃逸调用闭包
+        for closurePrama in functionArray {
+            
+            print("\(closurePrama)")
+            
+        }
+        
         
     }
 }

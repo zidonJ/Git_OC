@@ -10,7 +10,7 @@ import Foundation
 
 @objc protocol RunloopEventCaptureDelegate {
     //返回值代表继续执行事件（已经添加的事件）
-    optional func asyncUploadCaptureUserData(data:AnyObject) -> Bool
+    @objc optional func asyncUploadCaptureUserData(data:AnyObject) -> Bool
 }
 
 typealias MyRunLoopWorkDistributionUnit = (Bool) -> Void
@@ -21,7 +21,7 @@ class RunloopEventCapture: NSObject {
     
     override init() {
         super.init()
-        resgistRunloopWork(self)
+        resgistRunloopWork(obj: self)
     }
     
     static let sharedInstace=RunloopEventCapture()
@@ -66,14 +66,14 @@ class RunloopEventCapture: NSObject {
     
     func resgistRunloopWork(obj:RunloopEventCapture) {
         
-        self.registerObserver(CFRunLoopActivity.BeforeWaiting.rawValue, order: INTMAX_MAX-999, mode: kCFRunLoopDefaultMode, info: unsafeBitCast(obj, UnsafeMutablePointer<Void>.self)) { (runLoopObsver, activity, info) in
+        self.registerObserver(activities: CFRunLoopActivity.beforeWaiting.rawValue, order: INTMAX_MAX-999, mode: CFRunLoopMode.defaultMode , info: unsafeBitCast(obj, to: UnsafeMutableRawPointer.self)) { (runLoopObsver, activity, info) in
             
-            RunloopEventCapture.sharedInstace.runLoopWorkDistributionCallback(runLoopObsver, activity: activity, info: info)
+            RunloopEventCapture.sharedInstace.runLoopWorkDistributionCallback(observer: runLoopObsver!, activity: activity, info: info!)
         }
         
     }
     
-    func runLoopWorkDistributionCallback(observer:CFRunLoopObserverRef , activity:CFRunLoopActivity , info:UnsafePointer<Void>) {
+    func runLoopWorkDistributionCallback(observer:CFRunLoopObserver , activity:CFRunLoopActivity , info:UnsafeRawPointer) {
         
         //print(":::",printActivity(activity));
         
@@ -88,7 +88,7 @@ class RunloopEventCapture: NSObject {
                 break
             }
             
-            let isContained:Bool=self.taskContent.contains({ (Obj) -> Bool in
+            let isContained:Bool=self.taskContent.contains(where: { (Obj) -> Bool in
                 
                 if Obj.isEqual(self.captureObjct){
                     return true
@@ -100,23 +100,24 @@ class RunloopEventCapture: NSObject {
             if (isContained) {
                 
                 weak var weakSelf:RunloopEventCapture!=self
-                dispatch_async(dispatch_get_global_queue(0, 0), {
-                    result=weakSelf.delegate?.asyncUploadCaptureUserData!(weakSelf.captureObjct!)
-                    dispatch_async(dispatch_get_main_queue(), { 
+                DispatchQueue.global().async {
+                    result=weakSelf.delegate?.asyncUploadCaptureUserData!(data: weakSelf.captureObjct!)
+                    DispatchQueue.main.async {
                         self.captureObjct=nil
-                    })
-                })
+                    }
+                }
+                
                 
                 break
             }
         }
     }
     
-    func registerObserver(activities:CFOptionFlags, order:CFIndex, mode:CFStringRef, info:UnsafeMutablePointer<Void>, callback:CFRunLoopObserverCallBack ) {
+    func registerObserver(activities:CFOptionFlags, order:CFIndex, mode:CFRunLoopMode, info:UnsafeMutableRawPointer, callback:@escaping CFRunLoopObserverCallBack ) {
         let runLoop:CFRunLoop=CFRunLoopGetCurrent()
-        var context:CFRunLoopObserverContext=CFRunLoopObserverContext.init(version: 0, info: unsafeBitCast(self, UnsafeMutablePointer<Void>.self), retain: nil, release: nil, copyDescription: nil)
+        var context:CFRunLoopObserverContext=CFRunLoopObserverContext.init(version: 0, info: unsafeBitCast(self, to: UnsafeMutableRawPointer.self), retain: nil, release: nil, copyDescription: nil)
         let observer:CFRunLoopObserver=CFRunLoopObserverCreate(nil, activities, true, order, callback, &context)
-        
+//        RunLoop
         CFRunLoopAddObserver(runLoop, observer, mode)
     }
     
@@ -124,22 +125,22 @@ class RunloopEventCapture: NSObject {
     func printActivity(activity:CFRunLoopActivity) ->String{
         var activityDescription:String=""
         switch (activity) {
-        case CFRunLoopActivity.Entry:
+        case CFRunLoopActivity.entry:
             activityDescription = "kCFRunLoopEntry"
             break;
-        case CFRunLoopActivity.BeforeTimers:
+        case CFRunLoopActivity.beforeTimers:
             activityDescription = "kCFRunLoopBeforeTimers"
             break;
-        case CFRunLoopActivity.BeforeSources:
+        case CFRunLoopActivity.beforeSources:
             activityDescription = "kCFRunLoopBeforeSources"
             break;
-        case CFRunLoopActivity.BeforeWaiting:
+        case CFRunLoopActivity.beforeWaiting:
             activityDescription = "kCFRunLoopBeforeWaiting"
             break;
-        case CFRunLoopActivity.AfterWaiting:
+        case CFRunLoopActivity.afterWaiting:
             activityDescription = "kCFRunLoopAfterWaiting"
             break;
-        case CFRunLoopActivity.Exit:
+        case CFRunLoopActivity.exit:
             activityDescription = "kCFRunLoopExit"
             break;
         default:

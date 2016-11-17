@@ -17,45 +17,45 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     
-        let btn:UIButton=UIButton.init(type: UIButtonType.Custom)
+        let btn:UIButton=UIButton.init(type: UIButtonType.custom)
         btn.tag=100
         btn.frame=CGRect(x: 10, y: 20, width: 100, height: 30)
-        btn.backgroundColor=UIColor.redColor()
-        btn.setTitle("测试哈", forState: UIControlState.Normal)
-        btn.addTarget(self, action: #selector(self.testRunloopCapture(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        btn.backgroundColor=UIColor.red
+        btn.setTitle("测试哈", for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(ViewController.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn)
         
-        let btn0:UIButton=UIButton.init(type: UIButtonType.Custom)
+        let btn0:UIButton=UIButton.init(type: UIButtonType.custom)
         btn0.frame=CGRect(x: 10, y: 60, width: 100, height: 30)
         btn0.tag=0
-        btn0.backgroundColor=UIColor.redColor()
-        btn0.setTitle("0", forState: UIControlState.Normal)
-        btn0.addTarget(self, action: #selector(self.testRunloopCapture(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        btn0.backgroundColor=UIColor.red
+        btn0.setTitle("0", for: UIControlState.normal)
+        btn0.addTarget(self, action: #selector(ViewController.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn0)
         
         
-        let btn1:UIButton=UIButton.init(type: UIButtonType.Custom)
+        let btn1:UIButton=UIButton.init(type: UIButtonType.custom)
         btn1.frame=CGRect(x: 10, y: 100, width: 100, height: 30)
         btn1.tag=1
-        btn1.backgroundColor=UIColor.redColor()
-        btn1.setTitle("1", forState: UIControlState.Normal)
-        btn1.addTarget(self, action: #selector(self.testRunloopCapture(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        btn1.backgroundColor=UIColor.red
+        btn1.setTitle("1", for: UIControlState.normal)
+        btn1.addTarget(self, action: #selector(self.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn1)
         
-        let btn2:UIButton=UIButton.init(type: UIButtonType.Custom)
+        let btn2:UIButton=UIButton.init(type: UIButtonType.custom)
         btn2.frame=CGRect(x: 10, y: 160, width: 100, height: 30)
         btn2.tag=2
-        btn2.backgroundColor=UIColor.redColor()
-        btn2.setTitle("2", forState: UIControlState.Normal)
-        btn2.addTarget(self, action: #selector(self.testRunloopCapture(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        btn2.backgroundColor=UIColor.red
+        btn2.setTitle("2", for: UIControlState.normal)
+        btn2.addTarget(self, action: #selector(self.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn2)
         
-        let btn3:UIButton=UIButton.init(type: UIButtonType.Custom)
+        let btn3:UIButton=UIButton.init(type: UIButtonType.custom)
         btn3.frame=CGRect(x: 10, y: 200, width: 100, height: 30)
         btn3.tag=3
-        btn3.backgroundColor=UIColor.redColor()
-        btn3.setTitle("3", forState: UIControlState.Normal)
-        btn3.addTarget(self, action: #selector(self.testRunloopCapture(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        btn3.backgroundColor=UIColor.red
+        btn3.setTitle("3", for: UIControlState.normal)
+        btn3.addTarget(self, action: #selector(self.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn3)
         
         eventCapture.delegate=self
@@ -74,11 +74,11 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate {
         
         for dic in arrayCapture{
             let item:CaptureItem=CaptureItem()
-            item.setValuesForKeysWithDictionary(dic)
+            item.setValuesForKeys(dic)
             dataSource.append(item)
         }
         //添加模型
-        eventCapture.addItemsTask(dataSource)
+        eventCapture.addItemsTask(items: dataSource as NSArray)
     }
     
     func asyncUploadCaptureUserData(data: AnyObject) -> Bool {
@@ -106,15 +106,15 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate {
 
         switch btn.tag {
         case 0:
-            eventCapture.addTask(dataSource[0])
+            eventCapture.addTask(key: dataSource[0])
         case 1:
-            eventCapture.addTask(dataSource[1])
+            eventCapture.addTask(key: dataSource[1])
         case 2:
-            eventCapture.addTask(dataSource[2])
+            eventCapture.addTask(key: dataSource[2])
         case 3:
-            eventCapture.addTask(dataSource[3])
+            eventCapture.addTask(key: dataSource[3])
         default:
-            eventCapture.addTask(dataSource[4])
+            eventCapture.addTask(key: dataSource[4])
         }
         
     }

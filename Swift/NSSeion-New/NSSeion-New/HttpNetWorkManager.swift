@@ -28,7 +28,6 @@ class HttpNetWorkManager: NSObject {
     class func getRequest(_ url:String,params:NSDictionary,complete:([String:AnyObject],NSError) -> Void){
         let operation=HttpRequestOperation.swiftSharedInstance
         operation.postRequest(url, httpBodyData: Serilize.buildParams(params as! [String : AnyObject]).nsdata) { (dict) in
-            
         }
     }
     
@@ -67,7 +66,6 @@ class Serilize: NSObject {
     
     //去掉非法字符
     class func escape(_ string: String) -> String {
-        let legalURLCharactersToBeEscaped: CFString = ":&=;+!@#$()',*" as CFString
-        return CFURLCreateStringByAddingPercentEscapes(nil, string as CFString!, nil, legalURLCharactersToBeEscaped, CFStringBuiltInEncodings.UTF8.rawValue) as String
+        return string.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
     }
 }
