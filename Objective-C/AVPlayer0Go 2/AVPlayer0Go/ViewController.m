@@ -16,7 +16,11 @@
 
 static NSString * const VideoUrl = @"http://mami.wxwork.cn//public//js//test1.mp4";
 
-static NSString * const testUrl = @"http://krtv.qiniudn.com/150522nextapp";
+//http://cdn.ali.video.headlines.ahameet.com/video/5804938ebb8b4d51b6f8b51e
+//http://krtv.qiniudn.com/150522nextapp
+static NSString * const testUrl = @"http://cdn.ali.video.headlines.ahameet.com/video/5804938ebb8b4d51b6f8b51e";
+
+
 
 @interface ViewController ()
 

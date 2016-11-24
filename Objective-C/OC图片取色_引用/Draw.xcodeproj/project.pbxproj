@@ -1,0 +1,320 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E1FE9841442EBD3008F340F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1FE9831442EBD3008F340F /* UIKit.framework */; };
+		4E1FE9861442EBD3008F340F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1FE9851442EBD3008F340F /* Foundation.framework */; };
+		4E1FE9881442EBD3008F340F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E1FE9871442EBD3008F340F /* CoreGraphics.framework */; };
+		4E1FE98E1442EBD3008F340F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4E1FE98C1442EBD3008F340F /* InfoPlist.strings */; };
+		4E1FE9901442EBD3008F340F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FE98F1442EBD3008F340F /* main.m */; };
+		4E1FE9941442EBD3008F340F /* DrawAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FE9931442EBD3008F340F /* DrawAppDelegate.m */; };
+		4E1FE9971442EBD3008F340F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1FE9951442EBD3008F340F /* MainWindow.xib */; };
+		4E1FE99A1442EBD3008F340F /* DrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1FE9991442EBD3008F340F /* DrawViewController.m */; };
+		4E1FE99D1442EBD3008F340F /* DrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E1FE99B1442EBD3008F340F /* DrawViewController.xib */; };
+		4EDFA6A31445FDF20099F85A /* colorBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA6A11445FDF20099F85A /* colorBack.png */; };
+		4EDFA6A41445FDF20099F85A /* roundMask.png in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA6A21445FDF20099F85A /* roundMask.png */; };
+		4EDFA6A8144601280099F85A /* PickColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EDFA6A6144601280099F85A /* PickColorView.m */; };
+		4EDFA6A9144601280099F85A /* PickColorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA6A7144601280099F85A /* PickColorView.xib */; };
+		4EDFA6AB144601470099F85A /* water.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4EDFA6AA144601470099F85A /* water.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4E1FE97F1442EBD3008F340F /* Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E1FE9831442EBD3008F340F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4E1FE9851442EBD3008F340F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4E1FE9871442EBD3008F340F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4E1FE98B1442EBD3008F340F /* Draw-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Draw-Info.plist"; sourceTree = "<group>"; };
+		4E1FE98D1442EBD3008F340F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4E1FE98F1442EBD3008F340F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E1FE9911442EBD3008F340F /* Draw-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Draw-Prefix.pch"; sourceTree = "<group>"; };
+		4E1FE9921442EBD3008F340F /* DrawAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawAppDelegate.h; sourceTree = "<group>"; };
+		4E1FE9931442EBD3008F340F /* DrawAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawAppDelegate.m; sourceTree = "<group>"; };
+		4E1FE9961442EBD3008F340F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		4E1FE9981442EBD3008F340F /* DrawViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawViewController.h; sourceTree = "<group>"; };
+		4E1FE9991442EBD3008F340F /* DrawViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawViewController.m; sourceTree = "<group>"; };
+		4E1FE99C1442EBD3008F340F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DrawViewController.xib; sourceTree = "<group>"; };
+		4EDFA6A11445FDF20099F85A /* colorBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = colorBack.png; sourceTree = "<group>"; };
+		4EDFA6A21445FDF20099F85A /* roundMask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roundMask.png; sourceTree = "<group>"; };
+		4EDFA6A5144601280099F85A /* PickColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickColorView.h; sourceTree = "<group>"; };
+		4EDFA6A6144601280099F85A /* PickColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickColorView.m; sourceTree = "<group>"; };
+		4EDFA6A7144601280099F85A /* PickColorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickColorView.xib; sourceTree = "<group>"; };
+		4EDFA6AA144601470099F85A /* water.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = water.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E1FE97C1442EBD3008F340F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E1FE9841442EBD3008F340F /* UIKit.framework in Frameworks */,
+				4E1FE9861442EBD3008F340F /* Foundation.framework in Frameworks */,
+				4E1FE9881442EBD3008F340F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4E1FE9741442EBD3008F340F = {
+			isa = PBXGroup;
+			children = (
+				4E1FE9891442EBD3008F340F /* Draw */,
+				4E1FE9821442EBD3008F340F /* Frameworks */,
+				4E1FE9801442EBD3008F340F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4E1FE9801442EBD3008F340F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FE97F1442EBD3008F340F /* Draw.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E1FE9821442EBD3008F340F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FE9831442EBD3008F340F /* UIKit.framework */,
+				4E1FE9851442EBD3008F340F /* Foundation.framework */,
+				4E1FE9871442EBD3008F340F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E1FE9891442EBD3008F340F /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				4E1FE9921442EBD3008F340F /* DrawAppDelegate.h */,
+				4E1FE9931442EBD3008F340F /* DrawAppDelegate.m */,
+				4E1FE9951442EBD3008F340F /* MainWindow.xib */,
+				4E1FE9981442EBD3008F340F /* DrawViewController.h */,
+				4E1FE9991442EBD3008F340F /* DrawViewController.m */,
+				4E1FE99B1442EBD3008F340F /* DrawViewController.xib */,
+				4EDFA6A5144601280099F85A /* PickColorView.h */,
+				4EDFA6A6144601280099F85A /* PickColorView.m */,
+				4EDFA6A7144601280099F85A /* PickColorView.xib */,
+				4E1FE98A1442EBD3008F340F /* Supporting Files */,
+			);
+			path = Draw;
+			sourceTree = "<group>";
+		};
+		4E1FE98A1442EBD3008F340F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4EDFA6AA144601470099F85A /* water.jpg */,
+				4EDFA6A11445FDF20099F85A /* colorBack.png */,
+				4EDFA6A21445FDF20099F85A /* roundMask.png */,
+				4E1FE98B1442EBD3008F340F /* Draw-Info.plist */,
+				4E1FE98C1442EBD3008F340F /* InfoPlist.strings */,
+				4E1FE98F1442EBD3008F340F /* main.m */,
+				4E1FE9911442EBD3008F340F /* Draw-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E1FE97E1442EBD3008F340F /* Draw */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E1FE9A01442EBD3008F340F /* Build configuration list for PBXNativeTarget "Draw" */;
+			buildPhases = (
+				4E1FE97B1442EBD3008F340F /* Sources */,
+				4E1FE97C1442EBD3008F340F /* Frameworks */,
+				4E1FE97D1442EBD3008F340F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Draw;
+			productName = Draw;
+			productReference = 4E1FE97F1442EBD3008F340F /* Draw.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E1FE9761442EBD3008F340F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+			};
+			buildConfigurationList = 4E1FE9791442EBD3008F340F /* Build configuration list for PBXProject "Draw" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4E1FE9741442EBD3008F340F;
+			productRefGroup = 4E1FE9801442EBD3008F340F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E1FE97E1442EBD3008F340F /* Draw */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E1FE97D1442EBD3008F340F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E1FE98E1442EBD3008F340F /* InfoPlist.strings in Resources */,
+				4E1FE9971442EBD3008F340F /* MainWindow.xib in Resources */,
+				4E1FE99D1442EBD3008F340F /* DrawViewController.xib in Resources */,
+				4EDFA6A31445FDF20099F85A /* colorBack.png in Resources */,
+				4EDFA6A41445FDF20099F85A /* roundMask.png in Resources */,
+				4EDFA6A9144601280099F85A /* PickColorView.xib in Resources */,
+				4EDFA6AB144601470099F85A /* water.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E1FE97B1442EBD3008F340F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E1FE9901442EBD3008F340F /* main.m in Sources */,
+				4E1FE9941442EBD3008F340F /* DrawAppDelegate.m in Sources */,
+				4E1FE99A1442EBD3008F340F /* DrawViewController.m in Sources */,
+				4EDFA6A8144601280099F85A /* PickColorView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4E1FE98C1442EBD3008F340F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E1FE98D1442EBD3008F340F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4E1FE9951442EBD3008F340F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E1FE9961442EBD3008F340F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		4E1FE99B1442EBD3008F340F /* DrawViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4E1FE99C1442EBD3008F340F /* en */,
+			);
+			name = DrawViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4E1FE99E1442EBD3008F340F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		4E1FE99F1442EBD3008F340F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E1FE9A11442EBD3008F340F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Draw/Draw-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Draw/Draw-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sparkleroll.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4E1FE9A21442EBD3008F340F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Draw/Draw-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				INFOPLIST_FILE = "Draw/Draw-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sparkleroll.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E1FE9791442EBD3008F340F /* Build configuration list for PBXProject "Draw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E1FE99E1442EBD3008F340F /* Debug */,
+				4E1FE99F1442EBD3008F340F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E1FE9A01442EBD3008F340F /* Build configuration list for PBXNativeTarget "Draw" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E1FE9A11442EBD3008F340F /* Debug */,
+				4E1FE9A21442EBD3008F340F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4E1FE9761442EBD3008F340F /* Project object */;
+}
