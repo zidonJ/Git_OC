@@ -11,17 +11,19 @@ import CoreData
 
 class ZDCoreDataStack: NSObject {
     
+    let recordStack:CoreDataConifgration=CoreDataConifgration.instance
+    
     init(dataName:String,storeType:String) {
         super.init()
-        CoreDataConifgration.instance.dataName=dataName
-        CoreDataConifgration.instance.storeType=storeType
+        recordStack.dataName=dataName
+        recordStack.storeType=storeType
     }
     
     
 }
 
 extension ZDCoreDataStack{
-    func insert(paramter:Dictionary<String, Any>) -> Bool {
+    func saveData(paramter:Dictionary<String, Any>) -> Bool {
         return true
     }
 }
