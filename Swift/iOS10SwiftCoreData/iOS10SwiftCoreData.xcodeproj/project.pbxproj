@@ -14,10 +14,13 @@
 		D11C432A1DC194E00064B1B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D11C43281DC194E00064B1B7 /* LaunchScreen.storyboard */; };
 		D11C43351DC194E00064B1B7 /* iOS10SwiftCoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11C43341DC194E00064B1B7 /* iOS10SwiftCoreDataTests.swift */; };
 		D11C43401DC194E00064B1B7 /* iOS10SwiftCoreDataUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11C433F1DC194E00064B1B7 /* iOS10SwiftCoreDataUITests.swift */; };
+		D12F5BBD1DEC158700D1029F /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BB91DEC158700D1029F /* Person+CoreDataClass.swift */; };
+		D12F5BBE1DEC158700D1029F /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BBA1DEC158700D1029F /* Person+CoreDataProperties.swift */; };
+		D12F5BBF1DEC158700D1029F /* Student+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BBB1DEC158700D1029F /* Student+CoreDataClass.swift */; };
+		D12F5BC01DEC158700D1029F /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BBC1DEC158700D1029F /* Student+CoreDataProperties.swift */; };
+		D1421E691DEEC56C0044796D /* CoreDataConifgration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */; };
 		D188CC4E1DD3149200FB94F2 /* ZDCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */; };
 		D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */; };
-		D188CC5A1DD323C700FB94F2 /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188CC581DD323C700FB94F2 /* Person+CoreDataClass.swift */; };
-		D188CC5B1DD323C700FB94F2 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188CC591DD323C700FB94F2 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,10 +54,13 @@
 		D11C433B1DC194E00064B1B7 /* iOS10SwiftCoreDataUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS10SwiftCoreDataUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11C433F1DC194E00064B1B7 /* iOS10SwiftCoreDataUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS10SwiftCoreDataUITests.swift; sourceTree = "<group>"; };
 		D11C43411DC194E00064B1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D12F5BB91DEC158700D1029F /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D12F5BBA1DEC158700D1029F /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D12F5BBB1DEC158700D1029F /* Student+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D12F5BBC1DEC158700D1029F /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConifgration.swift; sourceTree = "<group>"; };
 		D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDCoreDataStack.swift; sourceTree = "<group>"; };
 		D188CC501DD3202400FB94F2 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
-		D188CC581DD323C700FB94F2 /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataClass.swift"; path = "iOS10SwiftCoreData/Person+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D188CC591DD323C700FB94F2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "iOS10SwiftCoreData/Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +91,10 @@
 		D11C43131DC194E00064B1B7 = {
 			isa = PBXGroup;
 			children = (
-				D188CC581DD323C700FB94F2 /* Person+CoreDataClass.swift */,
-				D188CC591DD323C700FB94F2 /* Person+CoreDataProperties.swift */,
+				D12F5BB91DEC158700D1029F /* Person+CoreDataClass.swift */,
+				D12F5BBA1DEC158700D1029F /* Person+CoreDataProperties.swift */,
+				D12F5BBB1DEC158700D1029F /* Student+CoreDataClass.swift */,
+				D12F5BBC1DEC158700D1029F /* Student+CoreDataProperties.swift */,
 				D11C431E1DC194E00064B1B7 /* iOS10SwiftCoreData */,
 				D11C43331DC194E00064B1B7 /* iOS10SwiftCoreDataTests */,
 				D11C433E1DC194E00064B1B7 /* iOS10SwiftCoreDataUITests */,
@@ -110,6 +118,7 @@
 				D11C431F1DC194E00064B1B7 /* AppDelegate.swift */,
 				D11C43211DC194E00064B1B7 /* ViewController.swift */,
 				D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */,
+				D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */,
 				D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */,
 				D11C43231DC194E00064B1B7 /* Main.storyboard */,
 				D11C43261DC194E00064B1B7 /* Assets.xcassets */,
@@ -200,7 +209,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = zidon;
 				TargetAttributes = {
 					D11C431B1DC194E00064B1B7 = {
@@ -272,9 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11C43221DC194E00064B1B7 /* ViewController.swift in Sources */,
+				D1421E691DEEC56C0044796D /* CoreDataConifgration.swift in Sources */,
 				D188CC4E1DD3149200FB94F2 /* ZDCoreDataStack.swift in Sources */,
-				D188CC5B1DD323C700FB94F2 /* Person+CoreDataProperties.swift in Sources */,
-				D188CC5A1DD323C700FB94F2 /* Person+CoreDataClass.swift in Sources */,
+				D12F5BC01DEC158700D1029F /* Student+CoreDataProperties.swift in Sources */,
+				D12F5BBE1DEC158700D1029F /* Person+CoreDataProperties.swift in Sources */,
+				D12F5BBF1DEC158700D1029F /* Student+CoreDataClass.swift in Sources */,
+				D12F5BBD1DEC158700D1029F /* Person+CoreDataClass.swift in Sources */,
 				D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */,
 				D11C43201DC194E00064B1B7 /* AppDelegate.swift in Sources */,
 			);
@@ -349,6 +361,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -399,6 +412,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

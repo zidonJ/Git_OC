@@ -2,7 +2,7 @@
 //  Person+CoreDataProperties.swift
 //  iOS10SwiftCoreData
 //
-//  Created by zidonj on 2016/11/9.
+//  Created by zidonj on 2016/11/28.
 //  Copyright © 2016年 zidon. All rights reserved.
 //
 
@@ -16,8 +16,9 @@ extension Person {
         return NSFetchRequest<Person>(entityName: "Person");
     }
 
+    @NSManaged public var age: Int64
+    @NSManaged public var height: Int64
     @NSManaged public var name: String?
-    @NSManaged public var age: String?
-    @NSManaged public var height: String?
+    @NSManaged public var student: Student?
 
 }

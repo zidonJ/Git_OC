@@ -44,7 +44,6 @@
 		23E13E991D96899000204C82 /* Directory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E8B1D96899000204C82 /* Directory.swift */; };
 		23E13E9A1D96899000204C82 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E8C1D96899000204C82 /* Random.swift */; };
 		23E13E9B1D96899000204C82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E13E8E1D96899000204C82 /* ViewController.swift */; };
-		7F0014DAE56FEBE9A77EB8F3 /* Pods_SugarRecord_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4511BDA74E45A8EA0229D9 /* Pods_SugarRecord_Tests.framework */; };
 		A682778445C166ABA1550ECF /* Pods_SugarRecord_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB6674BDC2C223325C9246F4 /* Pods_SugarRecord_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -98,7 +97,6 @@
 		23E13E8C1D96899000204C82 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		23E13E8E1D96899000204C82 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		43D59494AB8B01F49D62B037 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
-		54DE24CF394C35117CF642A6 /* Pods-SugarRecord_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5B476131E81A65EF61C0905C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* SugarRecord_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SugarRecord_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 		92C812F114142E61803D9DEF /* Pods-SugarRecord_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Example/Pods-SugarRecord_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BB6674BDC2C223325C9246F4 /* Pods_SugarRecord_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4511BDA74E45A8EA0229D9 /* Pods_SugarRecord_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SugarRecord_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EF1427C1C51BC3D125AAFF0F /* Pods-SugarRecord_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SugarRecord_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +121,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F0014DAE56FEBE9A77EB8F3 /* Pods_SugarRecord_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,8 +479,6 @@
 			children = (
 				199B6E9AFF9F22F151FCACD5 /* Pods-SugarRecord_Example.debug.xcconfig */,
 				92C812F114142E61803D9DEF /* Pods-SugarRecord_Example.release.xcconfig */,
-				54DE24CF394C35117CF642A6 /* Pods-SugarRecord_Tests.debug.xcconfig */,
-				EF1427C1C51BC3D125AAFF0F /* Pods-SugarRecord_Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -595,12 +589,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "SugarRecord_Tests" */;
 			buildPhases = (
-				C80BC0F277849B3F17D1036F /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				FE8764C997ACB32CEF47985C /* [CP] Embed Pods Frameworks */,
-				A8EAB62C7C1162F4D92E413F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -714,51 +705,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_Example/Pods-SugarRecord_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A8EAB62C7C1162F4D92E413F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C80BC0F277849B3F17D1036F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		FE8764C997ACB32CEF47985C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SugarRecord_Tests/Pods-SugarRecord_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -936,7 +882,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54DE24CF394C35117CF642A6 /* Pods-SugarRecord_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -956,7 +901,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EF1427C1C51BC3D125AAFF0F /* Pods-SugarRecord_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
