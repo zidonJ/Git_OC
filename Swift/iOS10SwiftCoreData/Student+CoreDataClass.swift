@@ -11,5 +11,7 @@ import CoreData
 
 
 public class Student: NSManagedObject {
-
+    public override func setValue(_ value: Any?, forUndefinedKey key: String) {
+        
+    }
 }

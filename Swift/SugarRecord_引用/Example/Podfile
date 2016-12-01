@@ -1,7 +1,0 @@
-use_frameworks!
-
-target 'SugarRecord_Example' do
-  pod 'SnapKit'
-
-end
-

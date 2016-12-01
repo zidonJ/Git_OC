@@ -17,6 +17,14 @@ class CoreDataConifgration: NSObject {
     var dataName:String?=nil
     var storeType:String?=nil
     
+    public static var stockSQLiteStoreOptions: [AnyHashable: Any] {
+        return [
+            NSMigratePersistentStoresAutomaticallyOption: true,
+            NSInferMappingModelAutomaticallyOption: true,
+            NSSQLitePragmasOption: ["journal_mode": "WAL"]
+        ]
+    }
+    
     //model
     lazy var coreDataModel:NSManagedObjectModel = {
         [weak self] in
@@ -29,11 +37,20 @@ class CoreDataConifgration: NSObject {
     //psc
     lazy var psc:NSPersistentStoreCoordinator={
         [weak self] in
-        //版本迁移
+        //版本迁移 addPersistentStore的最后一个参数options
         let configuration=[NSInferMappingModelAutomaticallyOption:true,NSMigratePersistentStoresAutomaticallyOption:true]
         let tmPsc:NSPersistentStoreCoordinator=NSPersistentStoreCoordinator.init(managedObjectModel: (self?.coreDataModel)!)
+        //(self?.storeType!)!
+        let storeUrl:URL=(self?.storeUrl().appendingPathComponent("swiftCoreData.sqlite"))!
         
-        try! tmPsc.addPersistentStore(ofType: (self?.storeType!)!, configurationName: nil, at: self?.storeUrl(), options: nil)
+        var persistentStore: NSPersistentStore?
+        var error: NSError?
+        do {
+            persistentStore=try tmPsc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeUrl, options: stockSQLiteStoreOptions)
+            
+        }catch let _error as NSError {
+            error = _error
+        }
         return tmPsc
     }()
     //context
@@ -41,14 +58,15 @@ class CoreDataConifgration: NSObject {
         [weak self] in
         let ctxBackGround=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
         ctxBackGround.persistentStoreCoordinator=self?.psc;
-        let mainContext=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
-        mainContext.parent=ctxBackGround
-        return mainContext
+//        let mainContext=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
+//        mainContext.parent=ctxBackGround
+        return ctxBackGround
     }()
     
     func storeUrl() -> URL {
         let fileManager=FileManager.default
         let coreDataFileUrl:URL = try! fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: true)
+        print(coreDataFileUrl)
         return coreDataFileUrl
     }
     

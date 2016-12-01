@@ -134,6 +134,16 @@ class ViewController: UIViewController {
             }
         }
         
+        
+        /// for 循环和区间运算符
+        let a=10,b=12
+        for index in a...b {
+            print(index,"a到b的闭区间")
+        }
+        for index in a..<b {
+            print(index,"a到b的半闭半开区间，包含a但不包含b")
+        }
+        
         let individualScores = [75 , 43, 103, 87, 12]
         var teamScore = 0
         for score in individualScores {
@@ -148,9 +158,12 @@ class ViewController: UIViewController {
         print(airports)
         var dic:Dictionary<Int,String>=[1:"one",2:"two"]
         print("'int'型的key可以么:\(dic)----\(dic[1]!)")
+        
+        
         //字符串--------------------------------------------
         let optionalString: String? = "Hello"
-        print(optionalString)
+        //?? 控制合并运算符
+        print(optionalString ?? "optionalString的值为空")
         var optionalName: String? = "JohnAppleseed"
         optionalName=nil;//即使nil也不会崩溃
         var greeting = "Hello!"
@@ -159,7 +172,7 @@ class ViewController: UIViewController {
         }
         print("-----:\(greeting)")
         
-        //元组
+        //元组3种初始化和使用形式--------------------------------------------
         let student1=("1001","张三",30,"90")
         print("学生:\(student1.1)-学号:\(student1.0)-年龄:\(student1.2)-分数:\(student1.3)")
         
@@ -170,7 +183,7 @@ class ViewController: UIViewController {
         let (userid,userName,height,userAge):(Int,String,Int,Int)=(3004,"zidon",173,28)
         print(userid,userName,height,userAge)
         
-        //switch
+        //switch--------------------------------------------
         let vegetable = "red pepper"
         switch vegetable {
             case "celery":

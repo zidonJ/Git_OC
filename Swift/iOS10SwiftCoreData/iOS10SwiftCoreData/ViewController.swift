@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var page: UITextField!
     @IBOutlet weak var pheight: UITextField!
+    @IBOutlet weak var pname: UITextField!
     @IBOutlet weak var ssex: UITextField!
     @IBOutlet weak var snum: UITextField!
     
-    let dataRecord:ZDCoreDataStack=ZDCoreDataStack.init(dataName: "swift 3.0 ios 10", storeType: NSSQLiteStoreType)
+    let dataRecord:ZDCoreDataStack=ZDCoreDataStack.init(dataName: "Person", storeType: NSSQLiteStoreType)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func saveData(_ sender: UIButton) {
+        //字典的值不可以为nil
+        let img:UIImage=UIImage(named: "2.jpg")!
         
-        let savePerson:Dictionary<String,AnyObject>=["headImage":imageView.image!,"age":page.text as AnyObject,"height":pheight.text! as AnyObject]
-        if dataRecord.saveData(paramter: savePerson)==true{
-            
+        let savePerson:Dictionary<String,Any>=["headImage":UIImageJPEGRepresentation(img, 0.5)!,"age":Int(page.text!)!,"height":Int(pheight.text!)!,"name":pname.text!]
+        
+        let person:Person=NSEntityDescription.insertNewObject(forEntityName: "Person", into: dataRecord.recordStack.context) as! Person
+        if dataRecord.saveData(paramter: savePerson, enity: person) {
+            print("数据存储成功")
         }
-        
     }
     
 }

@@ -19,6 +19,10 @@
 		D12F5BBF1DEC158700D1029F /* Student+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BBB1DEC158700D1029F /* Student+CoreDataClass.swift */; };
 		D12F5BC01DEC158700D1029F /* Student+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12F5BBC1DEC158700D1029F /* Student+CoreDataProperties.swift */; };
 		D1421E691DEEC56C0044796D /* CoreDataConifgration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */; };
+		D1421E6B1DEFC5240044796D /* LookDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1421E6A1DEFC5240044796D /* LookDataViewController.swift */; };
+		D1421E6D1DEFD2930044796D /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D1421E6C1DEFD2930044796D /* 2.jpg */; };
+		D1421E701DEFF3830044796D /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1421E6E1DEFF3830044796D /* DataTableViewCell.swift */; };
+		D1421E711DEFF3830044796D /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1421E6F1DEFF3830044796D /* DataTableViewCell.xib */; };
 		D188CC4E1DD3149200FB94F2 /* ZDCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */; };
 		D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -59,6 +63,10 @@
 		D12F5BBB1DEC158700D1029F /* Student+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D12F5BBC1DEC158700D1029F /* Student+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Student+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConifgration.swift; sourceTree = "<group>"; };
+		D1421E6A1DEFC5240044796D /* LookDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookDataViewController.swift; sourceTree = "<group>"; };
+		D1421E6C1DEFD2930044796D /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		D1421E6E1DEFF3830044796D /* DataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
+		D1421E6F1DEFF3830044796D /* DataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDCoreDataStack.swift; sourceTree = "<group>"; };
 		D188CC501DD3202400FB94F2 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,8 +125,12 @@
 			children = (
 				D11C431F1DC194E00064B1B7 /* AppDelegate.swift */,
 				D11C43211DC194E00064B1B7 /* ViewController.swift */,
+				D1421E6A1DEFC5240044796D /* LookDataViewController.swift */,
+				D1421E6E1DEFF3830044796D /* DataTableViewCell.swift */,
+				D1421E6F1DEFF3830044796D /* DataTableViewCell.xib */,
 				D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */,
 				D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */,
+				D1421E6C1DEFD2930044796D /* 2.jpg */,
 				D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */,
 				D11C43231DC194E00064B1B7 /* Main.storyboard */,
 				D11C43261DC194E00064B1B7 /* Assets.xcassets */,
@@ -253,8 +265,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1421E711DEFF3830044796D /* DataTableViewCell.xib in Resources */,
 				D11C432A1DC194E00064B1B7 /* LaunchScreen.storyboard in Resources */,
 				D11C43271DC194E00064B1B7 /* Assets.xcassets in Resources */,
+				D1421E6D1DEFD2930044796D /* 2.jpg in Resources */,
 				D11C43251DC194E00064B1B7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,8 +299,10 @@
 				D188CC4E1DD3149200FB94F2 /* ZDCoreDataStack.swift in Sources */,
 				D12F5BC01DEC158700D1029F /* Student+CoreDataProperties.swift in Sources */,
 				D12F5BBE1DEC158700D1029F /* Person+CoreDataProperties.swift in Sources */,
+				D1421E6B1DEFC5240044796D /* LookDataViewController.swift in Sources */,
 				D12F5BBF1DEC158700D1029F /* Student+CoreDataClass.swift in Sources */,
 				D12F5BBD1DEC158700D1029F /* Person+CoreDataClass.swift in Sources */,
+				D1421E701DEFF3830044796D /* DataTableViewCell.swift in Sources */,
 				D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */,
 				D11C43201DC194E00064B1B7 /* AppDelegate.swift in Sources */,
 			);
