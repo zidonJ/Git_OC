@@ -17,7 +17,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         //self.myFirstTableView!.registerClass(SwiftTableViewCell.self, forCellReuseIdentifier: "cell")
         //xib的cell
         let nib=UINib(nibName: "SwiftTableViewCell", bundle: nil)
-        self.myFirstTableView!.registerNib(nib, forCellReuseIdentifier: "cell")
+        self.myFirstTableView!.register(nib, forCellReuseIdentifier: "cell")
 //----------------------------------------------------------------------------------
         class People : NSObject
         {
@@ -66,16 +66,16 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
 
     @IBOutlet weak var myFirstTableView: UITableView!
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 20;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell=tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! SwiftTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell=tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! SwiftTableViewCell
         //cell.cellContent.text=String(format: "%d", indexPath.row)
         cell.textContent=String(format: "%d", indexPath.row)
         cell.swiftDelegate=self

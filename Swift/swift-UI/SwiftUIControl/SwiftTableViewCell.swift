@@ -30,7 +30,7 @@ class SwiftTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        var tapGesture=UITapGestureRecognizer(target: self, action: "testFunc:")
+        let tapGesture=UITapGestureRecognizer(target: self, action: Selector(("testFunc:")))
         //tapGesture.numberOfTouchesRequired=2;
         leftImage.addGestureRecognizer(tapGesture)
     }
@@ -40,12 +40,12 @@ class SwiftTableViewCell: UITableViewCell {
         let str=swiftBlock!(cellContent.text!)
         print(str)
         //代理使用
-        swiftDelegate?.swiftDelegateSendObjc("是喜还是忧,都是我的独家感受.爱情或许荒谬,却可以永垂不朽.")
+        swiftDelegate?.swiftDelegateSendObjc(a: "是喜还是忧,都是我的独家感受.爱情或许荒谬,却可以永垂不朽." as AnyObject)
     }
     override func didMoveToWindow() {
         
     }
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
@@ -59,13 +59,13 @@ class SwiftTableViewCell: UITableViewCell {
     
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var cellContent: UILabel!//这样声明的设置文字时可以不用加"!"
-    var _textContent:String?
+    var _textContent111:String?
     var textContent:String?{
         get {
-            return _textContent
+            return _textContent111
         }
         set {
-            _textContent=newValue!
+            _textContent111=newValue!
             updateUI()
         }
 //        willSet{

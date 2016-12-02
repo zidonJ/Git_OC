@@ -12,6 +12,7 @@ import CoreData
 class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     let dataRecord:ZDCoreDataStack=ZDCoreDataStack.init(dataName: "Person", storeType: NSSQLiteStoreType)
+    var dataSource:Array<Any>?=nil
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,10 +21,9 @@ class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         // Do any additional setup after loading the view.
         
-        
         let fetchData:Array<Any>=dataRecord.fetchData(enity: "Person", ascendBy: "age", ascending: false)!
-        print(fetchData)
-        
+        dataSource=fetchData
+        //print(fetchData)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -31,15 +31,16 @@ class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return (dataSource?.count)!
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId="dataCell"
-        var cell=tableView.dequeueReusableCell(withIdentifier: cellId)
+        var cell:DataTableViewCell?=tableView.dequeueReusableCell(withIdentifier: cellId) as? DataTableViewCell
         if cell == nil {
-            cell=Bundle.main.loadNibNamed("DataTableViewCell", owner: self, options: nil)?.last as! UITableViewCell?
+            cell=Bundle.main.loadNibNamed("DataTableViewCell", owner: self, options: nil)?.last as? DataTableViewCell
         }
+        cell?.calculatePert=(dataSource?[indexPath.row] as? Person)!
         return cell!
     }
     @IBAction func back(_ sender: UIButton) {

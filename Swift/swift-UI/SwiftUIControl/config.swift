@@ -10,8 +10,8 @@ import UIKit
 
 class config: NSObject {
 //    override init() {
-        let IS_IOS7:Bool = (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 7.0
-        let IS_IOS8:Bool = (UIDevice.currentDevice().systemVersion as NSString).doubleValue >= 8.0
+        let IS_IOS7:Bool = (UIDevice.current.systemVersion as NSString).doubleValue >= 7.0
+        let IS_IOS8:Bool = (UIDevice.current.systemVersion as NSString).doubleValue >= 8.0
 //    }
 }
 /*

@@ -13,21 +13,10 @@
 		C3FB38F41AF9A5FD00F1A78F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C3FB38F21AF9A5FD00F1A78F /* Main.storyboard */; };
 		C3FB38F61AF9A5FD00F1A78F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C3FB38F51AF9A5FD00F1A78F /* Images.xcassets */; };
 		C3FB38F91AF9A5FD00F1A78F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FB38F71AF9A5FD00F1A78F /* LaunchScreen.xib */; };
-		C3FB39051AF9A5FD00F1A78F /* SwiftUIControlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB39041AF9A5FD00F1A78F /* SwiftUIControlTests.swift */; };
 		C3FB39101AF9CAEE00F1A78F /* SwiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB390E1AF9CAEE00F1A78F /* SwiftTableViewCell.swift */; };
 		C3FB39111AF9CAEE00F1A78F /* SwiftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FB390F1AF9CAEE00F1A78F /* SwiftTableViewCell.xib */; };
 		C3FB39131AF9F0AB00F1A78F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FB39121AF9F0AB00F1A78F /* 1.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C3FB38FF1AF9A5FD00F1A78F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C3FB38E11AF9A5FD00F1A78F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C3FB38E81AF9A5FD00F1A78F;
-			remoteInfo = SwiftUIControl;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C36B05031AFB3DA400D9E29E /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
@@ -38,7 +27,6 @@
 		C3FB38F31AF9A5FD00F1A78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C3FB38F51AF9A5FD00F1A78F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C3FB38F81AF9A5FD00F1A78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C3FB38FE1AF9A5FD00F1A78F /* SwiftUIControlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIControlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FB39031AF9A5FD00F1A78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C3FB39041AF9A5FD00F1A78F /* SwiftUIControlTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIControlTests.swift; sourceTree = "<group>"; };
 		C3FB390E1AF9CAEE00F1A78F /* SwiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTableViewCell.swift; sourceTree = "<group>"; };
@@ -48,13 +36,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		C3FB38E61AF9A5FD00F1A78F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C3FB38FB1AF9A5FD00F1A78F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				C3FB38E91AF9A5FD00F1A78F /* SwiftUIControl.app */,
-				C3FB38FE1AF9A5FD00F1A78F /* SwiftUIControlTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,24 +124,6 @@
 			productReference = C3FB38E91AF9A5FD00F1A78F /* SwiftUIControl.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C3FB38FD1AF9A5FD00F1A78F /* SwiftUIControlTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C3FB390B1AF9A5FD00F1A78F /* Build configuration list for PBXNativeTarget "SwiftUIControlTests" */;
-			buildPhases = (
-				C3FB38FA1AF9A5FD00F1A78F /* Sources */,
-				C3FB38FB1AF9A5FD00F1A78F /* Frameworks */,
-				C3FB38FC1AF9A5FD00F1A78F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C3FB39001AF9A5FD00F1A78F /* PBXTargetDependency */,
-			);
-			name = SwiftUIControlTests;
-			productName = SwiftUIControlTests;
-			productReference = C3FB38FE1AF9A5FD00F1A78F /* SwiftUIControlTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,11 +137,6 @@
 					C3FB38E81AF9A5FD00F1A78F = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0800;
-					};
-					C3FB38FD1AF9A5FD00F1A78F = {
-						CreatedOnToolsVersion = 6.3.1;
-						LastSwiftMigration = 0800;
-						TestTargetID = C3FB38E81AF9A5FD00F1A78F;
 					};
 				};
 			};
@@ -197,7 +154,6 @@
 			projectRoot = "";
 			targets = (
 				C3FB38E81AF9A5FD00F1A78F /* SwiftUIControl */,
-				C3FB38FD1AF9A5FD00F1A78F /* SwiftUIControlTests */,
 			);
 		};
 /* End PBXProject section */
@@ -215,13 +171,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3FB38FC1AF9A5FD00F1A78F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -236,23 +185,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3FB38FA1AF9A5FD00F1A78F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C3FB39051AF9A5FD00F1A78F /* SwiftUIControlTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C3FB39001AF9A5FD00F1A78F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C3FB38E81AF9A5FD00F1A78F /* SwiftUIControl */;
-			targetProxy = C3FB38FF1AF9A5FD00F1A78F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C3FB38F21AF9A5FD00F1A78F /* Main.storyboard */ = {
@@ -383,42 +316,6 @@
 			};
 			name = Release;
 		};
-		C3FB390C1AF9A5FD00F1A78F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwiftUIControlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIControl.app/SwiftUIControl";
-			};
-			name = Debug;
-		};
-		C3FB390D1AF9A5FD00F1A78F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = SwiftUIControlTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftUIControl.app/SwiftUIControl";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -436,15 +333,6 @@
 			buildConfigurations = (
 				C3FB39091AF9A5FD00F1A78F /* Debug */,
 				C3FB390A1AF9A5FD00F1A78F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C3FB390B1AF9A5FD00F1A78F /* Build configuration list for PBXNativeTarget "SwiftUIControlTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C3FB390C1AF9A5FD00F1A78F /* Debug */,
-				C3FB390D1AF9A5FD00F1A78F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
