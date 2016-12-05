@@ -43,6 +43,11 @@ class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell?.calculatePert=(dataSource?[indexPath.row] as? Person)!
         return cell!
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    
     @IBAction func back(_ sender: UIButton) {
         self .dismiss(animated: true, completion: nil)
     }
