@@ -13,6 +13,11 @@ class ZDCoreDataStack: NSObject {
     
     let recordStack:CoreDataConifgration=CoreDataConifgration.instance
     
+    lazy var context:NSManagedObjectContext={
+        [weak self] in
+        return self!.recordStack.context
+    }()
+    
     init(dataName:String,storeType:String) {
         super.init()
         recordStack.dataName=dataName
@@ -32,8 +37,13 @@ extension ZDCoreDataStack{
         return true
     }
     
-    func deleteData() -> Bool {
-        NSEntityDescription.entity(forEntityName: <#T##String#>, in: <#T##NSManagedObjectContext#>)
+    func deleteData(enity:NSManagedObject) -> Bool {
+        self.context.delete(enity)
+        do {
+            try self.context.save()
+        } catch _ {
+            print("删除错误",#line)
+        }
         return true
     }
     
