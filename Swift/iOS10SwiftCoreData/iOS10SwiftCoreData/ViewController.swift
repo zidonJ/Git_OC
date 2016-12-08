@@ -24,6 +24,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("测试stash 存储工作区 指针指向上一次提交")
+        print("测试stash 存储工作区 指针指向上一次提交")
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
