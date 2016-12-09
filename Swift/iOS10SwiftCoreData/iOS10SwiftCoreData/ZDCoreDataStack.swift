@@ -118,7 +118,6 @@ extension ZDCoreDataStack{
         var fetchContent:Array<Any>?=nil
         do {
             fetchContent = try self.recordStack.context.fetch(request)
-            
         } catch _ {
             print("查询错误",#line)
         }
