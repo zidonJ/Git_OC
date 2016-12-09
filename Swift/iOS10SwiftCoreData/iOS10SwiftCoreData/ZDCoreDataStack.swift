@@ -13,24 +13,43 @@ class ZDCoreDataStack: NSObject {
     
     let recordStack:CoreDataConifgration=CoreDataConifgration.instance
     
-    lazy var context:NSManagedObjectContext={
+    lazy var writeContext:NSManagedObjectContext={
         [weak self] in
         return self!.recordStack.context
     }()
+    
+    lazy var mainContext:NSManagedObjectContext={
+        [weak self] in
+        return self!.recordStack.context.parent
+    }()!
     
     init(dataName:String,storeType:String) {
         super.init()
         recordStack.dataName=dataName
         recordStack.storeType=storeType
     }
+    //负责通知parent,parent会知道这些改变.
+    func childContext() -> NSManagedObjectContext {
+        let childMoc=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
+        childMoc.parent=self.mainContext
+        return childMoc
+    }
 }
 
 extension ZDCoreDataStack{
     func saveData(paramter:Dictionary<String, Any>, enity:NSManagedObject) -> Bool {
+        //child moc
+        let childMoc=self.childContext()
         //kvc
         enity.setValuesForKeys(paramter)
         do {
-            try self.recordStack.context.save()
+            try childMoc.perform({
+                do {
+                    try childMoc.save()
+                } catch _{
+                    
+                }
+            })
         } catch _ {
             print("存储失败",#line)
         }
@@ -38,9 +57,9 @@ extension ZDCoreDataStack{
     }
     
     func deleteData(enity:NSManagedObject) -> Bool {
-        self.context.delete(enity)
+        self.writeContext.delete(enity)
         do {
-            try self.context.save()
+            try self.writeContext.save()
         } catch _ {
             print("删除错误",#line)
         }
