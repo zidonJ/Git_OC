@@ -42,17 +42,27 @@ extension ZDCoreDataStack{
         let childMoc=self.childContext()
         //kvc
         enity.setValuesForKeys(paramter)
-        do {
-            try childMoc.perform({
-                do {
-                    try childMoc.save()
-                } catch _{
-                    
-                }
-            })
-        } catch _ {
-            print("存储失败",#line)
-        }
+        
+        childMoc.perform({
+            do {
+                try childMoc.save()
+            } catch _{
+                print("存储失败",#line)
+            }
+            
+            do {
+                try self.mainContext.save()
+            } catch _{
+                print("存储失败",#line)
+            }
+            
+            do {
+                try self.writeContext.save()
+            } catch _{
+                print("存储失败",#line)
+            }
+        })
+        
         return true
     }
     
