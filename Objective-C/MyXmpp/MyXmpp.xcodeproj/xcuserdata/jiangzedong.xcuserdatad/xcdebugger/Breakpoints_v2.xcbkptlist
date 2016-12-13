@@ -128,7 +128,7 @@
             startingLineNumber = "170"
             endingLineNumber = "170"
             landmarkName = "-xmppStream:didReceivePresence:"
-            landmarkType = "5">
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
