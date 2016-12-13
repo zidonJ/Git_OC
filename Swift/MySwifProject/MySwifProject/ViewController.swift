@@ -162,7 +162,7 @@ class ViewController: UIViewController {
         
         //字符串--------------------------------------------
         let optionalString: String? = "Hello"
-        //?? 控制合并运算符
+        //?? 合并运算符 类似于三木运算符
         print(optionalString ?? "optionalString的值为空")
         var optionalName: String? = "JohnAppleseed"
         optionalName=nil;//即使nil也不会崩溃

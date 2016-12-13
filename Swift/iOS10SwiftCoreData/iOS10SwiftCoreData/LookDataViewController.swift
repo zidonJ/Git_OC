@@ -43,6 +43,30 @@ class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDa
         cell?.calculatePert=(dataSource?[indexPath.row] as? Person)!
         return cell!
     }
+    
+    //设置编辑样式
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    //设置删除文字
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "删除"
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            print(self.dataRecord.deleteData(enity: dataSource?[indexPath.row] as! NSManagedObject))
+            self.dataSource?.removeSubrange((self.dataSource?.startIndex)!...0)
+            print(self.dataSource ?? [])
+            self.tableView.reloadData()
+            break
+        default:
+            break
+            
+        }
+    }
+    
     @IBAction func back(_ sender: UIButton) {
         self .dismiss(animated: true, completion: nil)
     }

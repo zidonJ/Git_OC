@@ -56,11 +56,13 @@ class CoreDataConifgration: NSObject {
     //context
     lazy var context:NSManagedObjectContext={
         [weak self] in
+        //write moc
         let ctxBackGround=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
         ctxBackGround.persistentStoreCoordinator=self?.psc;
-//        let mainContext=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.privateQueueConcurrencyType)
-//        mainContext.parent=ctxBackGround
-        return ctxBackGround
+        //main moc
+        let mainContext=NSManagedObjectContext.init(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        mainContext.parent=ctxBackGround
+        return mainContext
     }()
     
     func storeUrl() -> URL {
