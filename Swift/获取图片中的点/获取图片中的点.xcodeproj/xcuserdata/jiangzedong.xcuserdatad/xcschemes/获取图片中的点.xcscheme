@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0730"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D154F1F71DFE3FC8001AAD24"
-               BuildableName = "fresh.app"
-               BlueprintName = "fresh"
-               ReferencedContainer = "container:fresh.xcodeproj">
+               BlueprintIdentifier = "C35494361CD0AA2A00368568"
+               BuildableName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.app"
+               BlueprintName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;"
+               ReferencedContainer = "container:&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D154F2101DFE3FC9001AAD24"
-               BuildableName = "freshTests.xctest"
-               BlueprintName = "freshTests"
-               ReferencedContainer = "container:fresh.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D154F21B1DFE3FC9001AAD24"
-               BuildableName = "freshUITests.xctest"
-               BlueprintName = "freshUITests"
-               ReferencedContainer = "container:fresh.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D154F1F71DFE3FC8001AAD24"
-            BuildableName = "fresh.app"
-            BlueprintName = "fresh"
-            ReferencedContainer = "container:fresh.xcodeproj">
+            BlueprintIdentifier = "C35494361CD0AA2A00368568"
+            BuildableName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.app"
+            BlueprintName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;"
+            ReferencedContainer = "container:&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D154F1F71DFE3FC8001AAD24"
-            BuildableName = "fresh.app"
-            BlueprintName = "fresh"
-            ReferencedContainer = "container:fresh.xcodeproj">
+            BlueprintIdentifier = "C35494361CD0AA2A00368568"
+            BuildableName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.app"
+            BlueprintName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;"
+            ReferencedContainer = "container:&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D154F1F71DFE3FC8001AAD24"
-            BuildableName = "fresh.app"
-            BlueprintName = "fresh"
-            ReferencedContainer = "container:fresh.xcodeproj">
+            BlueprintIdentifier = "C35494361CD0AA2A00368568"
+            BuildableName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.app"
+            BlueprintName = "&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;"
+            ReferencedContainer = "container:&#x83b7;&#x53d6;&#x56fe;&#x7247;&#x4e2d;&#x7684;&#x70b9;.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
