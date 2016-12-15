@@ -34,10 +34,7 @@ class DataTableViewCell: UITableViewCell {
     func updateUI(item:Person)  {
         self.headImage.image=UIImage.init(data:item.headImage!)
         self.name.text=item.value(forKey: "name") as! String?
-//        self.age.text=String.init(format: "%d", item.value(forKey: "age") as! CVarArg)
-        let ageP=item.value(forKey: "age")
-        
-        self.age.text=String.init(format: "%d", ageP as! CVarArg)
+        self.age.text=(item.value(forKey: "age") as! NSNumber).stringValue
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

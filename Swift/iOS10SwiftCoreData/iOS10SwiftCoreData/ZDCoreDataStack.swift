@@ -15,13 +15,13 @@ class ZDCoreDataStack: NSObject {
     
     lazy var writeContext:NSManagedObjectContext={
         [weak self] in
-        return self!.recordStack.context
-    }()
+        return self!.recordStack.context.parent
+    }()!
     
     lazy var mainContext:NSManagedObjectContext={
         [weak self] in
-        return self!.recordStack.context.parent
-    }()!
+        return self!.recordStack.context
+    }()
     
     init(dataName:String,storeType:String) {
         super.init()
@@ -42,24 +42,29 @@ extension ZDCoreDataStack{
         let childMoc=self.childContext()
         //kvc
         enity.setValuesForKeys(paramter)
+        let per:Person=enity as! Person
+        print(per.age,per.name ?? "",#line,"kvc成功")
         
         childMoc.perform({
             do {
                 try childMoc.save()
             } catch _{
                 print("存储失败",#line)
+                return
             }
             
             do {
                 try self.mainContext.save()
             } catch _{
                 print("存储失败",#line)
+                return
             }
             
             do {
                 try self.writeContext.save()
             } catch _{
                 print("存储失败",#line)
+                return
             }
         })
         
