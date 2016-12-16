@@ -17,7 +17,7 @@ class CoreDataConifgration: NSObject {
     var dataName:String?=nil
     var storeType:String?=nil
     
-    //psc配置
+    //psc配置自动版本迁移,适配新的模型
     public static var stockSQLiteStoreOptions: [AnyHashable: Any] {
         return [
             NSMigratePersistentStoresAutomaticallyOption: true,

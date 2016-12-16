@@ -69,6 +69,7 @@
 		D1421E6F1DEFF3830044796D /* DataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DataTableViewCell.xib; sourceTree = "<group>"; };
 		D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDCoreDataStack.swift; sourceTree = "<group>"; };
 		D188CC501DD3202400FB94F2 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
+		D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person_v2.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,9 +578,10 @@
 		D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */,
 				D188CC501DD3202400FB94F2 /* Person.xcdatamodel */,
 			);
-			currentVersion = D188CC501DD3202400FB94F2 /* Person.xcdatamodel */;
+			currentVersion = D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */;
 			path = Person.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -72,6 +72,13 @@ extension ZDCoreDataStack{
     }
     
     func deleteData(enity:NSManagedObject) -> Bool {
+        self.mainContext.delete(enity)
+        do {
+            try self.mainContext.save()
+        } catch _ {
+            print("删除错误",#line)
+            return false
+        }
         self.writeContext.delete(enity)
         do {
             try self.writeContext.save()

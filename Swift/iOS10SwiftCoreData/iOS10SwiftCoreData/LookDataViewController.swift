@@ -57,8 +57,7 @@ class LookDataViewController: UIViewController,UITableViewDelegate,UITableViewDa
         switch editingStyle {
         case .delete:
             print(self.dataRecord.deleteData(enity: dataSource?[indexPath.row] as! NSManagedObject))
-            self.dataSource?.removeSubrange((self.dataSource?.startIndex)!...0)
-            print(self.dataSource ?? [])
+            self.dataSource?.remove(at: indexPath.row)
             self.tableView.reloadData()
             break
         default:

@@ -20,7 +20,10 @@ extension Person {
     @NSManaged public var height: Int64
     @NSManaged public var name: String?
     @NSManaged public var headImage: Data?
+    @NSManaged public var weight: Int64
+    
     @NSManaged public var student: Student?
+    
     
 
     public override func setValue(_ value: Any?, forUndefinedKey key: String) {

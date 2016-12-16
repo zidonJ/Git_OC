@@ -41,7 +41,11 @@ class ViewController: UIViewController {
         //字典的值不可以为nil
         let img:UIImage=UIImage(named: "2.jpg")!
         
-        let savePerson:Dictionary<String,Any>=["headImage":UIImageJPEGRepresentation(img, 0.5)!,"age":Int(page.text!)!,"height":Int(pheight.text!)!,"name":pname.text!]
+        let savePerson:Dictionary<String,Any>=["headImage":UIImageJPEGRepresentation(img, 0.5)!,
+                                               "age":Int(page.text!)!,
+                                               "height":Int(pheight.text!)!,
+                                               "name":pname.text!,
+                                               "weight":snum.text!]
         
         let person:Person=NSEntityDescription.insertNewObject(forEntityName: "Person", into: dataRecord.recordStack.context) as! Person
         if dataRecord.saveData(paramter: savePerson, enity: person) {
