@@ -22,6 +22,8 @@ extension Person {
     @NSManaged public var headImage: Data?
     @NSManaged public var weight: Int64
     
+    @NSManaged public var work: String
+    
     @NSManaged public var student: Student?
     
     

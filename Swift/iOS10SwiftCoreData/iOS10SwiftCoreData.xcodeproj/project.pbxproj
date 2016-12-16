@@ -25,6 +25,7 @@
 		D1421E711DEFF3830044796D /* DataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1421E6F1DEFF3830044796D /* DataTableViewCell.xib */; };
 		D188CC4E1DD3149200FB94F2 /* ZDCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */; };
 		D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */; };
+		D1F951BD1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = D1F951BC1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		D188CC4D1DD3149200FB94F2 /* ZDCoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZDCoreDataStack.swift; sourceTree = "<group>"; };
 		D188CC501DD3202400FB94F2 /* Person.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person.xcdatamodel; sourceTree = "<group>"; };
 		D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person_v2.xcdatamodel; sourceTree = "<group>"; };
+		D1F951B71E03932C002738D2 /* Person_v3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Person_v3.xcdatamodel; sourceTree = "<group>"; };
+		D1F951BC1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = PersonModelPerson_v2_to_v3.xcmappingmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,7 @@
 				D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */,
 				D1421E6C1DEFD2930044796D /* 2.jpg */,
 				D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */,
+				D1F951BC1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel */,
 				D11C43231DC194E00064B1B7 /* Main.storyboard */,
 				D11C43261DC194E00064B1B7 /* Assets.xcassets */,
 				D11C43281DC194E00064B1B7 /* LaunchScreen.storyboard */,
@@ -306,6 +310,7 @@
 				D1421E701DEFF3830044796D /* DataTableViewCell.swift in Sources */,
 				D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */,
 				D11C43201DC194E00064B1B7 /* AppDelegate.swift in Sources */,
+				D1F951BD1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,10 +583,11 @@
 		D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D1F951B71E03932C002738D2 /* Person_v3.xcdatamodel */,
 				D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */,
 				D188CC501DD3202400FB94F2 /* Person.xcdatamodel */,
 			);
-			currentVersion = D1F951B61E038042002738D2 /* Person_v2.xcdatamodel */;
+			currentVersion = D1F951B71E03932C002738D2 /* Person_v3.xcdatamodel */;
 			path = Person.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

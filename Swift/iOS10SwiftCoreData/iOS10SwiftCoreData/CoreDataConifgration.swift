@@ -19,10 +19,10 @@ class CoreDataConifgration: NSObject {
     
     //psc配置自动版本迁移,适配新的模型
     public static var stockSQLiteStoreOptions: [AnyHashable: Any] {
+        //            NSSQLitePragmasOption: ["journal_mode": "WAL"]
         return [
             NSMigratePersistentStoresAutomaticallyOption: true,
-            NSInferMappingModelAutomaticallyOption: true,
-            NSSQLitePragmasOption: ["journal_mode": "WAL"]
+            NSInferMappingModelAutomaticallyOption: false,
         ]
     }
     

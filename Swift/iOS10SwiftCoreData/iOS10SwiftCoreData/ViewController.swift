@@ -45,7 +45,8 @@ class ViewController: UIViewController {
                                                "age":Int(page.text!)!,
                                                "height":Int(pheight.text!)!,
                                                "name":pname.text!,
-                                               "weight":snum.text!]
+                                               "weight":Int(snum.text!) ?? 100,
+                                               "work":ssex.text!]
         
         let person:Person=NSEntityDescription.insertNewObject(forEntityName: "Person", into: dataRecord.recordStack.context) as! Person
         if dataRecord.saveData(paramter: savePerson, enity: person) {

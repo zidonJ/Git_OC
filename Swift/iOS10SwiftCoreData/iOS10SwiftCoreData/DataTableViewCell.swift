@@ -13,6 +13,8 @@ class DataTableViewCell: UITableViewCell {
     @IBOutlet weak var headImage: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var age: UILabel!
+    @IBOutlet weak var weight: UILabel!
+    @IBOutlet weak var work: UILabel!
     
     var person:Person?=nil
     
@@ -35,6 +37,8 @@ class DataTableViewCell: UITableViewCell {
         self.headImage.image=UIImage.init(data:item.headImage!)
         self.name.text=item.value(forKey: "name") as! String?
         self.age.text=(item.value(forKey: "age") as! NSNumber).stringValue
+        self.weight.text=(item.value(forKey: "weight") as! NSNumber).stringValue
+        self.work.text=item.value(forKey: "work") as! String?
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

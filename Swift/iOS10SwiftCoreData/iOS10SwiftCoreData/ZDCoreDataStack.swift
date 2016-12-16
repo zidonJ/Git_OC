@@ -72,6 +72,7 @@ extension ZDCoreDataStack{
     }
     
     func deleteData(enity:NSManagedObject) -> Bool {
+        //先通知UI主线程
         self.mainContext.delete(enity)
         do {
             try self.mainContext.save()
@@ -79,11 +80,13 @@ extension ZDCoreDataStack{
             print("删除错误",#line)
             return false
         }
+        //psc磁盘删除
         self.writeContext.delete(enity)
         do {
             try self.writeContext.save()
         } catch _ {
             print("删除错误",#line)
+            return false
         }
         return true
     }
