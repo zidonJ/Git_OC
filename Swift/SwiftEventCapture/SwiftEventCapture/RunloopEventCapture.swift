@@ -102,18 +102,17 @@ class RunloopEventCapture: NSObject {
                 weak var weakSelf:RunloopEventCapture!=self
                 DispatchQueue.global().async {
                     result=weakSelf.delegate?.asyncUploadCaptureUserData!(data: weakSelf.captureObjct!)
-                    DispatchQueue.main.async {
-                        self.captureObjct=nil
-                    }
+//                    DispatchQueue.main.async {
+//                        self.captureObjct=nil
+//                    }
                 }
-                
                 
                 break
             }
         }
     }
     
-    func registerObserver(activities:CFOptionFlags, order:CFIndex, mode:CFRunLoopMode, info:UnsafeMutableRawPointer, callback:@escaping CFRunLoopObserverCallBack ) {
+    func registerObserver(activities:CFOptionFlags, order:CFIndex, mode:CFRunLoopMode, info:UnsafeMutableRawPointer, callback:@escaping CFRunLoopObserverCallBack) {
         let runLoop:CFRunLoop=CFRunLoopGetCurrent()
         var context:CFRunLoopObserverContext=CFRunLoopObserverContext.init(version: 0, info: unsafeBitCast(self, to: UnsafeMutableRawPointer.self), retain: nil, release: nil, copyDescription: nil)
         let observer:CFRunLoopObserver=CFRunLoopObserverCreate(nil, activities, true, order, callback, &context)

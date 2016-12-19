@@ -83,7 +83,7 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate {
     
     func asyncUploadCaptureUserData(data: AnyObject) -> Bool {
         let item:CaptureItem=data as! CaptureItem
-        print("上传的用户数据",":",data,"->:",item.timereavl)
+        print("上传的用户数据",":",data,"->:",item.timereavl ?? "没有",item.eventId ?? "",#line)
         return true
     }
     
