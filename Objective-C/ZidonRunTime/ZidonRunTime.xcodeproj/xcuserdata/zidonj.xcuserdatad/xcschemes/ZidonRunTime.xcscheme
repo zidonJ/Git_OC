@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D12DAD121DE7DF9A00E7253E"
-               BuildableName = "IrregularGridCollection.app"
-               BlueprintName = "IrregularGridCollection"
-               ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
+               BlueprintIdentifier = "72BFF0AC1A6CEC8C00ACF76B"
+               BuildableName = "ZidonRunTime.app"
+               BlueprintName = "ZidonRunTime"
+               ReferencedContainer = "container:ZidonRunTime.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D12DAD2B1DE7DF9A00E7253E"
-               BuildableName = "IrregularGridCollectionTests.xctest"
-               BlueprintName = "IrregularGridCollectionTests"
-               ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D12DAD361DE7DF9A00E7253E"
-               BuildableName = "IrregularGridCollectionUITests.xctest"
-               BlueprintName = "IrregularGridCollectionUITests"
-               ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
+               BlueprintIdentifier = "72BFF0C51A6CEC8C00ACF76B"
+               BuildableName = "ZidonRunTimeTests.xctest"
+               BlueprintName = "ZidonRunTimeTests"
+               ReferencedContainer = "container:ZidonRunTime.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D12DAD121DE7DF9A00E7253E"
-            BuildableName = "IrregularGridCollection.app"
-            BlueprintName = "IrregularGridCollection"
-            ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
+            BlueprintIdentifier = "72BFF0AC1A6CEC8C00ACF76B"
+            BuildableName = "ZidonRunTime.app"
+            BlueprintName = "ZidonRunTime"
+            ReferencedContainer = "container:ZidonRunTime.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D12DAD121DE7DF9A00E7253E"
-            BuildableName = "IrregularGridCollection.app"
-            BlueprintName = "IrregularGridCollection"
-            ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
+            BlueprintIdentifier = "72BFF0AC1A6CEC8C00ACF76B"
+            BuildableName = "ZidonRunTime.app"
+            BlueprintName = "ZidonRunTime"
+            ReferencedContainer = "container:ZidonRunTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D12DAD121DE7DF9A00E7253E"
-            BuildableName = "IrregularGridCollection.app"
-            BlueprintName = "IrregularGridCollection"
-            ReferencedContainer = "container:IrregularGridCollection.xcodeproj">
+            BlueprintIdentifier = "72BFF0AC1A6CEC8C00ACF76B"
+            BuildableName = "ZidonRunTime.app"
+            BlueprintName = "ZidonRunTime"
+            ReferencedContainer = "container:ZidonRunTime.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

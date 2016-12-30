@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController , RunloopEventCaptureDelegate {
+class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableViewDelegate,UITableViewDataSource{
 
     var eventCapture:RunloopEventCapture=RunloopEventCapture.sharedInstace
     var dataSource:Array=[AnyObject]()
@@ -117,6 +117,20 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate {
             eventCapture.addTask(key: dataSource[4])
         }
         
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellId="cell"
+        var cell:UITableViewCell=tableView.dequeueReusableCell(withIdentifier: cellId)
+        if cell == nil {
+            cell=UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellId)
+        }
+        return cell
     }
 }
 

@@ -26,6 +26,17 @@ class CoreDataConifgration: NSObject {
         ]
     }
     
+    //Container
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "Person")
+        container.loadPersistentStores(completionHandler: { [weak self](storeDescription, error) in
+            if let error = error {
+                
+            }
+        })
+        return container
+    }()
+    
     //model
     lazy var coreDataModel:NSManagedObjectModel = {
         [weak self] in

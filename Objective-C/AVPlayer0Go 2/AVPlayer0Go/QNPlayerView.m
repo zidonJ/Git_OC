@@ -147,7 +147,7 @@ void *QNPlayer =&QNPlayer;
             
             [_player pause];
             _timeScale = playerItem.currentTime.timescale;
-            [self videoImage:CMTimeMake(0, _timeScale)];
+            //[self videoImage:CMTimeMake(0, _timeScale)];
             CMTime duration = _player.currentItem.duration;
             _totalTime=(long)CMTimeGetSeconds(duration);//总时间
             

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TestObjectNameViewController.h"
 #import <objc/runtime.h>
 
 #define CustomFormat(a,b) [NSString stringWithFormat:a,b]
@@ -20,6 +21,8 @@
 @property (nonatomic,strong) Class testRuntimeClass;
 
 @property (nonatomic,copy) NSString *itest;
+
+@property (nonatomic,strong) TestObjectNameViewController *test;
 
 @end
 
@@ -37,6 +40,10 @@
     NSLog(@"1%s",object_getClassName(_test1));
     NSLog(@"2%@",object_getClass(_test1));
     [self testReplaceMethod];
+    
+//    NSObject
+    
+    _test=[[TestObjectNameViewController alloc] init];
 }
 //执行发发，指针函数
 IMP orginIMP;
