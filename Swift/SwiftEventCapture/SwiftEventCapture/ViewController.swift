@@ -19,14 +19,14 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
     
         let btn:UIButton=UIButton.init(type: UIButtonType.custom)
         btn.tag=100
-        btn.frame=CGRect(x: 10, y: 20, width: 100, height: 30)
+        btn.frame=CGRect(x: 10, y: 60, width: 100, height: 30)
         btn.backgroundColor=UIColor.red
         btn.setTitle("测试哈", for: UIControlState.normal)
         btn.addTarget(self, action: #selector(ViewController.testRunloopCapture(btn:)), for: UIControlEvents.touchUpInside)
         self.view.addSubview(btn)
         
         let btn0:UIButton=UIButton.init(type: UIButtonType.custom)
-        btn0.frame=CGRect(x: 10, y: 60, width: 100, height: 30)
+        btn0.frame=CGRect(x: 10, y: 100, width: 100, height: 30)
         btn0.tag=0
         btn0.backgroundColor=UIColor.red
         btn0.setTitle("0", for: UIControlState.normal)
@@ -35,7 +35,7 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
         
         
         let btn1:UIButton=UIButton.init(type: UIButtonType.custom)
-        btn1.frame=CGRect(x: 10, y: 100, width: 100, height: 30)
+        btn1.frame=CGRect(x: 10, y: 140, width: 100, height: 30)
         btn1.tag=1
         btn1.backgroundColor=UIColor.red
         btn1.setTitle("1", for: UIControlState.normal)
@@ -43,7 +43,7 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
         self.view.addSubview(btn1)
         
         let btn2:UIButton=UIButton.init(type: UIButtonType.custom)
-        btn2.frame=CGRect(x: 10, y: 160, width: 100, height: 30)
+        btn2.frame=CGRect(x: 10, y: 200, width: 100, height: 30)
         btn2.tag=2
         btn2.backgroundColor=UIColor.red
         btn2.setTitle("2", for: UIControlState.normal)
@@ -51,7 +51,7 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
         self.view.addSubview(btn2)
         
         let btn3:UIButton=UIButton.init(type: UIButtonType.custom)
-        btn3.frame=CGRect(x: 10, y: 200, width: 100, height: 30)
+        btn3.frame=CGRect(x: 10, y: 240, width: 100, height: 30)
         btn3.tag=3
         btn3.backgroundColor=UIColor.red
         btn3.setTitle("3", for: UIControlState.normal)
@@ -126,11 +126,11 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId="cell"
-        var cell:UITableViewCell=tableView.dequeueReusableCell(withIdentifier: cellId)
+        var cell:UITableViewCell?=tableView.dequeueReusableCell(withIdentifier: cellId)
         if cell == nil {
             cell=UITableViewCell.init(style: UITableViewCellStyle.default, reuseIdentifier: cellId)
         }
-        return cell
+        return cell!
     }
 }
 
