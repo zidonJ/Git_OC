@@ -18,6 +18,9 @@
 
 @property (nonatomic,copy) NSString *str;
 
+@property (weak, nonatomic) IBOutlet UITextField *name;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @end
 
 @implementation ViewController
@@ -62,11 +65,11 @@
         return nil;
     }];
     
-    RACSignal *validUsernameSignal = [self.usernameTextField.rac_textSignal map:^id(NSString *text) {
+    RACSignal *validUsernameSignal = [self.name.rac_textSignal map:^id(NSString *text) {
         return @([self isValidUsername:text]);
     }];
     
-    RACSignal *validPasswordSignal = [self.passwordTextField.rac_textSignal map:^id(NSString *text) {
+    RACSignal *validPasswordSignal = [self.password.rac_textSignal map:^id(NSString *text) {
         return @([self isValidPassword:text]);
     }];
     
@@ -76,12 +79,12 @@
     //         self.passwordTextField.backgroundColor = color;
     //    }];
     
-    RAC(self.passwordTextField, backgroundColor) = [validPasswordSignal map:^id(NSNumber *passwordValid){
-        return [passwordValid boolValue] ? [UIColor clearColor]:[UIColor yellowColor];
+    RAC(self.password, backgroundColor) = [validPasswordSignal map:^id(NSNumber *passwordValid){
+        return [passwordValid boolValue] ? [UIColor whiteColor]:[UIColor yellowColor];
     }];
     
-    RAC(self.usernameTextField, backgroundColor) = [validUsernameSignal map:^id(NSNumber *passwordValid){
-        return [passwordValid boolValue] ? [UIColor clearColor]:[UIColor yellowColor];
+    RAC(self.name, backgroundColor) = [validUsernameSignal map:^id(NSNumber *passwordValid){
+        return [passwordValid boolValue] ? [UIColor whiteColor]:[UIColor yellowColor];
     }];
     
     RACSignal *signUpActiveSignal =
@@ -90,13 +93,20 @@
                           return @([usernameValid boolValue]&&[passwordValid boolValue]);
                       }];
     [signUpActiveSignal subscribeNext:^(NSNumber *signupActive) {
-        self.signInButton.enabled =[signupActive boolValue];
+        self.loginButton.enabled =[signupActive boolValue];
     }];
     
-    [[self.signInButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         NSLog(@"button clicked");
     }];
-    
+}
+
+- (BOOL)isValidUsername:(NSString *)username {
+    return username.length > 3;
+}
+
+- (BOOL)isValidPassword:(NSString *)password {
+    return password.length > 3;
 }
 
 - (IBAction)click:(id)sender {
@@ -104,11 +114,5 @@
     self.str=@"if you";
     self.imgView.image=[UIImage imageNamed:@"11"];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 @end

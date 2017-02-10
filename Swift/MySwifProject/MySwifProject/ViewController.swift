@@ -19,19 +19,22 @@ class ViewController: UIViewController {
         print("hello world",swt)
         //修改字符串
         var str:String!="说好破晓前忘掉"
-    
         print("字符串索引位置的字符:",str[str.startIndex],str[str.index(before: str.endIndex)])
         //插入字符串
         str.insert(contentsOf: "花田里犯了错,".characters, at: str.startIndex)
         str.insert(".", at: str.endIndex)//插入字符
+        
         print("可变字符串:",str)
         
         //"endIndex" 是末尾0的位置 往左一次递减,是负数
-//        let range = str.endIndex.
-//        let range = str.endIndex.advancedBy(n: -6)..<str.endIndex
-//        str.removeRange(range)
-//        print("移除子字符串:",str)
+        
+//        str.removeSubrange(str.startIndex...str.index(str.endIndex, offsetBy: -5))
+        
+        str.removeSubrange(Range.init(uncheckedBounds: (lower: str.index(str.startIndex, offsetBy: 1), upper: str.index(str.endIndex, offsetBy: 0))))
+        print("Range方式:",str)
+        
         str.remove(at: str.index(before: str.endIndex))
+        
         print("移除单个字符:",str)
         
         //字符串比较

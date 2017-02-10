@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B4B33F077EC3322D7AFE431 /* Pods_SwiftUIControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 264D094EC825725B18CCF348 /* Pods_SwiftUIControl.framework */; };
 		C36B05041AFB3DA400D9E29E /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05031AFB3DA400D9E29E /* config.swift */; };
 		C3FB38EF1AF9A5FD00F1A78F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB38EE1AF9A5FD00F1A78F /* AppDelegate.swift */; };
 		C3FB38F11AF9A5FD00F1A78F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB38F01AF9A5FD00F1A78F /* ViewController.swift */; };
@@ -16,9 +17,16 @@
 		C3FB39101AF9CAEE00F1A78F /* SwiftTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3FB390E1AF9CAEE00F1A78F /* SwiftTableViewCell.swift */; };
 		C3FB39111AF9CAEE00F1A78F /* SwiftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FB390F1AF9CAEE00F1A78F /* SwiftTableViewCell.xib */; };
 		C3FB39131AF9F0AB00F1A78F /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = C3FB39121AF9F0AB00F1A78F /* 1.png */; };
+		D1898D301E2DFD8000119495 /* AutoLayoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1898D2F1E2DFD8000119495 /* AutoLayoutController.swift */; };
+		D1898D321E2DFDC600119495 /* NetWorkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1898D311E2DFDC600119495 /* NetWorkController.swift */; };
+		D1898D381E2E006C00119495 /* ReactiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1898D371E2E006C00119495 /* ReactiveViewController.swift */; };
+		D1898D3A1E309DBB00119495 /* NBPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1898D391E309DBB00119495 /* NBPointer.swift */; };
+		D1898D3C1E309F2800119495 /* NBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1898D3B1E309F2800119495 /* NBModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		264D094EC825725B18CCF348 /* Pods_SwiftUIControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftUIControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B73287B0671411E111B4F03F /* Pods-SwiftUIControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUIControl/Pods-SwiftUIControl.debug.xcconfig"; sourceTree = "<group>"; };
 		C36B05031AFB3DA400D9E29E /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		C3FB38E91AF9A5FD00F1A78F /* SwiftUIControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3FB38ED1AF9A5FD00F1A78F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +40,12 @@
 		C3FB390E1AF9CAEE00F1A78F /* SwiftTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftTableViewCell.swift; sourceTree = "<group>"; };
 		C3FB390F1AF9CAEE00F1A78F /* SwiftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwiftTableViewCell.xib; sourceTree = "<group>"; };
 		C3FB39121AF9F0AB00F1A78F /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		D1898D2F1E2DFD8000119495 /* AutoLayoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoLayoutController.swift; sourceTree = "<group>"; };
+		D1898D311E2DFDC600119495 /* NetWorkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkController.swift; sourceTree = "<group>"; };
+		D1898D371E2E006C00119495 /* ReactiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReactiveViewController.swift; sourceTree = "<group>"; };
+		D1898D391E309DBB00119495 /* NBPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBPointer.swift; sourceTree = "<group>"; };
+		D1898D3B1E309F2800119495 /* NBModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBModel.swift; sourceTree = "<group>"; };
+		D1AAB6082D7C2148AB283D51 /* Pods-SwiftUIControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftUIControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftUIControl/Pods-SwiftUIControl.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,18 +53,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B4B33F077EC3322D7AFE431 /* Pods_SwiftUIControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59CDB1B5A93BD72E619B8A66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				264D094EC825725B18CCF348 /* Pods_SwiftUIControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6258BA1A8331B4E4A9983E52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B73287B0671411E111B4F03F /* Pods-SwiftUIControl.debug.xcconfig */,
+				D1AAB6082D7C2148AB283D51 /* Pods-SwiftUIControl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C3FB38E01AF9A5FD00F1A78F = {
 			isa = PBXGroup;
 			children = (
 				C3FB38EB1AF9A5FD00F1A78F /* SwiftUIControl */,
 				C3FB39011AF9A5FD00F1A78F /* SwiftUIControlTests */,
 				C3FB38EA1AF9A5FD00F1A78F /* Products */,
+				6258BA1A8331B4E4A9983E52 /* Pods */,
+				59CDB1B5A93BD72E619B8A66 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +101,11 @@
 			children = (
 				C3FB38EE1AF9A5FD00F1A78F /* AppDelegate.swift */,
 				C3FB38F01AF9A5FD00F1A78F /* ViewController.swift */,
+				D1898D371E2E006C00119495 /* ReactiveViewController.swift */,
+				D1898D2F1E2DFD8000119495 /* AutoLayoutController.swift */,
+				D1898D311E2DFDC600119495 /* NetWorkController.swift */,
+				D1898D3B1E309F2800119495 /* NBModel.swift */,
+				D1898D391E309DBB00119495 /* NBPointer.swift */,
 				C3FB390E1AF9CAEE00F1A78F /* SwiftTableViewCell.swift */,
 				C36B05031AFB3DA400D9E29E /* config.swift */,
 				C3FB39121AF9F0AB00F1A78F /* 1.png */,
@@ -111,9 +150,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C3FB39081AF9A5FD00F1A78F /* Build configuration list for PBXNativeTarget "SwiftUIControl" */;
 			buildPhases = (
+				357646242164E7241CBB05A3 /* [CP] Check Pods Manifest.lock */,
 				C3FB38E51AF9A5FD00F1A78F /* Sources */,
 				C3FB38E61AF9A5FD00F1A78F /* Frameworks */,
 				C3FB38E71AF9A5FD00F1A78F /* Resources */,
+				061D5C64215F994C3E7EA268 /* [CP] Embed Pods Frameworks */,
+				9E9D05640A608BAED8FDE7FA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,7 +173,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = zidon;
 				TargetAttributes = {
 					C3FB38E81AF9A5FD00F1A78F = {
@@ -173,14 +215,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		061D5C64215F994C3E7EA268 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftUIControl/Pods-SwiftUIControl-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		357646242164E7241CBB05A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9E9D05640A608BAED8FDE7FA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftUIControl/Pods-SwiftUIControl-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C3FB38E51AF9A5FD00F1A78F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1898D301E2DFD8000119495 /* AutoLayoutController.swift in Sources */,
 				C3FB38F11AF9A5FD00F1A78F /* ViewController.swift in Sources */,
+				D1898D321E2DFDC600119495 /* NetWorkController.swift in Sources */,
+				D1898D3A1E309DBB00119495 /* NBPointer.swift in Sources */,
+				D1898D381E2E006C00119495 /* ReactiveViewController.swift in Sources */,
 				C36B05041AFB3DA400D9E29E /* config.swift in Sources */,
 				C3FB39101AF9CAEE00F1A78F /* SwiftTableViewCell.swift in Sources */,
+				D1898D3C1E309F2800119495 /* NBModel.swift in Sources */,
 				C3FB38EF1AF9A5FD00F1A78F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,14 +315,17 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -265,8 +363,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -285,6 +385,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -292,12 +393,14 @@
 		};
 		C3FB39091AF9A5FD00F1A78F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B73287B0671411E111B4F03F /* Pods-SwiftUIControl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/zidon/Desktop/MySwift/SwiftUI/SwiftUIControl/SwiftUIControl/UIControl-PrefixHeader.pch";
 				INFOPLIST_FILE = SwiftUIControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "QN.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -305,12 +408,14 @@
 		};
 		C3FB390A1AF9A5FD00F1A78F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1AAB6082D7C2148AB283D51 /* Pods-SwiftUIControl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/zidon/Desktop/MySwift/SwiftUI/SwiftUIControl/SwiftUIControl/UIControl-PrefixHeader.pch";
 				INFOPLIST_FILE = SwiftUIControl/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "QN.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

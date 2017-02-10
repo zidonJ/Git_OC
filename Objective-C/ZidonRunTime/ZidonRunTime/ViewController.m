@@ -31,7 +31,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     _test1=@"1";
     _test2=@"2";
     _test3=[[NSData alloc] init];
@@ -40,8 +39,6 @@
     NSLog(@"1%s",object_getClassName(_test1));
     NSLog(@"2%@",object_getClass(_test1));
     [self testReplaceMethod];
-    
-//    NSObject
     
     _test=[[TestObjectNameViewController alloc] init];
 }
@@ -178,6 +175,61 @@ static void testMethod(id self, SEL _cmd) //self和_cmd是必须的，在之后�
     [self setValue:@"andrew" forKey:propertyName];
     //成功打印出结果
     NSLog(@"%@--%@", propertyName,[self valueForKey:@"testProperty"]);
+}
+
+/*********** 方法调用原理 ****************/
+void dynamicMethodIMP(id self, SEL _cmd)
+{
+    
+}
+/*
+ 第一次机会
+ 允许用户在此时为该 Class 动态添加实现。如果有实现了，则调用并返回YES，那么重新开始objc_msgSend流程。
+ 这一次对象会响应这个选择器，一般是因为它已经调用过class_addMethod。如果仍没实现，继续下面的动作。
+ */
++(BOOL)resolveClassMethod:(SEL)sel
+{
+    if(sel == @selector(nilSymbol)){
+        class_addMethod([self class],sel,(IMP)dynamicMethodIMP,"v@:");
+        return YES;
+    }
+    return [super resolveInstanceMethod:sel];
+}
+/*
+ 第二次机会,方法转发,返回一个可以执行这个方法的对象
+ */
+-(id)forwardingTargetForSelector:(SEL)aSelector
+{
+    return [NSObject new];
+}
+
+- (void)anotherTest {
+    NSLog(@"另一个test方法");
+}
+/*
+ 方法签名验证
+ */
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    
+    if (!signature) {  // 如果不能处理这个方法
+        if ([self respondsToSelector:@selector(anotherTest)]) {
+            // 返回另一个函数的方法签名,这个函数不一定要定义在本类中
+            signature =  [ViewController instanceMethodSignatureForSelector:@selector(anotherTest)];
+        }
+    }
+    return signature;
+}
+
+/**
+ *  这个函数中可以修改很多信息，比如可以替换选方法的处理者，替换选择子，修改参数等等
+ *
+ *  @param anInvocation 被转发的选择子
+ */
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    [anInvocation setSelector:@selector(anotherTest)];  // 设置需要调用的选择子
+    [anInvocation invokeWithTarget:self];  // 设置消息的接收者，不一定必须是self
 }
 
 @end

@@ -54,7 +54,7 @@ class BlockViewController: UIViewController {
 //        let sortNumbers = numbers.sort({number1,number2 in number1>number2})
        
         //闭包变形3
-//        let sortNumbers = numbers.sort({$0>$1})
+//        let sortNumbers = numbers.sorted(by: {$0>$1})
         
         //闭包变形4
         let sortNumbers = numbers.sorted()
