@@ -66,6 +66,8 @@ class BlockViewController: UIViewController {
             var blockProperty : (Int,Int) -> String = {
                 a,b in return String(a+b)/**/
             } // 带初始化方式
+            
+            
             var blockPropertyNoReturn : (String) -> () = {
                 param in
                 print("block打印参数:\(param)")
@@ -229,7 +231,6 @@ class BlockViewController: UIViewController {
         
         })
 
-        
         bk.testBlockA(blockfunc: {
             (a:Int,b:Int) -> String in
             let c = a*400+b*1000

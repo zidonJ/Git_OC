@@ -64,10 +64,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uhW-CC-J4W">
+                                <rect key="frame" x="161" y="28" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drive" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVe-eB-Zbv">
+                                <rect key="frame" x="166" y="69" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.85238405880000001" green="0.87043875709999996" blue="0.89921834769999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="driveField" destination="uhW-CC-J4W" id="wiG-j6-Tt1"/>
+                        <outlet property="driveLabel" destination="kVe-eB-Zbv" id="2bH-lW-LIQ"/>
                         <outlet property="result" destination="394-Y9-eKD" id="N9R-xd-beK"/>
                         <outlet property="txf1" destination="JBy-1c-nRr" id="RCu-We-yM0"/>
                         <outlet property="txf2" destination="lyi-c4-i6B" id="Ezb-wR-YHb"/>
@@ -76,7 +92,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="330.39999999999998" y="142.57871064467767"/>
+            <point key="canvasLocation" x="4" y="147.97601199400302"/>
         </scene>
     </scenes>
 </document>
