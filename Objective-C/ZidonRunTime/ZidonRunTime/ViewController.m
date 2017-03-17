@@ -9,12 +9,30 @@
 #import "ViewController.h"
 #import "TestObjectNameViewController.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
+#import <Block.h>
+#import "TestObjectNameViewController.h"
 
 #define CustomFormat(a,b) [NSString stringWithFormat:a,b]
 
+
+
+/**
+ 
+ 系统IMP默认是有返回值的,这样用IMP获取没有返回值的方法调用就会崩溃,
+ 所以定义了一个没有返回值的指针函数来获取调用
+ 
+ 分析这样一个声明,void (*VIMP) (id,SEL,...);
+ 虽然()的优先级高于*,但由于有括号存在,首先执行的是解引用,
+ 所以VIMP是一个指针;接下来执行(id,SEL,...)表明指针‘VIMP’指向一个函数,
+ 这个函数不返回任何值。
+ @param VIMP 指针
+ */
+typedef void (*VIMP) (id,SEL,...);
+
 @interface ViewController ()
 {
-    
+    TestObjectNameViewController *_testObj;
 }
 @property (nonatomic,strong) id testRuntimeAddClass;
 
@@ -24,9 +42,15 @@
 
 @property (nonatomic,strong) TestObjectNameViewController *test;
 
+
 @end
 
 @implementation ViewController
+
+-(void)msgSendTest:(NSInteger)tp tp2:(NSString *)str
+{
+    NSLog(@"%ld_%@",tp,str);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +65,13 @@
     [self testReplaceMethod];
     
     _test=[[TestObjectNameViewController alloc] init];
+    objc_msgSend(self, @selector(msgSendTest:tp2:), 2,@"you sister");
+    
+    //可以达到和objc_msgSend相同的效果
+    VIMP imp = (VIMP)[self methodForSelector:@selector(msgSendTest:tp2:)];
+    
+    imp(self,@selector(msgSendTest:tp2:),5,@"jojo");
+    
 }
 //执行发发，指针函数
 IMP orginIMP;

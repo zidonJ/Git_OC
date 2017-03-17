@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+-(void)msgSendTest:(NSNumber *)tp tp2:(NSString *)str;
 
 @end
 

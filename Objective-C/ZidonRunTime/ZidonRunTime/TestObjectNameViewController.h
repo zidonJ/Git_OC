@@ -10,4 +10,6 @@
 
 @interface TestObjectNameViewController : UIViewController
 
+@property (nonatomic,copy) NSString *str;
+
 @end

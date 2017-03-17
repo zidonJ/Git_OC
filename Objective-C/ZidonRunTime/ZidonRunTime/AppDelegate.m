@@ -14,6 +14,10 @@
 
 @implementation AppDelegate
 
+-(void)msgSendTest:(NSNumber *)tp tp2:(NSString *)str
+{
+    NSLog(@"%ld_%@",tp,str);
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
