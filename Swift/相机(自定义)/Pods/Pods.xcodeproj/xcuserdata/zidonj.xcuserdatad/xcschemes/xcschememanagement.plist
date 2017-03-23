@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-相机(自定义).xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DADEDA1CAB9F998932ABF08230D4BFAB</key>
+		<key>2EFDFC6703DCA1E0063D87C0057FEE08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB57BAD769666D2CD91B650DB10CB847</key>
+		<key>C25A18A08394951E103DF488008F8927</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -75,7 +75,7 @@ class ViewController: UIViewController ,mediumViewDelegate{
         }
     }
     
-    ///获取图片中某点的像素值,函数的返回值是一个元组
+    //获取图片中某点的像素值,函数的返回值是一个元组
     func getPixelColor(pos:CGPoint, image:UIImage)->(alpha: CGFloat, red: CGFloat, green: CGFloat,blue:CGFloat){
         let pixelData=image.cgImage!.dataProvider!.data
         let data:UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)

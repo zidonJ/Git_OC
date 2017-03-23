@@ -22,18 +22,18 @@ class CustomCameraController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        view.backgroundColor=UIColor.whiteColor()
+        view.backgroundColor=UIColor.white
         cameraControlView=cameraOverLayview()
         view.addSubview(cameraControlView!)
         
-        cameraControlView!.snp_makeConstraints { (make) in
+        cameraControlView?.snp.makeConstraints({ (make) in
             make.left.equalTo(view).offset(0)
             make.right.equalTo(view).offset(0)
             make.bottom.equalTo(view).offset(0)
             make.height.equalTo(70)
-        }
+        })
         
-        cameraView.frame=CGRectMake(0, 0, view.frame.size.width, view.frame.size.height-75)
+        cameraView.frame=CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height-75)
         view.addSubview(cameraView)
         
         cameraHelper=CustomCameraHelper.sharedInstance
@@ -42,32 +42,27 @@ class CustomCameraController: UIViewController {
         
         
         hpView=HelpView.init(frame: cameraView.bounds)
-        hpView!.backgroundColor=UIColor.clearColor()
+        hpView!.backgroundColor=UIColor.clear
         view.addSubview(hpView!)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
 
 class HelpView: UIView {
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
         let ctx=UIGraphicsGetCurrentContext()
         
-        CGContextAddRect(ctx, CGRectMake(self.center.x-50, self.center.y-30, 100, 60))
+        ctx?.addRect(CGRect(x: self.center.x-50, y: self.center.y-30, width: 100, height: 60))
         
-        CGContextSetLineWidth(ctx, 2)
+        ctx?.setLineWidth(2)
         
-        CGContextSetLineCap(ctx, .Round)
+        ctx?.setLineCap(.round)
         
-        UIColor.greenColor().set()
+        UIColor.green.set()
         
-        CGContextDrawPath(ctx, .Stroke)
+        ctx?.drawPath(using: .stroke)
     }
 }

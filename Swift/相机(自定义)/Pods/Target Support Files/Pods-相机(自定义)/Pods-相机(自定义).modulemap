@@ -1,0 +1,6 @@
+framework module Pods________ {
+  umbrella header "Pods-相机(自定义)-umbrella.h"
+
+  export *
+  module * { export * }
+}

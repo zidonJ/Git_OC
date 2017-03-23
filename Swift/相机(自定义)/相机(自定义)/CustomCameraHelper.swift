@@ -27,7 +27,7 @@ class CustomCameraHelper: NSObject {
     
     lazy var videoCaptureLayer:AVCaptureVideoPreviewLayer={
         let captureLayer=AVCaptureVideoPreviewLayer.init(session: self.session)
-        return captureLayer as AVCaptureVideoPreviewLayer
+        return captureLayer! as AVCaptureVideoPreviewLayer
     }()
     
     
@@ -46,26 +46,26 @@ class CustomCameraHelper: NSObject {
     }
     
     ///照相机界面加在哪里
-    func embedPreviewInView(cameraView:UIView) {
+    func embedPreviewInView(_ cameraView:UIView) {
         
         videoCaptureLayer.frame=cameraView.bounds
         videoCaptureLayer.videoGravity=AVLayerVideoGravityResizeAspectFill
         cameraView.layer.addSublayer(videoCaptureLayer)
     }
     
-    func captureStillImageWithBlock(captureClosure:CaptureImageBlock) {
+    func captureStillImageWithBlock(_ captureClosure:@escaping CaptureImageBlock) {
         var videoConnection:AVCaptureConnection?=nil
         for connection in captureStillImageOutput.connections{
-            for capturePort in connection.inputPorts{
-                if capturePort.mediaType==AVMediaTypeVideo {
+            for capturePort in (connection as AnyObject).inputPorts{
+                if (capturePort as AnyObject).mediaType==AVMediaTypeVideo {
                     videoConnection=connection as? AVCaptureConnection
                     break
                 }
             }
             if (videoConnection != nil) {break}
         }
-        captureStillImageOutput.captureStillImageAsynchronouslyFromConnection(videoConnection) { (imageSampleBuffer, error) in
-            let data:NSData=AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
+        captureStillImageOutput.captureStillImageAsynchronously(from: videoConnection) { (imageSampleBuffer, error) in
+            let data:Data=AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer)
             print("开始生成图片")
             let image:UIImage=UIImage.init(data: data)!
             captureClosure(image)
@@ -90,13 +90,13 @@ class CustomCameraHelper: NSObject {
             var newVideoInput:AVCaptureDeviceInput?=nil
             let position:AVCaptureDevicePosition=videoInput.device.position
             switch position {
-                case AVCaptureDevicePosition.Back:
+                case AVCaptureDevicePosition.back:
                     newVideoInput=try! AVCaptureDeviceInput.init(device: self.frontFacingCamera())
                     break
-                case AVCaptureDevicePosition.Front:
+                case AVCaptureDevicePosition.front:
                     newVideoInput=try! AVCaptureDeviceInput.init(device: self.backFacingCamera())
                     break
-                case AVCaptureDevicePosition.Unspecified:
+                case AVCaptureDevicePosition.unspecified:
                     
                     break
             }
@@ -117,9 +117,9 @@ class CustomCameraHelper: NSObject {
     }
 
     
-    private func cameraWithPosition(position:AVCaptureDevicePosition) ->  AVCaptureDevice!{
-        let devices=AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo)
-        for device in devices{
+    fileprivate func cameraWithPosition(_ position:AVCaptureDevicePosition) ->  AVCaptureDevice!{
+        let devices=AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
+        for device in devices!{
             if (device as? AVCaptureDevice)!.position==position {
                 return device  as? AVCaptureDevice
             }
@@ -128,14 +128,14 @@ class CustomCameraHelper: NSObject {
     }
     
     func backFacingCamera() ->AVCaptureDevice{
-        return self.cameraWithPosition(AVCaptureDevicePosition.Back)
+        return self.cameraWithPosition(AVCaptureDevicePosition.back)
     }
     
     func frontFacingCamera() ->AVCaptureDevice{
-        return self.cameraWithPosition(AVCaptureDevicePosition.Front)
+        return self.cameraWithPosition(AVCaptureDevicePosition.front)
     }
     
     func cameraCount() -> Int {
-        return AVCaptureDevice.devicesWithMediaType(AVMediaTypeVideo).count
+        return AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo).count
     }
 }
