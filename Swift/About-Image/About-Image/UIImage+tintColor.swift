@@ -9,6 +9,7 @@
 import UIKit
 import ImageIO
 
+//颜色
 extension UIImage {
     func image(tintColor:UIColor) -> UIImage {
         //destinationIn:D*Sa->目标色和原色透明度的加成
@@ -35,10 +36,15 @@ extension UIImage {
         return imageBlend!
     }
     
-    //图片尺寸
+    
+}
+
+//尺寸
+extension UIImage {
+    //修改图片尺寸 三种方式
     func change(image:UIImage,size:CGSize) -> UIImage {
         let cgImage = image.cgImage
-
+        
         let bitsPerComponent = cgImage?.bitsPerComponent
         let bytesPerRow = cgImage?.bytesPerRow
         let colorSpace = cgImage?.colorSpace
@@ -149,11 +155,3 @@ extension UIImageView {
         return (a,r,g,b)
     }
 }
-
-
-
-
-
-
-
-
