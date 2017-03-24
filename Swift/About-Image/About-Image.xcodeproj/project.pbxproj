@@ -17,7 +17,7 @@
 		D12AB2F51E8273D600EC3826 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D12AB2F21E8273D600EC3826 /* 3.jpg */; };
 		D12FC3491E83592B00572D44 /* UIImage+tintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12FC3481E83592B00572D44 /* UIImage+tintColor.swift */; };
 		D12FC34B1E8363C900572D44 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = D12FC34A1E8363C900572D44 /* image.png */; };
-		D12FC34D1E83750600572D44 /* CGBlenMode in Resources */ = {isa = PBXBuildFile; fileRef = D12FC34C1E83750600572D44 /* CGBlenMode */; };
+		D1C91C2E1E84C207008FD6DB /* CoreImage.h in Sources */ = {isa = PBXBuildFile; fileRef = D1C91C2D1E84C207008FD6DB /* CoreImage.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,9 @@
 		D12AB2F21E8273D600EC3826 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
 		D12FC3481E83592B00572D44 /* UIImage+tintColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+tintColor.swift"; sourceTree = "<group>"; };
 		D12FC34A1E8363C900572D44 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
-		D12FC34C1E83750600572D44 /* CGBlenMode */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CGBlenMode; sourceTree = "<group>"; };
+		D1C91C2C1E84C207008FD6DB /* About-Image-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "About-Image-Bridging-Header.h"; sourceTree = "<group>"; };
+		D1C91C2D1E84C207008FD6DB /* CoreImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreImage.h; sourceTree = "<group>"; };
+		D1C91C2F1E84C24F008FD6DB /* CGBlendMode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGBlendMode.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +71,8 @@
 				D12AB2DE1E8270E600EC3826 /* AppDelegate.swift */,
 				D12AB2E01E8270E600EC3826 /* ViewController.swift */,
 				D12FC3481E83592B00572D44 /* UIImage+tintColor.swift */,
-				D12FC34C1E83750600572D44 /* CGBlenMode */,
+				D1C91C2D1E84C207008FD6DB /* CoreImage.h */,
+				D1C91C2F1E84C24F008FD6DB /* CGBlendMode.h */,
 				D12FC34A1E8363C900572D44 /* image.png */,
 				D12AB2F01E8273D600EC3826 /* 1.jpg */,
 				D12AB2F11E8273D600EC3826 /* 2.jpg */,
@@ -78,6 +81,7 @@
 				D12AB2E51E8270E600EC3826 /* Assets.xcassets */,
 				D12AB2E71E8270E600EC3826 /* LaunchScreen.storyboard */,
 				D12AB2EA1E8270E600EC3826 /* Info.plist */,
+				D1C91C2C1E84C207008FD6DB /* About-Image-Bridging-Header.h */,
 			);
 			path = "About-Image";
 			sourceTree = "<group>";
@@ -115,6 +119,7 @@
 					D12AB2DA1E8270E600EC3826 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = ET3Y989RPW;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -144,7 +149,6 @@
 			files = (
 				D12AB2E91E8270E600EC3826 /* LaunchScreen.storyboard in Resources */,
 				D12AB2F51E8273D600EC3826 /* 3.jpg in Resources */,
-				D12FC34D1E83750600572D44 /* CGBlenMode in Resources */,
 				D12AB2F31E8273D600EC3826 /* 1.jpg in Resources */,
 				D12AB2F41E8273D600EC3826 /* 2.jpg in Resources */,
 				D12FC34B1E8363C900572D44 /* image.png in Resources */,
@@ -160,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C91C2E1E84C207008FD6DB /* CoreImage.h in Sources */,
 				D12AB2E11E8270E600EC3826 /* ViewController.swift in Sources */,
 				D12AB2DF1E8270E600EC3826 /* AppDelegate.swift in Sources */,
 				D12FC3491E83592B00572D44 /* UIImage+tintColor.swift in Sources */,
@@ -285,11 +290,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ET3Y989RPW;
 				INFOPLIST_FILE = "About-Image/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "czc.About-Image";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "About-Image/About-Image-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -298,11 +306,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = ET3Y989RPW;
 				INFOPLIST_FILE = "About-Image/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "czc.About-Image";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "About-Image/About-Image-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

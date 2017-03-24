@@ -36,15 +36,15 @@ case luminosity
 
 
 /* Available in Mac OS X 10.5 & later. R, S, and D are, respectively,
-premultiplied result, source, and destination colors with alpha; Ra,
-Sa, and Da are the alpha components of these colors.
-
-The Porter-Duff "source over" mode is called `kCGBlendModeNormal':
-R = S + D*(1 - Sa)
-
-Note that the Porter-Duff "XOR" mode is only titularly related to the
-classical bitmap XOR operation (which is unsupported by
-CoreGraphics). */
+ premultiplied result, source, and destination colors with alpha; Ra,
+ Sa, and Da are the alpha components of these colors.
+ 
+ The Porter-Duff "source over" mode is called `kCGBlendModeNormal':
+ R = S + D*(1 - Sa)
+ 
+ Note that the Porter-Duff "XOR" mode is only titularly related to the
+ classical bitmap XOR operation (which is unsupported by
+ CoreGraphics). */
 
 case clear /* R = 0 */
 

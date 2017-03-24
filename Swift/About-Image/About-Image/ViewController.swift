@@ -15,13 +15,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var temp: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         let image:UIImage = UIImage.init(named: "1.jpg")!
         
-        imgView.image = image
+        imgView.image = image.pixeFace(image: image)
+        
         imgView.getColor(color: { [weak self] color in
             self?.temp.backgroundColor = color
         })
