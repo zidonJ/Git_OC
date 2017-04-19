@@ -19,6 +19,8 @@ class ViewController: UIViewController {
         print("hello world",swt)
         //修改字符串
         var str:String!="说好破晓前忘掉"
+        print("Index理解:", str[str.index(str.startIndex, offsetBy: 5, limitedBy: str.endIndex)!])
+        print("Index理解1:",str[str.index(str.startIndex, offsetBy: 3)])
         print("字符串索引位置的字符:",str[str.startIndex],str[str.index(before: str.endIndex)])
         //插入字符串
         str.insert(contentsOf: "花田里犯了错,".characters, at: str.startIndex)

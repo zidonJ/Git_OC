@@ -81,7 +81,7 @@ extension UIImage {
     }
 }
 
-//MARK:extension UIImage滤镜
+//MARK:extension UIImage滤镜(CIFilter)
 extension UIImage {
     
     static let detector:CIDetector = CIDetector.init(ofType: CIDetectorTypeFace,
@@ -146,8 +146,16 @@ extension UIImage {
         
         return finalImage
     }
+}
+
+//MARK:path 效果
+extension UIImageView {
     
     
+    
+}
+
+class PathOverlayView: UIView {
     
 }
 
