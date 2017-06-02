@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72E898441E04245A00195552 /* PersonModelPerson_v1_to_v2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 72E898431E04245A00195552 /* PersonModelPerson_v1_to_v2.xcmappingmodel */; };
 		D11C43201DC194E00064B1B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11C431F1DC194E00064B1B7 /* AppDelegate.swift */; };
 		D11C43221DC194E00064B1B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11C43211DC194E00064B1B7 /* ViewController.swift */; };
 		D11C43251DC194E00064B1B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D11C43231DC194E00064B1B7 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		72E898431E04245A00195552 /* PersonModelPerson_v1_to_v2.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = PersonModelPerson_v1_to_v2.xcmappingmodel; sourceTree = "<group>"; };
 		D11C431C1DC194E00064B1B7 /* iOS10SwiftCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS10SwiftCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11C431F1DC194E00064B1B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D11C43211DC194E00064B1B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				D1421E681DEEC56C0044796D /* CoreDataConifgration.swift */,
 				D1421E6C1DEFD2930044796D /* 2.jpg */,
 				D188CC4F1DD3202400FB94F2 /* Person.xcdatamodeld */,
+				72E898431E04245A00195552 /* PersonModelPerson_v1_to_v2.xcmappingmodel */,
 				D1F951BC1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel */,
 				D11C43231DC194E00064B1B7 /* Main.storyboard */,
 				D11C43261DC194E00064B1B7 /* Assets.xcassets */,
@@ -309,6 +312,7 @@
 				D12F5BBD1DEC158700D1029F /* Person+CoreDataClass.swift in Sources */,
 				D1421E701DEFF3830044796D /* DataTableViewCell.swift in Sources */,
 				D188CC511DD3202400FB94F2 /* Person.xcdatamodeld in Sources */,
+				72E898441E04245A00195552 /* PersonModelPerson_v1_to_v2.xcmappingmodel in Sources */,
 				D11C43201DC194E00064B1B7 /* AppDelegate.swift in Sources */,
 				D1F951BD1E03EAAD002738D2 /* PersonModelPerson_v2_to_v3.xcmappingmodel in Sources */,
 			);
