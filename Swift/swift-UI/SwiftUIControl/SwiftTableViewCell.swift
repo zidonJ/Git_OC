@@ -59,12 +59,15 @@ class SwiftTableViewCell: UITableViewCell {
     
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var cellContent: UILabel!//这样声明的设置文字时可以不用加"!"
+    
     var _textContent111:String?
+    
+    
     var textContent:String?{
         get {
             return _textContent111
         }
-        set {
+        set(newValue) {
             _textContent111=newValue!
             updateUI()
         }

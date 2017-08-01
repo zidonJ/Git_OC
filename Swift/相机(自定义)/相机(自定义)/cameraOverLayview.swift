@@ -17,33 +17,33 @@ class cameraOverLayview: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor=UIColor.redColor()
-        cancleButton.setTitle("取消", forState: UIControlState.Normal)
+        self.backgroundColor=UIColor.red
+        cancleButton.setTitle("取消", for: UIControlState())
         self.addSubview(cancleButton)
-        cancleButton.snp_makeConstraints { (make) in
+        cancleButton.snp.makeConstraints({ (make) in
             make.width.equalTo(100)
             make.height.equalTo(30)
             make.left.equalTo(self).offset(10)
             make.centerY.equalTo(self)
-        }
+        })
         
-        takePhoto.setTitle("拍照", forState: UIControlState.Normal)
-        takePhoto.addTarget(self, action: #selector(self.customTakeCapture), forControlEvents: UIControlEvents.TouchUpInside)
+        takePhoto.setTitle("拍照", for: UIControlState())
+        takePhoto.addTarget(self, action: #selector(self.customTakeCapture), for: UIControlEvents.touchUpInside)
         addSubview(takePhoto)
-        takePhoto.snp_makeConstraints { (make) in
-            make.width.equalTo(cancleButton.snp_width)
-            make.height.equalTo(cancleButton.snp_height)
+        takePhoto.snp.makeConstraints({ (make) in
+            make.width.equalTo(cancleButton.snp.width)
+            make.height.equalTo(cancleButton.snp.height)
             make.center.equalTo(self)
-        }
+        })
 
-        usePhoto.setTitle("使用照片", forState: UIControlState.Normal)
+        usePhoto.setTitle("使用照片", for: UIControlState())
         addSubview(usePhoto)
-        usePhoto.snp_makeConstraints { (make) in
-            make.width.equalTo(cancleButton.snp_width)
-            make.height.equalTo(cancleButton.snp_height)
+        usePhoto.snp.makeConstraints({ (make) in
+            make.width.equalTo(cancleButton.snp.width)
+            make.height.equalTo(cancleButton.snp.height)
             make.right.equalTo(self).offset(-10)
             make.centerY.equalTo(cancleButton)
-        }
+        })
     }
     
     func customTakeCapture() {
@@ -52,7 +52,7 @@ class cameraOverLayview: UIView {
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafeRawPointer) {
         if error != nil {
             self.alertNewAPI("错误", message: "保存图片失败", buttonTitles: ["确定"], clickedIndex: { (inde) in
                 

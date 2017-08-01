@@ -66,7 +66,7 @@ class RunloopEventCapture: NSObject {
     
     func resgistRunloopWork(obj:RunloopEventCapture) {
         
-        self.registerObserver(activities: CFRunLoopActivity.beforeWaiting.rawValue, order: INTMAX_MAX-999, mode: CFRunLoopMode.defaultMode , info: unsafeBitCast(obj, to: UnsafeMutableRawPointer.self)) { (runLoopObsver, activity, info) in
+        self.registerObserver(activities: CFRunLoopActivity.beforeWaiting.rawValue, order: INTMAX_MAX - 999, mode: CFRunLoopMode.defaultMode , info: unsafeBitCast(obj, to: UnsafeMutableRawPointer.self)) { (runLoopObsver, activity, info) in
             
             RunloopEventCapture.sharedInstace.runLoopWorkDistributionCallback(observer: runLoopObsver!, activity: activity, info: info!)
         }

@@ -54,7 +54,7 @@ class BlockViewController: UIViewController {
 //        let sortNumbers = numbers.sort({number1,number2 in number1>number2})
        
         //闭包变形3
-//        let sortNumbers = numbers.sort({$0>$1})
+//        let sortNumbers = numbers.sorted(by: {$0>$1})
         
         //闭包变形4
         let sortNumbers = numbers.sorted()
@@ -66,6 +66,8 @@ class BlockViewController: UIViewController {
             var blockProperty : (Int,Int) -> String = {
                 a,b in return String(a+b)/**/
             } // 带初始化方式
+            
+            
             var blockPropertyNoReturn : (String) -> () = {
                 param in
                 print("block打印参数:\(param)")
@@ -229,7 +231,6 @@ class BlockViewController: UIViewController {
         
         })
 
-        
         bk.testBlockA(blockfunc: {
             (a:Int,b:Int) -> String in
             let c = a*400+b*1000

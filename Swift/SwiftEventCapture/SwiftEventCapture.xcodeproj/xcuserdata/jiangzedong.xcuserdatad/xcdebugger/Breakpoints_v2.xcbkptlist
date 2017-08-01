@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/ViewController.swift"
+            timestampString = "522289105.063473"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "asyncUploadCaptureUserData(data:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.ViewController.asyncUploadCaptureUserData (data : Swift.AnyObject) -&gt; Swift.Bool"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/ViewController.swift"
+                  timestampString = "522289637.359022"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "83">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.ViewController.(asyncUploadCaptureUserData (data : Swift.AnyObject) -&gt; Swift.Bool).(implicit closure #1)"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/ViewController.swift"
+                  timestampString = "522289637.36107"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.ViewController.(asyncUploadCaptureUserData (data : Swift.AnyObject) -&gt; Swift.Bool).(implicit closure #2)"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/ViewController.swift"
+                  timestampString = "522289637.363527"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/RunloopEventCapture.swift"
+            timestampString = "522289116.991202"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "runLoopWorkDistributionCallback(observer:activity:info:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.RunloopEventCapture.runLoopWorkDistributionCallback (observer : __ObjC.CFRunLoopObserver, activity : __C.CFRunLoopActivity, info : Swift.UnsafeRawPointer) -&gt; ()"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/RunloopEventCapture.swift"
+                  timestampString = "522289637.369938"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "1170">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.RunloopEventCapture.(runLoopWorkDistributionCallback (observer : __ObjC.CFRunLoopObserver, activity : __C.CFRunLoopActivity, info : Swift.UnsafeRawPointer) -&gt; ()).(closure #2)"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/RunloopEventCapture.swift"
+                  timestampString = "522289637.371689"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/RunloopEventCapture.swift"
+            timestampString = "522289227.530288"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "addKeysTask(keys:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/ViewController.swift"
+            timestampString = "522289353.900431"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "testRunloopCapture(btn:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/RunloopEventCapture.swift"
+            timestampString = "522289426.424255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "runLoopWorkDistributionCallback(observer:activity:info:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.RunloopEventCapture.runLoopWorkDistributionCallback (observer : __ObjC.CFRunLoopObserver, activity : __C.CFRunLoopActivity, info : Swift.UnsafeRawPointer) -&gt; ()"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/RunloopEventCapture.swift"
+                  timestampString = "522289637.394068"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "182">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftEventCapture.RunloopEventCapture.(runLoopWorkDistributionCallback (observer : __ObjC.CFRunLoopObserver, activity : __C.CFRunLoopActivity, info : Swift.UnsafeRawPointer) -&gt; ()).(closure #2)"
+                  moduleName = "SwiftEventCapture"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jiangzedong/Documents/zidon_github/Swift/SwiftEventCapture/SwiftEventCapture/RunloopEventCapture.swift"
+                  timestampString = "522289637.395743"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftEventCapture/RunloopEventCapture.swift"
+            timestampString = "522289628.780768"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "addTask(key:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

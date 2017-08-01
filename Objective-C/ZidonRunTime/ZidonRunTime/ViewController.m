@@ -9,12 +9,30 @@
 #import "ViewController.h"
 #import "TestObjectNameViewController.h"
 #import <objc/runtime.h>
+#import <objc/message.h>
+#import <Block.h>
+#import "TestObjectNameViewController.h"
 
 #define CustomFormat(a,b) [NSString stringWithFormat:a,b]
 
+
+
+/**
+ 
+ 系统IMP默认是有返回值的,这样用IMP获取没有返回值的方法调用就会崩溃,
+ 所以定义了一个没有返回值的指针函数来获取调用
+ 
+ 分析这样一个声明,void (*VIMP) (id,SEL,...);
+ 虽然()的优先级高于*,但由于有括号存在,首先执行的是解引用,
+ 所以VIMP是一个指针;接下来执行(id,SEL,...)表明指针‘VIMP’指向一个函数,
+ 这个函数不返回任何值。
+ @param VIMP 指针
+ */
+typedef void (*VIMP) (id,SEL,...);
+
 @interface ViewController ()
 {
-    
+    TestObjectNameViewController *_testObj;
 }
 @property (nonatomic,strong) id testRuntimeAddClass;
 
@@ -24,14 +42,19 @@
 
 @property (nonatomic,strong) TestObjectNameViewController *test;
 
+
 @end
 
 @implementation ViewController
 
+-(void)msgSendTest:(NSInteger)tp tp2:(NSString *)str
+{
+    NSLog(@"%ld_%@",tp,str);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
     _test1=@"1";
     _test2=@"2";
     _test3=[[NSData alloc] init];
@@ -41,9 +64,14 @@
     NSLog(@"2%@",object_getClass(_test1));
     [self testReplaceMethod];
     
-//    NSObject
-    
     _test=[[TestObjectNameViewController alloc] init];
+    objc_msgSend(self, @selector(msgSendTest:tp2:), 2,@"you sister");
+    
+    //可以达到和objc_msgSend相同的效果
+    VIMP imp = (VIMP)[self methodForSelector:@selector(msgSendTest:tp2:)];
+    
+    imp(self,@selector(msgSendTest:tp2:),5,@"jojo");
+    
 }
 //执行发发，指针函数
 IMP orginIMP;
@@ -178,6 +206,61 @@ static void testMethod(id self, SEL _cmd) //self和_cmd是必须的，在之后�
     [self setValue:@"andrew" forKey:propertyName];
     //成功打印出结果
     NSLog(@"%@--%@", propertyName,[self valueForKey:@"testProperty"]);
+}
+
+/*********** 方法调用原理 ****************/
+void dynamicMethodIMP(id self, SEL _cmd)
+{
+    
+}
+/*
+ 第一次机会
+ 允许用户在此时为该 Class 动态添加实现。如果有实现了，则调用并返回YES，那么重新开始objc_msgSend流程。
+ 这一次对象会响应这个选择器，一般是因为它已经调用过class_addMethod。如果仍没实现，继续下面的动作。
+ */
++(BOOL)resolveClassMethod:(SEL)sel
+{
+    if(sel == @selector(nilSymbol)){
+        class_addMethod([self class],sel,(IMP)dynamicMethodIMP,"v@:");
+        return YES;
+    }
+    return [super resolveInstanceMethod:sel];
+}
+/*
+ 第二次机会,方法转发,返回一个可以执行这个方法的对象
+ */
+-(id)forwardingTargetForSelector:(SEL)aSelector
+{
+    return [NSObject new];
+}
+
+- (void)anotherTest {
+    NSLog(@"另一个test方法");
+}
+/*
+ 方法签名验证
+ */
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
+    
+    NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];
+    
+    if (!signature) {  // 如果不能处理这个方法
+        if ([self respondsToSelector:@selector(anotherTest)]) {
+            // 返回另一个函数的方法签名,这个函数不一定要定义在本类中
+            signature =  [ViewController instanceMethodSignatureForSelector:@selector(anotherTest)];
+        }
+    }
+    return signature;
+}
+
+/**
+ *  这个函数中可以修改很多信息，比如可以替换选方法的处理者，替换选择子，修改参数等等
+ *
+ *  @param anInvocation 被转发的选择子
+ */
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    [anInvocation setSelector:@selector(anotherTest)];  // 设置需要调用的选择子
+    [anInvocation invokeWithTarget:self];  // 设置消息的接收者，不一定必须是self
 }
 
 @end

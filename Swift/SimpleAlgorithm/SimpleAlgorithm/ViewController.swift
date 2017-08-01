@@ -10,20 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var sort1=[6,2,7,3,8,9]
+    @IBOutlet weak var sortField: UITextField!
+    @IBOutlet weak var sortedShow: UILabel!
+    var sort1=[1,10,20,5,12,3,9,8,6]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+                
         
-        var list: [Int] = Array()
-        //生成一组随机整数
-        for _ in 1...50 {
-            list.append(Int(arc4random() % 100 + 1))
-        }
-        print(list)
-        
-        QuickSort(&list, first: 0, last: list.count - 1)
-        print(list)
+//        QuickSort(&list, first: 0, last: list.count - 1)
+//        print("快速排序:",list)
+//        bubbleSort(list: &sort1)
+//        print("冒泡排序:",sort1)
+        selectSort(list: &sort1)
+        print("选择排序:",sort1)
         
         print(self.branch(),#line,#function)
     }
@@ -45,6 +45,43 @@ class ViewController: UIViewController {
         return str
     }
     
+    
+    /// 冒泡排序算法
+    ///
+    /// - Parameter list:
+    func bubbleSort(list: inout[Int]) {
+        for _ in 0..<list.count {
+            
+            for  j in 0..<list.count-1 {
+                
+                if list[j] > list[j+1] {
+                    let temp = list[j]
+                    list[j] = list[j+1]
+                    list[j+1] = temp
+                }
+            }
+        }
+    }
+    
+    
+    /// 选择排序算法
+    ///
+    /// - Parameter list:
+    /// - Returns:
+    func selectSort(list: inout[Int]) {
+        for i in 0..<list.count {
+            
+            for  j in (i+1)..<list.count {
+                
+                if list[i] > list[j] {
+                    let temp = list[i]
+                    list[i] = list[j]
+                    list[j] = temp
+                }
+            }
+        }
+    }
+    
     /**
      快速排序算法
      
@@ -52,7 +89,7 @@ class ViewController: UIViewController {
      - parameter first: 第一个元素下标
      - parameter last:  最后一个元素下标
      */
-    func QuickSort(inout list: [Int], first: Int, last: Int) {
+    func QuickSort(_ list: inout [Int], first: Int, last: Int) {
         var i, j, key: Int
         if first >= last {
             return;
@@ -63,10 +100,10 @@ class ViewController: UIViewController {
         while i < j {
             //找出来比key小的 并排到key前面
             while i < j && list[j] > key {
-                j-=1
+                j -= 1
             }
             if i < j {
-                i+=1
+                i += 1
                 list[i] = list[j]
             }
             //找出来比key大的 并排到key后面
@@ -74,7 +111,7 @@ class ViewController: UIViewController {
                 i+=1
             }
             if i < j {
-                j-=1
+                j -= 1
                 list[j] = list[i]
             }
         }
@@ -90,7 +127,7 @@ class ViewController: UIViewController {
     }
     ///去掉重复算法
     var arrayRepeat:[Int]=[1,2,2,3,4,5,7,9,0,6,4,5,7,8,2,4,5,7,9,0,6,4,3,8,6,4]
-    func dropRepeat(inout array:[Int]){
+    func dropRepeat(_ array:inout [Int]){
         for i in array{
             for j in array{
                 if array[i]==array[j]{
@@ -99,6 +136,31 @@ class ViewController: UIViewController {
             }
         }
     }
-    ///找到重复元素次数最多的元素
+    ///阶乘算法
+    @IBAction func sort(_ sender: Any) {
+        
+        sortedShow.text = test().joined(separator: ",")
+        
+    }
     
+    func test() -> [String] {
+        
+        var array:[String] = (sortField.text?.components(separatedBy: ","))!
+        for i in 0..<array.count {
+            
+            for  j in (i+1)..<array.count {
+                
+                if Int(array[i])! > Int(array[j])! {
+                    let temp = array[i]
+                    array[i] = array[j]
+                    array[j] = temp
+                }
+            }
+        }
+        
+        
+        return array
+    }
+    
+    @IBOutlet weak var sort: UIButton!
 }

@@ -62,6 +62,7 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         if con.IS_IOS8{
             print("这是iOS8系统")
         }
+        
     }
 
     @IBOutlet weak var myFirstTableView: UITableView!
@@ -86,6 +87,30 @@ class ViewController: UIViewController ,UITableViewDataSource,UITableViewDelegat
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyBoard=UIStoryboard.init(name: "Main", bundle: nil)
+        switch indexPath.row {
+        case 0:
+            let reactiveVc=storyBoard.instantiateViewController(withIdentifier: "reactive")
+            self.navigationController?.pushViewController(reactiveVc, animated: true)
+            break
+            
+        case 1:
+            let layoutVc=storyBoard.instantiateViewController(withIdentifier: "layout")
+            self.navigationController?.pushViewController(layoutVc, animated: true)
+            break
+            
+        case 2:
+            let netVc=storyBoard.instantiateViewController(withIdentifier: "net")
+            self.navigationController?.pushViewController(netVc, animated: true)
+            break
+            
+        default:
+            break
+        }
+    }
+    
     func swiftDelegateSendObjc(a:AnyObject){
         print("代理传值:\(a)")
     }

@@ -66,15 +66,26 @@ class SFFileManager: NSObject ,FileManagerDelegate{
     ///   拷贝数据
     func copy(data:Data ,toPath:String)  {
         
+        
+        
+        
         let weakSelf=weakMe(swiftObj: self)
         self.asyncDo {
             /// FileHandle没有创建文件的功能，所以要先用fileManager先创建好文件
             if weakSelf.checkFile(path: toPath) {
                 weakSelf.fileManger.createFile(atPath: toPath, contents: nil, attributes: [:])
             }
-            let fileHandWrite=try! FileHandle.init(forWritingTo: URL.init(fileURLWithPath: toPath))
-            fileHandWrite.write(data)
-            fileHandWrite.closeFile()
+            
+            var fileHandWrite:FileHandle?
+
+            do {
+                fileHandWrite = try FileHandle.init(forWritingTo: URL.init(fileURLWithPath: toPath))
+            } catch _ {
+                print("报错了")
+            }
+            
+            fileHandWrite?.write(data)
+            fileHandWrite?.closeFile()
         }
     }
     

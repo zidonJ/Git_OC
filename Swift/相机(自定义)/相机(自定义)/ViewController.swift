@@ -26,32 +26,33 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate,UINaviga
         
     }
     
-    @IBAction func customCamera(sender: UIButton) {
-        self.presentViewController(cameraController, animated: true) { 
+    @IBAction func customCamera(_ sender: UIButton) {
+        self.present(cameraController, animated: true) { 
             print("自定义相机")
         }
     }
     
-    @IBAction func systemOfferCamera(sender: UIButton) {
-        imagePicker.sourceType=UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true) {
+    @IBAction func systemOfferCamera(_ sender: UIButton) {
+        imagePicker.sourceType=UIImagePickerControllerSourceType.camera
+        self.present(imagePicker, animated: true) {
             print("跳转到系统相机了")
         }
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        self.dismissViewControllerAnimated(true) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.dismiss(animated: true) {
             print("拍完照了")
         }
         let image=info["UIImagePickerControllerOriginalImage"]
-        if picker.sourceType == UIImagePickerControllerSourceType.Camera{
-            dispatch_sync(dispatch_get_global_queue(0, 0), {
+        if picker.sourceType == UIImagePickerControllerSourceType.camera{
+            DispatchQueue.global().sync {
                 UIImageWriteToSavedPhotosAlbum(image! as! UIImage, self, #selector(self.image(_:didFinishSavingWithError:contextInfo:)),nil)
-            })
+            }
+            
         }
     }
     
-    func image(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafePointer<Void>) {
+    func image(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo:UnsafeRawPointer) {
         if let err = error {
             UIAlertView(title: "错误", message: err.localizedDescription, delegate: nil, cancelButtonTitle: "确定").show()
             

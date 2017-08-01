@@ -18,7 +18,7 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
         HttpNetWorkManager.downLoadRequest("", progress: { (progress, expectLarge) in
             print("下载进度是\(progress),文件大小是\(expectLarge)")
         }) { (error) in
-            print(error)
+            print(error ?? "没有报错")
         }
         
         
@@ -107,7 +107,7 @@ class ViewController: UIViewController ,URLSessionDataDelegate{
         jsonData.append(data)
     }
     func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
-        print("执行了么",error)
+        print("执行了么",error ?? "请求成功")
         do{
             let dict=try JSONSerialization.jsonObject(with: jsonData as Data, options: JSONSerialization.ReadingOptions.mutableContainers) as! NSDictionary
             

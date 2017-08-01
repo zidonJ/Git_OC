@@ -27,7 +27,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         [weak self] in
         self?.path=NSSearchPathForDirectoriesInDomains(
             FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last
-        self?.path=(self?.path)! + "/test.jpg"
+        self?.path=(self?.path)! + "/temp.mp4"
         //append为true是每次都写到文件末尾
         let outPutStream=OutputStream.init(toFileAtPath:(self?.path!)!, append: true)!
         outPutStream.open()
@@ -36,7 +36,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     
     lazy var session:URLSession={
         [weak self] in
-        let session:URLSession=Foundation.URLSession(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: nil)
+        let session:URLSession=Foundation.URLSession(configuration: URLSessionConfiguration.default, delegate: nil, delegateQueue: nil)
         session.sessionDescription = "in-process NSURLSession";
         return session
     }()
@@ -44,7 +44,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     var task:URLSessionDownloadTask?=nil
     
     
-    //更简单的单利处理了模式
+    //更简单的单利
     static let swiftSharedInstance=HttpRequestOperation()
     
     override init() {
@@ -78,30 +78,29 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     func downLoadRequest(_ url:String,progress:@escaping downLoadProgress,completeDownLoad:@escaping downLoaded) {
         progressDownLoad=progress
         finishDownLoad=completeDownLoad
-        let request=URLRequest(url: URL(string: "http://pic.yesky.com/uploadImages/2015/311/45/60J6J4TM39TS.JPG")!)
-        /*
-         使用闭包的时候 'NSURLSessionDownloadDelegate' 代理不会执行
-         session.downloadTaskWithRequest(request) { (url, response, error) in
-         completeDownLoad(error: error)
-         print(url)
-         }
-         */
+        let request=URLRequest(url: URL(string: "http://mami.wxwork.cn//public//js//test1.mp4")!)
+        
+        //使用闭包的时候 'NSURLSessionDownloadDelegate' 代理不会执行
+        self.session.downloadTask(with: request) { (url, response, error) in
+            completeDownLoad(error as NSError?)
+            print(url ?? "空",#line)
+        }
         
         //这种方式下载，使用代理
-        let data:Data = SFFileManager.sharedInstance.getData(fromPath: SFFileManager.getPath(name: "/temp.mp4", pathType: FileManager.SearchPathDirectory.cachesDirectory))!
-        
-        if data.isEmpty {
-            session.downloadTask(withResumeData: data)
-        }else{
-            task=session.downloadTask(with: request)
-            task?.resume()
-        }
+//        let path:String = SFFileManager.getPath(name: "/temp.mp4", pathType: FileManager.SearchPathDirectory.cachesDirectory)
+//        let data:Data? = SFFileManager.sharedInstance.getData(fromPath: path)
+//        
+//        if data != nil {
+//            session.downloadTask(withResumeData: data!)
+//        }else{
+//            task=session.downloadTask(with: request)
+//            task?.resume()
+//        }
     }
     
     func suspendDownLoad() {
         task?.cancel { (data) in
             SFFileManager.sharedInstance.copy(data: data!, toPath: SFFileManager.getPath(name: "/temp.mp4", pathType: FileManager.SearchPathDirectory.cachesDirectory))
-            
         }
     }
     
@@ -113,7 +112,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
     {
-        
+        print("Receive data:")
     }
     
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask)
@@ -121,7 +120,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         print("123")
     }
     
-    ///NSURLSessionDownloadDelegate
+    //NSURLSessionDownloadDelegate
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64)
     {
         self.progressDownLoad(totalBytesWritten,totalBytesExpectedToWrite)
@@ -136,7 +135,7 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         ///location这里自带“file://”路径 转成字符串后不能用URL.init(fileURLWithPath: String)初始化
         //self.outPutStream.close()
         
-        //print(path)
+        print(location,#line)
         
         //        var byteArray:[UInt8] = [UInt8]()
         //        for i in 0..<data.count {
@@ -150,11 +149,12 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
         //        //任务完成使session失效
         //        session.finishTasksAndInvalidate()
         
-        let fileHand=try! FileHandle.init(forReadingFrom: location)
-        
-        let data:Data=fileHand.readDataToEndOfFile()
-        fileHand.closeFile()
-        SFFileManager.sharedInstance.copy(data: data, toPath: SFFileManager.getPath(name: "/test.jpg", pathType: FileManager.SearchPathDirectory.cachesDirectory))
+//        let fileHand=try! FileHandle.init(forReadingFrom: location)
+//        
+//        let data:Data=fileHand.readDataToEndOfFile()
+//        fileHand.closeFile()
+//        SFFileManager.sharedInstance.copy(data: data,
+//                                        toPath: SFFileManager.getPath(name: "/temp.mp4", pathType: FileManager.SearchPathDirectory.cachesDirectory))
         
     }
 }
