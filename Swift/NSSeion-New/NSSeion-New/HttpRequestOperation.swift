@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import ObjectiveC.runtime
 
-typealias completed = ([String:AnyObject],NSError) -> Void
+typealias completed = ([String:AnyObject],Error) -> Void
 typealias downLoadProgress = (_ progress:Int64,_ expectLarge:Int64) -> Void
 typealias downLoaded = (_ error:NSError?) -> Void
 
@@ -47,7 +47,8 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     //更简单的单利
     static let swiftSharedInstance=HttpRequestOperation()
     
-    override init() {
+    //防止别处不知道这里了是单利,利用init的方式初始化
+    private override init() {
         super.init()
     }
     

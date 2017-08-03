@@ -10,7 +10,7 @@ import UIKit
 
 //类的扩展
 extension String {
-    var nsdata: Data {
+    var data: Data {
         return self.data(using: String.Encoding.utf8)!
     }
 }
@@ -20,15 +20,19 @@ class HttpNetWorkManager: NSObject {
     class func postRequest(_ url:String,params:NSDictionary,complete:([String:AnyObject],NSError) -> Void){
         let getUrlString=url+"?"+Serilize.buildParams(params as! [String : AnyObject])
         let operation=HttpRequestOperation.swiftSharedInstance
-        operation.getWithUrl(getUrlString) { (dict) in
+        
+        operation.getWithUrl(getUrlString) { (dict, error) in
             
         }
     }
     
-    class func getRequest(_ url:String,params:NSDictionary,complete:([String:AnyObject],NSError) -> Void){
+    class func getRequest(_ url:String,params:[String:AnyObject],complete:([String:AnyObject],NSError) -> Void){
         let operation=HttpRequestOperation.swiftSharedInstance
-        operation.postRequest(url, httpBodyData: Serilize.buildParams(params as! [String : AnyObject]).nsdata) { (dict) in
+        
+        operation.postRequest(url, httpBodyData: Serilize.buildParams(params).data) { (dict, error) in
+            
         }
+
     }
     
     class func downLoadRequest(_ url:String,progress:@escaping (_ progress:Int64,_ expectLarge:Int64) ->Void,completeDownLoad:@escaping (_ error:NSError?) -> Void){
@@ -38,7 +42,7 @@ class HttpNetWorkManager: NSObject {
 }
 
 class Serilize: NSObject {
-    class func buildParams(_ parameters: [String: AnyObject]) -> String {
+    class func buildParams(_ parameters: [String:AnyObject]) -> String {
         var components: [(String, String)] = []
         for key in Array(parameters.keys).sorted(by: <) {
             let value: AnyObject! = parameters[key]

@@ -12,7 +12,7 @@ class SFFileManager: NSObject ,FileManagerDelegate{
     
     static let sharedInstance:SFFileManager=SFFileManager.init()
     
-    let fileManger:FileManager=FileManager.default
+    @objc let fileManger:FileManager=FileManager.default
     
     override init(){
         super.init()
@@ -105,7 +105,7 @@ class SFFileManager: NSObject ,FileManagerDelegate{
         return path
     }
     
-    func checkFile(path:String) -> Bool {
+    @objc func checkFile(path:String) -> Bool {
         return fileManger.fileExists(atPath: path)
     }
 }
