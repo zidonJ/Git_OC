@@ -1,4 +1,10 @@
-
+//
+//  MTVCAnimationTransition.h
+//  ImageAnimation
+//
+//  Created by 姜泽东 on 2017/9/6.
+//  Copyright © 2017年 MaiTian. All rights reserved.
+//
 
 #pragma mark Constants
 
