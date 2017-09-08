@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		720C75EE1F60EDEB00ED9B65 /* MTDrivenInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 720C75ED1F60EDEB00ED9B65 /* MTDrivenInteractive.m */; };
 		727BCB791F5FCD1A00BD76BA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCB781F5FCD1A00BD76BA /* main.m */; };
 		727BCB7C1F5FCD1A00BD76BA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCB7B1F5FCD1A00BD76BA /* AppDelegate.m */; };
 		727BCB7F1F5FCD1A00BD76BA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCB7E1F5FCD1A00BD76BA /* ViewController.m */; };
@@ -19,6 +18,8 @@
 		727BCBAC1F5FCD3500BD76BA /* MTImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCBAB1F5FCD3500BD76BA /* MTImageVC.m */; };
 		727BCBAF1F5FCF8600BD76BA /* MTVCAnimationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */; };
 		727BCBB21F5FD42A00BD76BA /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 727BCBB11F5FD42A00BD76BA /* 2.jpeg */; };
+		72DD57031F6291EC004AFC3C /* MTGestureBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */; };
+		72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57021F6291EC004AFC3C /* MTTestVCBack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		720C75EC1F60EDEB00ED9B65 /* MTDrivenInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDrivenInteractive.h; sourceTree = "<group>"; };
-		720C75ED1F60EDEB00ED9B65 /* MTDrivenInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDrivenInteractive.m; sourceTree = "<group>"; };
 		727BCB741F5FCD1A00BD76BA /* ImageAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		727BCB781F5FCD1A00BD76BA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		727BCB7A1F5FCD1A00BD76BA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -63,6 +62,10 @@
 		727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVCAnimationTransition.m; sourceTree = "<group>"; };
 		727BCBB01F5FD1A000BD76BA /* MTVCTransitonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTVCTransitonProtocol.h; sourceTree = "<group>"; };
 		727BCBB11F5FD42A00BD76BA /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
+		72DD56FF1F6291EC004AFC3C /* MTGestureBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGestureBackAnimation.h; sourceTree = "<group>"; };
+		72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGestureBackAnimation.m; sourceTree = "<group>"; };
+		72DD57011F6291EC004AFC3C /* MTTestVCBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestVCBack.h; sourceTree = "<group>"; };
+		72DD57021F6291EC004AFC3C /* MTTestVCBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestVCBack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +124,10 @@
 				727BCBAB1F5FCD3500BD76BA /* MTImageVC.m */,
 				727BCBAD1F5FCF8600BD76BA /* MTVCAnimationTransition.h */,
 				727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */,
-				720C75EC1F60EDEB00ED9B65 /* MTDrivenInteractive.h */,
-				720C75ED1F60EDEB00ED9B65 /* MTDrivenInteractive.m */,
+				72DD56FF1F6291EC004AFC3C /* MTGestureBackAnimation.h */,
+				72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */,
+				72DD57011F6291EC004AFC3C /* MTTestVCBack.h */,
+				72DD57021F6291EC004AFC3C /* MTTestVCBack.m */,
 				727BCBB01F5FD1A000BD76BA /* MTVCTransitonProtocol.h */,
 				727BCBB11F5FD42A00BD76BA /* 2.jpeg */,
 				727BCB801F5FCD1A00BD76BA /* Main.storyboard */,
@@ -296,10 +301,11 @@
 			files = (
 				727BCB7F1F5FCD1A00BD76BA /* ViewController.m in Sources */,
 				727BCBAF1F5FCF8600BD76BA /* MTVCAnimationTransition.m in Sources */,
+				72DD57031F6291EC004AFC3C /* MTGestureBackAnimation.m in Sources */,
 				727BCB7C1F5FCD1A00BD76BA /* AppDelegate.m in Sources */,
-				720C75EE1F60EDEB00ED9B65 /* MTDrivenInteractive.m in Sources */,
 				727BCB791F5FCD1A00BD76BA /* main.m in Sources */,
 				727BCBAC1F5FCD3500BD76BA /* MTImageVC.m in Sources */,
+				72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
