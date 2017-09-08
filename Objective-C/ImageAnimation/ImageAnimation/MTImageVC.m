@@ -52,8 +52,14 @@
     [self.imgView addGestureRecognizer:_pan];
     
     _ani = [MTVCAnimationTransition new];
-    [_ani setRelyPanGesture:_pan];
+    //[_ani setRelyPanGesture:_pan];
     self.transitioningDelegate = _ani;
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    transitionImageViewFrame = self.imgView.frame;
 }
 
 #pragma mark - Private Methods
@@ -72,46 +78,9 @@
 {
     
     CGPoint point = [pan translationInView:self.imgView];
-    CGFloat scale = 1 - point.y / [[UIScreen mainScreen] bounds].size.height;
-    
-//    scale = scale > 1 ? 1:scale;
-//    scale = scale < 0 ? 0:scale;
+    CGFloat scale = 1 - point.y / self.view.frame.size.height;
     
     if (pan.state == UIGestureRecognizerStateBegan) {
-//        CGPoint point = [pan translationInView:self.imgView];
-//        
-//        transitionImageViewFrame = _imgView.frame;
-//        
-//        _panBeginScaleX = [pan locationInView:pan.view].x / transitionImageViewFrame.size.width;
-//        _panBeginScaleY = [pan locationInView:_imgView].y / _imgView.frame.size.height;
-//        
-//        if (_panBeginScaleX < 0)  {
-//            _panBeginScaleX = 0;
-//        }else if (_panBeginScaleX > 1)  {
-//            _panBeginScaleX = 1;
-//        }
-//        
-//        if (_panBeginScaleY < 0) {
-//            _panBeginScaleY = 0;
-//        }else if (_panBeginScaleY > 1) {
-//            _panBeginScaleY = 1;
-//        }
-        
-        transitionImageViewFrame = _imgView.frame;
-        _panBeginScaleX = [pan locationInView:pan.view].x / transitionImageViewFrame.size.width;
-        _panBeginScaleY = [pan locationInView:_imgView].y / _imgView.frame.size.height;
-        
-        if (_panBeginScaleX < 0) {
-            _panBeginScaleX = 0;
-        }else if (_panBeginScaleX > 1) {
-            _panBeginScaleX = 1;
-        }
-        
-        if (_panBeginScaleY < 0) {
-            _panBeginScaleY = 0;
-        }else if (_panBeginScaleY > 1) {
-            _panBeginScaleY = 1;
-        }
         
 
     }else if (pan.state == UIGestureRecognizerStateChanged) {
@@ -128,8 +97,15 @@
         
         
         CGPoint velocity = [pan velocityInView:self.imgView];
-        if (velocity.y>200 || (self.view.frame.size.height - self.imgView.frame.origin.y -64)<50) {
+        if (velocity.y>200 || transitionImageViewFrame.size.height/self.imgView.frame.size.height >= 1.4) {
             [self.navigationController popViewControllerAnimated:YES];
+        }else {
+            
+            [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
+                self.imgView.frame = transitionImageViewFrame;
+            } completion:^(BOOL finished) {
+                
+            }];
         }
         
     }
@@ -138,8 +114,7 @@
 }
 
 - (IBAction)back:(id)sender {
-    _ani.isPush = NO;
-//    [self.navigationController popViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

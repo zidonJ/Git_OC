@@ -10,12 +10,14 @@
 
 #import "MTVCAnimationTransition.h"
 #import "MTImageVC.h"
+#import "MTTestVCBack.h"
+#import "MTGestureBackAnimation.h"
 
 @interface ViewController ()<UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
-@property (nonatomic,strong) MTVCAnimationTransition *animation;
+@property (nonatomic,strong) MTGestureBackAnimation *backAnimation;
 
 @end
 
@@ -28,10 +30,12 @@
     
     self.image = [UIImage imageNamed:@"2.jpeg"];
     
-    _animation = [MTVCAnimationTransition new];
-    self.transitioningDelegate = _animation;
+    
+    //封装
+    _backAnimation = [MTGestureBackAnimation new];
 }
 
+//点击
 - (nullable id <UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                             animationControllerForOperation:(UINavigationControllerOperation)operation
                                                          fromViewController:(UIViewController *)fromVC
@@ -42,6 +46,18 @@
         return animation;
     }
     return nil;
+}
+
+//手势
+-(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
+    
+    if ([animationController isKindOfClass:[MTGestureBackAnimation class]]) {
+        if (_backAnimation.isInteractive)
+            return _backAnimation;
+        else
+            return nil;
+    } else
+        return nil;
 }
 
 - (UIImage *)image
@@ -63,9 +79,9 @@
     
     MTImageVC *ani = (MTImageVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"ani"];
     ani.image = self.image;
-    //ani.ani = _animation;
-    [self presentViewController:ani animated:YES completion:nil];
-//    [self.navigationController pushViewController:ani animated:YES];
+//    [self presentViewController:ani animated:YES completion:nil];
+    
+    [self.navigationController pushViewController:ani animated:YES];
 }
 
 @end
