@@ -1,6 +1,14 @@
+//
+//  MTVCAnimationTransition.m
+//  ImageAnimation
+//
+//  Created by 姜泽东 on 2017/9/6.
+//  Copyright © 2017年 MaiTian. All rights reserved.
+//
+
+
 #import "MTVCAnimationTransition.h"
 #import "MTVCTransitonProtocol.h"
-#import "MTDrivenInteractive.h"
 
 #pragma mark Constants
 
@@ -9,7 +17,6 @@
 
 @interface MTVCAnimationTransition ()
 
-@property (nonatomic,strong) MTDrivenInteractive *drivenInteractive;
 
 @end
 
@@ -32,19 +39,11 @@
 
 - (void)setRelyPanGesture:(UIPanGestureRecognizer *)pan
 {
-    [_drivenInteractive setRelyPanGesture:pan];
+    
 }
 
 
 #pragma mark - Overridden Methods
-
-- (instancetype)init
-{
-    if (self = [super init]) {
-        _drivenInteractive = [MTDrivenInteractive new];
-    }
-    return self;
-}
 
 
 #pragma mark - Private Methods
@@ -53,7 +52,7 @@
 
 - (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
 {
-    return 2.5;
+    return .5;
 }
 
 - (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
@@ -117,10 +116,10 @@
 //
 //}
 
-//- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
-//{
-//    return _drivenInteractive;
-//}
+- (nullable id <UIViewControllerInteractiveTransitioning>)interactionControllerForDismissal:(id <UIViewControllerAnimatedTransitioning>)animator
+{
+    return nil;
+}
 
 //- (nullable UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(nullable UIViewController *)presenting sourceViewController:(UIViewController *)source
 //{

@@ -1,4 +1,10 @@
-
+//
+//  MTVCAnimationTransition.h
+//  ImageAnimation
+//
+//  Created by 姜泽东 on 2017/9/6.
+//  Copyright © 2017年 MaiTian. All rights reserved.
+//
 
 #pragma mark Constants
 
@@ -10,6 +16,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+/*
+ UIViewControllerAnimatedTransitioning:在代理里面操作动画之行
+ UIViewControllerTransitioningDelegate:本类就是做为这个协议的代理,用于present的过场动画控制(push和pop的动画由Navgation的代理实现控制)
+ */
 
 @interface MTVCAnimationTransition : NSObject<UIViewControllerAnimatedTransitioning,UIViewControllerTransitioningDelegate>
 
