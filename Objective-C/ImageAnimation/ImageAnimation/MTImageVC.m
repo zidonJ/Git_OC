@@ -103,7 +103,6 @@
         
     }else if (pan.state == UIGestureRecognizerStateEnded) {
         
-        
         CGPoint velocity = [pan velocityInView:self.imgView];
         if (velocity.y>200 || transitionImageViewFrame.size.height/self.imgView.frame.size.height >= 1.4) {
             [self.navigationController popViewControllerAnimated:YES];
@@ -125,4 +124,5 @@
     [self.navigationController popViewControllerAnimated:YES];
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end

@@ -12,11 +12,9 @@
 
 #pragma mark Constants
 
-
 #pragma mark - Class Extension
 
 @interface MTVCAnimationTransition ()
-
 
 @end
 
