@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722630521F66568F00B04823 /* UIViewController+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 722630511F66568F00B04823 /* UIViewController+Helper.m */; };
 		72BFF0B31A6CEC8C00ACF76B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BFF0B21A6CEC8C00ACF76B /* main.m */; };
 		72BFF0B61A6CEC8C00ACF76B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BFF0B51A6CEC8C00ACF76B /* AppDelegate.m */; };
 		72BFF0B91A6CEC8C00ACF76B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72BFF0B81A6CEC8C00ACF76B /* ViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		722630501F66568F00B04823 /* UIViewController+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Helper.h"; sourceTree = "<group>"; };
+		722630511F66568F00B04823 /* UIViewController+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Helper.m"; sourceTree = "<group>"; };
 		72BFF0AD1A6CEC8C00ACF76B /* ZidonRunTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZidonRunTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72BFF0B11A6CEC8C00ACF76B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72BFF0B21A6CEC8C00ACF76B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				72BFF0B51A6CEC8C00ACF76B /* AppDelegate.m */,
 				72BFF0B71A6CEC8C00ACF76B /* ViewController.h */,
 				72BFF0B81A6CEC8C00ACF76B /* ViewController.m */,
+				722630501F66568F00B04823 /* UIViewController+Helper.h */,
+				722630511F66568F00B04823 /* UIViewController+Helper.m */,
 				72BFF0BA1A6CEC8C00ACF76B /* Main.storyboard */,
 				C30054471BAFF07300CA6CD7 /* TestObjectNameViewController.h */,
 				C30054481BAFF07300CA6CD7 /* TestObjectNameViewController.m */,
@@ -225,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722630521F66568F00B04823 /* UIViewController+Helper.m in Sources */,
 				C30054491BAFF07300CA6CD7 /* TestObjectNameViewController.m in Sources */,
 				72BFF0B91A6CEC8C00ACF76B /* ViewController.m in Sources */,
 				72BFF0B61A6CEC8C00ACF76B /* AppDelegate.m in Sources */,

@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, InteractiveAnimationType) {
 #pragma mark -- public func --
 
 #pragma mark -- init
-- (instancetype)initWithController:(UIViewController *)viewController;
+- (instancetype)initWithController:(UIViewController *)viewController backType:(GestureBackType)type;
 
 - (void)setInteractiveViewController:(UIViewController *)viewController;
 

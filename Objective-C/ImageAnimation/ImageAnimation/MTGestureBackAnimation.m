@@ -8,7 +8,6 @@
 
 #import "MTGestureBackAnimation.h"
 
-
 #pragma mark Constants
 
 
@@ -21,6 +20,7 @@
     UIView *_transitioningView;
     UIPinchGestureRecognizer *_pinchRecognizer;
     UIViewController *_animationController;
+    
 }
 @property (nonatomic,assign) GestureBackType backType;
 @property (nonatomic,assign) InteractiveAnimationType interactiveType;
@@ -38,15 +38,17 @@
 
 #pragma mark - init
 
-- (instancetype)initWithController:(UIViewController *)viewController
+- (instancetype)initWithController:(UIViewController *)viewController backType:(GestureBackType)type
 {
     self = [super init];
     if (self) {
         _animationController = viewController;
+        _backType = type;
+        [self setInteractiveViewController:_animationController];
     }
     return self;
-}
 
+}
 
 #pragma mark - Public Methods
 
@@ -69,7 +71,6 @@
 
 #pragma mark - Overridden Methods
 
-
 #pragma mark - Private Methods
 
 - (void)panBack:(UIPanGestureRecognizer *)pan
@@ -83,10 +84,9 @@
         case UIGestureRecognizerStateBegan:{
             _startScale = scale;
             self.interactive = YES;
-            //            [_animationController dismissViewControllerAnimated:YES completion:nil];
-            //            UIViewController *fromViewController = [_context viewControllerForKey:UITransitionContextFromViewControllerKey];
-            //            [fromViewController dismissViewControllerAnimated:YES completion:nil];
-            [_animationController.navigationController popViewControllerAnimated:YES];
+            [_animationController dismissViewControllerAnimated:YES completion:nil];
+            
+//            [_animationController.navigationController popViewControllerAnimated:YES];
             break;
         }
         case UIGestureRecognizerStateChanged: {
@@ -98,6 +98,7 @@
             CGFloat percent = (1.0 - scale/_startScale);
             BOOL cancelled = ([pinch velocity] < 5.0 && percent <= 0.3);
             [self end:cancelled];
+            
             break;
         }
         case UIGestureRecognizerStateCancelled: {
@@ -170,7 +171,6 @@
     
     //Save reference for view to be scaled
     _transitioningView = fromViewController.view;
-    
 }
 
 -(void)updateWithPercent:(CGFloat)percent {
@@ -180,6 +180,10 @@
 }
 
 -(void)end:(BOOL)cancelled {
+    
+   
+    
+    
     if (cancelled) {
         [UIView animateWithDuration:_completionSpeed animations:^{
             _transitioningView.transform = CGAffineTransformMakeScale(1.0, 1.0);

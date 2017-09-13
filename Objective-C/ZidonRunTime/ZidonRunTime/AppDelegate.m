@@ -14,9 +14,9 @@
 
 @implementation AppDelegate
 
--(void)msgSendTest:(NSNumber *)tp tp2:(NSString *)str
++(void)msgSendTest:(NSNumber *)tp tp2:(NSString *)str
 {
-    NSLog(@"%ld_%@",tp,str);
+    NSLog(@"%@_%@",tp,str);
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

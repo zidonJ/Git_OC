@@ -79,9 +79,9 @@
     
     MTImageVC *ani = (MTImageVC *)[self.storyboard instantiateViewControllerWithIdentifier:@"ani"];
     ani.image = self.image;
-//    [self presentViewController:ani animated:YES completion:nil];
+    [self presentViewController:ani animated:YES completion:nil];
     
-    [self.navigationController pushViewController:ani animated:YES];
+//    [self.navigationController pushViewController:ani animated:YES];
 }
 
 @end

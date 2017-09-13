@@ -47,10 +47,11 @@ class CoreDataConifgration: NSObject {
     }()
     
     //psc
-    lazy var psc:NSPersistentStoreCoordinator={
+    lazy var psc:NSPersistentStoreCoordinator = {
         [weak self] in
         //版本迁移 addPersistentStore的最后一个参数options
-        let configuration=[NSInferMappingModelAutomaticallyOption:true,NSMigratePersistentStoresAutomaticallyOption:true]
+        let configuration=[NSInferMappingModelAutomaticallyOption:true,
+                           NSMigratePersistentStoresAutomaticallyOption:true]
         let tmPsc:NSPersistentStoreCoordinator=NSPersistentStoreCoordinator.init(managedObjectModel: (self?.coreDataModel)!)
         //(self?.storeType!)!
         let storeUrl:URL=(self?.storeUrl().appendingPathComponent("swiftCoreData.sqlite"))!

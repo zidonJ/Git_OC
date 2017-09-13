@@ -20,6 +20,7 @@
 		727BCBB21F5FD42A00BD76BA /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 727BCBB11F5FD42A00BD76BA /* 2.jpeg */; };
 		72DD57031F6291EC004AFC3C /* MTGestureBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */; };
 		72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57021F6291EC004AFC3C /* MTTestVCBack.m */; };
+		72F1F3BA1F68ED9B00DD72A7 /* MTDrivenInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGestureBackAnimation.m; sourceTree = "<group>"; };
 		72DD57011F6291EC004AFC3C /* MTTestVCBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestVCBack.h; sourceTree = "<group>"; };
 		72DD57021F6291EC004AFC3C /* MTTestVCBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestVCBack.m; sourceTree = "<group>"; };
+		72F1F3B81F68ED9B00DD72A7 /* MTDrivenInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDrivenInteractive.h; sourceTree = "<group>"; };
+		72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDrivenInteractive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */,
 				72DD56FF1F6291EC004AFC3C /* MTGestureBackAnimation.h */,
 				72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */,
+				72F1F3B81F68ED9B00DD72A7 /* MTDrivenInteractive.h */,
+				72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */,
 				72DD57011F6291EC004AFC3C /* MTTestVCBack.h */,
 				72DD57021F6291EC004AFC3C /* MTTestVCBack.m */,
 				727BCBB01F5FD1A000BD76BA /* MTVCTransitonProtocol.h */,
@@ -306,6 +311,7 @@
 				727BCB791F5FCD1A00BD76BA /* main.m in Sources */,
 				727BCBAC1F5FCD3500BD76BA /* MTImageVC.m in Sources */,
 				72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */,
+				72F1F3BA1F68ED9B00DD72A7 /* MTDrivenInteractive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +463,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MaiTian.ImageAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -468,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageAnimation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MaiTian.ImageAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
