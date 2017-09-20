@@ -12,6 +12,7 @@
 		721FAD161F6BD8A200ED2BC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721FAD141F6BD8A200ED2BC7 /* Main.storyboard */; };
 		721FAD181F6BD8A200ED2BC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 721FAD171F6BD8A200ED2BC7 /* Assets.xcassets */; };
 		721FAD1B1F6BD8A200ED2BC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 721FAD191F6BD8A200ED2BC7 /* LaunchScreen.storyboard */; };
+		7257AA0F1F70C7E2006298E2 /* MModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7257AA0E1F70C7E2006298E2 /* MModel.swift */; };
 		E0379F381EB158674005D6BC /* Pods_RealmUse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 547BB602CF79A9D8120DDD32 /* Pods_RealmUse.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		721FAD171F6BD8A200ED2BC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		721FAD1A1F6BD8A200ED2BC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		721FAD1C1F6BD8A200ED2BC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7257AA0E1F70C7E2006298E2 /* MModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MModel.swift; sourceTree = "<group>"; };
 		7F2A1384AE967F27CCAAFB63 /* Pods-RealmUse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmUse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealmUse/Pods-RealmUse.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,6 +65,7 @@
 			children = (
 				721FAD101F6BD8A200ED2BC7 /* AppDelegate.swift */,
 				721FAD121F6BD8A200ED2BC7 /* ViewController.swift */,
+				7257AA0E1F70C7E2006298E2 /* MModel.swift */,
 				721FAD141F6BD8A200ED2BC7 /* Main.storyboard */,
 				721FAD171F6BD8A200ED2BC7 /* Assets.xcassets */,
 				721FAD191F6BD8A200ED2BC7 /* LaunchScreen.storyboard */,
@@ -167,11 +170,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RealmUse/Pods-RealmUse-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
@@ -221,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				721FAD131F6BD8A200ED2BC7 /* ViewController.swift in Sources */,
+				7257AA0F1F70C7E2006298E2 /* MModel.swift in Sources */,
 				721FAD111F6BD8A200ED2BC7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -389,6 +395,7 @@
 				721FAD211F6BD8A200ED2BC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

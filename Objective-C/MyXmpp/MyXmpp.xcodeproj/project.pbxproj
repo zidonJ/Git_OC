@@ -1578,7 +1578,8 @@
 				TargetAttributes = {
 					C366AE911AF1BEC000022F1E = {
 						CreatedOnToolsVersion = 6.3.1;
-						DevelopmentTeam = ET3Y989RPW;
+						DevelopmentTeam = SEXCZ76RPS;
+						ProvisioningStyle = Automatic;
 					};
 					C366AEAA1AF1BEC000022F1E = {
 						CreatedOnToolsVersion = 6.3.1;
@@ -1922,10 +1923,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXCZ76RPS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/jiangzedong/Desktop/MyXmpp/MyXmpp/MyXmpp-PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/jiangzedong/github/zidon/Git_OC/Objective-C/MyXmpp/MyXmpp/MyXmpp-PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -1941,6 +1944,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = QN.MyXmpp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1952,10 +1956,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SEXCZ76RPS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "/Users/jiangzedong/Desktop/MyXmpp/MyXmpp/MyXmpp-PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/jiangzedong/github/zidon/Git_OC/Objective-C/MyXmpp/MyXmpp/MyXmpp-PrefixHeader.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -1971,6 +1977,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = QN.MyXmpp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
