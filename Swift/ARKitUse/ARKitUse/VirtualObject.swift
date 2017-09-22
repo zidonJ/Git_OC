@@ -20,8 +20,9 @@ class VirtualObject: SCNNode {
         super.init()
         
         self.moduleName = moduleName
-        self.modelName = moduleName
+        self.modelName = modelName
         self.fileExtension = fileExtension
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -29,6 +30,7 @@ class VirtualObject: SCNNode {
     }
     
     func loadModel() {
+        
         guard let virtualObjectScene = SCNScene(named: "\(modelName).\(fileExtension)",
             inDirectory: "\(moduleName).scnassets/\(modelName)") else {
                 return
@@ -43,7 +45,7 @@ class VirtualObject: SCNNode {
             child.movabilityHint = .movable
             wrapperNode.addChildNode(child)
         }
-        self.addChildNode(wrapperNode)
+        addChildNode(wrapperNode)
         modelLoaded = true
     }
     
@@ -54,5 +56,4 @@ class VirtualObject: SCNNode {
         
         modelLoaded = false
     }
-    
 }
