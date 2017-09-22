@@ -106,15 +106,8 @@ extension ARViewController {
             node.addChildNode(planeNode)
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds:2), execute: {
-//                guard let scence:SCNScene = SCNScene(named: "Models.scnassets/cup/cup.scn") else {
-//                    return
-//                }
                 
                 let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
-
-                //每个场景只有一个根结点
-//                let vaseNode = scence.rootNode.childNodes[0]
-                //捕捉到的地平面的位置
                 vNode.loadModel()
                 vNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
                 node.addChildNode(vNode)

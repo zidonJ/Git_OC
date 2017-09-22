@@ -22,7 +22,6 @@ class VirtualObject: SCNNode {
         self.moduleName = moduleName
         self.modelName = modelName
         self.fileExtension = fileExtension
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
