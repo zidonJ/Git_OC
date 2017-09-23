@@ -15,8 +15,6 @@
 
 #define CustomFormat(a,b) [NSString stringWithFormat:a,b]
 
-
-
 /**
  
  系统IMP默认是有返回值的,这样用IMP获取没有返回值的方法调用就会崩溃,
@@ -67,10 +65,13 @@ typedef void (*VIMP) (id,SEL,...);
     _test=[[TestObjectNameViewController alloc] init];
     objc_msgSend(self, @selector(msgSendTest:tp2:), 2,@"you sister");
     
-    //可以达到和objc_msgSend相同的效果
+    //函数指针的应用
+    //可以达到和objc_msgSend相同的效果。
     VIMP imp = (VIMP)[self methodForSelector:@selector(msgSendTest:tp2:)];
     
     imp(self,@selector(msgSendTest:tp2:),5,@"jojo");
+    
+    objc_msgSend(self, @selector(msgSendTest:tp2:),5,@"Andrew");
     
 }
 //执行发发，指针函数
@@ -84,6 +85,7 @@ NSString * MyUppercaseString(id self, SEL _cmd)
     return str;
 }
 
+//替换方法
 -(void)testReplaceMethod
 {
     Class strcls = [NSString class];
@@ -117,12 +119,15 @@ NSString * MyUppercaseString(id self, SEL _cmd)
     
     unsigned int ivarsCnt = 0;
     //　获取类成员变量列表，ivarsCnt为类成员数量 class_copyPropertyList:只取属性  class_copyIvarList:取所有
-    //    Ivar *ivars = class_copyIvarList(cls, &ivarsCnt);
+    //  Ivar *ivars = class_copyIvarList(cls, &ivarsCnt);
+    
     objc_property_t *ivars = class_copyPropertyList(cls, &ivarsCnt);//这是一个数组
+    
     //　遍历成员变量列表，其中每个变量都是Ivar类型的结构体
     for (const objc_property_t *p = ivars; p < ivars + ivarsCnt; ++p){
         objc_property_t const ivar = *p;
         //　获取变量名
+        
         //  NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
         NSString *key = [NSString stringWithUTF8String:property_getName(ivar)];
         NSLog(@"**:%@",key);
@@ -134,7 +139,7 @@ NSString * MyUppercaseString(id self, SEL _cmd)
         NSLog(@"!!:%@",value);
         //　取得变量类型
         // 通过 type[0]可以判断其具体的内置类型
-        //        const char *type = ivar_getTypeEncoding(ivar);
+//        const char *type = ivar_getTypeEncoding(ivar);
         const char *type = property_getAttributes(ivar);
         NSLog(@"::%s",type);
     }
@@ -176,7 +181,6 @@ NSString * MyUppercaseString(id self, SEL _cmd)
         _testRuntimeAddClass = [[_testRuntimeClass alloc] init];
         //调用添加的方法
         [_testRuntimeAddClass testMethod];
-        
         
         unsigned int outCount,i;
         // 获取对象里的属性列表

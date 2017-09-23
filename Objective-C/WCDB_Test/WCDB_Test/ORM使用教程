@@ -1,0 +1,307 @@
+WCDB使用内置的宏来连接类、属性与表、字段。共有三类宏，分别对应数据库的字段、索引和约束。所有宏都定义在WCTCodingMacro.h中。
+
+关于字段、索引、约束的具体描述及用法，请参考SQLite的相关文档：Create Table和Create Index。
+
+字段宏
+
+字段宏以WCDB_SYNTHESIZE开头，定义了类属性与字段之间的联系。支持自定义字段名和默认值。
+
+WCDB_SYNTHESIZE(className, propertyName)是最简单的用法，它直接使用propertyName作为数据库字段名。
+WCDB_SYNTHESIZE_COLUMN(className, propertyName, columnName)支持自定义字段名。
+WCDB_SYNTHESIZE_DEFAULT(className, propertyName, defaultValue)支持自定义字段的默认值。默认值可以是任意的C类型或NSString、NSData、NSNumber、NSNull。
+WCDB_SYNTHESIZE_COLUMN_DEFAULT(className, propertyName, columnName, defaultValue)为以上两者的组合。
+关于字段宏的例子，请参考WCTSampleORM。
+
+索引宏
+
+索引宏以WCDB_INDEX开头，定义了数据库的索引属性。支持定义索引的排序方式。
+
+WCDB_INDEX(className, indexSubfixName, propertyName)是最简单的用法，它直接定义某个字段为索引。同时，WCDB会将tableName+indexSubfixName作为该索引的名称。
+WCDB_INDEX_ASC(className, indexSubfixName, propertyName)定义索引为升序。
+WCDB_INDEX_DESC(className, indexSubfixName, propertyName)定义索引为降序。
+WCDB_UNIQUE_INDEX(className, indexSubfixName, propertyName)定义唯一索引。
+WCDB_UNIQUE_INDEX_ASC(className, indexSubfixName, propertyName)定义唯一索引为升序。
+WCDB_UNIQUE_INDEX_DESC(className, indexSubfixName, propertyName)定义唯一索引为降序。
+多字段索引
+
+WCDB通过indexSubfixName匹配多索引。相同的indexSubfixName会被组合为多字段索引。
+
+WCDB_INDEX(WCTSampleORMIndex, "_multiIndexSubfix", multiIndexPart1)
+WCDB_INDEX(WCTSampleORMIndex, "_multiIndexSubfix", multiIndexPart2)
+关于索引宏的例子，请参考WCTSampleORMIndex。
+
+约束宏
+
+约束宏包括字段约束和表约束。
+
+字段约束
+
+主键约束以WCDB_PRIMARY开头，定义了数据库的主键，支持自定义主键的排序方式、是否自增。
+WCDB_PRIMARY(className, propertyName)是最基本的用法，它直接使用propertyName作为数据库主键。
+WCDB_PRIMARY_ASC(className, propertyName)定义主键升序。
+WCDB_PRIMARY_DESC(className, propertyName)定义主键降序。
+WCDB_PRIMARY_AUTO_INCREMENT(className, propertyName)定义主键自增。
+WCDB_PRIMARY_ASC_AUTO_INCREMENT(className, propertyName)是主键自增和升序的组合。
+WCDB_PRIMARY_DESC_AUTO_INCREMENT(className, propertyName)是主键自增和降序的组合。
+非空约束为WCDB_NOT_NULL(className, propertyName)，当该字段插入数据为空时，数据库会返回错误。
+唯一约束为WCDB_UNIQUE(className, propertyName)，当该字段插入数据与其他列冲突时，数据库会返回错误。
+关于字段约束的例子，请参考WCTSampleORMColumnConstraint
+
+表约束
+
+多主键约束以WCDB_MULTI_PRIMARY开头，定义了数据库的多主键，支持自定义每个主键的排序方式。
+WCDB_MULTI_PRIMARY(className, constraintName, propertyName)是最基本的用法，与索引类似，多个主键通过constraintName匹配。
+WCDB_MULTI_PRIMARY_ASC(className, constraintName, propertyName)定义了多主键propertyName对应的主键升序。
+WCDB_MULTI_PRIMARY_DESC(className, constraintName, propertyName)定义了多主键中propertyName对应的主键降序。
+多字段唯一约束以WCDB_MULTI_UNIQUE开头，定义了数据库的多字段组合唯一，支持自定义每个字段的排序方式。
+WCDB_MULTI_UNIQUE(className, constraintName, propertyName)是最基本的用法，与索引类似，多个字段通过constraintName匹配。
+WCDB_MULTI_UNIQUE_ASC(className, constraintName, propertyName)定义了多字段中propertyName对应的字段升序。
+WCDB_MULTI_UNIQUE_DESC(className, constraintName, propertyName)定义了多字段中propertyName对应的字段降序。
+关于表约束的例子，请参考WCTSampleORMTableConstraint
+
+类型
+
+SQLite数据库的字段有整型、浮点数、字符串、二进制数据等五种类型。WCDB的ORM会自动识别property的类型，并映射到适合的数据库类型。其对应关系为：
+
+C类型	数据库类型
+整型（包括但不限于int、unsigned、long、unsigned long、long long、unsigned long long等所有基于整型的C基本类型）	整型（INTEGER）
+枚举型（enum及所有基于枚举型的C基本类型）	整型（INTEGER）
+浮点数（包括但不限于float、double、long double等所有基于浮点型的C基本类型）	浮点型（ REAL）
+字符串（const char *的C字符串类型）	字符串（ TEXT）
+Objective-C类型	数据库类型
+NSDate	整型（INTEGER）
+NSNumber	浮点型（ REAL）
+NSString、NSMutableString	字符串（ TEXT）
+NSData、NSMutableData	二进制（BLOB）
+NSArray、NSMutableArray	二进制（BLOB）
+NSDictionary、NSMutableDictionary	二进制（BLOB）
+NSSet、NSMutableSet	二进制（BLOB）
+NSValue	二进制（BLOB）
+NSURL	二进制（BLOB）
+自定义类型
+
+内置支持的类型再多，也不可能完全覆盖开发者所有的需求。因此WCDB支持开发者自定义绑定类型。
+
+类只需实现WCTColumnCoding协议，即可支持绑定。
+
+@protocol WCTColumnCoding
+@required
++ (instancetype)unarchiveWithWCTValue:(WCTValue *)value; //value could be nil
+- (id /* WCTValue* */)archivedWCTValue;                  //value could be nil
++ (WCTColumnType)columnTypeForWCDB;
+@end
+columnTypeForWCDB接口定义类对应数据库中的类型。
+unarchiveWithWCTValue:接口定义从数据库类型反序列化到类的转换方式。
+archivedWCTValue接口定义从类序列化到数据库类型的转换方式。
+WCTColumnCoding文件模版
+
+为了简化定义，WCDB提供了Xcode文件模版来创建类字段绑定。
+
+首先需要安装文件模版。
+
+安装脚本集成在WCDB的编译脚本中，只需编译一次WCDB，就会自动安装文件模版。
+也可以手动运行cd path-to-your-wcdb-dir/apple/xctemplate; make;手动安装 文件模版。
+安装完成后重启Xcode，选择新建文件，滚到窗口底部，即可看到对应的文件模版。
+
+
+
+选择WCTColumnCoding
+
+Class：需要进行字段绑定的类。
+Language：WCDB支持绑定ObjC类和C++类，这里选择Objective-C
+Type In DataBase：类对应数据库中的类型。包括
+WCTColumnTypeInteger32
+WCTColumnTypeInteger64
+WCTColumnTypeDouble
+WCTColumnTypeString
+WCTColumnTypeBinary
+以NSDate为例，NSDate可以转换为64位整型的时间戳，因此选择了Integer64。完成后点击下一步，Xcode就会自动创建如下模版。
+
+#import <Foundation/Foundation.h>
+#import <WCDB/WCDB.h>
+
+@interface NSDate (WCDB) <WCTColumnCoding>
+@end
+
+@implementation NSDate (WCDB)
+
++ (instancetype)unarchiveWithWCTValue:(NSNumber *)value
+{
+return <#Unarchive NSDate From NSNumber *#>;
+}
+
+- (NSNumber *)archivedWCTValue
+{
+return <#Archive NSNumber * To NSDate #>;
+}
+
++ (WCTColumnType)columnTypeForWCDB
+{
+return WCTColumnTypeInteger64;
+}
+
+@end
+接下来只需将NSDate和NSNumber之间的转换方式填上去即可
+
+#import <Foundation/Foundation.h>
+#import <WCDB/WCDB.h>
+
+@interface NSDate (WCDB) <WCTColumnCoding>
+@end
+
+@implementation NSDate (WCDB)
+
++ (instancetype)unarchiveWithWCTValue:(NSNumber *)value
+{
+return value ? [NSDate dateWithTimeIntervalSince1970:value.longLongValue] : nil;
+}
+
+- (NSNumber *)archivedWCTValue
+{
+return [NSNumber numberWithLongLong:self.timeIntervalSince1970];
+}
+
++ (WCTColumnType)columnTypeForWCDB
+{
+return WCTColumnTypeInteger64;
+}
+
+@end
+取消内置类型
+
+上面提到WCDB内置对NSData、NSArray等等常用的Objective-C类型的支持，并且基于NSCoding协议进行序列化和反序列化。这些内置绑定的实现都在 builtin 目录下，这些实现也可以作为例子参考。
+
+若开发者希望自定义基本类型的绑定，可以将内置的绑定关闭。关闭方法为：删除工程文件的Build Settings->Preprocessor Macros下各个scheme的WCDB_BUILTIN_COLUMN_CODING宏。
+
+关于自定义类型的例子，请参考sample_advance。
+
+修改字段
+
+SQLite支持增加字段，但不支持删除、重命名字段。因此WCDB在修改字段方面的能力也有限。
+
+增加字段
+
+对于需要增加的字段，只需在定义处添加，并再次执行createTableAndIndexesOfName:withClass:即可。
+
+WCDB_IMPLEMENTATION(WCTSampleAddColumn)
+WCDB_SYNTHESIZE(WCTSampleAddColumn, identifier)
+WCDB_SYNTHESIZE(WCTSampleAddColumn, newColumn)// Add a new column
+删除字段
+
+对于需要删除字段，只需将其定义删除即可。
+
+WCDB_IMPLEMENTATION(WCTSampleAddColumn)
+WCDB_SYNTHESIZE(WCTSampleAddColumn, identifier)
+//WCDB_SYNTHESIZE(WCTSampleAddColumn, deletedColumn)// delete a column
+由于SQLite不支持删除字段，因此，删除定义后，WCDB只是将该字段忽略，其旧数据依然存在在数据库内，但新增加的数据基本不会因为该字段产生额外的性能和空间损耗。
+
+修改字段
+
+由于SQLite不支持修改字段名称，因此WCDB使用WCDB_SYNTHESIZE_COLUMN(className, propertyName, columnName)重新映射宏。
+
+对于已经定义的字段WCDB_SYNTHESIZE(MyClass, myValue)可以修改为WCDB_SYNTHESIZE_COLUMN(MyClass, newMyValue, "myValue")。
+
+对于已经定义的字段类型，可以任意修改为其他类型。但旧数据会使用新类型的解析方式进行反序列化，因此需要确保其兼容性。
+
+更多扩展性
+
+由于ORM不可能覆盖所有用法，因此WCDB提供了 core 接口，开发者可以根据自己的需求执行SQL。请参考 核心层接口
+
+如果这些接口仍不满足你的需求，欢迎给我们提 Issue 。
+
+隔离Cpp代码
+
+WCDB基于WINQ，引入了Objective-C++代码，因此对于所有引入WCDB的源文件，都需要将其后缀.m改为.mm。为减少影响范围，可以通过Objective-C的category特性将其隔离，达到只在model层使用Objective-C++编译，而不影响controller和view。
+
+对于已有类WCTSampleAdvance，
+
+//WCTSampleAdvance.h
+#import <Foundation/Foundation.h>
+#import "WCTSampleColumnCoding.h"
+
+@interface WCTSampleAdvance : NSObject
+
+@property(nonatomic, assign) int intValue;
+@property(nonatomic, retain) WCTSampleColumnCoding *columnCoding;
+
+@end
+
+//WCTSampleAdvance.mm
+@implementation WCTSampleAdvance
+
+@end
+可以创建WCTSampleAdvance (WCTTableCoding)专门用于定义ORM。
+
+为简化定义代码，WCDB同样提供了文件模版
+
+WCTTableCoding文件模版
+
+为了简化定义，WCDB同样提供了Xcode文件模版来创建WCTTableCoding的category。
+
+首先需要安装文件模版。
+
+安装脚本集成在WCDB的编译脚本中，只需编译一次WCDB，就会自动安装文件模版。
+也可以手动运行cd path-to-your-wcdb-dir/apple/xctemplate; make;手动安装 文件模版。
+安装完成后重启Xcode，选择新建文件，滚到窗口底部，即可看到对应的文件模版。
+
+
+
+选择WCTTableCoding 输入需要实现WCTTableCoding的类
+
+这里以WCTSampleAdvance为例，Xcode会自动创建WCTSampleAdvance+WCTTableCoding.h文件模版：
+
+#import "WCTSampleAdvance.h"
+#import <WCDB/WCDB.h>
+
+@interface WCTSampleAdvance (WCTTableCoding) <WCTTableCoding>
+
+WCDB_PROPERTY(<#property1 #>)
+WCDB_PROPERTY(<#property2 #>)
+WCDB_PROPERTY(<#property3 #>)
+WCDB_PROPERTY(<#property4 #>)
+WCDB_PROPERTY(<#... #>)
+
+@end
+加上类的ORM实现即可。
+
+//WCTSampleAdvance.h
+#import <Foundation/Foundation.h>
+#import "WCTSampleColumnCoding.h"
+
+@interface WCTSampleAdvance : NSObject
+
+@property(nonatomic, assign) int intValue;
+@property(nonatomic, retain) WCTSampleColumnCoding *columnCoding;
+
+@end
+
+//WCTSampleAdvance.mm
+@implementation WCTSampleAdvance
+
+WCDB_IMPLEMENTATION(WCTSampleAdvance)
+WCDB_SYNTHESIZE(WCTSampleAdvance, intValue)
+WCDB_SYNTHESIZE(WCTSampleAdvance, columnCoding)
+
+WCDB_PRIMARY_ASC_AUTO_INCREMENT(WCTSampleAdvance, intValue)
+
+@end
+
+//WCTSampleAdvance+WCTTableCoding.h
+#import "WCTSampleAdvance.h"
+#import <WCDB/WCDB.h>
+
+@interface WCTSampleAdvance (WCTTableCoding) <WCTTableCoding>
+
+WCDB_PROPERTY(intValue)
+WCDB_PROPERTY(columnCoding)
+
+@end
+此时，原来的WCTSampleAdvance.h中不包含任何C++的代码。因此，其他文件对其引用时，不需要修改文件名后缀。只有Model层需要使用WCDB接口的类，才需要包含WCTSampleAdvance+WCTTableCoding.h，并修改文件名后缀为.mm。
+
+示例代码请参考：WCTSampleAdvance和WCTSampleNoObjectiveCpp
+
+其他注意事项
+
+由于WCDB_SYNTHESIZE(className, propertyName)宏默认使用propertyName作为字段名，因此在修改propertyName后，会导致错误，需用WCDB_SYNTHESIZE_COLUMN(className, newPropertyName, "oldPropertyName")重新映射。
+
+每个进行ORM的property，都必须实现getter/setter。因为ORM会在初始化时通过objc-runtime获取property的getter/setter的IMP ，以此实现通过object存取数据库的特性。getter/setter不必须是公开的，也可以是私有接口

@@ -37,18 +37,26 @@ class ViewController: UIViewController {
             }
         
         c.subscribe(onNext: { print($0) }).disposed(by: disPoseBag)
-        
         a.value = 4
         //此时获取到的值是小于零的,过滤起作用
         b.value = -8
         
-        Observable.combineLatest(txf1.rx.text.orEmpty,txf2.rx.text.orEmpty,txf3.rx.text.orEmpty) {
-            (Int($0) ?? 0)+(Int($1) ?? 0)+(Int($2) ?? 0)
-        }.map {
-            $0.description
-        }.throttle(0.1, scheduler: MainScheduler.instance)
-        .bindTo(result.rx.text).disposed(by: disPoseBag)
+        Observable.combineLatest(txf1.rx.text.orEmpty, txf2.rx.text.orEmpty, txf3.rx.text.orEmpty) { textValue1, textValue2, textValue3 -> Int in
+            return (Int(textValue1) ?? 0) + (Int(textValue2) ?? 0) + (Int(textValue3) ?? 0)
+            }.map {
+                $0.description
+            }.throttle(0.1, scheduler: MainScheduler.instance)
+            .bind(to: result.rx.text)
+            .disposed(by: disPoseBag)
         
+//        Observable.combineLatest([txf1.rx.text.orEmpty,txf2.rx.text.orEmpty,txf3.rx.text.orEmpty]) {
+//            [textValue1, textValue2, textValue3] -> Int in
+//             return Int(textValue1) + Int(textValue1) + Int(textValue1)
+//            }.map {
+//                $0.description
+//            }.throttle(0.1, scheduler: MainScheduler.instance)
+//            .bind(to: result.rx.text)
+//            .disposed(by: disPoseBag)
         
         //PublishSubject -> 会发送订阅者从订阅之后的事件序列
         /*

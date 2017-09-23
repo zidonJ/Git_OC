@@ -69,13 +69,17 @@ static NSString * ps=@"";
     _xmppStream.hostPort=_jidPort.text.integerValue;
     [self connectXmpp];
 }
-static NSString *const localRex=@"10.130.62.17";
+
+// 169.254.83.161 10.130.62.17
+static NSString *const localRex=@"192.168.16.93";
 -(void)connectXmpp
 {
-    jid = @"zidon@zidon.local";
-    ps = @"zidon";//密码
     xmppDelegate.password=_password.text;
     XMPPJID *myjid = [XMPPJID jidWithString:[NSString stringWithFormat:@"%@@%@",_jid.text,localRex]];
+    
+//    _xmppStream.hostName = @"zidon.local";
+//    XMPPJID *myjid = [XMPPJID jidWithUser:_jid.text domain:@"zidon.local" resource:nil];
+    
     NSError *error ;
 #pragma mark  ----绑定jid和其对应的resource----
     [_xmppStream setMyJID:myjid];

@@ -9,6 +9,7 @@
 #import "MTImageVC.h"
 #import "MTVCTransitonProtocol.h"
 #import "MTVCAnimationTransition.h"
+#import "MTGestureBackAnimation.h"
 
 #pragma mark Constants
 
@@ -23,6 +24,7 @@
 @property (nonatomic,strong) UIImageView *ttImgView;
 @property (nonatomic,strong) MTVCAnimationTransition *ani;
 @property (nonatomic,strong) UIPanGestureRecognizer *pan;
+@property (nonatomic,strong) MTGestureBackAnimation *backGesture;
 
 @end
 
@@ -36,7 +38,6 @@
 
 
 #pragma mark - Properties
-
 
 #pragma mark - Public Methods
 
@@ -58,10 +59,16 @@
     self.imgView.userInteractionEnabled = YES;
     _pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
     [self.imgView addGestureRecognizer:_pan];
-    
+
     _ani = [MTVCAnimationTransition new];
-    //[_ani setRelyPanGesture:_pan];
+    [_ani setRelyPanGesture:_pan];
     self.transitioningDelegate = _ani;
+    
+    
+//    _backGesture = [MTGestureBackAnimation new];
+//    [_backGesture setGestureBackType:PinchSmall];
+//    [_backGesture setInteractiveViewController:self];
+//    self.transitioningDelegate = _backGesture;
 }
 
 - (void)viewDidLayoutSubviews
@@ -103,10 +110,10 @@
         
     }else if (pan.state == UIGestureRecognizerStateEnded) {
         
-        
         CGPoint velocity = [pan velocityInView:self.imgView];
         if (velocity.y>200 || transitionImageViewFrame.size.height/self.imgView.frame.size.height >= 1.4) {
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
+            //[self.navigationController popViewControllerAnimated:YES];
         }else {
             
             [UIView animateWithDuration:0.2 delay:0 usingSpringWithDamping:0.3 initialSpringVelocity:0.3 options:0 animations:^{
@@ -122,7 +129,8 @@
 }
 
 - (IBAction)back:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end
