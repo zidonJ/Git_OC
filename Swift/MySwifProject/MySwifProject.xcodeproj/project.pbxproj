@@ -12,12 +12,12 @@
 		726B4A461AA9A86500D909BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726B4A441AA9A86500D909BC /* Main.storyboard */; };
 		726B4A481AA9A86500D909BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726B4A471AA9A86500D909BC /* Images.xcassets */; };
 		726B4A4B1AA9A86500D909BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 726B4A491AA9A86500D909BC /* LaunchScreen.xib */; };
+		727EBA421F79E2E0001E4570 /* Controller+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EBA411F79E2E0001E4570 /* Controller+extension.swift */; };
 		72FC15D81AC13DF200A9FA7B /* FuncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FC15D71AC13DF200A9FA7B /* FuncViewController.swift */; };
 		72FC15DA1AC16A6100A9FA7B /* KindAndObjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FC15D91AC16A6100A9FA7B /* KindAndObjectVC.swift */; };
 		C36B05021AFB0CD100D9E29E /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05011AFB0CD100D9E29E /* BlockViewController.swift */; };
 		C36B05071AFB4C8800D9E29E /* KvcAndKvoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */; };
 		C36B05091AFB4CA900D9E29E /* KvcItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05081AFB4CA900D9E29E /* KvcItem.swift */; };
-		C3E82BF61BDF698300A6638C /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E82BF51BDF698300A6638C /* DelegateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,12 +30,12 @@
 		726B4A4A1AA9A86500D909BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		726B4A551AA9A86500D909BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		726B4A561AA9A86500D909BC /* MySwifProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySwifProjectTests.swift; sourceTree = "<group>"; };
+		727EBA411F79E2E0001E4570 /* Controller+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Controller+extension.swift"; sourceTree = "<group>"; };
 		72FC15D71AC13DF200A9FA7B /* FuncViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FuncViewController.swift; sourceTree = "<group>"; };
 		72FC15D91AC16A6100A9FA7B /* KindAndObjectVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KindAndObjectVC.swift; sourceTree = "<group>"; };
 		C36B05011AFB0CD100D9E29E /* BlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KvcAndKvoViewController.swift; sourceTree = "<group>"; };
 		C36B05081AFB4CA900D9E29E /* KvcItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KvcItem.swift; sourceTree = "<group>"; };
-		C3E82BF51BDF698300A6638C /* DelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,8 @@
 				72FC15D91AC16A6100A9FA7B /* KindAndObjectVC.swift */,
 				C36B05011AFB0CD100D9E29E /* BlockViewController.swift */,
 				C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */,
-				C3E82BF51BDF698300A6638C /* DelegateViewController.swift */,
 				C36B05081AFB4CA900D9E29E /* KvcItem.swift */,
+				727EBA411F79E2E0001E4570 /* Controller+extension.swift */,
 				726B4A441AA9A86500D909BC /* Main.storyboard */,
 				726B4A471AA9A86500D909BC /* Images.xcassets */,
 				726B4A491AA9A86500D909BC /* LaunchScreen.xib */,
@@ -183,7 +183,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				726B4A431AA9A86500D909BC /* ViewController.swift in Sources */,
-				C3E82BF61BDF698300A6638C /* DelegateViewController.swift in Sources */,
+				727EBA421F79E2E0001E4570 /* Controller+extension.swift in Sources */,
 				C36B05021AFB0CD100D9E29E /* BlockViewController.swift in Sources */,
 				C36B05071AFB4C8800D9E29E /* KvcAndKvoViewController.swift in Sources */,
 				72FC15DA1AC16A6100A9FA7B /* KindAndObjectVC.swift in Sources */,

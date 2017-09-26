@@ -14,6 +14,10 @@
 		726333BD1F70FD93007D1CB7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726333BB1F70FD93007D1CB7 /* Main.storyboard */; };
 		726333BF1F70FD93007D1CB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 726333BE1F70FD93007D1CB7 /* Assets.xcassets */; };
 		726333C21F70FD93007D1CB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 726333C01F70FD93007D1CB7 /* LaunchScreen.storyboard */; };
+		727EBA401F79DE1B001E4570 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EBA3F1F79DE1B001E4570 /* VirtualObjectARView.swift */; };
+		727EBA441F7A009A001E4570 /* VirtualObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EBA431F7A009A001E4570 /* VirtualObjectInteraction.swift */; };
+		727EBA481F7A257A001E4570 /* SubscriptTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EBA471F7A257A001E4570 /* SubscriptTest.swift */; };
+		727EBA4A1F7A28F8001E4570 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EBA491F7A28F8001E4570 /* Utilities.swift */; };
 		72ED53891F71F62800EF519A /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ED53881F71F62800EF519A /* ARViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,10 @@
 		726333BE1F70FD93007D1CB7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		726333C11F70FD93007D1CB7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		726333C31F70FD93007D1CB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		727EBA3F1F79DE1B001E4570 /* VirtualObjectARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectARView.swift; sourceTree = "<group>"; };
+		727EBA431F7A009A001E4570 /* VirtualObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectInteraction.swift; sourceTree = "<group>"; };
+		727EBA471F7A257A001E4570 /* SubscriptTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptTest.swift; sourceTree = "<group>"; };
+		727EBA491F7A28F8001E4570 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		72ED53881F71F62800EF519A /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +71,11 @@
 				726333B71F70FD93007D1CB7 /* AppDelegate.swift */,
 				726333B91F70FD93007D1CB7 /* ViewController.swift */,
 				72ED53881F71F62800EF519A /* ARViewController.swift */,
+				727EBA3F1F79DE1B001E4570 /* VirtualObjectARView.swift */,
 				725D30611F723A8500A6E698 /* VirtualObject.swift */,
+				727EBA431F7A009A001E4570 /* VirtualObjectInteraction.swift */,
+				727EBA491F7A28F8001E4570 /* Utilities.swift */,
+				727EBA471F7A257A001E4570 /* SubscriptTest.swift */,
 				726333BB1F70FD93007D1CB7 /* Main.storyboard */,
 				726333BE1F70FD93007D1CB7 /* Assets.xcassets */,
 				725D305F1F7208B700A6E698 /* Models.scnassets */,
@@ -148,8 +160,12 @@
 			files = (
 				725D30621F723A8500A6E698 /* VirtualObject.swift in Sources */,
 				72ED53891F71F62800EF519A /* ARViewController.swift in Sources */,
+				727EBA401F79DE1B001E4570 /* VirtualObjectARView.swift in Sources */,
 				726333BA1F70FD93007D1CB7 /* ViewController.swift in Sources */,
+				727EBA481F7A257A001E4570 /* SubscriptTest.swift in Sources */,
 				726333B81F70FD93007D1CB7 /* AppDelegate.swift in Sources */,
+				727EBA4A1F7A28F8001E4570 /* Utilities.swift in Sources */,
+				727EBA441F7A009A001E4570 /* VirtualObjectInteraction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

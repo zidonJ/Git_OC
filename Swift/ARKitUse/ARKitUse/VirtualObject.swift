@@ -56,3 +56,18 @@ class VirtualObject: SCNNode {
         modelLoaded = false
     }
 }
+
+extension VirtualObject {
+    
+    //找当前Scene的根节点
+    static func existingObjectContainingNode(_ node: SCNNode) -> VirtualObject? {
+        if let virtualObjectRoot = node as? VirtualObject {
+            return virtualObjectRoot
+        }
+        
+        guard let parent = node.parent else { return nil }
+        
+        // Recurse up to check if the parent is a `VirtualObject`.
+        return existingObjectContainingNode(parent)
+    }
+}

@@ -8,7 +8,6 @@
 
 import UIKit
 import Foundation
-import ObjectiveC.runtime
 
 typealias completed = ([String:AnyObject],Error) -> Void
 typealias downLoadProgress = (_ progress:Int64,_ expectLarge:Int64) -> Void
@@ -66,8 +65,8 @@ class HttpRequestOperation: NSObject,URLSessionDataDelegate,URLSessionDownloadDe
     //普通网络请求
     func realRequest(_ url:String,method:String,httpBody:Data?,resopnse:@escaping completed) {
         var request=URLRequest(url: URL(string: "http://api.xw.feedss.com/news/video")!)
-        request.httpMethod=method
-        request.httpBody=httpBody
+        request.httpMethod = method
+        request.httpBody = httpBody
         //开始请求
         let task=session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             let data:[String:AnyObject]=try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String : AnyObject]

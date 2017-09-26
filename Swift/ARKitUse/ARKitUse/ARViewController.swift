@@ -12,9 +12,12 @@ import ARKit
 
 class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
 
-    @IBOutlet weak var arSCNView: ARSCNView!
+    @IBOutlet weak var arSCNView: VirtualObjectARView!
+    
+    lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: arSCNView)
     
     var arSession:ARSession = ARSession()
+    
     
     lazy var arConfiguration: ARConfiguration = {
         let configuration = ARWorldTrackingConfiguration()
@@ -38,11 +41,13 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
     
     override func viewDidLayoutSubviews() {
         arSession.run(arConfiguration, options: [.resetTracking,.removeExistingAnchors])
+        print(virtualObjectInteraction)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         //SCNScene(named: "chair.scn", inDirectory: "Models.scnassets/chair", options: [:])
+        //一个场景,AR世界可以有很多SCNScene
         guard let scence = SCNScene(named: "Models.scnassets/lamp/lamp.scn") else {
             return
         }
@@ -86,33 +91,35 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
     }
 }
 
-//MARK:ARSKViewDelegate
+//MARK:ARSCNViewDelegate
 extension ARViewController {
     
 //    public func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
 //        return VirtualObject(moduleName: "Models", modelName: "chair", fileExtension: "scn")
 //    }
     
+    
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         
-        if anchor.isMember(of: ARPlaneAnchor.classForCoder()) {
-            let planeAnchor = anchor as! ARPlaneAnchor
-            let planeBox = SCNBox(width: CGFloat(planeAnchor.extent.x * 0.3), height: 0,
-                                 length: CGFloat(planeAnchor.extent.x * 0.3), chamferRadius: 0)
-            planeBox.firstMaterial?.diffuse.contents = UIColor.red
-            let planeNode = SCNNode(geometry: planeBox)
-            objectNode = planeNode
-            planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-            node.addChildNode(planeNode)
-            
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds:2), execute: {
+        DispatchQueue.main.async {
+            if anchor.isMember(of: ARPlaneAnchor.classForCoder()) {
+                let planeAnchor = anchor as! ARPlaneAnchor
+                let planeBox = SCNBox(width: CGFloat(planeAnchor.extent.x * 0.3), height: 0,
+                                      length: CGFloat(planeAnchor.extent.x * 0.3), chamferRadius: 0)
+                planeBox.firstMaterial?.diffuse.contents = UIColor.green
+                let planeNode = SCNNode(geometry: planeBox)
+                self.objectNode = planeNode
+                planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+                node.addChildNode(planeNode)
                 
-                let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
-                vNode.loadModel()
-                vNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-                node.addChildNode(vNode)
-
-            })
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds:2), execute: {
+                    
+                    let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
+                    vNode.loadModel()
+                    vNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+                    node.addChildNode(vNode)
+                })
+            }
         }
     }
 
@@ -140,14 +147,16 @@ extension ARViewController {
     public func session(_ session: ARSession, didUpdate frame: ARFrame) {
         
         //print("更新相机位置")
-        if objectNode != nil {
-            objectNode?.position = SCNVector3Make(frame.camera.transform.columns.3.x,
-                                                  frame.camera.transform.columns.3.y,
-                                                  frame.camera.transform.columns.3.z)
+        DispatchQueue.main.async {
+            if self.objectNode != nil {
+                self.objectNode?.position = SCNVector3Make(frame.camera.transform.columns.3.x,
+                                                      frame.camera.transform.columns.3.y,
+                                                      frame.camera.transform.columns.3.z)
+            }
         }
     }
     
-    //添加锚点
+    //添加锚点，是一个数组
     public func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
         
         print("添加锚点")
@@ -157,7 +166,7 @@ extension ARViewController {
     //刷新锚点
     public func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
         
-        print("刷新锚点")
+        print("刷新锚点",anchors.count)
     }
     
     //移除锚点
