@@ -14,6 +14,7 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
 
     @IBOutlet weak var arSCNView: VirtualObjectARView!
     
+    @IBOutlet weak var arSKView: ARSKView!
     lazy var virtualObjectInteraction = VirtualObjectInteraction(sceneView: arSCNView)
     
     var arSession:ARSession = ARSession()
@@ -21,7 +22,8 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
     
     lazy var arConfiguration: ARConfiguration = {
         let configuration = ARWorldTrackingConfiguration()
-        //设置追踪方向
+        
+        
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
         return configuration
@@ -48,45 +50,42 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
         
         //SCNScene(named: "chair.scn", inDirectory: "Models.scnassets/chair", options: [:])
         //一个场景,AR世界可以有很多SCNScene
-        guard let scence = SCNScene(named: "Models.scnassets/lamp/lamp.scn") else {
-            return
-        }
-        let virtualNode = scence.rootNode.childNodes[0]
-        //virtualNode.position = SCNVector3Make(0, -1, -1)
-        arSCNView.scene.rootNode.addChildNode(virtualNode)
-        virtualNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
-        virtualNode.position = SCNVector3Make(0, -15, -35)
+//        guard let scence = SCNScene(named: "Models.scnassets/lamp/lamp.scn") else {
+//            return
+//        }
+//        let virtualNode = scence.rootNode.childNodes[0]
+//        //virtualNode.position = SCNVector3Make(0, -1, -1)
+//        arSCNView.scene.rootNode.addChildNode(virtualNode)
+//        virtualNode.scale = SCNVector3Make(0.5, 0.5, 0.5)
+//        virtualNode.position = SCNVector3Make(0, -15, -35)
+//
+//        for node in scence.rootNode.childNodes {
+//            node.scale = SCNVector3Make(0.5, 0.5, 0.5)
+//            node.position = SCNVector3Make(0, -15, -35)
+//        }
+//
+//        //做动画可以创建一个空间的节点（Node这个点是三维的），围绕这个空间节点去做动画
+//        let animationNode = SCNNode()
+//        //根结点的位置
+//        animationNode.position = arSCNView.scene.rootNode.position
+//        arSCNView.scene.rootNode.addChildNode(animationNode)
+//        animationNode.addChildNode(virtualNode)
+//
+//        let basiAnimation = CABasicAnimation(keyPath: "rotation")
+//        basiAnimation.duration = 2
+//
+//        basiAnimation.toValue = NSValue(scnVector4: SCNVector4Make(0, 0, 1, Float.pi*2))
+//        basiAnimation.repeatCount = 5
+//        animationNode.addAnimation(basiAnimation, forKey: "rotation")
         
-        for node in scence.rootNode.childNodes {
-            node.scale = SCNVector3Make(0.5, 0.5, 0.5)
-            node.position = SCNVector3Make(0, -15, -35)
-        }
         
-        //做动画可以创建一个空间的节点（Node这个点是三维的），围绕这个空间节点去做动画
-        let animationNode = SCNNode()
-        //根结点的位置
-        animationNode.position = arSCNView.scene.rootNode.position
-        arSCNView.scene.rootNode.addChildNode(animationNode)
-        animationNode.addChildNode(virtualNode)
+        //当添加一个锚点的时候会自动添加一个节点:这个节点是空的(没有几何模型和材质)。当向根节点添加一个节点的时候并不会创建锚点
+        var translation = matrix_identity_float4x4
+        translation.columns.3.z = -0.3
+        let transform = simd_mul((arSCNView.session.currentFrame?.camera.transform)!, translation)
         
-        let basiAnimation = CABasicAnimation(keyPath: "rotation")
-        basiAnimation.duration = 2
-        
-        basiAnimation.toValue = NSValue(scnVector4: SCNVector4Make(0, 0, 1, Float.pi*2))
-        basiAnimation.repeatCount = 5
-        animationNode.addAnimation(basiAnimation, forKey: "rotation")
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let anchor = ARAnchor(transform: transform)
+        arSCNView.session.add(anchor: anchor)
         
     }
 }
@@ -94,32 +93,52 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
 //MARK:ARSCNViewDelegate
 extension ARViewController {
     
-//    public func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-//        return VirtualObject(moduleName: "Models", modelName: "chair", fileExtension: "scn")
-//    }
-    
-    
-    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+    //SCNSceneRendererDelegate  ARSCNView父类遵循的一个协议方法 每帧都会调用
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         
         DispatchQueue.main.async {
-            if anchor.isMember(of: ARPlaneAnchor.classForCoder()) {
-                let planeAnchor = anchor as! ARPlaneAnchor
-                let planeBox = SCNBox(width: CGFloat(planeAnchor.extent.x * 0.3), height: 0,
-                                      length: CGFloat(planeAnchor.extent.x * 0.3), chamferRadius: 0)
-                planeBox.firstMaterial?.diffuse.contents = UIColor.green
-                let planeNode = SCNNode(geometry: planeBox)
-                self.objectNode = planeNode
-                planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-                node.addChildNode(planeNode)
-                
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds:2), execute: {
-                    
-                    let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
-                    vNode.loadModel()
-                    vNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-                    node.addChildNode(vNode)
-                })
+            self.virtualObjectInteraction.updateObjectToCurrentTrackingPosition()
+        }
+        
+    }
+    
+    public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        print("添加节点")
+        DispatchQueue.main.async {
+//            if anchor.isMember(of: ARPlaneAnchor.classForCoder()) {
+//                let planeAnchor = anchor as! ARPlaneAnchor
+//                let planeBox = SCNBox(width: CGFloat(planeAnchor.extent.x * 0.3), height: 0,
+//                                      length: CGFloat(planeAnchor.extent.x * 0.3), chamferRadius: 0)
+//                planeBox.firstMaterial?.diffuse.contents = UIColor.green
+//                let planeNode = SCNNode(geometry: planeBox)
+//                self.objectNode = planeNode
+//                planeNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+//                node.addChildNode(planeNode)
+//
+//                DispatchQueue.main.asyncAfter(deadline: DispatchTime(uptimeNanoseconds:2), execute: {
+//
+//                    let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
+//                    vNode.loadModel()
+//                    vNode.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+//                    node.addChildNode(vNode)
+//                })
+//            }
+            
+            guard let cameraTransform = self.arSession.currentFrame?.camera.transform else {
+                    return
             }
+            
+            let vNode = VirtualObject(moduleName: "Models", modelName: "lamp", fileExtension: "scn")
+            vNode.loadModel()
+
+        
+            vNode.setPosition(node.simdPosition, relativeTo: cameraTransform, smoothMovement: false)
+            
+            //这种方式可能不准确 会出现节点错乱跳动 不稳定
+//            node.addChildNode(vNode)
+            
+            
+            self.arSCNView.scene.rootNode.addChildNode(vNode)
         }
     }
 

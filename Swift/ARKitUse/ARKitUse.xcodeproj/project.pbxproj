@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7221B1201F7B4D9600808DFE /* ARPanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7221B11F1F7B4D9600808DFE /* ARPanGesture.swift */; };
 		725D30601F72184500A6E698 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 725D305F1F7208B700A6E698 /* Models.scnassets */; };
 		725D30621F723A8500A6E698 /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725D30611F723A8500A6E698 /* VirtualObject.swift */; };
 		726333B81F70FD93007D1CB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726333B71F70FD93007D1CB7 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7221B11F1F7B4D9600808DFE /* ARPanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPanGesture.swift; sourceTree = "<group>"; };
 		725D305F1F7208B700A6E698 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		725D30611F723A8500A6E698 /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
 		726333B41F70FD93007D1CB7 /* ARKitUse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARKitUse.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 				727EBA3F1F79DE1B001E4570 /* VirtualObjectARView.swift */,
 				725D30611F723A8500A6E698 /* VirtualObject.swift */,
 				727EBA431F7A009A001E4570 /* VirtualObjectInteraction.swift */,
+				7221B11F1F7B4D9600808DFE /* ARPanGesture.swift */,
 				727EBA491F7A28F8001E4570 /* Utilities.swift */,
 				727EBA471F7A257A001E4570 /* SubscriptTest.swift */,
 				726333BB1F70FD93007D1CB7 /* Main.storyboard */,
@@ -160,6 +163,7 @@
 			files = (
 				725D30621F723A8500A6E698 /* VirtualObject.swift in Sources */,
 				72ED53891F71F62800EF519A /* ARViewController.swift in Sources */,
+				7221B1201F7B4D9600808DFE /* ARPanGesture.swift in Sources */,
 				727EBA401F79DE1B001E4570 /* VirtualObjectARView.swift in Sources */,
 				726333BA1F70FD93007D1CB7 /* ViewController.swift in Sources */,
 				727EBA481F7A257A001E4570 /* SubscriptTest.swift in Sources */,

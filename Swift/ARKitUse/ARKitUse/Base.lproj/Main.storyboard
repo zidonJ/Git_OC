@@ -59,6 +59,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <arskView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vqZ-Tw-hAP">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="IKH-oB-nSX"/>
+                                    <constraint firstAttribute="width" constant="300" id="h2c-fi-JfR"/>
+                                </constraints>
+                            </arskView>
                             <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taR-2T-kkw" customClass="VirtualObjectARView" customModule="ARKitUse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <connections>
@@ -68,7 +75,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="vqZ-Tw-hAP" firstAttribute="centerY" secondItem="vwa-yq-W9N" secondAttribute="centerY" id="229-55-vaM"/>
                             <constraint firstItem="taR-2T-kkw" firstAttribute="leading" secondItem="0vs-Ah-hrw" secondAttribute="leading" id="3bT-li-hzc"/>
+                            <constraint firstItem="vqZ-Tw-hAP" firstAttribute="centerX" secondItem="vwa-yq-W9N" secondAttribute="centerX" id="871-4D-4f0"/>
                             <constraint firstItem="taR-2T-kkw" firstAttribute="top" secondItem="0vs-Ah-hrw" secondAttribute="top" id="L6j-KZ-TR6"/>
                             <constraint firstItem="0vs-Ah-hrw" firstAttribute="bottom" secondItem="taR-2T-kkw" secondAttribute="bottom" id="MfZ-2j-ZzF"/>
                             <constraint firstItem="0vs-Ah-hrw" firstAttribute="trailing" secondItem="taR-2T-kkw" secondAttribute="trailing" id="ydm-cG-heN"/>
@@ -78,11 +87,12 @@
                     <navigationItem key="navigationItem" id="PUA-0E-bqG"/>
                     <connections>
                         <outlet property="arSCNView" destination="taR-2T-kkw" id="Wcv-XT-x55"/>
+                        <outlet property="arSKView" destination="vqZ-Tw-hAP" id="VrP-tP-UAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SOs-sB-Tt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-210" y="133"/>
+            <point key="canvasLocation" x="-210.40000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
