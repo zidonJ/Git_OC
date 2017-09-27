@@ -10,50 +10,43 @@ import UIKit
 import ARKit
 
 class VirtualObjectARView: ARSCNView {
-
-    
-    
     
     struct HitTestRay {
+        
         var origin: float3
         var direction: float3
         
         func intersectionWithHorizontalPlane(atY planeY: Float) -> float3? {
             let normalizedDirection = simd_normalize(direction)
             
-            // Special case handling: Check if the ray is horizontal as well.
+            // 特殊情况处理：检查射线是否水平
             if normalizedDirection.y == 0 {
                 if origin.y == planeY {
                     /*
-                     The ray is horizontal and on the plane, thus all points on the ray
-                     intersect with the plane. Therefore we simply return the ray origin.
+                     光线在水平的平面上,从而对射线的所有点与平面锚相交.因此我们只返回射线原点。
                      */
                     return origin
                 } else {
-                    // The ray is parallel to the plane and never intersects.
+                    //光线是平行的平面，永不相交。
                     return nil
                 }
             }
-            
             /*
-             The distance from the ray's origin to the intersection point on the plane is:
-             (`pointOnPlane` - `rayOrigin`) dot `planeNormal`
+             从光线的原点到平面上的交点的距离:('point-on-plane'-'rayorigin')/'planenormal'
              --------------------------------------------
-             direction dot planeNormal
+             direction dot plane Normal
              */
             
             // Since we know that horizontal planes have normal (0, 1, 0), we can simplify this to:
             let distance = (planeY - origin.y) / normalizedDirection.y
             
-            // Do not return intersections behind the ray's origin.
+            // 不返回在射线原点后的相交
             if distance < 0 {
                 return nil
             }
-            
-            // Return the intersection point.
+            // 返回交点
             return origin + (normalizedDirection * distance)
         }
-        
     }
     
     struct FeatureHitTestResult {
@@ -68,7 +61,7 @@ class VirtualObjectARView: ARSCNView {
         let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
         let hitTestResults = hitTest(point, options: hitTestOptions)
         
-        //lazy惰性计算属性(SequenceType,CollectionType)
+        //lazy惰性计算属性(支持这两种类型:SequenceType,CollectionType)
         return hitTestResults.lazy.flatMap { result in
             print(result.localNormal,result.worldNormal,result.localCoordinates,result.worldCoordinates)
             return VirtualObject.existingObjectContainingNode(result.node)

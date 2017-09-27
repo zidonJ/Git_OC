@@ -137,7 +137,6 @@ extension ARViewController {
             //这种方式可能不准确 会出现节点错乱跳动 不稳定
 //            node.addChildNode(vNode)
             
-            
             self.arSCNView.scene.rootNode.addChildNode(vNode)
         }
     }
