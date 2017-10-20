@@ -26,6 +26,18 @@ class ViewController: UIViewController ,mediumViewDelegate{
         
 //        let cgMidView=cgMediumView.init(frame: view.bounds)
 //        view.addSubview(cgMidView)
+        
+        
+        UIGraphicsBeginImageContext(CGSize(width: 200, height: 200))
+        let context = UIGraphicsGetCurrentContext()
+        let v = UIView(frame: CGRect(x: 50, y: 50, width: 200, height: 200))
+        v.backgroundColor = UIColor.red
+        v.layer.render(in: context!)
+        
+        let image1 = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        UIImageWriteToSavedPhotosAlbum(image1!, nil, nil, nil)
+        
     }
     
     func touchPoint(point: CGPoint!) {
@@ -38,7 +50,7 @@ class ViewController: UIViewController ,mediumViewDelegate{
         imgView.image!.draw(in: CGRect.init(x: 0, y: 0, width: (imgView?.image?.size.width)!, height: (imgView?.image?.size.height)!))
         ctx!.setLineWidth(3)
         
-        //视图坐标到图片距离的转换（只适用于ScaleAspectFit的存在）
+        //视图坐标到图片距离的转换(只适用于ScaleAspectFit的存在)
         
         let scale=min(imgView!.bounds.size.width / imgView!.image!.size.width,
             imgView!.bounds.size.height / imgView!.image!.size.height)
@@ -46,11 +58,12 @@ class ViewController: UIViewController ,mediumViewDelegate{
         let offsetX=(imgView!.bounds.size.width - imgView!.image!.size.width * scale) / 2.0
         let offsetY=(imgView!.bounds.size.height - imgView!.image!.size.height * scale) / 2.0
         
+        //找到在图片中的真实Rect
         let pixelRect=CGRect(x:(x-offsetX)/scale, y:(y-offsetY)/scale, width:30/scale, height:30/scale)
         
         ctx!.addRect(pixelRect)
         UIColor.red.set()
-        ctx!.drawPath(using: CGPathDrawingMode.stroke)
+        ctx!.drawPath(using: .stroke)
         let imgNew = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         imgView?.image=imgNew

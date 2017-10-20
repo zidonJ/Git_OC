@@ -19,15 +19,15 @@ class VirtualObjectARView: ARSCNView {
         func intersectionWithHorizontalPlane(atY planeY: Float) -> float3? {
             let normalizedDirection = simd_normalize(direction)
             
-            // 特殊情况处理：检查射线是否水平
+            // 特殊情况处理:检查射线是否水平
             if normalizedDirection.y == 0 {
                 if origin.y == planeY {
                     /*
-                     光线在水平的平面上,从而对射线的所有点与平面锚相交.因此我们只返回射线原点。
+                     光线在水平的平面上,从而对射线的所有点与平面锚相交.因此只返回射线原点。
                      */
                     return origin
                 } else {
-                    //光线是平行的平面，永不相交。
+                    //光线是平行的平面,永不相交。
                     return nil
                 }
             }
@@ -37,7 +37,7 @@ class VirtualObjectARView: ARSCNView {
              direction dot plane Normal
              */
             
-            // Since we know that horizontal planes have normal (0, 1, 0), we can simplify this to:
+            // Since we know that horizontal planes have normal(0, 1, 0), we can simplify this to:
             let distance = (planeY - origin.y) / normalizedDirection.y
             
             // 不返回在射线原点后的相交
@@ -56,8 +56,10 @@ class VirtualObjectARView: ARSCNView {
         var featureDistanceToHitResult: Float
     }
     
+    //MARK:获取节点
     func virtualObject(at point: CGPoint) -> VirtualObject? {
         
+        //另一种命中测试 在SCNSceneRenderer(ARSCNView父类的遵守的一个协议)中   boundingBoxOnly代表只做3D物体的外围的命中测试
         let hitTestOptions: [SCNHitTestOption: Any] = [.boundingBoxOnly: true]
         let hitTestResults = hitTest(point, options: hitTestOptions)
         
@@ -69,6 +71,14 @@ class VirtualObjectARView: ARSCNView {
     }
     
     func worldPosition(fromScreenPosition position: CGPoint, objectPosition: float3?, infinitePlane: Bool = false) -> (position: float3, planeAnchor: ARPlaneAnchor?, isOnPlane: Bool)? {
+        
+        /*
+         .existingPlaneUsingExtent
+         .featurePoint
+         .existingPlane
+         .estimatedHorizontalPlane
+         */
+        
         /*
          1. 总是做一个命中测试对现有平面锚点.(如果有这样的锚点存在并且只在它们的范围.)
          */
@@ -83,7 +93,7 @@ class VirtualObjectARView: ARSCNView {
         }
         
         /*
-         2. 通过命中特征点云的测试获取更多环境的信息,但是还没有返回结果.
+         2. 通过命中特征点云的测试获取更多环境的信息,但这里先不用返回结果.
          */
         let featureHitTestResult = hitTestWithFeatures(position, coneOpeningAngleInDegrees: 18, minDistance: 0.2, maxDistance: 2.0).first
         let featurePosition = featureHitTestResult?.position
@@ -100,14 +110,13 @@ class VirtualObjectARView: ARSCNView {
         
         /*
          4.如果对无限平面的命中测试跳过或没有无限平面被命中 如果可用则通过命中特征点云的测试获取更多环境的信息(第2步)。
-         
          */
         if let featurePosition = featurePosition {
             return (featurePosition, nil, false)
         }
         
         /*
-         5. 作为最后手段,对特征进行第二次未过滤的命中测试。如果场景中没有特征,返回的结果将为零。
+         5. 作为最后手段,对特征点进行第二次不过滤的命中测试。如果场景中没有特征,返回的结果将为零。
          */
         let unfilteredFeatureHitTestResults = hitTestWithFeatures(position)
         if let result = unfilteredFeatureHitTestResults.first {
@@ -124,36 +133,47 @@ extension VirtualObjectARView {
         return float3(unprojectPoint(SCNVector3(point)))
     }
     
+    //命中测试射线
     func hitTestRayFromScreenPosition(_ point: CGPoint) -> HitTestRay? {
-        guard let frame = session.currentFrame else { return nil }
         
+        //一些情况AR会话可能被打断不可用 需要先判断下
+        guard let frame = session.currentFrame else {
+            return nil
+        }
+
+        //将4维转的3维 去掉旋转弧度
         let cameraPos = frame.camera.transform.translation
         
-        // Note: z: 1.0 will unproject() the screen position to the far clipping plane.
+        // z=1将不会把屏幕位置投射到遥远的平切面
         let positionVec = float3(x: Float(point.x), y: Float(point.y), z: 1.0)
+        
+        // 把positionVec渲染到3D世界中的点
         let screenPosOnFarClippingPlane = unprojectPoint(positionVec)
         
         let rayDirection = simd_normalize(screenPosOnFarClippingPlane - cameraPos)
+        
         return HitTestRay(origin: cameraPos, direction: rayDirection)
     }
     
+    //向无限大平面做命中测试
     func hitTestWithInfiniteHorizontalPlane(_ point: CGPoint, _ pointOnPlane: float3) -> float3? {
         guard let ray = hitTestRayFromScreenPosition(point) else { return nil }
         
-        // Do not intersect with planes above the camera or if the ray is almost parallel to the plane.
+        // 不要与相机上方的平面相交,或者光线几乎与平面平行。
         if ray.direction.y > -0.03 {
             return nil
         }
         
         /*
-         Return the intersection of a ray from the camera through the screen position
-         with a horizontal plane at height (Y axis).
+         返回从相机穿过屏幕与射线相交在水平面y轴的高度
          */
         return ray.intersectionWithHorizontalPlane(atY: pointOnPlane.y)
     }
     
+    //通过命中特征点云做命中测试
     func hitTestWithFeatures(_ point: CGPoint, coneOpeningAngleInDegrees: Float, minDistance: Float = 0, maxDistance: Float = Float.greatestFiniteMagnitude, maxResults: Int = 1) -> [FeatureHitTestResult] {
         
+        //ARPointCloud在AR世界坐标系的点的集合  'rawFeaturePoints'用于分析AR世界的追踪
         guard let features = session.currentFrame?.rawFeaturePoints, let ray = hitTestRayFromScreenPosition(point) else {
             return []
         }

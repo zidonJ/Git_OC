@@ -44,7 +44,7 @@ class UseSubscriptTest: NSObject {
 //        if let someMeal = monday.meals[.Breakfast] {
 //            print(someMeal)
 //        }
-        
+        //下标取值和赋值的参数放在[]内
         monday[.Breakfast] = "Toast"
         print(monday[.Breakfast])
     }

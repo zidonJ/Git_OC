@@ -20,8 +20,8 @@ class ViewController: UIViewController {
         test.textColor = UIColor.red
         view.addSubview(test)
         
-        self.gradientLabel();
-        self.nbLabel()
+        gradientLabel();
+        nbLabel()
     }
     
     func gradientLabel() {
@@ -32,10 +32,17 @@ class ViewController: UIViewController {
         gradientLayer.frame = label.frame
         gradientLayer.colors = [self.randomColor(), self.randomColor(),self.randomColor()]
         view.layer.addSublayer(gradientLayer)
-        // mask层工作原理:按照透明度裁剪，只保留非透明部分，文字就是非透明的，因此除了文字，其他都被裁剪掉，这样就只会显示文字下面渐变层的内容，相当于留了文字的区域，让渐变层去填充文字的颜色。
+        /*
+         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的，因此除了文字，其他都被裁剪掉，这样就只会显示文字下面渐变层的内容，
+         相当于留了文字的区域，让渐变层去填充文字的颜色。
+         */
         gradientLayer.mask = label.layer;
         
-        // 注意:一旦把label层设置为mask层，label层就不能显示了,会直接从父层中移除，然后作为渐变层的mask层，且label层的父层会指向渐变层，这样做的目的：以渐变层为坐标系，方便计算裁剪区域，如果以其他层为坐标系，还需要做点的转换，需要把别的坐标系上的点，转换成自己坐标系上点，判断当前点在不在裁剪范围内，比较麻烦。
+        /*
+         注意:一旦把label层设置为mask层,label层就不能显示了,会直接从父层中移除,然后作为渐变层的mask层,且label层的父层会指向渐变层,
+         这样做的目的:以渐变层为坐标系,方便计算裁剪区域,如果以其他层为坐标系,还需要做点的转换,需要把别的坐标系上的点，
+         转换成自己坐标系上点,判断当前点在不在裁剪范围内,比较麻烦。
+         */
         
         // 父层改了，坐标系也就改了，需要重新设置label的位置，才能正确的设置裁剪区域。
         label.frame = gradientLayer.bounds;

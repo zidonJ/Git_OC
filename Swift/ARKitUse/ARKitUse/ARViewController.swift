@@ -23,7 +23,7 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
     lazy var arConfiguration: ARConfiguration = {
         let configuration = ARWorldTrackingConfiguration()
         
-        
+        //
         configuration.planeDetection = .horizontal
         configuration.isLightEstimationEnabled = true
         return configuration
@@ -77,16 +77,15 @@ class ARViewController: UIViewController ,ARSessionDelegate ,ARSCNViewDelegate{
 //        basiAnimation.toValue = NSValue(scnVector4: SCNVector4Make(0, 0, 1, Float.pi*2))
 //        basiAnimation.repeatCount = 5
 //        animationNode.addAnimation(basiAnimation, forKey: "rotation")
-        
+
         
         //当添加一个锚点的时候会自动添加一个节点:这个节点是空的(没有几何模型和材质)。当向根节点添加一个节点的时候并不会创建锚点
-        var translation = matrix_identity_float4x4
-        translation.columns.3.z = -0.3
-        let transform = simd_mul((arSCNView.session.currentFrame?.camera.transform)!, translation)
-        
-        let anchor = ARAnchor(transform: transform)
-        arSCNView.session.add(anchor: anchor)
-        
+//        var translation = matrix_identity_float4x4
+//        translation.columns.3.z = -0.3
+//        let transform = simd_mul((arSCNView.session.currentFrame?.camera.transform)!, translation)
+//
+//        let anchor = ARAnchor(transform: transform)
+//        arSCNView.session.add(anchor: anchor)
     }
 }
 
@@ -101,6 +100,7 @@ extension ARViewController {
         }
         
     }
+    
     
     public func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         print("添加节点")
@@ -158,7 +158,7 @@ extension ARViewController {
     }
 }
 
-//MARK:ARSessionDelegate
+      //MARK:ARSessionDelegate
 extension ARViewController {
     
     //会频繁的调用

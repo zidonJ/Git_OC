@@ -180,7 +180,6 @@ class BlockViewController: UIViewController {
             return "\(a)*100+\(b) = \(c)"
         }
         
-        
         bk.blockPropertyNoReturn = {
             (param:String) -> () in
             print("input param value is : \(param)")
