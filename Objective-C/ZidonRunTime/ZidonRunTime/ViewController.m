@@ -53,6 +53,8 @@ typedef void (*VIMP) (id,SEL,...);
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    //_cmd可直接用于获取当前方法 时SEL类型
+    NSLog(@"%@",NSStringFromSelector(_cmd));
     _test1=@"1";
     _test2=@"2";
     _test3=[[NSData alloc] init];
@@ -69,9 +71,29 @@ typedef void (*VIMP) (id,SEL,...);
     //可以达到和objc_msgSend相同的效果。
     VIMP imp = (VIMP)[self methodForSelector:@selector(msgSendTest:tp2:)];
     
+    
+    
     imp(self,@selector(msgSendTest:tp2:),5,@"jojo");
     
+    
     objc_msgSend(self, @selector(msgSendTest:tp2:),5,@"Andrew");
+    
+    
+    
+    
+    /*
+     使用block的方式调用 不能有SEL参数
+     */
+    void (^requestBlock)(id object, id URL, id parameters) =^
+    (id object,  id URL, id parameters) {
+        NSLog(@"%@--%@",URL,parameters);
+    };
+    
+    IMP requestIMP = imp_implementationWithBlock(requestBlock);
+    
+    class_addMethod([self class], @selector(networkReuqest:parameters:), requestIMP, "v@:@@");
+    
+    [self performSelector: @selector(networkReuqest:parameters:) withObject: @"http://www.baidu.com" withObject: @"123"];
     
 }
 //执行发发，指针函数
@@ -109,6 +131,7 @@ NSString * MyUppercaseString(id self, SEL _cmd)
     NSLog(@"befor:%@",array);
     objc_removeAssociatedObjects(array);
     NSLog(@"after:%@",array);
+    
 }
 /**
  *  objc_property_t与Ivar遍历属性和成员变量
@@ -170,11 +193,17 @@ NSString * MyUppercaseString(id self, SEL _cmd)
          
             @-->id(str)
             -->
+         
+         添加方法参数含义
+         v                 @           :        @
+         void sayFunction(id self, SEL _cmd, id some)
          */
         BOOL addMethod=class_addMethod(_testRuntimeClass,@selector(testMethod), (IMP)testMethod, "v@:");
         if (addMethod) {
             NSLog(@"添加方法成功");
         }
+        
+
         // 注册你创建的这个类
         objc_registerClassPair(_testRuntimeClass);
         
@@ -263,8 +292,9 @@ void dynamicMethodIMP(id self, SEL _cmd)
  *  @param anInvocation 被转发的选择子
  */
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    [anInvocation setSelector:@selector(anotherTest)];  // 设置需要调用的选择子
+    [anInvocation setSelector:@selector(anotherTest)];  // 设置需要调用的SEL
     [anInvocation invokeWithTarget:self];  // 设置消息的接收者，不一定必须是self
+    
 }
 
 @end

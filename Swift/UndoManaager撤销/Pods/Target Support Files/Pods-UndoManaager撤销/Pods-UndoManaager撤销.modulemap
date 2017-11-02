@@ -1,0 +1,6 @@
+framework module Pods_UndoManaager__ {
+  umbrella header "Pods-UndoManaager撤销-umbrella.h"
+
+  export *
+  module * { export * }
+}
