@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "HYScratchCardView.h"
+#import "PanToMaskView.h"
 #import "UIImage+MaskImage.h"
 
 @interface ViewController ()
@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    HYScratchCardView *v = [[HYScratchCardView alloc] initWithFrame:self.view.bounds];
+    PanToMaskView *v = [[PanToMaskView alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:v];
     UIImage *image = [UIImage imageNamed:@"11"];
     

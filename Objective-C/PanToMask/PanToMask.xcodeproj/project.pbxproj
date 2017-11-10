@@ -13,7 +13,7 @@
 		72E6CC7A1F99958000CE6BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72E6CC791F99958000CE6BEC /* Assets.xcassets */; };
 		72E6CC7D1F99958000CE6BEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E6CC7B1F99958000CE6BEC /* LaunchScreen.storyboard */; };
 		72E6CC801F99958000CE6BEC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC7F1F99958000CE6BEC /* main.m */; };
-		72E6CC881F99959C00CE6BEC /* HYScratchCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC871F99959C00CE6BEC /* HYScratchCardView.m */; };
+		72E6CC881F99959C00CE6BEC /* PanToMaskView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC871F99959C00CE6BEC /* PanToMaskView.m */; };
 		72E6CC8B1F99962B00CE6BEC /* UIImage+MaskImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC8A1F99962B00CE6BEC /* UIImage+MaskImage.m */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +28,8 @@
 		72E6CC7C1F99958000CE6BEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72E6CC7E1F99958000CE6BEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72E6CC7F1F99958000CE6BEC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		72E6CC861F99959C00CE6BEC /* HYScratchCardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HYScratchCardView.h; sourceTree = "<group>"; };
-		72E6CC871F99959C00CE6BEC /* HYScratchCardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HYScratchCardView.m; sourceTree = "<group>"; };
+		72E6CC861F99959C00CE6BEC /* PanToMaskView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PanToMaskView.h; sourceTree = "<group>"; };
+		72E6CC871F99959C00CE6BEC /* PanToMaskView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PanToMaskView.m; sourceTree = "<group>"; };
 		72E6CC891F99962B00CE6BEC /* UIImage+MaskImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+MaskImage.h"; sourceTree = "<group>"; };
 		72E6CC8A1F99962B00CE6BEC /* UIImage+MaskImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+MaskImage.m"; sourceTree = "<group>"; };
 		72E6CC8C1F9996E700CE6BEC /* 11.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 11.jpg; sourceTree = "<group>"; };
@@ -69,8 +69,8 @@
 				72E6CC711F99958000CE6BEC /* AppDelegate.m */,
 				72E6CC731F99958000CE6BEC /* ViewController.h */,
 				72E6CC741F99958000CE6BEC /* ViewController.m */,
-				72E6CC861F99959C00CE6BEC /* HYScratchCardView.h */,
-				72E6CC871F99959C00CE6BEC /* HYScratchCardView.m */,
+				72E6CC861F99959C00CE6BEC /* PanToMaskView.h */,
+				72E6CC871F99959C00CE6BEC /* PanToMaskView.m */,
 				72E6CC891F99962B00CE6BEC /* UIImage+MaskImage.h */,
 				72E6CC8A1F99962B00CE6BEC /* UIImage+MaskImage.m */,
 				72E6CC8C1F9996E700CE6BEC /* 11.jpg */,
@@ -155,7 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72E6CC8B1F99962B00CE6BEC /* UIImage+MaskImage.m in Sources */,
-				72E6CC881F99959C00CE6BEC /* HYScratchCardView.m in Sources */,
+				72E6CC881F99959C00CE6BEC /* PanToMaskView.m in Sources */,
 				72E6CC751F99958000CE6BEC /* ViewController.m in Sources */,
 				72E6CC801F99958000CE6BEC /* main.m in Sources */,
 				72E6CC721F99958000CE6BEC /* AppDelegate.m in Sources */,
