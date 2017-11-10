@@ -45,7 +45,7 @@ class KvcAndKvoViewController: UIViewController {
     }
     
     
-    func back(){
+    @objc func back(){
         
         self.navigationController?.popViewController(animated: true)
     }
@@ -55,7 +55,7 @@ class KvcAndKvoViewController: UIViewController {
         lable.removeObserver(self,forKeyPath:"text")
     }
     
-    func jojo(){
+    @objc func jojo(){
         lable.text="Taylor Swift is my first love"
     }
 }

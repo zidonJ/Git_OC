@@ -16,7 +16,7 @@
 #define CustomFormat(a,b) [NSString stringWithFormat:a,b]
 
 /**
- 
+
  系统IMP默认是有返回值的,这样用IMP获取没有返回值的方法调用就会崩溃,
  所以定义了一个没有返回值的指针函数来获取调用
  
@@ -77,8 +77,6 @@ typedef void (*VIMP) (id,SEL,...);
     
     
     objc_msgSend(self, @selector(msgSendTest:tp2:),5,@"Andrew");
-    
-    
     
     
     /*
