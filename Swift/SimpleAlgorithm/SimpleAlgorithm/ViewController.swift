@@ -12,18 +12,19 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var sortField: UITextField!
     @IBOutlet weak var sortedShow: UILabel!
-    var sort1=[1,10,20,5,12,3,9,8,6]
+//    var sort1=[1,10,20,5,12,3,9,8,6]
+    var sort1=[2,1,3,8,6]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
                 
         
-//        QuickSort(&list, first: 0, last: list.count - 1)
-//        print("快速排序:",list)
+        quickSort(&sort1, first: 0, last: sort1.count - 1)
+        print("快速排序:",sort1)
 //        bubbleSort(list: &sort1)
 //        print("冒泡排序:",sort1)
-        selectSort(list: &sort1)
-        print("选择排序:",sort1)
+//        selectSort(list: &sort1)
+//        print("选择排序:",sort1)
         
         print(self.branch(),#line,#function)
     }
@@ -89,48 +90,40 @@ class ViewController: UIViewController {
      - parameter first: 第一个元素下标
      - parameter last:  最后一个元素下标
      */
-    func QuickSort(_ list: inout [Int], first: Int, last: Int) {
+    func quickSort(_ list: inout [Int], first: Int, last: Int) {
         var i, j, key: Int
         if first >= last {
             return;
         }
         i = first
         j = last
-        key = list[i]
-        while i < j {
-            //找出来比key小的 并排到key前面
-            while i < j && list[j] > key {
-                j -= 1
-            }
-            if i < j {
-                i += 1
-                list[i] = list[j]
-            }
-            //找出来比key大的 并排到key后面
-            while i < j && list[i] < key {
-                i+=1
-            }
-            if i < j {
-                j -= 1
-                list[j] = list[i]
-            }
+        key = list[(first + last)/2]
+        
+        while (list[i] < key) {
+            i += 1;
         }
-        list[i] = key
-        //将key前面元素递归的进行下一轮排序
-        if first < i - 1 {
-            QuickSort(&list, first: first, last: i - 1)
+        while (list[j] > key) {
+            j -= 1;
         }
-        //将key后面的元素递归的进行下一轮排序
-        if i + 1 < last {
-            QuickSort(&list, first: i + 1, last: last)
+        if (i < j) {
+            let t:Int = list[i];
+            list[i] = list[j];
+            list[j] = t;
+            i += 1;
+            j -= 1;
+        } else if (i == j) {
+            i += 1;
         }
+        
+        quickSort(&list, first: first, last: j)
+        quickSort(&list, first: i, last: last)
     }
     ///去掉重复算法
     var arrayRepeat:[Int]=[1,2,2,3,4,5,7,9,0,6,4,5,7,8,2,4,5,7,9,0,6,4,3,8,6,4]
     func dropRepeat(_ array:inout [Int]){
         for i in array{
             for j in array{
-                if array[i]==array[j]{
+                if array[i] == array[j]{
                     array[j] = -1
                 }
             }

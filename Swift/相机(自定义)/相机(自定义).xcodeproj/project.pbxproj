@@ -140,7 +140,7 @@
 				TargetAttributes = {
 					C395806A1CC9BC5B007D6BDB = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JD725W2QL8;
+						DevelopmentTeam = J6LD8332TN;
 						LastSwiftMigration = 0820;
 					};
 				};
@@ -351,11 +351,11 @@
 			baseConfigurationReference = DC868A106100735D149E70D4 /* Pods-相机(自定义).debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JD725W2QL8;
+				DEVELOPMENT_TEAM = J6LD8332TN;
 				INFOPLIST_FILE = "相机(自定义)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "QN.-------";
+				PRODUCT_BUNDLE_IDENTIFIER = maitian.cam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
@@ -367,11 +367,11 @@
 			baseConfigurationReference = 37F5FD1DB0CF0D944DEE43D1 /* Pods-相机(自定义).release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = JD725W2QL8;
+				DEVELOPMENT_TEAM = J6LD8332TN;
 				INFOPLIST_FILE = "相机(自定义)/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "QN.-------";
+				PRODUCT_BUNDLE_IDENTIFIER = maitian.cam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

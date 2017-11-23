@@ -38,7 +38,7 @@ class CustomCameraHelper: NSObject {
     override init() {
         super.init()
         let outPutSettings=[AVVideoCodecJPEG:AVVideoCodecKey]
-        captureStillImageOutput.outputSettings=outPutSettings
+        captureStillImageOutput.outputSettings = outPutSettings
         if session.canAddInput(videoInput) {
             session.addInput(videoInput)
         }
@@ -48,15 +48,15 @@ class CustomCameraHelper: NSObject {
     ///照相机界面加在哪里
     func embedPreviewInView(_ cameraView:UIView) {
         
-        videoCaptureLayer.frame=cameraView.bounds
-        videoCaptureLayer.videoGravity=AVLayerVideoGravityResizeAspectFill
+        videoCaptureLayer.frame = cameraView.bounds
+        videoCaptureLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         cameraView.layer.addSublayer(videoCaptureLayer)
     }
     
     func captureStillImageWithBlock(_ captureClosure:@escaping CaptureImageBlock) {
         var videoConnection:AVCaptureConnection?=nil
         for connection in captureStillImageOutput.connections{
-            for capturePort in (connection as AnyObject).inputPorts{
+            for capturePort in (connection as! AVCaptureConnection).inputPorts{
                 if (capturePort as AnyObject).mediaType==AVMediaTypeVideo {
                     videoConnection=connection as? AVCaptureConnection
                     break
@@ -88,7 +88,7 @@ class CustomCameraHelper: NSObject {
         var success=false
         if self.cameraCount()>1 {
             var newVideoInput:AVCaptureDeviceInput?=nil
-            let position:AVCaptureDevicePosition=videoInput.device.position
+            let position:AVCaptureDevicePosition = videoInput.device.position
             switch position {
                 case AVCaptureDevicePosition.back:
                     newVideoInput=try! AVCaptureDeviceInput.init(device: self.frontFacingCamera())
@@ -115,13 +115,14 @@ class CustomCameraHelper: NSObject {
         }
         return success
     }
-
     
     fileprivate func cameraWithPosition(_ position:AVCaptureDevicePosition) ->  AVCaptureDevice!{
-        let devices=AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
-        for device in devices!{
-            if (device as? AVCaptureDevice)!.position==position {
-                return device  as? AVCaptureDevice
+        //iOS10 API AVCaptureDeviceDiscoverySession
+        
+        let devices = AVCaptureDeviceDiscoverySession(deviceTypes: [], mediaType: AVMediaTypeVideo, position: .front)
+        for device in devices!.devices{
+            if device.position == position {
+                return device
             }
         }
         return nil
