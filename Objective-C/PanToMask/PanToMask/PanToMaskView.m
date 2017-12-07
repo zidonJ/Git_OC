@@ -8,7 +8,6 @@
 
 #import "PanToMaskView.h"
 
-
 @interface PanToMaskView ()
 
 @property (nonatomic, strong) UIImageView *surfaceImageView;
@@ -35,7 +34,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         //添加imageview
-        self.surfaceImageView = [[UIImageView alloc]initWithFrame:self.bounds];
+        self.surfaceImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         [self addSubview:self.surfaceImageView];
 
         //添加layer
@@ -49,12 +48,9 @@
         self.shapeLayer.lineJoin = kCALineJoinRound;
         self.shapeLayer.lineWidth = 10.f;
         self.shapeLayer.strokeColor = [UIColor blueColor].CGColor;
-        self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果，可以自己试试
-        
-        
+        self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果
         /*
-         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的，因此除了文字，其他都被裁剪掉，这样就只会显示文字下面渐变层的内容，
-         相当于留了文字的区域，让渐变层去填充文字的颜色。
+         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的(除了文字),其他都被裁剪掉
          */
         self.imageLayer.mask = self.shapeLayer;
         
