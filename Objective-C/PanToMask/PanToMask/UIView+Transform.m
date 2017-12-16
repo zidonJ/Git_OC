@@ -43,8 +43,8 @@
     animation.toValue = (__bridge id)((endPath.CGPath));
     animation.duration = 1;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [animation setValue:@"YSCircleColor_value" forKey:@"YSCircleColor_key"];
-    [maskLayer addAnimation:animation forKey:@"YSCircleColor"];
+    [animation setValue:@"CircleColor_value" forKey:@"CircleColor_key"];
+    [maskLayer addAnimation:animation forKey:@"CircleColor"];
 }
 
 -(void)transformCircleToImage:(UIImage*)toImage Duration:(CGFloat)duration StartPoint:(CGPoint)startPoint
@@ -77,8 +77,8 @@
     animation.toValue = (__bridge id)((endPath.CGPath));
     animation.duration = 1;
     animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    [animation setValue:@"YSCircleImage_value" forKey:@"YSCircleImage_key"];
-    [maskLayer addAnimation:animation forKey:@"YSCircleImage"];
+    [animation setValue:@"CircleImage_value" forKey:@"CircleImage_key"];
+    [maskLayer addAnimation:animation forKey:@"CircleImage"];
 }
 
 -(void)transFormBeginZoomMax:(CGFloat)max min:(CGFloat)min{
@@ -110,10 +110,10 @@
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     if (flag) {
         CALayer *tempLayer = objc_getAssociatedObject(self, @"tempLayer");
-        if ([anim valueForKey:@"YSCircleColor_key"]) {
+        if ([anim valueForKey:@"CircleColor_key"]) {
             self.layer.contents = nil;
             self.backgroundColor = [UIColor colorWithCGColor:tempLayer.backgroundColor];
-        }else if ([anim valueForKey:@"YSCircleImage_key"]){
+        }else if ([anim valueForKey:@"CircleImage_key"]){
             self.layer.contents = tempLayer.contents;
         }
     }
