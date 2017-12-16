@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72D58C691FE4FD7300865A2C /* UIView+Transform.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D58C681FE4FD7300865A2C /* UIView+Transform.m */; };
 		72E6CC721F99958000CE6BEC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC711F99958000CE6BEC /* AppDelegate.m */; };
 		72E6CC751F99958000CE6BEC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E6CC741F99958000CE6BEC /* ViewController.m */; };
 		72E6CC781F99958000CE6BEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E6CC761F99958000CE6BEC /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		72D58C671FE4FD7300865A2C /* UIView+Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Transform.h"; sourceTree = "<group>"; };
+		72D58C681FE4FD7300865A2C /* UIView+Transform.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Transform.m"; sourceTree = "<group>"; };
 		72E6CC6D1F99958000CE6BEC /* PanToMask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PanToMask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72E6CC701F99958000CE6BEC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72E6CC711F99958000CE6BEC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 				72E6CC871F99959C00CE6BEC /* PanToMaskView.m */,
 				72E6CC891F99962B00CE6BEC /* UIImage+MaskImage.h */,
 				72E6CC8A1F99962B00CE6BEC /* UIImage+MaskImage.m */,
+				72D58C671FE4FD7300865A2C /* UIView+Transform.h */,
+				72D58C681FE4FD7300865A2C /* UIView+Transform.m */,
 				72E6CC8C1F9996E700CE6BEC /* 11.jpg */,
 				72E6CC761F99958000CE6BEC /* Main.storyboard */,
 				72E6CC791F99958000CE6BEC /* Assets.xcassets */,
@@ -159,6 +164,7 @@
 				72E6CC751F99958000CE6BEC /* ViewController.m in Sources */,
 				72E6CC801F99958000CE6BEC /* main.m in Sources */,
 				72E6CC721F99958000CE6BEC /* AppDelegate.m in Sources */,
+				72D58C691FE4FD7300865A2C /* UIView+Transform.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

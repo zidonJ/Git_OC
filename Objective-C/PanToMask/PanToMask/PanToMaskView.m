@@ -43,15 +43,15 @@
         [self.layer addSublayer:self.imageLayer];
         
         self.shapeLayer = [CAShapeLayer layer];
+        //不能设置颜色
+        //self.shapeLayer.backgroundColor = [UIColor redColor].CGColor;
         self.shapeLayer.frame = self.bounds;
         self.shapeLayer.lineCap = kCALineCapRound;
         self.shapeLayer.lineJoin = kCALineJoinRound;
         self.shapeLayer.lineWidth = 10.f;
         self.shapeLayer.strokeColor = [UIColor blueColor].CGColor;
         self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果
-        /*
-         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的(除了文字),其他都被裁剪掉
-         */
+        /*mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的(除了文字),其他都被裁剪掉*/
         self.imageLayer.mask = self.shapeLayer;
         
         self.path = CGPathCreateMutable();
