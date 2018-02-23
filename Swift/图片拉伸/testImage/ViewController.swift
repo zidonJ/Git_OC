@@ -39,13 +39,13 @@ class ViewController: UIViewController {
         
         let imgView:UIImageView = UIImageView.init(image: image)
         imgView.backgroundColor=UIColor.green
-        imgView.frame=CGRect.init(x: 30, y: 50, width: 300, height: 220)
-        //view.addSubview(imgView)
+        imgView.frame=CGRect.init(x: 30, y: 150, width: 300, height: 220)
+        view.addSubview(imgView)
         
         
-//        imgView.layer.shadowPath=UIBezierPath.init(rect: imgView.bounds).cgPath
-//        imgView.layer.shadowColor=UIColor.red.cgColor
-//        imgView.layer.shadowOffset=CGSize.init(width: 12, height: 12)
+        imgView.layer.shadowPath=UIBezierPath.init(rect: imgView.bounds).cgPath
+        imgView.layer.shadowColor=UIColor.red.cgColor
+        imgView.layer.shadowOffset=CGSize.init(width: 12, height: 12)
         
         imgView.layer.shadowColor=UIColor.red.cgColor
         imgView.layer.shadowOffset=CGSize.init(width: 2, height: 2)
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
         
         let btn:TestButton=TestButton.init(type: .custom)
         
-        btn.frame=CGRect.init(x: 10, y: 20, width: 50, height: 50);
+        btn.frame=CGRect.init(x: 10, y: 60, width: 50, height: 50);
         btn.setImage(UIImage.init(named: "11"), for: .normal)
         btn.setTitle("jojo", for: .normal)
         btn.setTitleColor(UIColor.blue, for: .normal)
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             if result == DispatchTimeoutResult.success {
                 print("信号量问题")
             }
-            //__dispatch_semaphore_signal(signalSeam)
+            __dispatch_semaphore_signal(signalSeam)
         }
         
     }
@@ -93,11 +93,11 @@ class ViewController: UIViewController {
     
     @IBAction func share(_ sender: UIButton) {
         
-//        let activityController:UIActivityViewController = UIActivityViewController.init(activityItems: ["test hello world"], applicationActivities: nil)
-//        
-//        self.present(activityController, animated: true) { 
-//            
-//        }
+        let activityController:UIActivityViewController = UIActivityViewController.init(activityItems: ["test hello world"], applicationActivities: nil)
+        
+        self.present(activityController, animated: true) {
+            
+        }
         
     }
 
