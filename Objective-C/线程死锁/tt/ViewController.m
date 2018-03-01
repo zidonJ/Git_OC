@@ -38,8 +38,7 @@ static char *key;
         NSLog(@"串行:hello");
     });
     
-    
-    //异步执行 数量太大，可能已经释放了 就不能在赋值了
+    //异步执行 数量太大,可能已经释放了 就不能在赋值了
 //    dispatch_queue_t queue1 = dispatch_queue_create("parallel", DISPATCH_QUEUE_CONCURRENT);
 //    for (int i = 0; i < 10000 ; i++) {
 //        dispatch_async(queue1, ^{
