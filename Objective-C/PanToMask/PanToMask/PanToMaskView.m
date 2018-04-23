@@ -51,7 +51,7 @@
         self.shapeLayer.lineWidth = 10.f;
         self.shapeLayer.strokeColor = [UIColor blueColor].CGColor;
         self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果
-        /*mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的(除了文字),其他都被裁剪掉*/
+        /*mask层工作原理:按照mask的工作区域(self.shapeLayer的区域)进行透明度裁剪,只保留非透明部分,其他都被裁剪掉*/
         self.imageLayer.mask = self.shapeLayer;
         
         self.path = CGPathCreateMutable();

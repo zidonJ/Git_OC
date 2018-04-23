@@ -81,9 +81,11 @@
 
 + (void)_registerRunLoopWorkDistributionAsMainRunloopObserver:(RunloopEventCapture *)runLoopWorkDistribution {
     static CFRunLoopObserverRef defaultModeObserver;
+    //_defaultModeRunLoopWorkDistributionCallback 方法地址
     _registerObserver(kCFRunLoopBeforeWaiting, defaultModeObserver, NSIntegerMax - 999, kCFRunLoopDefaultMode, (__bridge void *)runLoopWorkDistribution, &_defaultModeRunLoopWorkDistributionCallback);
 }
 
+//监听里存了方法的地址_defaultModeRunLoopWorkDistributionCallback
 static void _defaultModeRunLoopWorkDistributionCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
     _runLoopWorkDistributionCallback(observer, activity, info);
 }
@@ -101,7 +103,7 @@ static void _runLoopWorkDistributionCallback(CFRunLoopObserverRef observer, CFRu
     while (result == NO && runLoopWorkDistribution.tasks.count) {
         MyRunLoopWorkDistributionUnit unit  = runLoopWorkDistribution.tasks.firstObject;
         if ([runLoopWorkDistribution.tasksKeys[0] isEqualToString:@"lala"]) {
-            NSLog(@"对头，要的就是你");
+            
             if (runLoopWorkDistribution.delegate&&[runLoopWorkDistribution.delegate respondsToSelector:@selector(testUploadCaptureUserData:)]) {
                 /**
                  *  需要埋点的记录，异步上传
@@ -147,6 +149,7 @@ static inline NSString* printActivity(CFRunLoopActivity activity)
 }
 
 static void _registerObserver(CFOptionFlags activities, CFRunLoopObserverRef observer, CFIndex order, CFStringRef mode, void *info, CFRunLoopObserverCallBack callback) {
+    
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFRunLoopObserverContext context = {
         0,
@@ -155,7 +158,7 @@ static void _registerObserver(CFOptionFlags activities, CFRunLoopObserverRef obs
         &CFRelease,
         NULL
     };
-    observer = CFRunLoopObserverCreate(     NULL,
+    observer = CFRunLoopObserverCreate(NULL,
                                        activities,
                                        YES,
                                        order,
