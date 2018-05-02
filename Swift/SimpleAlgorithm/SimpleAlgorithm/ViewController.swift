@@ -102,7 +102,7 @@ class ViewController: UIViewController {
      快速排序算法
      O(n*logn)-平均时间复杂度
      O(n*n)-最坏时间复杂度
-     O(1)空间复杂度
+     O(logn~n)空间复杂度
      - parameter list:  数组
      - parameter first: 第一个元素下标
      - parameter last:  最后一个元素下标
@@ -143,15 +143,15 @@ class ViewController: UIViewController {
     }
     
     /*
-     归并排序
+     归并排序 两两归并
      O(n*logn)-平均时间复杂度
      O(n*logn)-最坏时间复杂度
-     O(1)空间复杂度
+     O(n)空间复杂度
      */
     
     
     /*
-     堆排序
+     堆排序 二叉树
      O(n*logn)-平均时间复杂度
      O(n*logn)-最坏时间复杂度
      O(1)空间复杂度
