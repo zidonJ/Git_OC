@@ -21,7 +21,7 @@ extension OutputStream {
         while bytesCopied < data.count {
 
             let bytesToCopy = min(bufferSize, data.count - bytesCopied);
-            
+            //将数据拷贝到buffer
             data.copyBytes(to: buffer, from: Range(NSRange(location: bytesCopied, length: bytesToCopy))!)
             
             var bytesWritten:Int = 0;
@@ -60,7 +60,7 @@ extension OutputStream {
         let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: bufferSize)
         
         while (true) {
-
+            //将数据读入到buffer
             let bytesRead:Int = input.read(buffer, maxLength: bufferSize)
             
             if bytesRead == -1 || bytesRead == 0{
