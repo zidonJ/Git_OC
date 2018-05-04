@@ -20,6 +20,7 @@ typealias funcBlockC = (Int,Int) -> (String)->String
 
 class BlockViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -82,7 +83,7 @@ class BlockViewController: UIViewController {
                 blockPropertyA = nil , blockPropertyB = nil
                 blockProperty = (Function) , blockPropertyNoReturn = (Function)
                 */
-                print("blockPropertyA = \(blockPropertyA) , blockPropertyB = \(blockPropertyB)")
+                print("blockPropertyA = \(String(describing: blockPropertyA)) , blockPropertyB = \(blockPropertyB)")
                 print("blockProperty = \(blockProperty) , blockPropertyNoReturn = \(blockPropertyNoReturn)")
             }
             
@@ -146,7 +147,17 @@ class BlockViewController: UIViewController {
                     let str = retfunc("最终果结是")  
                     print(str)  
                 }  
-            }  
+            }
+            
+            
+            func addTo(_ adder: Int) -> (Int) -> Int {
+                return {
+                    num in
+                    return num + adder
+                }
+            }
+            
+            
         }
         
         
@@ -172,6 +183,9 @@ class BlockViewController: UIViewController {
         bk.testProperty(tag: 1)
         bk.testProperty(tag: 2)
         bk.testProperty(tag: 3)
+        
+//        let addTwo = addTo(2)
+        
         print("＝＝＝＝＝＝＝＝＝＝＝＝＝＝设置block属性＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝")
         
         bk.blockProperty = {

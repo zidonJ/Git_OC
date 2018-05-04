@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72CCB8FC1FF24C0B003469C2 /* original1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CCB8FB1FF24C0B003469C2 /* original1.png */; };
 		778E40C671EFBBF9D6F708B1 /* Pods_About_Image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0614F443A3E9F20511BEA10D /* Pods_About_Image.framework */; };
 		D12AB2DF1E8270E600EC3826 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AB2DE1E8270E600EC3826 /* AppDelegate.swift */; };
 		D12AB2E11E8270E600EC3826 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12AB2E01E8270E600EC3826 /* ViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		0614F443A3E9F20511BEA10D /* Pods_About_Image.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_About_Image.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29EA72D02DFEB6E8937DDDB2 /* Pods-About-Image.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-About-Image.debug.xcconfig"; path = "Pods/Target Support Files/Pods-About-Image/Pods-About-Image.debug.xcconfig"; sourceTree = "<group>"; };
+		72CCB8FB1FF24C0B003469C2 /* original1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original1.png; sourceTree = "<group>"; };
 		8EF864DAABCC5F58DBC1FF10 /* Pods-About-Image.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-About-Image.release.xcconfig"; path = "Pods/Target Support Files/Pods-About-Image/Pods-About-Image.release.xcconfig"; sourceTree = "<group>"; };
 		D12AB2DB1E8270E600EC3826 /* About-Image.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "About-Image.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D12AB2DE1E8270E600EC3826 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				D12FC3481E83592B00572D44 /* UIImage+tintColor.swift */,
 				D1C91C2D1E84C207008FD6DB /* CoreImage.h */,
 				D1C91C2F1E84C24F008FD6DB /* CGBlendMode.h */,
+				72CCB8FB1FF24C0B003469C2 /* original1.png */,
 				D12FC34A1E8363C900572D44 /* image.png */,
 				D12AB2F01E8273D600EC3826 /* 1.jpg */,
 				D12AB2F11E8273D600EC3826 /* 2.jpg */,
@@ -178,6 +181,7 @@
 				D12AB2F51E8273D600EC3826 /* 3.jpg in Resources */,
 				D12AB2F31E8273D600EC3826 /* 1.jpg in Resources */,
 				D12AB2F41E8273D600EC3826 /* 2.jpg in Resources */,
+				72CCB8FC1FF24C0B003469C2 /* original1.png in Resources */,
 				D12FC34B1E8363C900572D44 /* image.png in Resources */,
 				D12AB2E61E8270E600EC3826 /* Assets.xcassets in Resources */,
 				D12AB2E41E8270E600EC3826 /* Main.storyboard in Resources */,

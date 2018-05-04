@@ -40,8 +40,8 @@ class partPixeController: UIViewController {
         let fullPixellatedImage = filter.outputImage
         
         let cgImage = context.createCGImage(fullPixellatedImage!,
-                                            fromRect: fullPixellatedImage!.extent)
-        imageView.image = UIImage(CGImage: cgImage)
+                                            from: fullPixellatedImage!.extent)
+        imageView.image = UIImage.init(cgImage: cgImage!)
     }
     
     //部分区域马赛克
@@ -59,13 +59,13 @@ class partPixeController: UIViewController {
         var centerX = inputImage.extent.size.width / 2
         let centerY = inputImage.extent.size.height / 2
         var radius = min(inputImage.extent.size.width/3, inputImage.extent.size.height/3)
-        var temp = createMaskImage(inputImage.extent, centerX: centerX+300, centerY: centerY-200,
+        var temp = createMaskImage(rect: inputImage.extent, centerX: centerX+300, centerY: centerY-200,
                                    radius: radius)
         maskImage = temp
         //第二个打码区域（左边小圆）
         centerX = inputImage.extent.size.width / 6
         radius = min(inputImage.extent.size.width/4, inputImage.extent.size.height/5)
-        temp = createMaskImage(inputImage.extent, centerX: centerX, centerY: centerY,
+        temp = createMaskImage(rect: inputImage.extent, centerX: centerX, centerY: centerY,
                                radius: radius)
         maskImage = CIFilter(name: "CISourceOverCompositing",
                              withInputParameters: [
@@ -81,8 +81,8 @@ class partPixeController: UIViewController {
         
         let blendOutputImage = blendFilter.outputImage
         let blendCGImage = context.createCGImage(blendOutputImage!,
-                                                 fromRect: blendOutputImage!.extent)
-        imageView.image = UIImage(CGImage: blendCGImage)
+                                                 from: blendOutputImage!.extent)
+        imageView.image = UIImage.init(cgImage: blendCGImage!)
         
     }
     
@@ -97,7 +97,7 @@ class partPixeController: UIViewController {
                                             "inputColor1" : CIColor(red: 0, green: 0, blue: 0, alpha: 0),
                                             kCIInputCenterKey : CIVector(x: centerX, y: centerY)
                 ])
-            let radialGradientOutputImage = radialGradient!.outputImage!.imageByCroppingToRect(rect)
+            let radialGradientOutputImage = radialGradient!.outputImage!.cropped(to: rect)
             return radialGradientOutputImage
     }
     

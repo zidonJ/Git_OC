@@ -31,8 +31,8 @@ class ViewController: UIViewController ,UIScrollViewDelegate{
         
         scroll.delegate=self
         scroll.frame=view.bounds
-        scroll.contentSize = CGSize.init(width: width*(arrCol.count<2 ? 1:3), height: height)
-        scroll.contentOffset=CGPoint.init(x: width, y: 0)
+        scroll.contentSize = CGSize(width: width*(arrCol.count<2 ? 1:3), height: height)
+        scroll.contentOffset=CGPoint(x: width, y: 0)
         scroll.isPagingEnabled=true
         view.addSubview(scroll)
         

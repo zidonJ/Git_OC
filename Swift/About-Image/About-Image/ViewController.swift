@@ -10,6 +10,8 @@ import UIKit
 import ImageIO
 import AssetsLibrary
 import SnapKit
+import CoreImage
+import Accelerate
 
 class ViewController: UIViewController {
 
@@ -49,7 +51,54 @@ class ViewController: UIViewController {
     
     
     @IBAction func save(_ sender: Any) {
-        viewf.save()
+        //viewf.save()
+        
+        
+        let path = Bundle.main.path(forResource: "original1", ofType: "png")
+        let image = UIImage.init(contentsOfFile: path!)
+        let cgImage = image!.cgImage
+        
+        // create a source buffer
+        var format = vImage_CGImageFormat(bitsPerComponent: 8, bitsPerPixel: 32, colorSpace: nil,
+                                          bitmapInfo: CGBitmapInfo(rawValue: CGImageAlphaInfo.first.rawValue),
+                                          version: 0, decode: nil, renderingIntent: CGColorRenderingIntent.defaultIntent)
+        var sourceBuffer = vImage_Buffer()
+        defer {
+            sourceBuffer.data.deallocate(bytes: Int(sourceBuffer.height) * Int(sourceBuffer.height) * 4, alignedTo: 1)
+        }
+        
+        var error = vImageBuffer_InitWithCGImage(&sourceBuffer, &format, nil, cgImage!, numericCast(kvImageNoFlags))
+        guard error == kvImageNoError else { return }
+        
+        // create a destination buffer
+        let scale = UIScreen.main.scale
+        let destWidth = Int((image?.size.width)! * 0.01 )
+        let destHeight = Int((image?.size.height)! * 0.01 )
+        
+        
+        let bytesPerPixel = cgImage!.bitsPerPixel / 8
+        let destBytesPerRow = destWidth * bytesPerPixel
+        
+        let destData = UnsafeMutablePointer<UInt8>.allocate(capacity: (destHeight * destBytesPerRow))
+        defer {
+            destData.deallocate(capacity: destHeight * destBytesPerRow)
+        }
+        var destBuffer = vImage_Buffer(data: destData, height: vImagePixelCount(destHeight), width: vImagePixelCount(destWidth), rowBytes: destBytesPerRow)
+        
+        // scale the image
+        error = vImageScale_ARGB8888(&sourceBuffer, &destBuffer, nil, numericCast(kvImageHighQualityResampling))
+        guard error == kvImageNoError else { return  }
+        
+        // create a CGImage from vImage_Buffer
+        let destCGImage = vImageCreateCGImageFromBuffer(&destBuffer, &format, nil, nil, numericCast(kvImageNoFlags), &error)?.takeRetainedValue()
+        guard error == kvImageNoError else { return  }
+        
+        // create a UIImage
+        destCGImage.flatMap { (cgImg) in
+            let img = UIImage.init(cgImage: cgImg)
+            print(img);
+        }
+        //let scaledImage = destCGImage.flatMap { UIImage(CGImage: $0, scale: 0.0, orientation: image?.imageOrientation) }
     }
 }
 

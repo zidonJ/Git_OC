@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let test:JGradientLabel = JGradientLabel.init(frame: CGRect.init(x: 10, y: 30, width: 300, height: 300))
+        let test:JGradientLabel = JGradientLabel(frame: CGRect.init(x: 10, y: 60, width: 300, height: 300))
         test.text = "txt"
         test.textColor = UIColor.red
         view.addSubview(test)
@@ -25,22 +25,23 @@ class ViewController: UIViewController {
     }
     
     func gradientLabel() {
-        let label = UILabel.init(frame: CGRect.init(x: 100, y: 100, width: 200, height: 30))
+        let label = UILabel(frame: CGRect(x: 100, y: 100, width: 200, height: 30))
         label.text = "这是一段经典的旋律"
         view.addSubview(label)
+        
         let gradientLayer:CAGradientLayer = CAGradientLayer()
         gradientLayer.frame = label.frame
         gradientLayer.colors = [self.randomColor(), self.randomColor(),self.randomColor()]
         view.layer.addSublayer(gradientLayer)
         /*
-         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的，因此除了文字，其他都被裁剪掉，这样就只会显示文字下面渐变层的内容，
-         相当于留了文字的区域，让渐变层去填充文字的颜色。
+         mask层工作原理:按照透明度裁剪只保留非透明部分,文字就是非透明的,因此除了文字,其他都被裁剪掉,这样就只会显示文字下面渐变层的内容,
+         相当于留了文字的区域,让渐变层去填充文字的颜色。
          */
         gradientLayer.mask = label.layer;
         
         /*
          注意:一旦把label层设置为mask层,label层就不能显示了,会直接从父层中移除,然后作为渐变层的mask层,且label层的父层会指向渐变层,
-         这样做的目的:以渐变层为坐标系,方便计算裁剪区域,如果以其他层为坐标系,还需要做点的转换,需要把别的坐标系上的点，
+         这样做的目的:以渐变层为坐标系,方便计算裁剪区域,如果以其他层为坐标系,还需要做点的转换,需要把别的坐标系上的点,
          转换成自己坐标系上点,判断当前点在不在裁剪范围内,比较麻烦。
          */
         
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
     func centreArcPerpendicular(text str: String, context: CGContext, radius r: CGFloat, angle theta: CGFloat, colour c: UIColor, font: UIFont, clockwise: Bool){
         
         let l = str.characters.count
-        let attributes = [NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.font: font]
         
         let characters: [String] = str.characters.map { String($0) } // An array of single character strings, each character in str
         var arcs: [CGFloat] = [] // This will be the arcs subtended by each character
@@ -75,7 +76,7 @@ class ViewController: UIViewController {
         
         // Calculate the arc subtended by each letter and their total
         for i in 0 ..< l {
-            arcs += [chordToArc(characters[i].size(attributes: attributes).width, radius: r)]
+            arcs += [chordToArc(characters[i].size(withAttributes: attributes).width, radius: r)]
             totalArc += arcs[i]
         }
         
@@ -115,8 +116,8 @@ class ViewController: UIViewController {
         // *******************************************************
         
         // Set the text attributes
-        let attributes = [NSForegroundColorAttributeName: c,
-                          NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.foregroundColor: c,
+                          NSAttributedStringKey.font: font]
         // Save the context
         context.saveGState()
         // Undo the inversion of the Y-axis (or the text goes backwards!)
@@ -126,7 +127,7 @@ class ViewController: UIViewController {
         // Rotate the coordinate system
         context.rotate(by: -slantAngle)
         // Calculate the width of the text
-        let offset = str.size(attributes: attributes)
+        let offset = str.size(withAttributes: attributes)
         // Move the origin by half the size of the text
         context.translateBy (x: -offset.width / 2, y: -offset.height / 2) // Move the origin to the centre of the text (negating the y-axis manually)
         // Draw the text

@@ -18,9 +18,9 @@ class JGradientLabel: UILabel {
         let style:NSMutableParagraphStyle = NSMutableParagraphStyle()
         style.alignment = .center
         style.lineBreakMode = .byCharWrapping
-        let attributes = [NSForegroundColorAttributeName: UIColor.red,
-                          NSFontAttributeName: UIFont.systemFont(ofSize: 16),
-                          NSParagraphStyleAttributeName:style]
+        let attributes = [NSAttributedStringKey.foregroundColor: UIColor.red,
+                          NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16),
+                          NSAttributedStringKey.paragraphStyle:style]
         
         self.text?.draw(at: CGPoint.zero, withAttributes: attributes)
     }
