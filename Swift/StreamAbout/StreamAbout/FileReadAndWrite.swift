@@ -99,7 +99,6 @@ extension FileReadAndWrite {
 
 extension FileReadAndWrite : StreamDelegate{
     
-    
     func stream(_ aStream: Stream, handle eventCode: Stream.Event) {
         
         switch eventCode {

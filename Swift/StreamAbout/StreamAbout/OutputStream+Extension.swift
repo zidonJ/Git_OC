@@ -22,7 +22,6 @@ extension OutputStream {
 
             let bytesToCopy = min(bufferSize, data.count - bytesCopied);
             
-            
             data.copyBytes(to: buffer, from: Range(NSRange(location: bytesCopied, length: bytesToCopy))!)
             
             var bytesWritten:Int = 0;
@@ -75,8 +74,6 @@ extension OutputStream {
                 bytesWritten += write(buffer, maxLength: bytesRead - bytesWritten)
             }
         }
-        
     }
-    
 }
 

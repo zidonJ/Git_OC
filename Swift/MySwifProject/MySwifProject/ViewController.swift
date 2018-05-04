@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         print("Index理解:", str[str.index(str.startIndex, offsetBy: 5, limitedBy: str.endIndex)!])
         print("Index理解1:",str[str.index(str.startIndex, offsetBy: 3)])
         print("字符串索引位置的字符:",str[str.startIndex],str[str.index(before: str.endIndex)])
+        
         //插入字符串
         str.insert(contentsOf: "花田里犯了错,".characters, at: str.startIndex)
         str.insert(".", at: str.endIndex)//插入字符
@@ -32,7 +33,8 @@ class ViewController: UIViewController {
         
 //        str.removeSubrange(str.startIndex...str.index(str.endIndex, offsetBy: -5))
         
-        str.removeSubrange(Range.init(uncheckedBounds: (lower: str.index(str.startIndex, offsetBy: 1), upper: str.index(str.endIndex, offsetBy: 0))))
+        
+        str.removeSubrange(Range(uncheckedBounds: (lower: str.index(str.startIndex, offsetBy: 3), upper: str.index(str.endIndex, offsetBy: -2))))
         print("Range方式:",str)
         
         str.remove(at: str.index(before: str.endIndex))
