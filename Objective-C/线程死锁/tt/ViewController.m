@@ -26,10 +26,10 @@ static char *key;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    NSLog(@"1");
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        NSLog(@"2");
-    });
+//    NSLog(@"1");
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//        NSLog(@"2");
+//    });
     
     
 //    dispatch_queue_t tt = dispatch_queue_create("test", DISPATCH_QUEUE_SERIAL);
@@ -45,13 +45,13 @@ static char *key;
 //    });
     
     //异步执行 数量太大,可能已经释放了 就不能在赋值了
-//    dispatch_queue_t queue1 = dispatch_queue_create("parallel", DISPATCH_QUEUE_CONCURRENT);
-//    for (int i = 0; i < 10000 ; i++) {
-//        dispatch_async(queue1, ^{
-//            self.target = [NSString stringWithFormat:@"ksddkjalkjd%d",i];
-//            NSLog(@"%@----%p",self.target,self.target);
-//        });
-//    }
+    dispatch_queue_t queue1 = dispatch_queue_create("parallel", DISPATCH_QUEUE_CONCURRENT);
+    for (int i = 0; i < 10000 ; i++) {
+        dispatch_async(queue1, ^{
+            self.target = [NSString stringWithFormat:@"ksddkjalkjd%d",i];
+            NSLog(@"%@----%p",self.target,self.target);
+        });
+    }
     
 //    _name = @"Andrew";
 //
