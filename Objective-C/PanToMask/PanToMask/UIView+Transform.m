@@ -11,8 +11,7 @@
 
 @implementation UIView (Transform)
 
--(void)transformCircleToColor:(UIColor*)toColor Duration:(CGFloat)duration StartPoint:(CGPoint)startPoint
-{
+-(void)transformCircleToColor:(UIColor*)toColor Duration:(CGFloat)duration StartPoint:(CGPoint)startPoint {
     
     CALayer *tempLayer = objc_getAssociatedObject(self, @"tempLayer");
     if (!tempLayer) {
@@ -47,8 +46,8 @@
     [maskLayer addAnimation:animation forKey:@"CircleColor"];
 }
 
--(void)transformCircleToImage:(UIImage*)toImage Duration:(CGFloat)duration StartPoint:(CGPoint)startPoint
-{
+-(void)transformCircleToImage:(UIImage*)toImage Duration:(CGFloat)duration StartPoint:(CGPoint)startPoint {
+    
     CALayer *tempLayer = objc_getAssociatedObject(self, @"tempLayer");
     if (!tempLayer) {
         tempLayer = [[CALayer alloc] init];

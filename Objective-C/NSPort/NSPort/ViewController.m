@@ -40,7 +40,7 @@
                            withObject:myPort];
 }
 
-- (void)handlePortMessage:(NSMessagePort *)message{
+- (void)handlePortMessage:(NSMessagePort *)message {
     
     NSLog(@"接到子线程传递的消息！%@",message);
     

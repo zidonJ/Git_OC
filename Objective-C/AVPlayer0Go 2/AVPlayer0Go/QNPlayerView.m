@@ -184,6 +184,29 @@ void *QNPlayer =&QNPlayer;
         }
     }
 }
+
+- (NSTimeInterval)availableDuration1 {
+    NSArray *timeRangeArray = _playerItem.loadedTimeRanges;
+    CMTime currentTime = [_player currentTime];
+    BOOL foundRange = NO;
+    CMTimeRange aTimeRange = {0};
+    if (timeRangeArray.count) {
+        aTimeRange = [[timeRangeArray objectAtIndex:0] CMTimeRangeValue];
+        if (CMTimeRangeContainsTime(aTimeRange, currentTime)) {
+            foundRange = YES;
+        }
+    }
+    
+    if (foundRange) {
+        CMTime maxTime = CMTimeRangeGetEnd(aTimeRange);
+        NSTimeInterval playableDuration = CMTimeGetSeconds(maxTime);
+        if (playableDuration > 0) {
+            return playableDuration;
+        }
+    }
+    return 0;
+}
+
 //获取视频某处图片
 -(UIImage *)videoImage:(CMTime)time
 {

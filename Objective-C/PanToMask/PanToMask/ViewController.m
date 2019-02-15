@@ -47,11 +47,11 @@
     [self.view addSubview:v];
 
     v.layer.mask = label.layer;
-    label.frame = v.bounds;
+    //label.frame = v.bounds;
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     [self.view transformCircleToColor:[UIColor redColor] Duration:1 StartPoint:CGPointZero];
 }
 

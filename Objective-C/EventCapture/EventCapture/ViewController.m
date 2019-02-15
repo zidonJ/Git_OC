@@ -30,13 +30,19 @@
     
     _runloop=[RunloopEventCapture sharedRunLoopWorkDistribution];
     _runloop.delegate=self;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self jojo1];
+    });
 }
 
--(void)jojo1
-{
+- (void)jojo1 {
+    
     [_runloop addTask:^BOOL{
         return YES;
     } withKey:@"lala"];
+    
+    
 }
 
 //这个过程是异步的，注意操作UI的时候要回到主线程

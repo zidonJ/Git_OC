@@ -21,9 +21,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     
 //    [self gcd_source];
-    [self gcd_semaphore];
+//    [self gcd_semaphore];
     
-    
+    NSLog(@":::::::->%ld",[self gcdSyncSemaphore]);
     
 }
 
@@ -115,11 +115,28 @@
 //    dispatch_resume(_timer);
 }
 
+
+- (NSInteger)gcdSyncSemaphore
+{
+
+    _semaphore = dispatch_semaphore_create(0);
+    void (^test) (void) = ^{
+        
+        for (int i =0; i<1000; i++) {
+            NSLog(@"%d",i);
+        }
+        dispatch_semaphore_signal(_semaphore);
+    };
+    test();
+    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+    return 100;
+}
+
 - (void)gcd_semaphore
 {
     //创建队列组
     dispatch_group_t group = dispatch_group_create();
-    //创建信号量,并且设置值为2
+    //创建信号量,并且设置值
     _semaphore = dispatch_semaphore_create(1);
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     for (int i = 0; i < 4; i++){

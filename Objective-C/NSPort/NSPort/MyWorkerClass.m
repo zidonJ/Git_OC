@@ -9,6 +9,7 @@
 #import "MyWorkerClass.h"
 
 @interface MyWorkerClass() <NSMachPortDelegate> {
+    
     NSPort *remotePort;
     NSPort *myPort;
 }
@@ -33,7 +34,7 @@
         [[NSRunLoop currentRunLoop] run];
         
         //4. 创建自己port
-        myPort = [NSPort port];
+        myPort = [NSMachPort port];
         
         //5.
         myPort.delegate = self;
@@ -48,7 +49,6 @@
         //7. 完成向主线程port发送消息
         [self sendPortMessage];
         
-        
     }
 }
 
@@ -57,7 +57,7 @@
  */
 - (void)sendPortMessage {
     
-    NSMutableArray *array  =[[NSMutableArray alloc]initWithArray:@[@"1",@"2"]];
+    NSMutableArray *array  =[[NSMutableArray alloc] initWithArray:@[@"1",@"2"]];
     //发送消息到主线程，操作1
     [remotePort sendBeforeDate:[NSDate date]
                          msgid:kMsg1
@@ -79,8 +79,8 @@
 /**
  *  接收到主线程port消息
  */
-- (void)handlePortMessage:(NSPortMessage *)message
-{
+- (void)handlePortMessage:(NSPortMessage *)message {
+    
     NSLog(@"接收到父线程的消息...\n");
     
     //    unsigned int msgid = [message msgid];
@@ -95,6 +95,43 @@
     //    {
     //        CFRunLoopStop((__bridge CFRunLoopRef)[NSRunLoop currentRunLoop]);
     //    }
+}
+
+
+static CFDataRef Callback(CFMessagePortRef port,SInt32 messageID,CFDataRef data,void *info) {
+    return NULL;
+}
+
+- (void)test {
+    
+    CFMessagePortRef localPort =
+    CFMessagePortCreateLocal(nil,CFSTR("com.example.app.port.server"),Callback,nil,nil);
+    
+    CFRunLoopSourceRef runLoopSource =
+    CFMessagePortCreateRunLoopSource(nil, localPort, 0);
+    
+    CFRunLoopAddSource(CFRunLoopGetCurrent(),
+                       runLoopSource,
+                       kCFRunLoopCommonModes);
+    
+    CFDataRef data;
+    SInt32 messageID = 0x1111; // Arbitrary
+    CFTimeInterval timeout = 10.0;
+    
+    CFMessagePortRef remotePort =
+    CFMessagePortCreateRemote(nil,CFSTR("com.example.app.port.client"));
+    
+    SInt32 status =
+    CFMessagePortSendRequest(remotePort,
+                             messageID,
+                             data,
+                             timeout,
+                             timeout,
+                             NULL,
+                             NULL);
+    if (status == kCFMessagePortSuccess) {
+        
+    }
 }
 
 @end

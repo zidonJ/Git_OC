@@ -38,7 +38,7 @@
  *
  *  @param keys key值的数组
  */
-- (void)addTaskWithKeys:(NSArray *)keys{
+- (void)addTaskWithKeys:(NSArray *)keys {
     [self.tasksKeys addObjectsFromArray:keys];
     if (self.tasks.count > self.maxiTasks) {
         [self.tasks removeObjectAtIndex:0];
@@ -50,7 +50,8 @@
  *
  *  @param items 模型的数组
  */
-- (void)addTaskWithItems:(NSArray *)items{
+- (void)addTaskWithItems:(NSArray *)items {
+    
     [self.tasksKeys addObjectsFromArray:items];
     if (self.tasks.count > self.maxiTasks) {
         [self.tasks removeObjectAtIndex:0];
@@ -58,13 +59,13 @@
     }
 }
 
-- (instancetype)init
-{
+- (instancetype)init {
+    
     if ((self = [super init])) {
         _maxiTasks = 30;
         _tasks = [NSMutableArray array];
         _tasksKeys = [NSMutableArray array];
-        //        _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
+        //_timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_timerFiredMethod:) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -90,8 +91,8 @@ static void _defaultModeRunLoopWorkDistributionCallback(CFRunLoopObserverRef obs
     _runLoopWorkDistributionCallback(observer, activity, info);
 }
 
-static void _runLoopWorkDistributionCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)
-{
+static void _runLoopWorkDistributionCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info) {
+    
     RunloopEventCapture *runLoopWorkDistribution = (__bridge RunloopEventCapture *)info;
     
     NSLog(@":::%@",printActivity(activity));
@@ -119,8 +120,8 @@ static void _runLoopWorkDistributionCallback(CFRunLoopObserverRef observer, CFRu
     }
 }
 
-static inline NSString* printActivity(CFRunLoopActivity activity)
-{
+static inline NSString *printActivity(CFRunLoopActivity activity) {
+    
     NSString *activityDescription;
     switch (activity) {
         case kCFRunLoopEntry:

@@ -16,7 +16,7 @@
 @property (nonatomic,copy) NSString *userId;
 //时间戳
 @property (nonatomic,copy) NSString *timereavl;
-//点击的频率,需要本地存储
+//点击的频率
 @property (nonatomic,copy) NSString *clickCount;
 
 @end
