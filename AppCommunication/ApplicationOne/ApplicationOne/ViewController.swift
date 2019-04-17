@@ -16,7 +16,6 @@ class ViewController: UIViewController {
         let pasteboard = UIPasteboard.general
         pasteboard.string="这是一段经典的旋律"
         
-        
         let urlSting = "GC://GarveyCalvin&GCFirst111"
         if let url = URL(string: urlSting) {
             let application = UIApplication.shared

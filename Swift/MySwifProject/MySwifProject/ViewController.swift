@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+
         self.view.backgroundColor=UIColor.red;
         let swt:Double=100
         print("hello world",swt)
@@ -24,7 +26,7 @@ class ViewController: UIViewController {
         print("字符串索引位置的字符:",str[str.startIndex],str[str.index(before: str.endIndex)])
         
         //插入字符串
-        str.insert(contentsOf: "花田里犯了错,".characters, at: str.startIndex)
+        str.insert(contentsOf: "花田里犯了错,", at: str.startIndex)
         str.insert(".", at: str.endIndex)//插入字符
         
         print("可变字符串:",str)
@@ -108,6 +110,19 @@ class ViewController: UIViewController {
         print(appleSum,orangeSum)
         
         //数组--------------------------------------------
+        
+        var customersInLine = ["Chris", "Alex", "Ewa", "Barry", "Daniella"]
+        print(customersInLine.count)
+        
+        ///自动闭包 可以延迟调用
+        let customerProvider = { customersInLine.remove(at: 0) }
+        print(customersInLine.count)
+        
+        print("Now serving \(customerProvider())!")
+        // Prints "Now serving Chris!"
+        print(customersInLine.count)
+        
+        
         var shoppingList=["哈喽","你好吗","我是周杰伦"]
         shoppingList[1]="fuck you"//存在则覆盖 不存在就添加失败
         
@@ -148,7 +163,7 @@ class ViewController: UIViewController {
             print(index,"a到b的闭区间")
         }
         for index in a..<b {
-            print(index,"a到b的半闭半开区间，包含a但不包含b")
+            print(index,"a到b的半闭半开区间,包含a但不包含b")
         }
         
         let individualScores = [75 , 43, 103, 87, 12]
@@ -206,6 +221,9 @@ class ViewController: UIViewController {
                 let vegetableComment = "Everything tastes good in soup."
             print(vegetableComment)
         }
+    }
+    override func forwardingTarget(for aSelector: Selector!) -> Any? {
+        return nil
     }
 }
 

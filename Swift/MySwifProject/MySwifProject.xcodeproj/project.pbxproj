@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,6 +18,7 @@
 		C36B05021AFB0CD100D9E29E /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05011AFB0CD100D9E29E /* BlockViewController.swift */; };
 		C36B05071AFB4C8800D9E29E /* KvcAndKvoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */; };
 		C36B05091AFB4CA900D9E29E /* KvcItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C36B05081AFB4CA900D9E29E /* KvcItem.swift */; };
+		DC48B7ED2195515800405575 /* Genericity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC48B7EC2195515800405575 /* Genericity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C36B05011AFB0CD100D9E29E /* BlockViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KvcAndKvoViewController.swift; sourceTree = "<group>"; };
 		C36B05081AFB4CA900D9E29E /* KvcItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KvcItem.swift; sourceTree = "<group>"; };
+		DC48B7EC2195515800405575 /* Genericity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genericity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				C36B05061AFB4C8800D9E29E /* KvcAndKvoViewController.swift */,
 				C36B05081AFB4CA900D9E29E /* KvcItem.swift */,
 				727EBA411F79E2E0001E4570 /* Controller+extension.swift */,
+				DC48B7EC2195515800405575 /* Genericity.swift */,
 				726B4A441AA9A86500D909BC /* Main.storyboard */,
 				726B4A471AA9A86500D909BC /* Images.xcassets */,
 				726B4A491AA9A86500D909BC /* LaunchScreen.xib */,
@@ -147,7 +150,7 @@
 				};
 			};
 			buildConfigurationList = 726B4A361AA9A86500D909BC /* Build configuration list for PBXProject "MySwifProject" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -187,6 +190,7 @@
 				C36B05021AFB0CD100D9E29E /* BlockViewController.swift in Sources */,
 				C36B05071AFB4C8800D9E29E /* KvcAndKvoViewController.swift in Sources */,
 				72FC15DA1AC16A6100A9FA7B /* KindAndObjectVC.swift in Sources */,
+				DC48B7ED2195515800405575 /* Genericity.swift in Sources */,
 				72FC15D81AC13DF200A9FA7B /* FuncViewController.swift in Sources */,
 				C36B05091AFB4CA900D9E29E /* KvcItem.swift in Sources */,
 				726B4A411AA9A86500D909BC /* AppDelegate.swift in Sources */,
@@ -317,7 +321,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MySwifProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Zidon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -331,10 +338,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MySwifProject/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Zidon.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};

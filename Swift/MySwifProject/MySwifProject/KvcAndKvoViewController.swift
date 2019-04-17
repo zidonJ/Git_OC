@@ -15,10 +15,10 @@ class KvcAndKvoViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.view.backgroundColor=UIColor.groupTableViewBackground
         _ = "hello world"
-        let item=KvcItem()
+        let item = KvcItem()
         let dic:Dictionary<String,String>=["name":"Taylor Swift","age":"25","tall":"178","sex":"girl"]
         item.setValuesForKeys(dic)
-        print("name:\(item.name)--age:\(item.age)--tall:\(item.tall)--sex:\(item.sex)--")
+        print("name:\(String(describing: item.name))--age:\(String(describing: item.age))--tall:\(String(describing: item.tall))--sex:\(String(describing: item.sex))--")
         
         lable.text=item.name
         lable.addObserver(self, forKeyPath: "text", options: NSKeyValueObservingOptions.new, context: nil)

@@ -8,6 +8,7 @@
 
 import UIKit
 import XCTest
+import TestCollection
 
 class MySwifProjectTests: XCTestCase {
     
@@ -24,6 +25,9 @@ class MySwifProjectTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         XCTAssert(true, "Pass")
+        
+        TestCollection()
+        
     }
     
     func testPerformanceExample() {

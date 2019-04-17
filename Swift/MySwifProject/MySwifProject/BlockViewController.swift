@@ -283,6 +283,12 @@ class BlockViewController: UIViewController {
             functionArray.append(paramClosure)
         }
         
+        //逃逸调用闭包
+        for closurePrama in functionArray {
+            
+            print("\(closurePrama)")
+            
+        }
         
         func doSomething1( paramClosure: () -> Void){
             //functionArray.append(paramClosure)  这样的代码会报错  这个是不接受闭包逃逸的
@@ -294,14 +300,6 @@ class BlockViewController: UIViewController {
         doSomething(paramClosure: {print("Hello world")})
         
         doSomething(paramClosure: {print("Hello LvesLi")})
-        
-        //逃逸调用闭包
-        for closurePrama in functionArray {
-            
-            print("\(closurePrama)")
-            
-        }
-        
         
     }
 }

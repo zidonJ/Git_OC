@@ -89,21 +89,6 @@ class ViewController: UIViewController , RunloopEventCaptureDelegate ,UITableVie
     
     func testRunloopCapture(btn:UIButton) {
         
-        
-//        switch btn.tag {
-//        case 0:
-//            eventCapture.addTask("1")
-//        case 1:
-//            eventCapture.addTask("2")
-//        case 2:
-//            eventCapture.addTask("3")
-//        case 3:
-//            eventCapture.addTask("4")
-//        default:
-//            eventCapture.addTask("那一种寸步不离的感觉，我知道就叫做永远")
-//        }
-        
-
         switch btn.tag {
         case 0:
             eventCapture.addTask(key: dataSource[0])

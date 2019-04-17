@@ -1,0 +1,6 @@
+framework module Pods_WebCallNative {
+  umbrella header "Pods-WebCallNative-umbrella.h"
+
+  export *
+  module * { export * }
+}

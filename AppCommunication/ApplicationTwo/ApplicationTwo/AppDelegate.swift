@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let pasteboard = UIPasteboard.general
-        print("11111",pasteboard.string)
+        print("11111",pasteboard.string ?? "啦啦啦")
         let newUrlHost = url.absoluteString 
-        jump(newUrlHost as NSString)
+        //jump(newUrlHost as NSString)
         
         return false
     }
