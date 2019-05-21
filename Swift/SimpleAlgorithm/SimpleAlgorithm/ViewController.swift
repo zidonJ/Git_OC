@@ -46,15 +46,16 @@ class ViewController: UIViewController {
     }
     
     
-    /// 冒泡排序算法
-    ///
-    /// - Parameter list:
+    /*
+     冒泡排序
+     时间复杂度:O(n^2)
+     */
     func bubbleSort(list: inout[Int]) {
         
         var stopFlag:Bool//对冒泡排序优化
         
         for i in 0...(list.count - 2) {
-            
+            // stopFlag用于优化冒泡排序 减少已经有序的集合的遍历次数
             stopFlag = false
             for  j in 0...(list.count - i - 2) {
                 
@@ -69,14 +70,13 @@ class ViewController: UIViewController {
                 break
             }
         }
-        
     }
     
     
-    /// 选择排序算法
-    ///
-    /// - Parameter list:
-    /// - Returns:
+    /*
+     选择排序:
+     时间复杂度:O(n^2)
+     */
     
     func selectSort(list: inout[Int]) {
         
@@ -99,7 +99,8 @@ class ViewController: UIViewController {
     }
     
     /**
-     快速排序算法
+     快速排序算法:通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，
+     然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。
      O(n*logn)-平均时间复杂度
      O(n*n)-最坏时间复杂度
      O(logn~n)空间复杂度
