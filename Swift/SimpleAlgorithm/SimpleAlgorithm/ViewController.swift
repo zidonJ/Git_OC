@@ -18,12 +18,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
                 
-//        quickSort(&sort1, first: 0, last: sort1.count - 1)
-//        print("快速排序:",sort1)
+        quickSort(&sort1, first: 0, last: sort1.count - 1)
+        print("快速排序:",sort1)
 //        bubbleSort(list: &sort1)
 //        print("冒泡排序:",sort1)
-        selectSort(list: &sort1)
-        print("选择排序:",sort1)
+//        selectSort(list: &sort1)
+//        print("选择排序:",sort1)
         
         print(self.branch(),#line,#function)
     }
@@ -47,17 +47,18 @@ class ViewController: UIViewController {
     
     
     /*
-     冒泡排序
+     冒泡排序:它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果他们的顺序（如从大到小、首字母从A到Z）错误就把他们交换过来。
+     走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
      时间复杂度:O(n^2)
      */
     func bubbleSort(list: inout[Int]) {
         
         var stopFlag:Bool//对冒泡排序优化
         
-        for i in 0...(list.count - 2) {
+        for i in 0...(list.count - 1) {
             // stopFlag用于优化冒泡排序 减少已经有序的集合的遍历次数
             stopFlag = false
-            for  j in 0...(list.count - i - 2) {
+            for  j in 0...(list.count - i - 1) {
                 
                 if list[j] > list[j+1] {
                     let temp = list[j]
@@ -74,7 +75,8 @@ class ViewController: UIViewController {
     
     
     /*
-     选择排序:
+     选择排序:每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，
+     然后放到已排序序列的末尾。
      时间复杂度:O(n^2)
      */
     
@@ -110,33 +112,31 @@ class ViewController: UIViewController {
      */
     func quickSort(_ list: inout [Int], first: Int, last: Int) {
         
-        
-        if first >= last {
-            return;
+        if first >= last || list.count <= 1{
+            return
         }
         
-        var i = first, j = last, key: Int
+        var i = first, j = last, key: Int , temp:Int
         
         key = list[first]
         
-        while (i<j && list[j] >= key) {
-            j -= 1;
+        while i != j {
+            while (i<j && list[j] >= key) {
+                j -= 1;
+            }
+            
+            while (i<j && list[i] <= key) {
+                i += 1;
+            }
+            
+            if i<j {
+                temp = list[i]
+                list[i] = list[j]
+                list[j] = temp;
+            }
         }
         
-        if i<j {
-            list[i] = list[j];
-            i += 1;
-        }
-        
-        while (i<j && list[i] < key) {
-            i += 1;
-        }
-        
-        if i<j {
-            list[j] = list[i];
-            j -= 1;
-        }
-        
+        list[first] = list[i]
         list[i] = key
         
         quickSort(&list, first: first, last: i-1)
@@ -192,7 +192,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
         
         return array
     }
