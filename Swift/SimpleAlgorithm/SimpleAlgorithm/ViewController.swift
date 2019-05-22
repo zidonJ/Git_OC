@@ -18,12 +18,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
                 
-        quickSort(&sort1, first: 0, last: sort1.count - 1)
-        print("快速排序:",sort1)
+//        quickSort(&sort1, first: 0, last: sort1.count - 1)
+//        print("快速排序:",sort1)
 //        bubbleSort(list: &sort1)
 //        print("冒泡排序:",sort1)
-//        selectSort(list: &sort1)
-//        print("选择排序:",sort1)
+        selectSort(list: &sort1)
+        print("选择排序:",sort1)
         
         print(self.branch(),#line,#function)
     }
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
         for i in 0...(list.count - 1) {
             // stopFlag用于优化冒泡排序 减少已经有序的集合的遍历次数
             stopFlag = false
-            for  j in 0...(list.count - i - 1) {
+            for  j in 0...(list.count - i - 2) {
                 
                 if list[j] > list[j+1] {
                     let temp = list[j]
@@ -72,7 +72,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
     
     /*
      选择排序:每一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，
@@ -120,7 +119,7 @@ class ViewController: UIViewController {
         
         key = list[first]
         
-        while i != j {
+        while i < j {
             while (i<j && list[j] >= key) {
                 j -= 1;
             }
