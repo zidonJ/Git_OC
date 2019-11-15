@@ -25,26 +25,31 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKScri
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        WXApi.registerApp("wx83ef7d226bbcd978", enableMTA: true)
+//        WXApi.registerApp("wx83ef7d226bbcd978", enableMTA: true)
 
         wkPreferences.minimumFontSize = 40
         wkPreferences.javaScriptEnabled = true
         wkPreferences.javaScriptCanOpenWindowsAutomatically = true
         configuretion.preferences = wkPreferences
         
-        userContentController.add(self, name: "jsCallSwift")
-        configuretion.userContentController = userContentController
+       
         
         // 添加一个JS到HTML中这样就可以直接在JS中调用我们添加的JS方法 在载入时就添加JS 只添加到mainFrame中
-        let script = WKUserScript(source: "alert(\"WKUserScript注入js\");" ,injectionTime: .atDocumentEnd,forMainFrameOnly: true)
-        configuretion.userContentController.addUserScript(script)
+//        let script = WKUserScript(source: "alert(\"WKUserScript注入js\");" ,injectionTime: .atDocumentEnd,forMainFrameOnly: true)
+//        configuretion.userContentController.addUserScript(script)
         
         webView = WKWebView(frame: view.bounds, configuration: configuretion)
         webView.scrollView.delegate = self;
         webView.uiDelegate = self
         webView.navigationDelegate = self
         
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "1", ofType: "html") ?? "")
+        //jsCallSwift 1.html
+        //IOS popularize.html
+        webView.configuration.userContentController.add(self, name:"IOS" )
+//        userContentController.add(self, name: "jsCallSwift")
+//        configuretion.userContentController = userContentController
+        
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "popularize", ofType: "html") ?? "")
         let data:Data = try! Data(contentsOf: url)
         getMIMEType(urlString: url) {
             [weak self] (mimeType) in
@@ -116,11 +121,12 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKScri
     
     func test() -> Bool {
         
-        let launchMiniProgramReq = WXLaunchMiniProgramReq.object()
-        launchMiniProgramReq?.userName = "gh_ba9c8a92f95e";  //拉起的小程序的username
-        launchMiniProgramReq?.path = "/pages/book/index";    //拉起小程序页面的可带参路径,不填默认拉起小程序首页
-        launchMiniProgramReq?.miniProgramType = .release; //拉起小程序的类型
-        return  WXApi.send(launchMiniProgramReq)
+        return true
+//        let launchMiniProgramReq = WXLaunchMiniProgramReq.object()
+//        launchMiniProgramReq?.userName = "gh_ba9c8a92f95e";  //拉起的小程序的username
+//        launchMiniProgramReq?.path = "/pages/book/index";    //拉起小程序页面的可带参路径,不填默认拉起小程序首页
+//        launchMiniProgramReq?.miniProgramType = .release; //拉起小程序的类型
+//        return  WXApi.send(launchMiniProgramReq)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

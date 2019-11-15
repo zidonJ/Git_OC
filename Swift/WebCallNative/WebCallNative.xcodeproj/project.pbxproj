@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8AA856E0118C260D9382A897 /* Pods_WebCallNative.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0AF1B5DC28F2B9F591889D1 /* Pods_WebCallNative.framework */; };
+		D1E57A16237EBB9600776448 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = D1E57A14237EBB9600776448 /* bg.png */; };
+		D1E57A17237EBB9600776448 /* popularize.html in Resources */ = {isa = PBXBuildFile; fileRef = D1E57A15237EBB9600776448 /* popularize.html */; };
 		DC06AA4021A2AD4B00F6701E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06AA3F21A2AD4B00F6701E /* AppDelegate.swift */; };
 		DC06AA4221A2AD4B00F6701E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC06AA4121A2AD4B00F6701E /* ViewController.swift */; };
 		DC06AA4521A2AD4B00F6701E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC06AA4321A2AD4B00F6701E /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 		2B80540D4FD715666C55E425 /* Pods-WebCallNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebCallNative.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WebCallNative/Pods-WebCallNative.debug.xcconfig"; sourceTree = "<group>"; };
 		A0AF1B5DC28F2B9F591889D1 /* Pods_WebCallNative.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WebCallNative.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A80BF5AC9D355E4B8C9944A3 /* Pods-WebCallNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WebCallNative.release.xcconfig"; path = "Pods/Target Support Files/Pods-WebCallNative/Pods-WebCallNative.release.xcconfig"; sourceTree = "<group>"; };
+		D1E57A14237EBB9600776448 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		D1E57A15237EBB9600776448 /* popularize.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = popularize.html; sourceTree = "<group>"; };
 		DC06AA3C21A2AD4B00F6701E /* WebCallNative.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebCallNative.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC06AA3F21A2AD4B00F6701E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC06AA4121A2AD4B00F6701E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D1E57A13237EBB9600776448 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				D1E57A14237EBB9600776448 /* bg.png */,
+			);
+			path = img;
+			sourceTree = "<group>";
+		};
 		DC06AA3321A2AD4B00F6701E = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +103,8 @@
 				DC06AA5321A2C55300F6701E /* Bridging-Header.h */,
 				DC06AA5121A2AD7600F6701E /* 1.html */,
 				DC06AADE21A5288300F6701E /* 2.js */,
+				D1E57A13237EBB9600776448 /* img */,
+				D1E57A15237EBB9600776448 /* popularize.html */,
 				DC06AA4321A2AD4B00F6701E /* Main.storyboard */,
 				DC06AA4621A2AD4D00F6701E /* Assets.xcassets */,
 				DC06AA4821A2AD4D00F6701E /* LaunchScreen.storyboard */,
@@ -158,8 +172,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1E57A17237EBB9600776448 /* popularize.html in Resources */,
 				DC06AA4A21A2AD4D00F6701E /* LaunchScreen.storyboard in Resources */,
 				DC06AA4721A2AD4D00F6701E /* Assets.xcassets in Resources */,
+				D1E57A16237EBB9600776448 /* bg.png in Resources */,
 				DC06AADF21A5288300F6701E /* 2.js in Resources */,
 				DC06AA5221A2AD7600F6701E /* 1.html in Resources */,
 				DC06AA4521A2AD4B00F6701E /* Main.storyboard in Resources */,

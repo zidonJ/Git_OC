@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>中行支付</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      body {
+        overflow: scroll;
+      }
+      .bg {
+        margin: 0 auto;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        background-image: url(./img/bg.png);
+        background-size: 100%;
+      }
+      .rule {
+        margin: 640px 15px 0 15px;
+        background: rgba(255, 255, 255, 0.68);
+        border-radius: 5px;
+      }
+      .rule .title {
+        margin: 15px 0 0 0;
+        text-align: center;
+        font-size: 20px;
+        font-weight: normal;
+        color: rgba(51, 51, 51, 1);
+        line-height: 23px;
+        letter-spacing: 3px;
+      }
+      .rule p {
+        margin-left: 15px;
+        margin-right: 15px;
+        font-size: 15px;
+        font-weight: normal;
+        color: rgba(51, 51, 51, 1);
+        line-height: 21px;
+        letter-spacing: 1px;
+      }
+      .rule a {
+        color: #108ee9;
+        font-weight: 500;
+      }
+      .btn {
+        height: 44px;
+        margin: 25px 25px 50px 25px;
+        background: rgba(250, 84, 28, 1);
+        border-radius: 2px;
+        font-weight: 500;
+        color: rgba(252, 251, 251, 1);
+        outline: none;
+        font-size: 18px;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg">
+      <div class="rule">
+        <h5 class="title">使用规则</h5>
+        <p class="rule1">
+          1、只需在中国银行开卡，并开通手行您可马上使用中国银行在线支付。
+        </p>
+        <p class="rule2">
+          2、推荐您<a
+            class="link"
+            href="https://ebsnew.boc.cn/bocphone/VuePhone/tools/downloadByQrcode/index.html"
+            >点击下载安装中国银行APP</a
+          >在线支付，无需每次登陆中国银行，只需输入支付密码即可
+        </p>
+      </div>
+      <button class="btn">去买饲料</button>
+    </div>
+    <script type="text/javascript">
+      window.onload = function() {
+        setTimeout(() => {
+          document.documentElement.scrollTop = 0;
+        });
+        var btn = document.getElementsByClassName("btn")[0];
+        btn.addEventListener(
+          "click",
+          function(e) {
+            e.preventDefault();
+            if (typeof window.android === "undefined") {
+              window.webkit &&
+                window.webkit.messageHandlers &&
+                window.webkit.messageHandlers.IOS &&
+                window.webkit.messageHandlers.IOS.postMessage(
+                  "redirect:" +
+                    JSON.stringify({
+                      type: "2", // 1 跳转外部链接， 2 跳转内部链接
+                      url: "", //外部链接
+                      pageId: "", //内部页面id
+                      productIds: "",
+                      factoryId: ""
+                    })
+                );
+            } else {
+              window.android.redirect(
+                JSON.stringify({
+                  type: "2", // 1 跳转外部链接， 2 跳转内部链接
+                  url: "", //外部链接
+                  pageId: "", //内部页面id
+                  productIds: "",
+                  factoryId: ""
+                })
+              );
+            }
+          },
+          false
+        );
+        var link = document.getElementsByClassName("link")[0];
+        link.addEventListener(
+          "click",
+          function(e) {
+            e.preventDefault();
+            if (typeof window.android === "undefined") {
+              window.webkit &&
+                window.webkit.messageHandlers &&
+                window.webkit.messageHandlers.IOS &&
+                window.webkit.messageHandlers.IOS.postMessage(
+                  "redirect:" +
+                    JSON.stringify({
+                      type: "1", // 1 跳转外部链接， 2 跳转内部链接
+                      url:
+                        "https://ebsnew.boc.cn/bocphone/VuePhone/tools/downloadByQrcode/index.html", //外部链接
+                      pageId: "", //内部页面id
+                      productIds: "",
+                      factoryId: ""
+                    })
+                );
+            } else {
+              window.android.redirect(
+                JSON.stringify({
+                  type: "1", // 1 跳转外部链接， 2 跳转内部链接
+                  url:
+                    "https://ebsnew.boc.cn/bocphone/VuePhone/tools/downloadByQrcode/index.html", //外部链接
+                  pageId: "", //内部页面id
+                  productIds: "",
+                  factoryId: ""
+                })
+              );
+            }
+          },
+          false
+        );
+      };
+    </script>
+  </body>
+</html>
