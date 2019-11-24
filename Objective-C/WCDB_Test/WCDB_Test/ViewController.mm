@@ -165,6 +165,7 @@ static FMDatabaseQueue *_queue;
      设置主键自增时使用
      BOOL result = [_database insertObjects:@[stu] onProperties:Student.AllProperties into:NSStringFromClass(Student.class)];
      */
+    [_database insertObjects:@[stu] onProperties:Student.AllProperties into:NSStringFromClass(Student.class)];
 //    BOOL result = [_database insertObject:stu into:NSStringFromClass(Student.class)];
 //    
 //    if (result) {
