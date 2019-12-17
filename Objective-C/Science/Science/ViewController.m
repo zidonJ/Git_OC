@@ -25,6 +25,12 @@
     
     [super viewDidLoad];
     
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"123123123");
+        });
+    });
+    
     self.view.backgroundColor = [UIColor whiteColor];
     __weak typeof(self) weakSelf = self;
     [LBTimerCutDown.shareInstance shareCountDown:^NSInteger{
