@@ -22,12 +22,24 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self uiConfig];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 //MARK:  -- UIConfig
 
 - (void)uiConfig {
 
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
     [self layoutContrains];
 }
 
@@ -36,7 +48,6 @@
 //MARK:  -- Private Method
 
 //MARK:  - Action
-
 
 //MARK:  - KVO
 
