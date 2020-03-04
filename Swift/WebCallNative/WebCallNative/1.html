@@ -1,11 +1,20 @@
+<!DOCTYPE html>
+
 <html>
     <head>
         <h1>我是大标题</h1>
         <h2>我是二标题</h2>
         <hr>
+        
+<!--        <video width="320" height="320" controls="" webkit-playsinline="true" playsinline="true">-->
+<!--           <source src="https://www.bilibili.com/video/av93436487?spm_id_from=333.851.b_7265706f7274466972737431.8"-->
+<!--                  type="video/mp4">-->
+<!--        </video>-->
+        
         <script type = "text/javascript" src = "2.js"></script>
     </head>
     <body>
+        
         <script>
             var jzd;
             jzd.func1 = function(order,test){
@@ -50,6 +59,19 @@
         <p>今天星期日，晴空万里，雷电交加。</p>
         <a href="http://www.baidu.com">百度</a>
         <button onclick="func3()">点我</button>
+        
+        <p style="text-align:center">
+            <video width="320" height="240" controls="controls" playsinline="true" preload="auto" poster="http://a.hiphotos.baidu.com/zhidao/pic/item/0d338744ebf81a4cd90f1d3ad72a6059252da600.jpg">
+                <source src="http://baobab.kaiyanapp.com/api/v1/playUrl?vid=39183&editionType=normal&source=qcloud" type="video/mp4" />
+                <source src="http://baobab.kaiyanapp.com/api/v1/playUrl?vid=39183&editionType=normal&source=qcloud" type="video/ogg" />
+                <source src="http://baobab.wdjcdn.com/1455782903700jy" type="video/webm" />
+                <object data="http://baobab.kaiyanapp.com/api/v1/playUrl?vid=39183&editionType=normal&source=qcloud" width="320" height="240">
+                    <embed src="http://baobab.kaiyanapp.com/api/v1/playUrl?vid=39183&editionType=normal&source=qcloud" width="320" height="240" />
+                </object>
+            </video>
+        </p>
+        
+        
     </body>
     
 </html>

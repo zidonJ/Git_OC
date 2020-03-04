@@ -27,16 +27,23 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKScri
         
 //        WXApi.registerApp("wx83ef7d226bbcd978", enableMTA: true)
 
-        wkPreferences.minimumFontSize = 40
+        wkPreferences.minimumFontSize = 0
         wkPreferences.javaScriptEnabled = true
         wkPreferences.javaScriptCanOpenWindowsAutomatically = true
         configuretion.preferences = wkPreferences
         
-       
-        
+        configuretion.allowsInlineMediaPlayback = true
+        configuretion.requiresUserActionForMediaPlayback = true
+        configuretion.mediaTypesRequiringUserActionForPlayback = .video
+        configuretion.allowsPictureInPictureMediaPlayback = true
+        configuretion.applicationNameForUserAgent = "WebCallNative"
+                
         // 添加一个JS到HTML中这样就可以直接在JS中调用我们添加的JS方法 在载入时就添加JS 只添加到mainFrame中
-//        let script = WKUserScript(source: "alert(\"WKUserScript注入js\");" ,injectionTime: .atDocumentEnd,forMainFrameOnly: true)
-//        configuretion.userContentController.addUserScript(script)
+        
+        let scripts = "var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);"
+        
+        let script = WKUserScript(source: scripts ,injectionTime: .atDocumentEnd,forMainFrameOnly: true)
+        configuretion.userContentController.addUserScript(script)
         
         webView = WKWebView(frame: view.bounds, configuration: configuretion)
         webView.scrollView.delegate = self;
@@ -45,11 +52,16 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKScri
         
         //jsCallSwift 1.html
         //IOS popularize.html
-        webView.configuration.userContentController.add(self, name:"IOS" )
-//        userContentController.add(self, name: "jsCallSwift")
-//        configuretion.userContentController = userContentController
+        webView.configuration.userContentController.add(self, name:"jsCallSwift" )
+       
         
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "popularize", ofType: "html") ?? "")
+        userContentController.add(self, name: "jsCallSwift")
+        configuretion.userContentController = userContentController
+        
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "JStoOC", ofType: "html") ?? "")
+//        let url:URL = URL(string: "https://www.bilibili.com/video/av93064439?spm_id_from=333.851.b_7265706f7274466972737431.7")!
+//        webView.load(URLRequest.init(url: url))
+//        view.addSubview(webView)
         let data:Data = try! Data(contentsOf: url)
         getMIMEType(urlString: url) {
             [weak self] (mimeType) in
