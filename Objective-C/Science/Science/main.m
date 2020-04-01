@@ -14,7 +14,6 @@ int main(int argc, char * argv[]) {
         
         int b = 10;
         void (^test) (NSInteger a) = ^(NSInteger a) {
-            
             NSLog(@"%d---%ld",b,a);
         };
         b = 50;

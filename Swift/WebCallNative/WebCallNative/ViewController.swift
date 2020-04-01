@@ -53,24 +53,24 @@ class ViewController: UIViewController ,WKNavigationDelegate,WKUIDelegate,WKScri
         //jsCallSwift 1.html
         //IOS popularize.html
         webView.configuration.userContentController.add(self, name:"jsCallSwift" )
-       
         
         userContentController.add(self, name: "jsCallSwift")
         configuretion.userContentController = userContentController
         
-        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "JStoOC", ofType: "html") ?? "")
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "1", ofType: "html") ?? "")
 //        let url:URL = URL(string: "https://www.bilibili.com/video/av93064439?spm_id_from=333.851.b_7265706f7274466972737431.7")!
 //        webView.load(URLRequest.init(url: url))
 //        view.addSubview(webView)
         let data:Data = try! Data(contentsOf: url)
         getMIMEType(urlString: url) {
             [weak self] (mimeType) in
-            guard let strongSelf = self else{
+            guard let strongSelf = self else {
                 return;
             }
             strongSelf.webView.load(data, mimeType: mimeType, characterEncodingName: "utf-8", baseURL: url)
             strongSelf.view.addSubview(strongSelf.webView)
         }
+        
         
         print("start methodList")
         var methodNum:UInt32 = 0

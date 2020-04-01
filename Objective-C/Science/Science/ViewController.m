@@ -25,6 +25,7 @@
     
     [super viewDidLoad];
     
+    
     dispatch_sync(dispatch_get_main_queue(), ^{
         dispatch_sync(dispatch_get_main_queue(), ^{
             NSLog(@"123123123");
@@ -63,6 +64,10 @@
     AVPlayerItem *_myPlayerItem1;
 }
 
+@property (nonatomic,weak
+           ) void (^test1) (NSInteger a);
+@property (nonatomic,weak) NSString *s1;
+
 @end
 
 @implementation ViewController
@@ -76,6 +81,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+//    int b = 10;
+//    __block NSString *str = @"1";
+    self.test1 = ^(NSInteger a) {
+//        NSLog(@"%d---%ld",b,a);
+//        str = @"2";
+//        self->_tableView;
+//        self.s1;
+    };
+//    b = 50;
+//    test(10);
+    NSLog(@"%@",self.test1);
     
     _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     _tableView.dataSource = self;

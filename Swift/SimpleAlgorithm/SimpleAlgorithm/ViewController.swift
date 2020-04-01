@@ -8,6 +8,12 @@
 
 import UIKit
 
+extension String.StringInterpolation {
+    mutating func appendInterpolation(_ value: Double) {
+        appendLiteral(String(value))
+    }
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet weak var sortField: UITextField!
@@ -24,7 +30,19 @@ class ViewController: UIViewController {
 //        print("冒泡排序:",sort1)
         selectSort(list: &sort1)
         print("选择排序:",sort1)
+
+        let time:String = "313241"
+        let aa = Date().timeIntervalSince1970 - Double(time)!
+        print(aa)
         
+        var interStr = DefaultStringInterpolation(literalCapacity: 7, interpolationCount: 1)
+        interStr.appendLiteral("biange")
+        interStr.appendLiteral("is")
+        interStr.appendLiteral("my")
+        interStr.appendLiteral("hero:")
+        interStr.appendInterpolation(Date().timeIntervalSince1970)
+        let str = String(stringInterpolation:interStr )
+        print("这是一段经典的旋律:",str)
         print(self.branch(),#line,#function)
     }
     

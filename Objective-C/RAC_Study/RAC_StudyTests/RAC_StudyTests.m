@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface RAC_StudyTests : XCTestCase
 
@@ -25,6 +26,119 @@
 - (void)testExample {
     // This is an example of a functional test case.
     // Use XCTAssert and related functions to verify your tests produce the correct results.
+}
+// 创建信号 并 订阅 流程
+- (void)testFlow {
+    //1、创建信号
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"多次订阅 是否执行多次lalalalalalallal");
+        //任何时候，都可以发送信号，可以异步
+        [subscriber sendNext:@1];
+        [subscriber sendNext:@2];
+        [subscriber sendNext:@3];
+        [subscriber sendNext:@4];
+        [subscriber sendCompleted];
+        return [RACDisposable disposableWithBlock:^{
+            NSLog(@"回收");
+        }];
+    }];
+    
+    /*
+     其函数签名可以理解为 id -> RACSignal，然而这种函数是无法直接对 RACSignal 对象进行变换的；
+     不过通过 -bind: 方法就可以使用这种函数操作 RACSignal，其实现如下：
+     
+     将 RACSignal 对象『解包』出 NSObject 对象；
+     将 NSObject 传入 RACSignalBindBlock 返回 RACSignal。
+     */
+    RACSignal *bindSignal = [signal bind:^RACSignalBindBlock _Nonnull{
+        return ^(NSNumber *value, BOOL *stop) {
+            value = @(value.integerValue * value.integerValue);
+            return [RACSignal return:value];
+        };
+    }];
+    
+    RACSignal *bindSignal1 = [signal bind:^RACSignalBindBlock _Nonnull{
+        return ^(NSNumber *value, BOOL *stop) {
+            NSNumber *returnValue = @(value.integerValue * value.integerValue);
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                for (NSInteger i = 0; i < value.integerValue; i++) {
+                    [subscriber sendNext:returnValue];
+                    [subscriber sendCompleted];
+                }
+                return nil;
+            }];
+        };
+    }];
+    
+    //2、订阅信号
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"oneSignal: %@", x);
+    }];
+    
+    [bindSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"oneSignal: %@", x);
+    }];
+    
+    [bindSignal1 subscribeNext:^(id  _Nullable x) {
+        NSLog(@"bindSignal1: %@", x);
+    }];
+}
+
+// 避免订阅过多时 多次执行block回调
+- (void)test_onceExecution {
+    //1、创建信号
+    RACSignal *signal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"多次订阅 是否执行多次lalalalalalallal");
+        //任何时候，都可以发送信号，可以异步
+        [subscriber sendNext:@1];
+        [subscriber sendNext:@2];
+        [subscriber sendCompleted];
+        return nil;
+    }];
+    RACSignal *oneSignal = [signal replayLazily]; // 避免多次执行  使用RACMulticastConnection实现
+
+    RACSignal *bindSignal = [oneSignal bind:^RACSignalBindBlock _Nonnull{
+        return ^(NSNumber *value, BOOL *stop) {
+            value = @(value.integerValue * value.integerValue);
+            return [RACSignal return:value];
+        };
+    }];
+    //2、订阅信号
+    [oneSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"oneSignal: %@", x);
+    }];
+    
+    [bindSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"oneSignal: %@", x);
+    }];
+    
+    // 避免多次执行的代码
+    RACMulticastConnection *connection = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"多次订阅 是否执行多次");
+        //任何时候，都可以发送信号，可以异步
+        [subscriber sendNext:@1];
+        [subscriber sendNext:@2];
+        [subscriber sendNext:@3];
+        [subscriber sendNext:@4];
+        [subscriber sendCompleted];
+        return [RACDisposable disposableWithBlock:^{
+            NSLog(@"回收");
+        }];
+    }] publish];
+
+    [connection.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"signal: %@", x);
+    }];
+    
+    [connection.signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"signal1: %@", x);
+    }];
+    
+    [connection connect];
+
+    [bindSignal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"bindSignal: %@", x);
+    }];
 }
 
 - (void)testPerformanceExample {
