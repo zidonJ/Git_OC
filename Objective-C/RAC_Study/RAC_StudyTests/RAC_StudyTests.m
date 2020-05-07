@@ -43,6 +43,10 @@
         }];
     }];
     
+    RACSignal *signalTestSubScribe = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        return nil;
+    }];
+    
     /*
      其函数签名可以理解为 id -> RACSignal，然而这种函数是无法直接对 RACSignal 对象进行变换的；
      不过通过 -bind: 方法就可以使用这种函数操作 RACSignal，其实现如下：
@@ -71,6 +75,10 @@
     }];
     
     //2、订阅信号
+    
+    [signalTestSubScribe subscribeNext:^(id  _Nullable x) {
+        NSLog(@"signalTestSubScribe:%@",x);
+    }];
     [signal subscribeNext:^(id  _Nullable x) {
         NSLog(@"oneSignal: %@", x);
     }];

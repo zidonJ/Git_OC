@@ -30,6 +30,8 @@
         NSLog(@"数组内容：%@", x);
     }];
     
+    
+    
     NSArray * newArray = [[array.rac_sequence map:^id _Nullable(id  _Nullable value) {
         NSLog(@"原数组内容%@",value);
         return @"99";

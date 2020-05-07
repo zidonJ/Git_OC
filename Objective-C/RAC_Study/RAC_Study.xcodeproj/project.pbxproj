@@ -10,6 +10,7 @@
 		3B8EED3E88A6D133CC4EAC19 /* Pods_RAC_Study.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4760C5BC798F37B2F76E33AE /* Pods_RAC_Study.framework */; };
 		C9158AB4C562B09E4FBC40A8 /* Pods_RAC_StudyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC9B4B34068631DE87D3C24 /* Pods_RAC_StudyTests.framework */; };
 		D1441AA323D7002F008C828C /* RAC_Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = D1441AA223D7002F008C828C /* RAC_Sequence.m */; };
+		D14CE5482435C0D100555B28 /* RAC_Chennel.m in Sources */ = {isa = PBXBuildFile; fileRef = D14CE5472435C0D100555B28 /* RAC_Chennel.m */; };
 		D1A02A2C238A6AE500326601 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A02A2B238A6AE500326601 /* AppDelegate.m */; };
 		D1A02A2F238A6AE500326601 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A02A2E238A6AE500326601 /* SceneDelegate.m */; };
 		D1A02A32238A6AE500326601 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A02A31238A6AE500326601 /* ViewController.m */; };
@@ -18,6 +19,8 @@
 		D1A02A3A238A6AE700326601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1A02A38238A6AE700326601 /* LaunchScreen.storyboard */; };
 		D1A02A3D238A6AE700326601 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A02A3C238A6AE700326601 /* main.m */; };
 		D1A02A47238A6AE700326601 /* RAC_StudyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D1A02A46238A6AE700326601 /* RAC_StudyTests.m */; };
+		D1E942D92463E37C00E3C1D1 /* RACStream_Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E942D82463E37C00E3C1D1 /* RACStream_Operation.m */; };
+		D1E942DB2463EDB200E3C1D1 /* RACSignal_Operation.m in Sources */ = {isa = PBXBuildFile; fileRef = D1E942DA2463EDB200E3C1D1 /* RACSignal_Operation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,7 @@
 		8FE96636E9AA1C25B7521952 /* Pods-RAC_Study.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAC_Study.release.xcconfig"; path = "Target Support Files/Pods-RAC_Study/Pods-RAC_Study.release.xcconfig"; sourceTree = "<group>"; };
 		D0E8AA35F842CAFE145AA7E9 /* Pods-RAC_StudyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAC_StudyTests.debug.xcconfig"; path = "Target Support Files/Pods-RAC_StudyTests/Pods-RAC_StudyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1441AA223D7002F008C828C /* RAC_Sequence.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAC_Sequence.m; sourceTree = "<group>"; };
+		D14CE5472435C0D100555B28 /* RAC_Chennel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAC_Chennel.m; sourceTree = "<group>"; };
 		D15E975423ADAF2F00C12656 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D1A02A27238A6AE500326601 /* RAC_Study.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAC_Study.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A02A2A238A6AE500326601 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		D1A02A42238A6AE700326601 /* RAC_StudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAC_StudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1A02A46238A6AE700326601 /* RAC_StudyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RAC_StudyTests.m; sourceTree = "<group>"; };
 		D1A02A48238A6AE700326601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1E942D82463E37C00E3C1D1 /* RACStream_Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACStream_Operation.m; sourceTree = "<group>"; };
+		D1E942DA2463EDB200E3C1D1 /* RACSignal_Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSignal_Operation.m; sourceTree = "<group>"; };
 		DCA153F6C0B8B1E258CA75F0 /* Pods-RAC_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAC_Study.debug.xcconfig"; path = "Target Support Files/Pods-RAC_Study/Pods-RAC_Study.debug.xcconfig"; sourceTree = "<group>"; };
 		FCC9B4B34068631DE87D3C24 /* Pods_RAC_StudyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAC_StudyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +146,9 @@
 			children = (
 				D1A02A46238A6AE700326601 /* RAC_StudyTests.m */,
 				D1441AA223D7002F008C828C /* RAC_Sequence.m */,
+				D14CE5472435C0D100555B28 /* RAC_Chennel.m */,
+				D1E942D82463E37C00E3C1D1 /* RACStream_Operation.m */,
+				D1E942DA2463EDB200E3C1D1 /* RACSignal_Operation.m */,
 				D1A02A48238A6AE700326601 /* Info.plist */,
 			);
 			path = RAC_StudyTests;
@@ -324,7 +333,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1A02A47238A6AE700326601 /* RAC_StudyTests.m in Sources */,
+				D14CE5482435C0D100555B28 /* RAC_Chennel.m in Sources */,
+				D1E942D92463E37C00E3C1D1 /* RACStream_Operation.m in Sources */,
 				D1441AA323D7002F008C828C /* RAC_Sequence.m in Sources */,
+				D1E942DB2463EDB200E3C1D1 /* RACSignal_Operation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
