@@ -33,7 +33,6 @@
         NSLog(@"信号发送combineLatest:%@",x);
     }];
     
-    
     [oneSubejct sendNext:@"testBac222"];
     [baseSignal sendNext:@"111testBac"];
 }

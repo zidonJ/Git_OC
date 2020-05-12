@@ -43,6 +43,7 @@
         }];
     }];
     
+    
     RACSignal *signalTestSubScribe = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         return nil;
     }];
@@ -146,6 +147,47 @@
 
     [bindSignal subscribeNext:^(id  _Nullable x) {
         NSLog(@"bindSignal: %@", x);
+    }];
+}
+
+- (void)testRACReplaySubject1 {
+    /// 设置接受事件的数量为2
+    RACReplaySubject *replaySubject = [RACReplaySubject replaySubjectWithCapacity:2];
+    
+    [replaySubject sendNext:@"hello world"]; //这句打印会被移除，原因是因为前面设置了接收事件的数量为2
+    [replaySubject sendNext:@"rac"];
+    [replaySubject sendNext:@"text 3"];
+    
+    [replaySubject subscribeNext:^(id x) {
+        NSLog(@"第一个订阅者接收到的数据%@",x);
+    }];
+    
+    [replaySubject subscribeNext:^(id x) {
+        NSLog(@"第二个订阅者接收到的数据%@",x);
+    }];
+
+}
+
+- (void)testRACReplaySubject2 {
+    RACSignal *signal = [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSLog(@"多次订阅 是否执行多次lalalalalalallal111");
+        //任何时候，都可以发送信号，可以异步
+        [subscriber sendNext:@1];
+        [subscriber sendNext:@2];
+        [subscriber sendCompleted];
+        return nil;
+    }] replayLazily] ;
+    
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"测试重复执行:%@",x);
+    }];
+    
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"测试重复执行:%@",x);
+    }];
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"测试重复执行:%@",x);
     }];
 }
 

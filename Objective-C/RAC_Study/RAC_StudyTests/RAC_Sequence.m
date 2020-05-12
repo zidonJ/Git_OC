@@ -27,11 +27,11 @@
     
     NSArray * array = @[@"1",@"2",@"3",@"4",@"5",@"6"];
     [array.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
-        NSLog(@"数组内容：%@", x);
+        NSLog(@"数组内容：%@,\nthread:%@", x,NSThread.currentThread);
     }];
     
     
-    
+        
     NSArray * newArray = [[array.rac_sequence map:^id _Nullable(id  _Nullable value) {
         NSLog(@"原数组内容%@",value);
         return @"99";
@@ -41,8 +41,30 @@
     NSDictionary * dic = @{@"name":@"Tom",@"age":@"20"};
     [dic.rac_sequence.signal subscribeNext:^(id  _Nullable x) {
         RACTupleUnpack(NSString *key, NSString * value) = x;//X为为一个元祖，RACTupleUnpack能够将key和value区分开
-        NSLog(@"数组内容：%@--%@",key,value);
+        NSLog(@"数组内容：%@--%@,\nthread:%@",key,value,NSThread.currentThread);
     }];
+}
+
+- (void)testHeadTail {
+    
+    RACSequence *sequence = [RACSequence sequenceWithHeadBlock:^id _Nullable{
+        return @1;
+    } tailBlock:^RACSequence * _Nonnull{
+        return [RACSequence sequenceWithHeadBlock:^id _Nullable{
+            return @2;
+        } tailBlock:^RACSequence * _Nonnull{
+            return [RACSequence return:@3];
+        }];
+    }];
+    RACSequence *bindSequence = [sequence bind:^RACSequenceBindBlock _Nonnull{
+        return ^(NSNumber *value, BOOL *stop) {
+            NSLog(@"RACSequenceBindBlock: %@", value);
+            value = @(value.integerValue * 2);
+            return [RACSequence return:value];
+        };
+    }];
+    NSLog(@"sequence:     head = (%@), tail=(%@)", sequence.head, sequence.tail);
+    NSLog(@"BindSequence: head = (%@), tail=(%@)", bindSequence.head, bindSequence.tail);
 }
 
 - (void)testPerformanceExample {
