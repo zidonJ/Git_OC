@@ -12,7 +12,7 @@ class ARPanGesture: UIPanGestureRecognizer {
     private(set) var isThresholdExceeded = false
     
     /// Observe when the gesture's `state` changes to reset the threshold.
-    override var state: UIGestureRecognizerState {
+    override var state: UIGestureRecognizer.State {
         didSet {
             switch state {
             case .began, .changed:

@@ -30,25 +30,20 @@
         //2. 设置子线程名字
         [[NSThread currentThread] setName:@"MyWorkerClassThread"];
         
-        //3. 开启runloop
-        [[NSRunLoop currentRunLoop] run];
-        
         //4. 创建自己port
         myPort = [NSMachPort port];
         
         //5.
         myPort.delegate = self;
         
+        //7. 完成向主线程port发送消息
+        [self sendPortMessage];
         //6. 将自己的port添加到runloop
         //作用1、防止runloop执行完毕之后推出
         //作用2、接收主线程发送过来的port消息
         [[NSRunLoop currentRunLoop] addPort:myPort forMode:NSDefaultRunLoopMode];
         
-        
-        
-        //7. 完成向主线程port发送消息
-        [self sendPortMessage];
-        
+        [NSRunLoop.currentRunLoop run];
     }
 }
 
@@ -57,11 +52,10 @@
  */
 - (void)sendPortMessage {
     
-    NSMutableArray *array  =[[NSMutableArray alloc] initWithArray:@[@"1",@"2"]];
     //发送消息到主线程，操作1
     [remotePort sendBeforeDate:[NSDate date]
                          msgid:kMsg1
-                    components:array
+                    components:[@[[@"hello" dataUsingEncoding:NSUTF8StringEncoding]] mutableCopy]
                           from:myPort
                       reserved:0];
     

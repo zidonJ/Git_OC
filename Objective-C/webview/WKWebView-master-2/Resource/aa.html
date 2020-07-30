@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正在跳转...</title>
+</head>
+<body onload=paySuccess('200508142618316');>
+
+</body>
+<script>
+    function paySuccess(orderId) {
+        window.location = "rccpayzdclient://paySuccess?orderId=" + orderId + "&jsonData=paySuccess"
+    }
+
+    function payFail(orderId) {
+        window.location = "rccpayzdclient://payFail?orderId=" + orderId + "&jsonData=payFail"
+    }
+
+</script>
+</html>
