@@ -10,14 +10,6 @@
 #import <QMUIKit/QMUIKit.h>
 #import "PViewController.h"
 
-@interface UIViewController (bar) <QMUINavigationControllerDelegate>
-
-@end
-
-@implementation UIViewController (bar)
-
-@end
-
 @interface ViewController ()
 
 @end
@@ -27,11 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+        
 }
 
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//}
+
 - (IBAction)test:(id)sender {
-    [self.navigationController pushViewController:PViewController.new animated:YES];
+    PViewController *pv = PViewController.new;
+    pv.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:pv animated:YES];
 }
 
 #pragma mark - QMUINavigationControllerDelegate

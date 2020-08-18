@@ -7,6 +7,8 @@
 //
 
 #import "RunloopEventCapture.h"
+#import <dlfcn.h>
+#import "fishhook.h"
 
 @interface RunloopEventCapture ()
 
@@ -165,8 +167,28 @@ static void _registerObserver(CFOptionFlags activities, CFRunLoopObserverRef obs
                                        order,
                                        callback,
                                        &context);
+    
     CFRunLoopAddObserver(runLoop, observer, mode);
     CFRelease(observer);
+}
+
+static void (*orig_CFRunLoopAddObserver)(CFRunLoopRef, CFRunLoopObserverRef, CFRunLoopMode);
+void my_CFRunLoopAddObserver(CFRunLoopRef rl, CFRunLoopObserverRef observer, CFRunLoopMode mode) {
+    NSLog(@"\n---------:Calling CFRunLoopAddObserver(runloop(%p), %@, %@)\n\n",
+          rl,
+          observer,
+          mode);
+    orig_CFRunLoopAddObserver(rl, observer, mode);
+}
+
+static struct rebinding rebindings[] = {
+    { "CFRunLoopAddObserver",
+        my_CFRunLoopAddObserver,
+        (void *)&orig_CFRunLoopAddObserver },
+};
+
+void inception_runloop() {
+    rebind_symbols(rebindings, sizeof(rebindings)/sizeof(struct rebinding));
 }
 
 @end

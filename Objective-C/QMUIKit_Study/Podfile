@@ -1,5 +1,6 @@
-# Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+platform :ios, '9.0'
+source 'https://github.com/CocoaPods/Specs.git'
+source 'https://git-inner.cpgroupcloud.com/root/ModuleSpecs.git'
 
 target 'QMUIKit_Study' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -7,9 +8,11 @@ target 'QMUIKit_Study' do
 
   # Pods for QMUIKit_Study
 
-  pod "QMUIKit"
+  pod "QMUIKit", '4.1.3'
   pod "SDWebImage"
   pod "Masonry"
+  pod 'ZDBaseModule','1.7.12'
+  
   target 'QMUIKit_StudyTests' do
     inherit! :search_paths
     # Pods for testing

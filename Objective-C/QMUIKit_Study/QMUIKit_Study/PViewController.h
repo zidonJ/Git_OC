@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ZDBaseModule-umbrella.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PViewController : UIViewController
+@interface PViewController : ZDBaseViewController
 
 @end
 

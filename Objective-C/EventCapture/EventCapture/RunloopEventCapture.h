@@ -24,6 +24,8 @@ typedef BOOL(^MyRunLoopWorkDistributionUnit)(void);
 
 @interface RunloopEventCapture : NSObject
 
+void inception_runloop();
+
 + (instancetype)sharedRunLoopWorkDistribution;
 
 - (void)addTask:(MyRunLoopWorkDistributionUnit)unit withKey:(id)key;

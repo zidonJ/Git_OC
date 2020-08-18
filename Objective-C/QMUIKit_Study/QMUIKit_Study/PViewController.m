@@ -9,7 +9,56 @@
 #import "PViewController.h"
 #import <QMUIKit/QMUIKit.h>
 
-@interface PViewController () <QMUINavigationControllerAppearanceDelegate>
+@interface UIViewController (bar) <QMUINavigationControllerDelegate>
+
+
+@end
+
+@implementation UIViewController (bar)
+- (UIImage *)navigationBarBackgroundImage {
+    return [UIImage qmui_imageWithColor:[UIColor redColor]];
+}
+
+- (nullable UIColor *)navigationBarBarTintColor {
+    return [UIColor redColor];
+}
+
+- (UIImage *)navigationBarShadowImage {
+    return NavBarShadowImage;
+}
+
+- (UIColor *)navigationBarTintColor {
+    return NavBarBarTintColor;
+}
+
+- (UIColor *)titleViewTintColor {
+    return NavBarTitleColor;
+}
+@end
+
+@interface UINavigationBar (mb)
+
+@end
+
+@implementation UINavigationBar (mb)
+
++ (void)load {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+       
+        ExtendImplementationOfVoidMethodWithTwoArguments([UINavigationBar class], @selector(setBackgroundImage:forBarMetrics:), UIImage *, UIBarMetrics, ^(UINavigationBar *selfObject, UIImage *backgroundImage, UIBarMetrics barMetrics) {
+            [selfObject.standardAppearance setBackgroundImage:backgroundImage];
+        });
+        
+        ExtendImplementationOfVoidMethodWithSingleArgument([UINavigationBar class], @selector(setShadowImage:), UIImage *, ^(UINavigationBar *selfObject, UIImage *firstArgv) {
+            [selfObject.standardAppearance setShadowImage:firstArgv];
+        });
+    });
+}
+
+@end
+
+@interface PViewController ()
 
 @end
 
@@ -22,17 +71,20 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self uiConfig];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+//- (void)viewWillDisappear:(BOOL)animated {
+//    [super viewWillDisappear:animated];
+//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+//}
+
+- (NavBarType)currentNavBarType {
+    return BrainmanBlueColor;
 }
 
 //MARK:  -- UIConfig
@@ -57,31 +109,10 @@
 
 #pragma mark - QMUINavigationControllerDelegate
 
-- (UIImage *)navigationBarBackgroundImage {
-    return [UIImage qmui_imageWithColor:[UIColor redColor]];
-}
-
-- (nullable UIColor *)navigationBarBarTintColor {
-    return [UIColor redColor];
-}
-
-- (UIImage *)navigationBarShadowImage {
-    return NavBarShadowImage;
-}
-
-- (UIColor *)navigationBarTintColor {
-    return NavBarBarTintColor;
-    return [UIColor redColor];
-}
-
-- (UIColor *)titleViewTintColor {
-    return NavBarTitleColor;
-}
-
 #pragma mark - <QMUICustomNavigationBarTransitionDelegate>
 
 - (NSString *)customNavigationBarTransitionKey {
-    return @"bvbvbvb";
+    return @"456";
 }
 
 //MARK:  -- UITableViewDelegate

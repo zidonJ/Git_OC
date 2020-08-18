@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "QDThemeProtocol.h"
 
+NS_ASSUME_NONNULL_BEGIN
 /// 简单对 QMUIThemeManager 做一层业务的封装，省去类型转换的工作量
 @interface QDThemeManager : NSObject
 
@@ -40,3 +41,4 @@
 
 @property(class, nonatomic, strong, readonly) UIVisualEffect *qd_standardBlurEffect;
 @end
+NS_ASSUME_NONNULL_END
