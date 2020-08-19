@@ -28,12 +28,9 @@
 }
 
 - (UIColor *)navigationBarTintColor {
-    return NavBarBarTintColor;
+    return UIColor.yellowColor;
 }
 
-- (UIColor *)titleViewTintColor {
-    return NavBarTitleColor;
-}
 @end
 
 @interface UINavigationBar (mb)
@@ -45,13 +42,17 @@
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-       
+
         ExtendImplementationOfVoidMethodWithTwoArguments([UINavigationBar class], @selector(setBackgroundImage:forBarMetrics:), UIImage *, UIBarMetrics, ^(UINavigationBar *selfObject, UIImage *backgroundImage, UIBarMetrics barMetrics) {
             [selfObject.standardAppearance setBackgroundImage:backgroundImage];
         });
-        
+
         ExtendImplementationOfVoidMethodWithSingleArgument([UINavigationBar class], @selector(setShadowImage:), UIImage *, ^(UINavigationBar *selfObject, UIImage *firstArgv) {
             [selfObject.standardAppearance setShadowImage:firstArgv];
+        });
+
+        ExtendImplementationOfVoidMethodWithSingleArgument(UINavigationBar.class, @selector(setTitleTextAttributes:), NSDictionary *, ^(__kindof UINavigationBar *selfObject, NSDictionary *firstArgv) {
+            [selfObject.standardAppearance setTitleTextAttributes:firstArgv];
         });
     });
 }
@@ -76,6 +77,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+    [self.navigationController.navigationBar.standardAppearance setTitleTextAttributes:@{NSForegroundColorAttributeName:UIColor.greenColor}];
 }
 
 //- (void)viewWillDisappear:(BOOL)animated {
@@ -90,8 +92,10 @@
 //MARK:  -- UIConfig
 
 - (void)uiConfig {
-
+    
+    self.title = @"惊呆你的力量";
     self.navigationController.interactivePopGestureRecognizer.delegate = (id)self;
+    
     [self layoutContrains];
 }
 
@@ -130,7 +134,6 @@
 //MARK:  -- Setters
 
 //MARK:  -- Getters
-
 
 - (void)dealloc {
     NSLog(@"%@-释放",[self class]);
