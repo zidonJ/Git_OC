@@ -36,7 +36,7 @@
                                 forMode:NSRunLoopCommonModes];
 }
 
-- (void) handleMachMessage:(void *)msg {
+- (void)handleMachMessage:(void *)msg {
     
     [self.notificationLock lock];
     
