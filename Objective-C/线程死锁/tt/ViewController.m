@@ -8,9 +8,12 @@
 
 #import "ViewController.h"
 #import <objc/runtime.h>
+#import <pthread/pthread.h>
 #import "TestCollectionViewController.h"
 
 static char *key;
+
+static pthread_mutex_t _mutex;
 
 @interface ViewController ()
 
@@ -22,10 +25,34 @@ static char *key;
 
 @implementation ViewController
 
+- (void)test{
+    pthread_mutex_lock(&_mutex);
+    NSLog(@"%s", __func__);
+    static int num = 0;
+    if (num < 10) {
+        num ++;
+        [self test];
+    }
+    pthread_mutex_unlock(&_mutex);
+}
+
+- (void)__initMutex:(pthread_mutex_t *)mutex
+{
+    // 递归锁：允许同一个线程对一把锁进行重复加锁
+    // 初始化属性
+    pthread_mutexattr_t attr;
+    pthread_mutexattr_init(&attr);
+    pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_NORMAL);
+    // 初始化锁
+    pthread_mutex_init(mutex, &attr);
+    // 销毁属性
+    pthread_mutexattr_destroy(&attr);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    [self __initMutex:&_mutex];
 //    NSLog(@"1");
 //    // 主线程队列 内 异步执行 不会创建新的线程 只有主线成
 //    dispatch_async(dispatch_get_main_queue(), ^{
