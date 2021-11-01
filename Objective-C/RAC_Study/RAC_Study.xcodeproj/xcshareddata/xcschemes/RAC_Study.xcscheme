@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "727BCB731F5FCD1A00BD76BA"
-               BuildableName = "ImageAnimation.app"
-               BlueprintName = "ImageAnimation"
-               ReferencedContainer = "container:ImageAnimation.xcodeproj">
+               BlueprintIdentifier = "D1A02A26238A6AE500326601"
+               BuildableName = "RAC_Study.app"
+               BlueprintName = "RAC_Study"
+               ReferencedContainer = "container:RAC_Study.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -27,34 +27,15 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "727BCB731F5FCD1A00BD76BA"
-            BuildableName = "ImageAnimation.app"
-            BlueprintName = "ImageAnimation"
-            ReferencedContainer = "container:ImageAnimation.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "727BCB8C1F5FCD1A00BD76BA"
-               BuildableName = "ImageAnimationTests.xctest"
-               BlueprintName = "ImageAnimationTests"
-               ReferencedContainer = "container:ImageAnimation.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "727BCB971F5FCD1A00BD76BA"
-               BuildableName = "ImageAnimationUITests.xctest"
-               BlueprintName = "ImageAnimationUITests"
-               ReferencedContainer = "container:ImageAnimation.xcodeproj">
+               BlueprintIdentifier = "D1A02A41238A6AE700326601"
+               BuildableName = "RAC_StudyTests.xctest"
+               BlueprintName = "RAC_StudyTests"
+               ReferencedContainer = "container:RAC_Study.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -73,10 +54,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "727BCB731F5FCD1A00BD76BA"
-            BuildableName = "ImageAnimation.app"
-            BlueprintName = "ImageAnimation"
-            ReferencedContainer = "container:ImageAnimation.xcodeproj">
+            BlueprintIdentifier = "D1A02A26238A6AE500326601"
+            BuildableName = "RAC_Study.app"
+            BlueprintName = "RAC_Study"
+            ReferencedContainer = "container:RAC_Study.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -90,10 +71,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "727BCB731F5FCD1A00BD76BA"
-            BuildableName = "ImageAnimation.app"
-            BlueprintName = "ImageAnimation"
-            ReferencedContainer = "container:ImageAnimation.xcodeproj">
+            BlueprintIdentifier = "D1A02A26238A6AE500326601"
+            BuildableName = "RAC_Study.app"
+            BlueprintName = "RAC_Study"
+            ReferencedContainer = "container:RAC_Study.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

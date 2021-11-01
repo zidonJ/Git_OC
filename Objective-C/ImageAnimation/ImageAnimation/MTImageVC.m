@@ -9,7 +9,6 @@
 #import "MTImageVC.h"
 #import "MTVCTransitonProtocol.h"
 #import "MTVCAnimationTransition.h"
-#import "MTGestureBackAnimation.h"
 
 #pragma mark Constants
 
@@ -24,7 +23,6 @@
 @property (nonatomic,strong) UIImageView *ttImgView;
 @property (nonatomic,strong) MTVCAnimationTransition *ani;
 @property (nonatomic,strong) UIPanGestureRecognizer *pan;
-@property (nonatomic,strong) MTGestureBackAnimation *backGesture;
 
 @end
 

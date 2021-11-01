@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		724A421B272E7F7F009DC025 /* LittlePointUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 724A421A272E7F7F009DC025 /* LittlePointUITests.m */; };
+		724A421D272E7F7F009DC025 /* LittlePointUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 724A421C272E7F7F009DC025 /* LittlePointUITestsLaunchTests.m */; };
+		724A422A272E8070009DC025 /* LittlePointUnitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 724A4229272E8070009DC025 /* LittlePointUnitTests.m */; };
+		72543503272BF70A0021681E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72543502272BF70A0021681E /* AppDelegate.m */; };
+		72543506272BF70A0021681E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72543505272BF70A0021681E /* SceneDelegate.m */; };
+		72543509272BF70A0021681E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72543508272BF70A0021681E /* ViewController.m */; };
+		7254350C272BF70A0021681E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7254350A272BF70A0021681E /* Main.storyboard */; };
+		7254350E272BF70E0021681E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7254350D272BF70E0021681E /* Assets.xcassets */; };
+		72543511272BF70E0021681E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7254350F272BF70E0021681E /* LaunchScreen.storyboard */; };
+		72543514272BF70E0021681E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72543513272BF70E0021681E /* main.m */; };
+		7254351C272BF72B0021681E /* WBLittlePointView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7254351B272BF72B0021681E /* WBLittlePointView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		724A421E272E7F7F009DC025 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 725434F6272BF70A0021681E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 725434FD272BF70A0021681E;
+			remoteInfo = LittlePoint;
+		};
+		724A422B272E8070009DC025 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 725434F6272BF70A0021681E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 725434FD272BF70A0021681E;
+			remoteInfo = LittlePoint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		724A4218272E7F7E009DC025 /* LittlePointUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittlePointUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		724A421A272E7F7F009DC025 /* LittlePointUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittlePointUITests.m; sourceTree = "<group>"; };
+		724A421C272E7F7F009DC025 /* LittlePointUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittlePointUITestsLaunchTests.m; sourceTree = "<group>"; };
+		724A4227272E8070009DC025 /* LittlePointUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LittlePointUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		724A4229272E8070009DC025 /* LittlePointUnitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LittlePointUnitTests.m; sourceTree = "<group>"; };
+		725434FE272BF70A0021681E /* LittlePoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittlePoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		72543501272BF70A0021681E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		72543502272BF70A0021681E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		72543504272BF70A0021681E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		72543505272BF70A0021681E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		72543507272BF70A0021681E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		72543508272BF70A0021681E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7254350B272BF70A0021681E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7254350D272BF70E0021681E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72543510272BF70E0021681E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		72543512272BF70E0021681E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72543513272BF70E0021681E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7254351A272BF72B0021681E /* WBLittlePointView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WBLittlePointView.h; sourceTree = "<group>"; };
+		7254351B272BF72B0021681E /* WBLittlePointView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WBLittlePointView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		724A4215272E7F7E009DC025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		724A4224272E8070009DC025 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725434FB272BF70A0021681E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		724A4219272E7F7E009DC025 /* LittlePointUITests */ = {
+			isa = PBXGroup;
+			children = (
+				724A421A272E7F7F009DC025 /* LittlePointUITests.m */,
+				724A421C272E7F7F009DC025 /* LittlePointUITestsLaunchTests.m */,
+			);
+			path = LittlePointUITests;
+			sourceTree = "<group>";
+		};
+		724A4228272E8070009DC025 /* LittlePointUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				724A4229272E8070009DC025 /* LittlePointUnitTests.m */,
+			);
+			path = LittlePointUnitTests;
+			sourceTree = "<group>";
+		};
+		725434F5272BF70A0021681E = {
+			isa = PBXGroup;
+			children = (
+				72543500272BF70A0021681E /* LittlePoint */,
+				724A4219272E7F7E009DC025 /* LittlePointUITests */,
+				724A4228272E8070009DC025 /* LittlePointUnitTests */,
+				725434FF272BF70A0021681E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		725434FF272BF70A0021681E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				725434FE272BF70A0021681E /* LittlePoint.app */,
+				724A4218272E7F7E009DC025 /* LittlePointUITests.xctest */,
+				724A4227272E8070009DC025 /* LittlePointUnitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72543500272BF70A0021681E /* LittlePoint */ = {
+			isa = PBXGroup;
+			children = (
+				72543501272BF70A0021681E /* AppDelegate.h */,
+				72543502272BF70A0021681E /* AppDelegate.m */,
+				72543504272BF70A0021681E /* SceneDelegate.h */,
+				72543505272BF70A0021681E /* SceneDelegate.m */,
+				72543507272BF70A0021681E /* ViewController.h */,
+				72543508272BF70A0021681E /* ViewController.m */,
+				7254351A272BF72B0021681E /* WBLittlePointView.h */,
+				7254351B272BF72B0021681E /* WBLittlePointView.m */,
+				7254350A272BF70A0021681E /* Main.storyboard */,
+				7254350D272BF70E0021681E /* Assets.xcassets */,
+				7254350F272BF70E0021681E /* LaunchScreen.storyboard */,
+				72543512272BF70E0021681E /* Info.plist */,
+				72543513272BF70E0021681E /* main.m */,
+			);
+			path = LittlePoint;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		724A4217272E7F7E009DC025 /* LittlePointUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 724A4222272E7F7F009DC025 /* Build configuration list for PBXNativeTarget "LittlePointUITests" */;
+			buildPhases = (
+				724A4214272E7F7E009DC025 /* Sources */,
+				724A4215272E7F7E009DC025 /* Frameworks */,
+				724A4216272E7F7E009DC025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				724A421F272E7F7F009DC025 /* PBXTargetDependency */,
+			);
+			name = LittlePointUITests;
+			productName = LittlePointUITests;
+			productReference = 724A4218272E7F7E009DC025 /* LittlePointUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		724A4226272E8070009DC025 /* LittlePointUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 724A422D272E8070009DC025 /* Build configuration list for PBXNativeTarget "LittlePointUnitTests" */;
+			buildPhases = (
+				724A4223272E8070009DC025 /* Sources */,
+				724A4224272E8070009DC025 /* Frameworks */,
+				724A4225272E8070009DC025 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				724A422C272E8070009DC025 /* PBXTargetDependency */,
+			);
+			name = LittlePointUnitTests;
+			productName = LittlePointUnitTests;
+			productReference = 724A4227272E8070009DC025 /* LittlePointUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		725434FD272BF70A0021681E /* LittlePoint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72543517272BF70E0021681E /* Build configuration list for PBXNativeTarget "LittlePoint" */;
+			buildPhases = (
+				725434FA272BF70A0021681E /* Sources */,
+				725434FB272BF70A0021681E /* Frameworks */,
+				725434FC272BF70A0021681E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LittlePoint;
+			productName = LittlePoint;
+			productReference = 725434FE272BF70A0021681E /* LittlePoint.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		725434F6272BF70A0021681E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					724A4217272E7F7E009DC025 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 725434FD272BF70A0021681E;
+					};
+					724A4226272E8070009DC025 = {
+						CreatedOnToolsVersion = 13.1;
+						TestTargetID = 725434FD272BF70A0021681E;
+					};
+					725434FD272BF70A0021681E = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 725434F9272BF70A0021681E /* Build configuration list for PBXProject "LittlePoint" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 725434F5272BF70A0021681E;
+			productRefGroup = 725434FF272BF70A0021681E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				725434FD272BF70A0021681E /* LittlePoint */,
+				724A4217272E7F7E009DC025 /* LittlePointUITests */,
+				724A4226272E8070009DC025 /* LittlePointUnitTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		724A4216272E7F7E009DC025 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		724A4225272E8070009DC025 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725434FC272BF70A0021681E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72543511272BF70E0021681E /* LaunchScreen.storyboard in Resources */,
+				7254350E272BF70E0021681E /* Assets.xcassets in Resources */,
+				7254350C272BF70A0021681E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		724A4214272E7F7E009DC025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				724A421B272E7F7F009DC025 /* LittlePointUITests.m in Sources */,
+				724A421D272E7F7F009DC025 /* LittlePointUITestsLaunchTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		724A4223272E8070009DC025 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				724A422A272E8070009DC025 /* LittlePointUnitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		725434FA272BF70A0021681E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72543509272BF70A0021681E /* ViewController.m in Sources */,
+				72543503272BF70A0021681E /* AppDelegate.m in Sources */,
+				72543514272BF70E0021681E /* main.m in Sources */,
+				7254351C272BF72B0021681E /* WBLittlePointView.m in Sources */,
+				72543506272BF70A0021681E /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		724A421F272E7F7F009DC025 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 725434FD272BF70A0021681E /* LittlePoint */;
+			targetProxy = 724A421E272E7F7F009DC025 /* PBXContainerItemProxy */;
+		};
+		724A422C272E8070009DC025 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 725434FD272BF70A0021681E /* LittlePoint */;
+			targetProxy = 724A422B272E8070009DC025 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		7254350A272BF70A0021681E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7254350B272BF70A0021681E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7254350F272BF70E0021681E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				72543510272BF70E0021681E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		724A4220272E7F7F009DC025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePointUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LittlePoint;
+			};
+			name = Debug;
+		};
+		724A4221272E7F7F009DC025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePointUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LittlePoint;
+			};
+			name = Release;
+		};
+		724A422E272E8070009DC025 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePointUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittlePoint.app/LittlePoint";
+			};
+			name = Debug;
+		};
+		724A422F272E8070009DC025 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePointUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LittlePoint.app/LittlePoint";
+			};
+			name = Release;
+		};
+		72543515272BF70E0021681E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		72543516272BF70E0021681E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		72543518272BF70E0021681E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LittlePoint/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72543519272BF70E0021681E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ET3Y989RPW;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LittlePoint/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = sina.LittlePoint;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		724A4222272E7F7F009DC025 /* Build configuration list for PBXNativeTarget "LittlePointUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				724A4220272E7F7F009DC025 /* Debug */,
+				724A4221272E7F7F009DC025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		724A422D272E8070009DC025 /* Build configuration list for PBXNativeTarget "LittlePointUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				724A422E272E8070009DC025 /* Debug */,
+				724A422F272E8070009DC025 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		725434F9272BF70A0021681E /* Build configuration list for PBXProject "LittlePoint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72543515272BF70E0021681E /* Debug */,
+				72543516272BF70E0021681E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72543517272BF70E0021681E /* Build configuration list for PBXNativeTarget "LittlePoint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72543518272BF70E0021681E /* Debug */,
+				72543519272BF70E0021681E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 725434F6272BF70A0021681E /* Project object */;
+}

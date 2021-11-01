@@ -11,6 +11,7 @@
 @interface ViewController ()
 {
     dispatch_semaphore_t _semaphore;
+    NSLock *_lock;
 }
 @end
 
@@ -22,9 +23,42 @@
     
 //    [self gcd_source];
 //    [self gcd_semaphore];
+    _semaphore = dispatch_semaphore_create(1);
+//    NSLog(@":::::::->%ld",[self gcdSyncSemaphore]);
+    _lock = [[NSLock alloc] init];
+    [self test:1];
+    [self test:3];
+    [self test:2];
+}
+
+- (void)test:(NSInteger)tt
+{
+//    [_lock lock];
     
-    NSLog(@":::::::->%ld",[self gcdSyncSemaphore]);
+//    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+//    NSLog(@"1234567898765432");
+    if (tt == 1) {
+        for (int i = 0 ; i< 1000; i++) {
+            NSLog(@"%d",i);
+        }
+    }
+    if (tt == 2) {
+        NSLog(@"经典的旋律");
+    }
+    if (tt == 3) {
+        for (int i = 0 ; i< 1000; i++) {
+            NSLog(@"大成小爱");
+        }
+    }
+//    dispatch_semaphore_signal(_semaphore);
+//    [_lock unlock];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        dispatch_semaphore_signal(_semaphore);
+        
+    });
+//    dispatch_semaphore_wait(_semaphore, DISPATCH_TIME_FOREVER);
+//    NSLog(@"1234567898765432");
 }
 
 - (void)gcd_source

@@ -44,6 +44,7 @@ class ViewController: UIViewController {
         let str = String(stringInterpolation:interStr )
         print("这是一段经典的旋律:",str)
         print(self.branch(),#line,#function)
+        print("动态规划",fib1(n: 10))
     }
     
     func branch() -> String {
@@ -62,6 +63,20 @@ class ViewController: UIViewController {
         str += "6"
         return str
     }
+    
+    //MARK: 动态规划
+    func fib1(n: UInt) -> UInt {
+        if n == 0 {
+            return n
+        }
+        
+        var fist :UInt = 0, next :UInt = 1
+        for _ in 1..<n {
+            (fist, next) = (next, next + fist)
+         }
+        return next
+    }
+
     
     
     /*

@@ -48,12 +48,11 @@
         self.shapeLayer.frame = self.bounds;
         self.shapeLayer.lineCap = kCALineCapRound;
         self.shapeLayer.lineJoin = kCALineJoinRound;
-        self.shapeLayer.lineWidth = 10.f;
-        self.shapeLayer.strokeColor = [UIColor blueColor].CGColor;
+        self.shapeLayer.lineWidth = 20.f;
+        self.shapeLayer.strokeColor = [UIColor redColor].CGColor;
         self.shapeLayer.fillColor = nil;//此处设置颜色有异常效果
         /*mask层工作原理:按照mask的工作区域(self.shapeLayer的区域)进行透明度裁剪,只保留非透明部分,其他都被裁剪掉*/
         self.imageLayer.mask = self.shapeLayer;
-        
         self.path = CGPathCreateMutable();
     }
     return self;

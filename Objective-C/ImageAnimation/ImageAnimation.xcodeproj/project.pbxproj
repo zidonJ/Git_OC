@@ -18,9 +18,12 @@
 		727BCBAC1F5FCD3500BD76BA /* MTImageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCBAB1F5FCD3500BD76BA /* MTImageVC.m */; };
 		727BCBAF1F5FCF8600BD76BA /* MTVCAnimationTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */; };
 		727BCBB21F5FD42A00BD76BA /* 2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 727BCBB11F5FD42A00BD76BA /* 2.jpeg */; };
-		72DD57031F6291EC004AFC3C /* MTGestureBackAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */; };
+		7289908F25A593A2003F3874 /* AAPLSwipeFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7289908625A593A2003F3874 /* AAPLSwipeFirstViewController.m */; };
+		7289909025A593A2003F3874 /* AAPLSwipeTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 7289908825A593A2003F3874 /* AAPLSwipeTransitionAnimator.m */; };
+		7289909125A593A2003F3874 /* AAPLSwipeSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7289908B25A593A2003F3874 /* AAPLSwipeSecondViewController.m */; };
+		7289909225A593A2003F3874 /* AAPLSwipeTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7289908D25A593A2003F3874 /* AAPLSwipeTransitionDelegate.m */; };
+		7289909325A593A2003F3874 /* AAPLSwipeTransitionInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7289908E25A593A2003F3874 /* AAPLSwipeTransitionInteractionController.m */; };
 		72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DD57021F6291EC004AFC3C /* MTTestVCBack.m */; };
-		72F1F3BA1F68ED9B00DD72A7 /* MTDrivenInteractive.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +66,18 @@
 		727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTVCAnimationTransition.m; sourceTree = "<group>"; };
 		727BCBB01F5FD1A000BD76BA /* MTVCTransitonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTVCTransitonProtocol.h; sourceTree = "<group>"; };
 		727BCBB11F5FD42A00BD76BA /* 2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpeg; sourceTree = "<group>"; };
-		72DD56FF1F6291EC004AFC3C /* MTGestureBackAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTGestureBackAnimation.h; sourceTree = "<group>"; };
-		72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTGestureBackAnimation.m; sourceTree = "<group>"; };
+		7289908525A593A2003F3874 /* AAPLSwipeFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeFirstViewController.h; sourceTree = "<group>"; };
+		7289908625A593A2003F3874 /* AAPLSwipeFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeFirstViewController.m; sourceTree = "<group>"; };
+		7289908725A593A2003F3874 /* AAPLSwipeTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionAnimator.h; sourceTree = "<group>"; };
+		7289908825A593A2003F3874 /* AAPLSwipeTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionAnimator.m; sourceTree = "<group>"; };
+		7289908925A593A2003F3874 /* AAPLSwipeSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeSecondViewController.h; sourceTree = "<group>"; };
+		7289908A25A593A2003F3874 /* AAPLSwipeTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionDelegate.h; sourceTree = "<group>"; };
+		7289908B25A593A2003F3874 /* AAPLSwipeSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeSecondViewController.m; sourceTree = "<group>"; };
+		7289908C25A593A2003F3874 /* AAPLSwipeTransitionInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLSwipeTransitionInteractionController.h; sourceTree = "<group>"; };
+		7289908D25A593A2003F3874 /* AAPLSwipeTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionDelegate.m; sourceTree = "<group>"; };
+		7289908E25A593A2003F3874 /* AAPLSwipeTransitionInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLSwipeTransitionInteractionController.m; sourceTree = "<group>"; };
 		72DD57011F6291EC004AFC3C /* MTTestVCBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestVCBack.h; sourceTree = "<group>"; };
 		72DD57021F6291EC004AFC3C /* MTTestVCBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestVCBack.m; sourceTree = "<group>"; };
-		72F1F3B81F68ED9B00DD72A7 /* MTDrivenInteractive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTDrivenInteractive.h; sourceTree = "<group>"; };
-		72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTDrivenInteractive.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +128,16 @@
 		727BCB761F5FCD1A00BD76BA /* ImageAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				7289908525A593A2003F3874 /* AAPLSwipeFirstViewController.h */,
+				7289908625A593A2003F3874 /* AAPLSwipeFirstViewController.m */,
+				7289908925A593A2003F3874 /* AAPLSwipeSecondViewController.h */,
+				7289908B25A593A2003F3874 /* AAPLSwipeSecondViewController.m */,
+				7289908725A593A2003F3874 /* AAPLSwipeTransitionAnimator.h */,
+				7289908825A593A2003F3874 /* AAPLSwipeTransitionAnimator.m */,
+				7289908A25A593A2003F3874 /* AAPLSwipeTransitionDelegate.h */,
+				7289908D25A593A2003F3874 /* AAPLSwipeTransitionDelegate.m */,
+				7289908C25A593A2003F3874 /* AAPLSwipeTransitionInteractionController.h */,
+				7289908E25A593A2003F3874 /* AAPLSwipeTransitionInteractionController.m */,
 				727BCB7A1F5FCD1A00BD76BA /* AppDelegate.h */,
 				727BCB7B1F5FCD1A00BD76BA /* AppDelegate.m */,
 				727BCB7D1F5FCD1A00BD76BA /* ViewController.h */,
@@ -127,10 +146,6 @@
 				727BCBAB1F5FCD3500BD76BA /* MTImageVC.m */,
 				727BCBAD1F5FCF8600BD76BA /* MTVCAnimationTransition.h */,
 				727BCBAE1F5FCF8600BD76BA /* MTVCAnimationTransition.m */,
-				72DD56FF1F6291EC004AFC3C /* MTGestureBackAnimation.h */,
-				72DD57001F6291EC004AFC3C /* MTGestureBackAnimation.m */,
-				72F1F3B81F68ED9B00DD72A7 /* MTDrivenInteractive.h */,
-				72F1F3B91F68ED9B00DD72A7 /* MTDrivenInteractive.m */,
 				72DD57011F6291EC004AFC3C /* MTTestVCBack.h */,
 				72DD57021F6291EC004AFC3C /* MTTestVCBack.m */,
 				727BCBB01F5FD1A000BD76BA /* MTVCTransitonProtocol.h */,
@@ -232,7 +247,7 @@
 		727BCB6C1F5FCD1A00BD76BA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = MaiTian;
 				TargetAttributes = {
 					727BCB731F5FCD1A00BD76BA = {
@@ -253,7 +268,7 @@
 			};
 			buildConfigurationList = 727BCB6F1F5FCD1A00BD76BA /* Build configuration list for PBXProject "ImageAnimation" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -305,13 +320,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				727BCB7F1F5FCD1A00BD76BA /* ViewController.m in Sources */,
+				7289908F25A593A2003F3874 /* AAPLSwipeFirstViewController.m in Sources */,
 				727BCBAF1F5FCF8600BD76BA /* MTVCAnimationTransition.m in Sources */,
-				72DD57031F6291EC004AFC3C /* MTGestureBackAnimation.m in Sources */,
+				7289909325A593A2003F3874 /* AAPLSwipeTransitionInteractionController.m in Sources */,
 				727BCB7C1F5FCD1A00BD76BA /* AppDelegate.m in Sources */,
+				7289909125A593A2003F3874 /* AAPLSwipeSecondViewController.m in Sources */,
+				7289909025A593A2003F3874 /* AAPLSwipeTransitionAnimator.m in Sources */,
 				727BCB791F5FCD1A00BD76BA /* main.m in Sources */,
 				727BCBAC1F5FCD3500BD76BA /* MTImageVC.m in Sources */,
+				7289909225A593A2003F3874 /* AAPLSwipeTransitionDelegate.m in Sources */,
 				72DD57041F6291EC004AFC3C /* MTTestVCBack.m in Sources */,
-				72F1F3BA1F68ED9B00DD72A7 /* MTDrivenInteractive.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,21 +388,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -407,7 +435,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,21 +447,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -450,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,7 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MaiTian.ImageAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -475,7 +513,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ImageAnimation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MaiTian.ImageAnimation;
 				PRODUCT_NAME = "$(TARGET_NAME)";

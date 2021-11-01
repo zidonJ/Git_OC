@@ -59,6 +59,7 @@
 		D1E942D82463E37C00E3C1D1 /* RACStream_Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACStream_Operation.m; sourceTree = "<group>"; };
 		D1E942DA2463EDB200E3C1D1 /* RACSignal_Operation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACSignal_Operation.m; sourceTree = "<group>"; };
 		DCA153F6C0B8B1E258CA75F0 /* Pods-RAC_Study.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAC_Study.debug.xcconfig"; path = "Target Support Files/Pods-RAC_Study/Pods-RAC_Study.debug.xcconfig"; sourceTree = "<group>"; };
+		EE8BA70C888A0E96AA793DE5 /* Pods-RAC_StudyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RAC_StudyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RAC_StudyTests/Pods-RAC_StudyTests.release.xcconfig"; sourceTree = "<group>"; };
 		FCC9B4B34068631DE87D3C24 /* Pods_RAC_StudyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RAC_StudyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +99,7 @@
 				8FE96636E9AA1C25B7521952 /* Pods-RAC_Study.release.xcconfig */,
 				D0E8AA35F842CAFE145AA7E9 /* Pods-RAC_StudyTests.debug.xcconfig */,
 				8CEF5774FF4751E8F16D2813 /* Pods-RAC_StudyTests.release.xcconfig */,
+				EE8BA70C888A0E96AA793DE5 /* Pods-RAC_StudyTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -166,6 +168,7 @@
 				D1A02A24238A6AE500326601 /* Frameworks */,
 				D1A02A25238A6AE500326601 /* Resources */,
 				FD8BEB323BE327FB6C0F833F /* [CP] Embed Pods Frameworks */,
+				A461A7C89F58BCF08BA4849F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,6 +187,8 @@
 				D1A02A3E238A6AE700326601 /* Sources */,
 				D1A02A3F238A6AE700326601 /* Frameworks */,
 				D1A02A40238A6AE700326601 /* Resources */,
+				4C94791C7459AA4E75059192 /* [CP] Embed Pods Frameworks */,
+				2DAABD518E83308FAB28EFF9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +258,44 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2DAABD518E83308FAB28EFF9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RAC_StudyTests/Pods-RAC_StudyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C94791C7459AA4E75059192 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RAC_StudyTests/Pods-RAC_StudyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		53F7C93041314373C7B89689 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,7 +315,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		67866308C9F781BD5058B6A2 /* [CP] Check Pods Manifest.lock */ = {
@@ -294,7 +337,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A461A7C89F58BCF08BA4849F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RAC_Study/Pods-RAC_Study-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD8BEB323BE327FB6C0F833F /* [CP] Embed Pods Frameworks */ = {
@@ -311,7 +373,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RAC_Study/Pods-RAC_Study-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RAC_Study/Pods-RAC_Study-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -482,7 +544,6 @@
 		};
 		D1A02A4C238A6AE700326601 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DCA153F6C0B8B1E258CA75F0 /* Pods-RAC_Study.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -501,7 +562,6 @@
 		};
 		D1A02A4D238A6AE700326601 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FE96636E9AA1C25B7521952 /* Pods-RAC_Study.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -520,7 +580,6 @@
 		};
 		D1A02A4F238A6AE700326601 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0E8AA35F842CAFE145AA7E9 /* Pods-RAC_StudyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -541,7 +600,7 @@
 		};
 		D1A02A50238A6AE700326601 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8CEF5774FF4751E8F16D2813 /* Pods-RAC_StudyTests.release.xcconfig */;
+			baseConfigurationReference = EE8BA70C888A0E96AA793DE5 /* Pods-RAC_StudyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

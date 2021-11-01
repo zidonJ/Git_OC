@@ -11,13 +11,11 @@
 #import "MTVCAnimationTransition.h"
 #import "MTImageVC.h"
 #import "MTTestVCBack.h"
-#import "MTGestureBackAnimation.h"
 
 @interface ViewController ()<UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 
-@property (nonatomic,strong) MTGestureBackAnimation *backAnimation;
 
 @end
 
@@ -30,9 +28,6 @@
     
     self.image = [UIImage imageNamed:@"2.jpeg"];
     
-    
-    //封装
-    _backAnimation = [MTGestureBackAnimation new];
 }
 
 //点击
@@ -51,13 +46,8 @@
 //手势
 -(id<UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController interactionControllerForAnimationController:(id<UIViewControllerAnimatedTransitioning>)animationController {
     
-    if ([animationController isKindOfClass:[MTGestureBackAnimation class]]) {
-        if (_backAnimation.isInteractive)
-            return _backAnimation;
-        else
-            return nil;
-    } else
-        return nil;
+    
+    return nil;
 }
 
 - (UIImage *)image

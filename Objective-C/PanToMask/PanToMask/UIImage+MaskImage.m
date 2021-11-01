@@ -14,9 +14,7 @@
 #define kBitsPerPixel (32)
 #define kPixelChannelCount (4)
 
-/*
- *转换成马赛克,level代表一个点转为多少level*level的正方形
- */
+//MARK: 转换成马赛克,level代表一个点转为多少level*level的正方形
 + (UIImage *)transToMosaicImage:(UIImage*)orginImage blockLevel:(NSUInteger)level
 {
     //获取BitmapData
@@ -32,6 +30,7 @@
                                                   colorSpace,
                                                   kCGImageAlphaPremultipliedLast);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), imgRef);
+    
     unsigned char *bitmapData = CGBitmapContextGetData (context);
     
     //这里把BitmapData进行马赛克转换,就是用一个点的颜色填充一个level*level的正方形
@@ -103,5 +102,36 @@
     return resultImage;
     
 }
+//MARK: 遍历像素
+-  (void)searchEveryPixelFroImage:(UIImage *)image {
+
+    CGImageRef imgref = image.CGImage;
+   //   获取图片宽高（总像素数）
+    size_t width = CGImageGetWidth(imgref);
+    size_t height = CGImageGetHeight(imgref);
+   // 每行像素的总字节数
+    size_t bytesPerRow = CGImageGetBytesPerRow(imgref);
+  // 每个像素多少位(RGBA每个8位，所以这里是32位)         ps:（一个字节8位）
+    size_t bitsPerPixel = CGImageGetBitsPerPixel(imgref);
+    CGDataProviderRef dataProvider = CGImageGetDataProvider(imgref);
+    CFDataRef data = CGDataProviderCopyData(dataProvider);
+    
+    UInt8 *buffer = (UInt8*)CFDataGetBytePtr(data);// 图片数据的首地址
+    
+    //遍历
+    for (int j = 0; j < height; j++) {
+        for (int i = 0; i < width; i++) {
+             //每个像素的首地址
+            UInt8 *pt = buffer + j * bytesPerRow + i * (bitsPerPixel/8);
+           
+             UInt8  red = *pt;
+             UInt8  green = *(pt+1);   //指针向后移动一个字节
+             UInt8  blue = *(pt+2);
+             UInt8  alpha = *(pt+3);
+            NSLog(@"red:%d, green:%d,blue:%d,alpha:%d",red,green,blue,alpha);
+        }
+    }
+}
+
 
 @end
